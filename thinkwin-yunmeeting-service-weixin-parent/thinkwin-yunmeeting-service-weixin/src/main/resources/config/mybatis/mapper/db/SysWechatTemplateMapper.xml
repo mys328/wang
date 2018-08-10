@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yunmeeting.weixin.mapper.db.SysWechatTemplateMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.SysWechatTemplate">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="template_id" jdbcType="VARCHAR" property="templateId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="primary_industry" jdbcType="VARCHAR" property="primaryIndustry" />
+    <result column="deputy_industry" jdbcType="VARCHAR" property="deputyIndustry" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+  </resultMap>
+</mapper>

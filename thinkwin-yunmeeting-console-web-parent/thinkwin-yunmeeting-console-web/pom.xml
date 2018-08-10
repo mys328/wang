@@ -1,0 +1,336 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.thinkwin</groupId>
+    <artifactId>thinkwin-yunmeeting-console-web</artifactId>
+    <packaging>war</packaging>
+    <version>2.1.0-DZJM</version>
+    <name>thinkwin-yunmeeting-console-web</name>
+    <url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>com.thinkwin</groupId>
+		<artifactId>thinkwin-yunmeeting-console-web-parent</artifactId>
+		<version>2.1.0-DZJM</version>
+		<relativePath>../../thinkwin-yunmeeting-console-web-parent</relativePath>
+	</parent>
+
+    <dependencies>
+        <!-- spring-core  -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+        </dependency>
+
+        <!-- spring-context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+        <!-- Spring AOP -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+        </dependency>
+
+        <!-- Spring TEST -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- AspectJ Runtime -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+
+        <!-- AspectJ Weaver -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+
+        <!-- Spring Jdbc 的支持 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+
+        <!-- SpringMVC -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+
+        <!-- commons-fileupload -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+        </dependency>
+
+        <!-- c3p0 datasource -->
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+        </dependency>
+
+        <!-- mysql-connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!-- config.mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+
+        <!-- cglib javassist -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+        </dependency>
+
+        <!-- logger -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+
+        <!-- config.mybatis-spring 整合 -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+        </dependency>
+
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+        </dependency>
+
+        <!-- jstl 标签库 -->
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <!-- servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <!-- jsp -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        
+        <dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-system-common</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-console</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-log</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-dictionary</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-SMSsender</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-orders</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-pay</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-fileupload</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-auth</artifactId>
+        </dependency>
+        <!--促销-优惠券-->
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-promotion</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-goods-center</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-publish</artifactId>
+        </dependency>
+		<!-- dubbo Begin -->
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>dubbo</artifactId>
+		    <exclusions>
+			<exclusion>
+			<artifactId>spring</artifactId>
+			<groupId>org.springframework</groupId>
+			</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+		<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+		</dependency>
+		<dependency>
+		<groupId>com.101tec</groupId>
+		<artifactId>zkclient</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		</dependency>
+		<!-- dubbo end -->
+
+        <!-- springsecurity 所需jar包-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-acl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+
+        <!--  poi  -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-examples</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-excelant</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-scratchpad</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-stax-api_1.0_spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <classifier>jdk15</classifier>
+        </dependency>
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-promotion</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-yuncm</artifactId>
+        </dependency>
+
+    </dependencies>
+    
+    <build>
+        <finalName>thinkwin-yunmeeting-console-web</finalName>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+</project>

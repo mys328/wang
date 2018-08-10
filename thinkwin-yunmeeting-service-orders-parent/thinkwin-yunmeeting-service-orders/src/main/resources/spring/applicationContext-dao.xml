@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName">
+
+    <!--<context:property-placeholder location="classpath:redis.properties" />-->
+
+    <bean id="yunmeeting_orders" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+          destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url"
+                  value="jdbc:mysql://${orders.jdbc.url}?useUnicode=true&amp;characterEncoding=UTF-8"/>
+        <property name="username" value="${orders.jdbc.username}"/>
+        <property name="password" value="${orders.jdbc.password}"/>
+
+        <property name="initialSize" value="8"/>
+        <!--最小连接池数量-->
+        <property name="minIdle" value="1"/>
+        <!--maxActive最大连接池数量-->
+        <property name="maxActive" value="500"/>
+
+        <property name="maxWait" value="60000"/>
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000"/>
+        <property name="validationQuery" value="SELECT 'x'"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="false"/>
+        <property name="testOnReturn" value="false"/>
+        <property name="poolPreparedStatements" value="true"/>
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>
+        <property name="filters" value="stat"/>
+        <property name="connectionProperties" value="druid.stat.slowSqlMillis=5000"/>
+    </bean>
+
+    <!-- ========================================针对myBatis的配置项============================== -->
+    <!-- 配置sqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!-- 实例化sqlSessionFactory时需要使用上述配置好的数据源以及SQL映射文件 -->
+        <property name="dataSource" ref="yunmeeting_orders"/>
+        <property name="typeAliasesPackage" value="com.thinkwin.common.model"/>
+        <!--配置分页插件PageHelper 5.0.0-->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <value>
+                            helperDialect=mysql
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+        <property name="mapperLocations">
+            <list>
+                <value>classpath:config/mybatis/mapper/*.xml</value>
+            </list>
+        </property>
+        <property name="configLocation" value="classpath:mybatis-config.xml" />
+    </bean>
+
+    <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.thinkwin.orders.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+
+        <property name="properties">
+            <value>
+                mappers=tk.mybatis.mapper.common.Mapper
+                ORDER=BEFORE
+            </value>
+        </property>
+    </bean>
+</beans>

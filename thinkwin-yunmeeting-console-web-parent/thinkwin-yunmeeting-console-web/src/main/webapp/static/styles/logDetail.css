@@ -1,0 +1,197 @@
+@charset "UTF-8";
+/*租户日志*/
+p {
+  margin-bottom: 0;
+}
+
+.log-details-box {
+  position: fixed;
+  padding: 0;
+  background-color: #fff;
+  top: 56px !important;
+  left: 210px !important;
+  width: calc(100% - 210px);
+  height: calc(100vh - 56px);
+  overflow: hidden;
+  transition-property: top,bottom;
+  transition-duration: .2s,.2s;
+  transition-timing-function: linear,linear;
+  -webkit-overflow-scrolling: touch;
+  z-index: 10;
+}
+
+.log-details-box .top {
+  padding: 12px 24px;
+  border-bottom: 1px solid #e1e1e1;
+  height: 56px;
+  display: inherit;
+  position: initial;
+}
+
+.log-details-box .top .user-name {
+  font-size: 16px;
+  color: #333;
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+}
+
+.log-details-box .top .btn-closed {
+  float: right;
+  width: 88px;
+}
+
+.log-details-box .top .input-search {
+  position: relative;
+  display: inline-block;
+  width: 320px;
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 0px 8px;
+}
+
+.log-details-box .top .input-search .icon-search {
+  height: 31px;
+  line-height: 31px;
+  font-size: 14px;
+  color: #b8b8b8;
+  margin-right:8px;
+}
+
+.log-details-box .top .input-search #search {
+  border: none;
+  vertical-align: top;
+  height: 30px;
+  line-height: 30px;
+  width: 270px;
+  background-color: transparent;
+}
+
+.log-details-box .top .input-search .icon-search-del {
+  height: 32px;
+  line-height: 32px;
+  color: #d9d9d9;
+  font-size: 16px;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  position: absolute;
+  right: 2px;
+  top: 0px;
+  margin-left: 8px;
+  display: none;
+  cursor: pointer;
+}
+
+.log-details-box .top span {
+  font-size: 14px;
+  color: #757575;
+}
+
+.log-details-box .top .customer-name {
+  margin-left: 16px;
+}
+.log-details-box .list-box{
+  height:100%;
+}
+.log-details-box.user-log .list-box{
+  height:calc(100% - 112px);
+
+}
+.log-details-box.user-log .list-box .scroll-list{
+  padding-bottom: 0;
+}
+.log-details-box .list-box .tabel-box{
+  height:100%;
+}
+.log-details-box .logs-box{
+  position: relative;
+  min-height: calc(100% - 56px);
+}
+.log-details-box .logs-box .logs-left {
+  width: 260px;
+  border-right: 1px solid #e1e1e1;
+  overflow-y: auto;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-top: 8px;
+}
+
+.log-details-box .logs-box .logs-left ul.ztree {
+  margin-right: 0px;
+  min-height: inherit;
+}
+
+.log-details-box .logs-box .logs-left ul.ztree li span.button.ico_docu:before, .log-details-box .logs-box .logs-left ul.ztree li span.button.ico_open:before, .log-details-box .logs-box .logs-left ul.ztree li span.button.ico_close:before {
+  content: "" !important;
+}
+
+.log-details-box .logs-box .logs-left ul.ztree li span.button.noline_close {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  margin-right: 3px;
+  font-size: 12px;
+  vertical-align: super;
+}
+
+.log-details-box .logs-box .logs-left ul.ztree li span.button.noline_open {
+  margin-right: 3px;
+  font-size: 12px;
+}
+
+.log-details-box .logs-box .logs-left ul.ztree li span.button.noline_close:before {
+  content: '\e65b';
+  color: #a1a1a1;
+}
+
+.log-details-box .logs-box .logs-left ul.ztree li span.button.noline_open:before {
+  content: '\e65b';
+  color: #a1a1a1;
+}
+
+.log-details-box .logs-box .logs-right {
+  width: calc(100% - 260px);
+  height: calc(100% - 0px);
+  position: absolute;
+  right: 0;
+}
+.log-details-box .logs-box .logs-right .list-box{
+  position: relative;
+  height: calc(100% - 56px);
+}
+.log-details-box .logs-box .logs-right .tabel-box{
+  height:100%;
+}
+.log-details-box .logs-box .logs-right .tabel-box .scroll-list {
+  /*height: calc(100% - 0px);*/
+  padding-bottom: 0;
+}
+.border-shadow {
+  border-color: #90ccf8;
+  outline: none;
+  box-shadow: rgba(71, 192, 252, 0.5) 0px 0px 8px 0px;
+}
+
+.log-details-box .table tr td span,.log-details-box .table tr th span{
+  margin-left: 8px;
+}
+
+.ztree li span.button.ico_open, .ztree li span.button.ico_close{
+  font-size: 16px;
+}
+.ztree li span.button.ico_docu{
+  font-size: 16px;
+}
+.log-details-box .table tr td,.log-details-box .table tr th{
+  line-height: 40px;
+}
+.innerPageBox{
+  z-index: 11;
+}
+.bottom{
+  display: none;
+}

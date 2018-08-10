@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.core.mapper.ShortUrlMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.core.ShortUrl">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="short_url" jdbcType="VARCHAR" property="shortUrl" />
+    <result column="real_url" jdbcType="VARCHAR" property="realUrl" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+</mapper>

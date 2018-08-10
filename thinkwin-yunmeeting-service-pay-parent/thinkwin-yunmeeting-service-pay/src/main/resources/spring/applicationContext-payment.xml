@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="notifyExecutor" class="com.thinkwin.pay.service.impl.DefaultNotifyExecutor">
+    </bean>
+
+    <bean id="wxPayConf" class="com.thinkwin.pay.model.WxPayConfig">
+        <property name="appId" value="${pay.wxPayConf.appId}"/>
+        <property name="mchId" value="${pay.wxPayConf.mchId}"/>
+        <property name="key" value="${pay.wxPayConf.key}"/>
+        <property name="keyPath" value="${pay.wxPayConf.keyPath}"/>
+        <property name="returnUrl" value="${pay.wxPayConf.returnUrl}"/>
+        <property name="notifyUrl" value="${pay.wxPayConf.notifyUrl}"/>
+    </bean>
+
+    <bean id="wxPayService" init-method="init" class="com.thinkwin.pay.service.impl.WxPayService">
+        <property name="config" ref="wxPayConf" />
+    </bean>
+
+    <bean id="aliPayConf" class="com.thinkwin.pay.model.AlipayConfig">
+        <property name="partner" value="${pay.aliPayConf.partner}" />
+        <property name="appId" value="${pay.aliPayConf.appId}" />
+        <property name="privateKey" value="${pay.aliPayConf.privateKey}" />
+        <property name="publicKey" value="${pay.aliPayConf.publicKey}" />
+        <property name="zfbPublicKey" value="${pay.aliPayConf.zfbPublicKey}" />
+        <property name="serverUrl" value="${pay.aliPayConf.gateway}" />
+        <property name="returnUrl" value="${pay.aliPayConf.returnUrl}" />
+        <property name="notifyUrl" value="${pay.aliPayConf.notifyUrl}" />
+    </bean>
+
+    <bean id="zfbPayService" class="com.thinkwin.pay.service.impl.ZfbPayService">
+        <property name="config" ref="aliPayConf" />
+    </bean>
+
+	<util:map id="serviceMap" map-class="java.util.HashMap" key-type="java.lang.Integer" value-type="com.thinkwin.pay.service.EBank">
+        <entry key="1" value-ref="wxPayService"/>
+        <entry key="2" value-ref="zfbPayService"/>
+    </util:map>
+
+    <bean id="payService" class="com.thinkwin.pay.service.impl.MyPayService">
+        <property name="orderExpireInHours" value="${order.expire_in_hours}" />
+        <property name="orderExpireInMinutes" value="${order.expire_in_minutes}" />
+        <property name="orderExpireInDays" value="${order.expire_in_days}" />
+    </bean>
+
+    <bean id="paymentRepo" class="com.thinkwin.pay.service.impl.MyPaymentRepo" />
+
+    <bean id="timerService" class="com.thinkwin.schedule.service.impl.RedissonTimerService">
+        <constructor-arg name="config">
+            <bean class="org.redisson.config.SingleServerConfig">
+                <!-- Redis server 地址 -->
+                <property name="address" value="tcp://${redis.ip}:${redis.port}"></property>
+                <property name="password" value="${redis.password}"></property>
+            </bean>
+        </constructor-arg>
+        <constructor-arg name="serviceType">
+            <util:constant static-field="com.thinkwin.schedule.service.ServiceType.BOTH"/>
+        </constructor-arg>
+        <!-- 定时服务名称 -->
+        <constructor-arg name="workerGroupName" value="pay-notify-executor_${group.scope}"></constructor-arg>
+
+        <property name="timerLogService" ref="timerLogService" />
+    </bean>
+
+    <bean id="contextHolder" class="com.thinkwin.common.ContextHolder"></bean>
+
+    <util:map id="keyStoreTradeSuccess" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="daemon" value="${pay.keyStore.tradeSuccess.daemon}" />
+    </util:map>
+
+    <util:map id="trustStoreTradeSuccess" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="console" value="${pay.trustStore.tradeSuccess.console}" />
+    </util:map>
+
+
+    <bean id="dubboAop" class="com.thinkwin.common.DubboServiceContextAop"/>
+    <aop:config>
+        <aop:aspect id="dubboAspect" ref="dubboAop">
+            <aop:pointcut id="pointCutBefore" expression="execution(* com.thinkwin..service.*.*(..)) "/>
+            <aop:before method="dubboContext" pointcut-ref="pointCutBefore"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

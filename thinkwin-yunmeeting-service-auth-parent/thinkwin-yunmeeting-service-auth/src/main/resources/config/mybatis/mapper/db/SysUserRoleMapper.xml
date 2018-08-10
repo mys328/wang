@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.auth.mapper.db.SysUserRoleMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.SysUserRole">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="creater_id" jdbcType="VARCHAR" property="createrId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifyer_id" jdbcType="VARCHAR" property="modifyerId" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+  </resultMap>
+  <select id="selectUserIdsByRoleIds" resultType="java.lang.String">
+    SELECT DISTINCT user_id FROM sys_user_role where  1=1
+    <if test="roleIdList != null">
+      and role_id in
+      <foreach collection="roleIdList" item="listId" open="(" close=")"
+               separator=",">
+        #{listId}
+      </foreach>
+    </if>
+  </select>
+</mapper>

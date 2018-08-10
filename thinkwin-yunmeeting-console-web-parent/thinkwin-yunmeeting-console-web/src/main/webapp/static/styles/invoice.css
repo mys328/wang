@@ -1,0 +1,145 @@
+.content {
+  padding: 0px 0px;
+  overflow: auto;
+}
+
+.flex-column .index2 {
+  background: #dde3eb;
+  border-left: 4px solid #2ca5f5;
+}
+
+span.span {
+  color: #0990f0;
+}
+.table-1 {
+  width: 14%;
+}
+.table-2 {
+  width: 14.4%;
+}
+.table-3 {
+  width: 11%;
+}
+.table-4 {
+  width: 14.2%;
+}
+.table-5 {
+  width: 21.2%;
+}
+.table-6 {
+  width: 12.8%;
+}
+.table-7 {
+  width: 135px;
+}
+.modal-dialog {
+  margin-top: 125px;
+}
+.modal-content {
+  padding: 0 24px 0 24px;
+}
+.modal-header {
+  height: 55px;
+  line-height: 55px;
+}
+.modal-title {
+  margin: 15px 0 17px 0;
+  height: 23px;
+  line-height: 23px;
+  font-size: 18px;
+  color: #333333;
+}
+button.close {
+  color: #333333;
+  font-size: 24px;
+  transform: scale(0.8);
+}
+.modal-body {
+  padding: 15px 0 0 0;
+}
+.flex {
+  margin: 0 0 24px 0;
+}
+.col-left {
+  color: #757575;
+  font-size: 14px;
+  width: 57px !important;
+  height: 19px;
+  line-height: 19px;
+  margin-right: 38px;
+  margin-bottom: 0px;
+  white-space: nowrap;
+}
+
+.col-right {
+  font-size: 14px;
+  line-height: 1;
+  color: #333333;
+  margin-bottom: 0px;
+}
+#sureModal .modal-body label {
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 0px;
+}
+#sureModal .modal-footer {
+  padding: 34px 0 24px 0;
+}
+.modal .btn {
+   width: 96px;
+  font-size: 14px !important;
+}
+.modal-footer > :not(:last-child) {
+   margin-right: 49px !important;
+}
+.modal-footer > :not(:first-child) {
+  margin-left: 0px !important;
+}
+.countersign-btn {
+  width: 96px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  background-color: #2ea2f5 !important;
+  border-color: #2ea2f5 !important;
+  color: #ffffff;
+  padding: 0px !important;
+}
+.cancel-btn {
+  padding: 0px !important;
+  background-color: rgba(1,1,1,0) !important;
+  border: none !important;
+  width: 28px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  color: #696969;
+}
+.invoice{
+  position: relative;
+  overflow: hidden;
+}
+.listBox{
+  padding-top: 40px;
+  position: relative;
+  margin: 0 16px;
+  height: 100%;
+}
+.listBox tr th {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 0;
+  line-height: 40px;
+}
+.listBox tr th span {
+  position: absolute;
+  top: 0;
+  color: #757575;
+  line-height: 40px;
+}
+.scroll-list{
+  height: calc(100% - 56px);
+  overflow-y: auto;
+}
+.innerPageBox .dropdown-menu{
+  left: 15px;
+}

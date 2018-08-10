@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.auth.mapper.db.SysRoleMenuMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.SysRoleMenu">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="menu_id" jdbcType="VARCHAR" property="menuId" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifyer" jdbcType="VARCHAR" property="modifyer" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,31 @@
+/*服务条款*/
+.logo .name{
+    display: inline;
+}
+.h5,div{
+    text-indent: 2rem;
+}
+div{
+    font-size: 14px;
+    line-height: 26px;
+}
+.center{
+    font-size: 28px;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 40px;
+}
+.termsBox{
+    padding: 40px;
+    margin: 0 40px 120px 40px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-width: 1000px;
+}
+h5{
+    font-size: 18px;
+    line-height: 36px;
+    margin-top: 32px;
+    margin-bottom: 8px;
+}

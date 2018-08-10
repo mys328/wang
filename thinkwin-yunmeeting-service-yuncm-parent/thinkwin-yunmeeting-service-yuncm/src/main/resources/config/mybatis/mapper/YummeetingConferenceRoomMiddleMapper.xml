@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.YummeetingConferenceRoomMiddleMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.YummeetingConferenceRoomMiddle">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="confreren_id" jdbcType="VARCHAR" property="confrerenId" />
+    <result column="room_id" jdbcType="VARCHAR" property="roomId" />
+  </resultMap>
+
+    <resultMap id="BaseResultMapVo" type="com.thinkwin.common.vo.meetingVo.YummeetingConferenceRoomMiddleVo">
+        <result column="numCount" jdbcType="VARCHAR" property="count" />
+        <result column="room_id" jdbcType="VARCHAR" property="roomId" />
+    </resultMap>
+
+    <resultMap id="RoomStatisticsVo" type="com.thinkwin.common.vo.meetingVo.RoomStatisticsVo">
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="take_start_date" jdbcType="VARCHAR" property="staDate" />
+        <result column="take_end_date" jdbcType="VARCHAR" property="endDate" />
+        <result column="room_id" jdbcType="VARCHAR" property="roomId" />
+        <result column="state" jdbcType="VARCHAR" property="state" />
+    </resultMap>
+
+  <!-- 获取会议室当前使用情况 -->
+  <select id="selectTimeYunmeetingConference" resultMap="BaseResultMap">
+        SELECT
+          distinct dle.*
+        FROM
+         yummeeting_conference_room_middle AS dle INNER JOIN
+         yunmeeting_conference AS ce ON dle.confreren_id = ce.id
+        WHERE
+        ce.delete_state = '0' AND ce.state != '5' AND
+        ( DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i') > DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i')
+        AND  DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%i') > DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i') )
+        OR
+        (    DATE_FORMAT(ce.take_end_date,'%Y-%m-%d %H:%i') > DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i')
+        AND  DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%i') > DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i')     )
+  </select>
+<!--
+ /* ( DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i') BETWEEN DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i')
+        AND DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%i') ) OR
+        ( DATE_FORMAT(ce.take_end_date,'%Y-%m-%d %H:%i') BETWEEN DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i')
+        AND DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%i') )*/
+
+-->
+    <!-- 获取使用最多的会议室 -->
+    <select id="selectMeetingRoomUseMany" resultMap="BaseResultMapVo">
+        SELECT
+        count(mi.room_id) AS numCount
+        ,mi.room_id
+        FROM
+        yummeeting_conference_room_middle  as mi left join yuncm_meeting_room as om on mi.room_id = om.id
+        WHERE
+        om.delete_state = '0' AND om.state = '2'
+        GROUP BY mi.room_id ORDER BY numCount DESC , om.global_sort
+    </select>
+
+
+    <!-- 根据时间段获取全部会议室的会议  0- -->
+    <select id="selectMeetingRoomStatistics" resultMap="RoomStatisticsVo">
+      SELECT
+        DISTINCT ce.id,ce.take_start_date,ce.take_end_date,die.room_id,ce.state
+      FROM
+        yummeeting_conference_room_middle AS die LEFT JOIN
+        yunmeeting_conference AS ce ON die.confreren_id  = ce.id  LEFT JOIN yuncm_meeting_room AS om ON die.room_id = om.id
+      WHERE
+        ( ce.state = 4 OR ce.state= 0 OR ce.state= 3 ) AND  ce.delete_state = 0 AND om.delete_state = 0 AND
+        <if test="_parameter.containsKey('areaId')">
+            om.area_id = #{areaId} AND
+        </if>
+        DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i:%s') > DATE_FORMAT(#{staTime},'%Y-%m-%d %H:%i:%s')
+         AND
+        DATE_FORMAT(#{endTime},'%Y-%m-%d %H:%i:%s') > DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i:%s')
+        ORDER BY ce.take_start_date
+    </select>
+
+
+
+
+
+
+
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.log.mapper.TerminalLogMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.log.TerminalLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="tenant_name" jdbcType="VARCHAR" property="tenantName" />
+    <result column="terminal_id" jdbcType="VARCHAR" property="terminalId" />
+    <result column="terminal_name" jdbcType="VARCHAR" property="terminalName" />
+    <result column="loglevel" jdbcType="VARCHAR" property="loglevel" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="operate_user_id" jdbcType="VARCHAR" property="operateUserId" />
+    <result column="operatedate" jdbcType="VARCHAR" property="operatedate" />
+    <result column="businessid" jdbcType="VARCHAR" property="businessid" />
+    <result column="businessname" jdbcType="VARCHAR" property="businessname" />
+    <result column="businesstype" jdbcType="VARCHAR" property="businesstype" />
+    <result column="businesstime" jdbcType="TIMESTAMP" property="businesstime" />
+    <result column="eventtype" jdbcType="VARCHAR" property="eventtype" />
+    <result column="eventname" jdbcType="VARCHAR" property="eventname" />
+    <result column="command" jdbcType="VARCHAR" property="command" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="methodname" jdbcType="VARCHAR" property="methodname" />
+    <result column="classname" jdbcType="VARCHAR" property="classname" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="result" jdbcType="LONGVARCHAR" property="result" />
+    <result column="methodarg" jdbcType="LONGVARCHAR" property="methodarg" />
+  </resultMap>
+</mapper>

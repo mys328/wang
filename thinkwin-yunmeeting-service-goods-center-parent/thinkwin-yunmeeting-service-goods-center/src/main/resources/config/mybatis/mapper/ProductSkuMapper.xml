@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.goodscenter.mapper.ProductSkuMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.ProductSku">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="sku" jdbcType="VARCHAR" property="sku" />
+    <result column="product_id" jdbcType="CHAR" property="productId" />
+    <result column="promotion_code" jdbcType="CHAR" property="promotionCode" />
+    <result column="list_price" jdbcType="DECIMAL" property="listPrice" />
+    <result column="sale_price" jdbcType="DECIMAL" property="salePrice" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
+    <result column="sku_desc" jdbcType="VARCHAR" property="skuDesc" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+
+  <resultMap id="BaseResultMapVo" type="com.thinkwin.common.vo.ProductSkuDto">
+    <id column="sku" jdbcType="VARCHAR" property="sku" />
+    <result column="sku_desc" jdbcType="CHAR" property="name" />
+    <result column="display_name" jdbcType="CHAR" property="displayName" />
+    <result column="sale_price" jdbcType="DECIMAL" property="price" />
+    <result column="uom_name" jdbcType="DECIMAL" property="uom" />
+  </resultMap>
+
+
+  <!-- 获取会议室当前使用情况 -->
+  <select id="selectAllProductSku" resultMap="BaseResultMapVo">
+    SELECT
+      sku.sku,sku.sku_desc,sku.display_name,sku.sale_price,def.uom_name,sku.sort_order
+    FROM
+     product_sku AS sku LEFT JOIN sku_uom AS uom ON sku.sku = uom.sku
+    LEFT JOIN uom_def as def ON  uom.uom_code = def.uom_code
+    WHERE    sku.status = 1     ORDER BY sku.sort_order
+
+  </select>
+
+
+
+
+
+
+
+</mapper>

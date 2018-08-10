@@ -1,0 +1,80 @@
+.innerPageBox{
+  /*position: absolute;;*/
+  display:inline-block;
+  /*width: 550px;*/
+  width: 100%;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  color: #757575;
+  font-size: 14px;
+ /* left:50%;  
+  top:50%;  
+  margin:-20px 0 0 -275px*/
+}
+.page-Box {
+  height: 56px;
+}
+.page-Box .page-count{
+  margin-left: 30px;
+}
+.page-Box #sid, .page-Box #room-sid{
+  background:#ffffff;
+  border:1px solid #d1d1d1;
+  border-radius:4px;
+  width:54px;
+  height:30px;
+  margin-left: 16px;
+  text-align: center;
+}
+.page-Box .page-Size{
+  background:#ffffff;
+  border:1px solid #d1d1d1;
+  border-radius:4px;
+  width:54px;
+  height:30px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right: 8px;
+
+}
+.page-Box .btn{
+  background:#ffffff;
+  border:1px solid #d1d1d1;
+  border-radius:4px;
+  width:72px;
+  height:30px;
+  font-family:MicrosoftYaHei;
+  font-size:14px;
+  padding: 0;
+}
+.page-Box #lastBtn, .page-Box #room-lastBtn, .page-Box #department-lastBtn{
+   margin-left: 20px;
+}
+.page-Box #nextBtn, .page-Box #room-nextBtn, .page-Box #department-lastBtn{
+   margin-left: 10px;
+}
+.innerPageBox .dropPage{
+  width: 56px;
+  height: 32px;
+  font-family:MicrosoftYaHei;
+  font-size:14px;
+  color:#757575;
+  text-align:center;
+  left: 16px;
+}
+.innerPageBox .dropdown-menu{
+  width: 56px;
+  min-width: 0;
+  left: 15px;
+}
+.innerPageBox .dropdown-menu .dropdown-item{
+  padding: 3px;
+  text-align: center;
+}
+.page-Box .dropdown-toggle::after {
+  border-top: 0;
+  border-bottom: 0.3em solid;
+  transform:rotate(-180deg);
+  margin-left: 0.4em;
+}

@@ -1,0 +1,83 @@
+.weChat-logo{
+    display: none;
+}
+.weChat-logo img{
+    width:32px;
+    height:32px;
+    display: inline-block;
+    border-radius:100%;
+    margin-right: 10px;
+}
+.weChat-logo span{
+    font-size:14px;
+    color:#696969;
+    height:32px;
+    line-height: 32px;
+}
+.register-form{
+    width: 354px;
+    border-radius: 0.3rem;
+}
+.input-group .form-control:not(:last-child) {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.register-title{
+    text-align: center;
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+    color: red;
+    font-weight: 600;
+}
+.code-btn{
+    background:#ffffff;
+    border:1px solid #1896f0;
+    border-radius:4px;
+    width:122px;
+    height:42px;
+    margin-left: 16px;
+}
+.register{
+    border-radius: 4px;
+}
+.form-control{
+    background:#ffffff;
+    border-radius:4px;
+    height:42px;
+}
+.backLogin{
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    text-align:center ;
+    font-size:16px;
+    color:#1896f0;
+    cursor: pointer;
+    border-top: 1px solid #d9d9d9;
+}
+.backLogin p{
+    outline: none;
+}
+.green{
+    color:#333;
+}
+.red{
+    color:red;
+}
+.warningBox{
+    font-family:MicrosoftYaHei;
+    font-size:14px;
+    color:#f74555;
+    letter-spacing:0;
+    text-align:left;
+    margin-top: -10px;
+    display: none;
+}
+.warring{
+    border: 1px solid red;
+    margin-bottom: 10px;
+}
+#registerBtn{
+    cursor: pointer;
+    outline:none;
+}

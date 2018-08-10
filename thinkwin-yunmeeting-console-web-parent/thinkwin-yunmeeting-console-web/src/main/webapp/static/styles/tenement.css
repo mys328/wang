@@ -1,0 +1,44 @@
+.tenement{
+    background:#ffffff;
+    padding: 12px 0;
+    box-shadow:0 2px 8px 0 rgba(0,0,0,0.20);
+    border-radius:4px;
+    width:100%;
+    min-height:68px;
+    max-height: 344px;
+    z-index: 1;
+    position: absolute;
+    margin-bottom: 0;
+    overflow-y: auto;
+}
+.tenement .dropdown-item {
+    padding:0 8px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    clear: both;
+    font-weight: normal;
+    color: #333;
+    text-align: inherit;
+    white-space: nowrap;
+    background: none;
+    border: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.tenement li:active,.tenement li:hover {
+    background-color: #f7f7f9;
+}
+.alert.notify-danger{
+    z-index: 1080;
+}
+.tenement .nothing{
+    background-image:none;
+    margin: 146px 0;
+    padding-top: 0;
+}

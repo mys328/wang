@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.publish.mapper.PlatformProgramMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.publish.PlatformProgram">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="program_name" jdbcType="VARCHAR" property="programName" />
+    <result column="program_name_pinyin" jdbcType="VARCHAR" property="programNamePinyin" />
+    <result column="program_name_jianpin" jdbcType="VARCHAR" property="programNameJianpin" />
+    <result column="sys_attachment_url" jdbcType="VARCHAR" property="sysAttachmentUrl" />
+    <result column="sys_attachment_id" jdbcType="VARCHAR" property="sysAttachmentId" />
+    <result column="photo_url" jdbcType="VARCHAR" property="photoUrl" />
+    <result column="program_sort" jdbcType="INTEGER" property="programSort" />
+    <result column="program_update_batch" jdbcType="VARCHAR" property="programUpdateBatch" />
+    <result column="program_status" jdbcType="VARCHAR" property="programStatus" />
+    <result column="recorder_status" jdbcType="VARCHAR" property="recorderStatus" />
+    <result column="program_version_num" jdbcType="VARCHAR" property="programVersionNum" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="ver" jdbcType="VARCHAR" property="ver" />
+    <result column="program_type" jdbcType="VARCHAR" property="programType" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="img_url_big" jdbcType="VARCHAR" property="imgUrlBig" />
+    <result column="img_url_small" jdbcType="VARCHAR" property="imgUrlSmall" />
+    <result column="img_url_init" jdbcType="VARCHAR" property="imgUrlInit" />
+    <result column="img_url_middle" jdbcType="VARCHAR" property="imgUrlMiddle" />
+  </resultMap>
+  <update id="delPlatformPrograms">
+    update platform_program set  recorder_status = "0"/*,modify_time = NOW()*/ where 1= 1
+    <if test="platformProgramIds != null">
+    AND id in
+      <foreach collection="platformProgramIds" item="listId" open="(" close=")" separator=",">
+        #{listId}
+      </foreach>
+    </if>
+  </update>
+  <update id="updateProgramStatusByStatus" parameterType="map">
+    UPDATE platform_program SET program_status = #{afterStatus}
+    <if test="null != programVersionNum">
+      ,program_version_num = #{programVersionNum}
+    </if>
+     WHERE  program_status = #{beforeStatus} AND recorder_status = 1
+  </update>
+
+  <select id="getPlatformProgramBySeachKey" resultMap="BaseResultMap">
+  SELECT * FROM platform_program WHERE 1 = 1
+    <if test="null != seachKey">
+      and (program_name LIKE #{seachKey} or program_name_pinyin LIKE #{seachKey} or program_name_jianpin LIKE #{seachKey})
+    </if>
+    <choose>
+    <when test="type == 0">
+      AND (program_type = #{type} OR program_type IS NULL )
+    </when>
+    <otherwise>
+      AND program_type = #{type}
+    </otherwise>
+    </choose>
+    <if test="ids != null">
+      and id in
+      <foreach collection="ids" item="listId" open="(" close=")"
+               separator=",">
+        #{listId}
+      </foreach>
+    </if>
+    AND recorder_status = 1
+    order by creat_time desc
+  </select>
+
+
+  <update id="updateProgramStatusByTypeAndTenantId" parameterType="map">
+     update platform_program
+     <set>
+       <if test="null != programStatus">
+         program_status = #{programStatus},
+       </if>
+       <if test="null != ver">
+         ver = #{ver},
+       </if>
+       <if test="null != modifyTime">
+         modify_time = #{modifyTime},
+       </if>
+       <if test="null != programUpdateBatch">
+         program_update_batch = #{programUpdateBatch},
+       </if>
+       <if test="null != programVersionNum">
+         program_version_num = #{programVersionNum}
+       </if>
+     </set>
+    WHERE 1=1
+    AND program_type = "1"/* AND program_version_num IS NULL*/
+    AND program_status = "2"
+    AND id IN (
+    select program_id FROM platform_program_tenant_middle
+    WHERE  1=1
+    <if test="null != tenantId">
+      AND tenant_id = #{tenantId}
+    </if>
+    )
+  </update>
+
+  <select id="selectProgramByType" resultMap="BaseResultMap">
+SELECT * FROM platform_program WHERE 1=1
+AND recorder_status = 1
+<if test="type == 0">
+  AND (program_type = 0 OR  program_type is NULL )
+</if>
+    <if test="type == 1">
+      AND program_type = 1
+    </if>
+    <if test="null != platformProgrameIds and platformProgrameIds.size() > 0">
+    and id IN
+  <foreach item="item" index="index" collection="platformProgrameIds" open="(" separator="," close=")">
+    #{item}
+  </foreach>
+    </if>
+    ORDER BY creat_time desc
+  </select>
+
+  <select id="selectProgramNumByType" resultType="int">
+    SELECT COUNT(*) FROM platform_program where 1=1 AND (program_type = 0 OR program_type IS NULL) and recorder_status = 1
+  </select>
+
+
+</mapper>

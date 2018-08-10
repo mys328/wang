@@ -1,0 +1,31 @@
+#binding-account{
+    width: 354px;
+}
+.backLogin{
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    text-align:center ;
+    font-size:16px;
+    color:#1896f0;
+    cursor: pointer;
+    border-top: 1px solid #d9d9d9;
+}
+#bindBtn{
+    font-size:16px;
+    color:#fff;
+}
+/*警告框样式*/
+.warningBox{
+    font-family:MicrosoftYaHei;
+    font-size:14px;
+    color:#f74555;
+    letter-spacing:0;
+    text-align:left;
+    margin-top: -10px;
+    display: none;
+}
+.warring{
+    border: 1px solid red;
+    margin-bottom: 10px;
+}

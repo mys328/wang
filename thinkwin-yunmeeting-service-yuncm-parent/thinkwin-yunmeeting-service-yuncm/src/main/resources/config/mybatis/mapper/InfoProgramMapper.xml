@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.InfoProgramMapper">
+	<resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.InfoProgram">
+		<!--
+		  WARNING - @mbg.generated
+		-->
+		<id column="id" jdbcType="VARCHAR" property="id"/>
+		<result column="program_name" jdbcType="VARCHAR" property="programName"/>
+		<result column="program_version_num" jdbcType="VARCHAR" property="programVersionNum"/>
+		<result column="pinyin" jdbcType="VARCHAR" property="pinyin"/>
+		<result column="sys_attachment_url" jdbcType="VARCHAR" property="sysAttachmentUrl"/>
+		<result column="sys_attachment_id" jdbcType="VARCHAR" property="sysAttachmentId"/>
+		<result column="photo_url" jdbcType="VARCHAR" property="photoUrl"/>
+		<result column="program_update_batch" jdbcType="VARCHAR" property="programUpdateBatch"/>
+		<result column="program_status" jdbcType="VARCHAR" property="programStatus"/>
+		<result column="recorder_status" jdbcType="VARCHAR" property="recorderStatus"/>
+		<result column="program_sort" jdbcType="INTEGER" property="programSort"/>
+		<result column="creater" jdbcType="VARCHAR" property="creater"/>
+		<result column="creat_time" jdbcType="TIMESTAMP" property="creatTime"/>
+		<result column="modifier" jdbcType="VARCHAR" property="modifier"/>
+		<result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+		<result column="ver" jdbcType="INTEGER" property="ver"/>
+		<result column="reserve_1" jdbcType="VARCHAR" property="reserve1"/>
+		<result column="reserve_3" jdbcType="VARCHAR" property="reserve3"/>
+		<result column="reserve_2" jdbcType="VARCHAR" property="reserve2"/>
+		<result column="img_url_big" jdbcType="VARCHAR" property="imgUrlBig"/>
+		<result column="img_url_small" jdbcType="VARCHAR" property="imgUrlSmall"/>
+		<result column="img_url_init" jdbcType="VARCHAR" property="imgUrlInit"/>
+		<result column="img_url_middle" jdbcType="VARCHAR" property="imgUrlMiddle"/>
+		<result column="program_name_pinyin" jdbcType="VARCHAR" property="programNamePinyin"/>
+		<result column="program_name_jianpin" jdbcType="VARCHAR" property="programNameJianpin"/>
+	</resultMap>
+
+	<select id="selectProgramByTerminalIds" resultType="com.thinkwin.common.dto.publish.TerminalProgramDto">
+		SELECT t.id terminal_id
+		,p.id program_id
+		,bi_primary.image_url photo_url
+		,bi_small.image_url photo_url_small
+		,p.program_name `name`
+		,p.program_version_num `version`
+		,p.program_status `status`
+		,m.player_start_time `start_time`
+		,m.player_end_time `end_time`
+		,m.is_long_play
+		,m.is_leisure_play
+		,m.release_status
+		FROM info_release_terminal t
+		INNER JOIN info_program_terminal_middle m on m.terminal_id = t.id AND m.release_status = '1' AND (m.is_long_play = '1' or (NOW() &lt; m.player_end_time))
+		INNER JOIN info_program p on p.id = m.program_id
+		AND ((p.program_status = '2' and #{isInnerTest} = '1') or (p.program_status = '1'))
+		LEFT JOIN biz_image_recorder bi_primary on bi_primary.biz_id = p.id and bi_primary.type = '3' and bi_primary.image_type = 'primary'
+		LEFT JOIN biz_image_recorder bi_small on bi_small.biz_id = p.id and bi_small.type = '3' and bi_small.image_type = 'small'
+		<if test="terminalIds != null and terminalIds.size > 0">
+			WHERE t.id IN
+			<foreach collection="terminalIds" item="item" index="index"
+			         open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+
+	<select id="getDingZhiProgram" resultType="com.thinkwin.common.vo.publish.TenantProgramVo">
+		SELECT p.id program_id
+		,bi_primary.image_url photo_url
+		,bi_small.image_url photo_url_small
+		,p.program_name `name`
+		,p.program_version_num `version`
+		,p.program_status `status`
+		FROM info_program p
+		LEFT JOIN biz_image_recorder bi_primary on bi_primary.biz_id = p.id and bi_primary.type = '3' and bi_primary.image_type = 'primary'
+		LEFT JOIN biz_image_recorder bi_small on bi_small.biz_id = p.id and bi_small.type = '3' and bi_small.image_type = 'in'
+		WHERE p.program_type = '1'
+		AND ((p.program_status = '2' and #{isInnerTest} = '1') or (p.program_status = '1'))
+		AND p.recorder_status &lt;&gt; '0'
+	</select>
+
+	<select id="getProgramCommandById" resultType="com.thinkwin.common.dto.publish.TerminalProgramCommandDto">
+		SELECT p.id
+		,p.photo_url
+		,p.program_name
+		,p.program_status
+		,p.sys_attachment_url `attachment_url`
+		,m.player_start_time `start`
+		,m.player_end_time `end`
+		,m.is_long_play `standing`
+		FROM info_program p
+		LEFT JOIN info_program_terminal_middle m on p.id = m.program_id
+		WHERE p.id = #{id}
+		AND ((p.program_status = '2' and #{isInnerTest} = '1') or (p.program_status = '1'))
+		AND p.recorder_status &lt;&gt; '0' limit 1;
+	</select>
+
+	<select id="getCustomProgramStatus" resultType="java.lang.Boolean">
+		SELECT EXISTS(
+			SELECT 1 FROM `info_program` p
+			WHERE p.program_type = '1' AND p.recorder_status &lt;&gt; '0'
+			AND ((p.program_status = '2' and #{isInnerTest} = '1') or (p.program_status = '1'))) hasCustomProgram
+	</select>
+
+	<select id="getProgramByTag" resultType="com.thinkwin.common.dto.publish.TerminalProgramDto">
+		SELECT p.id program_id
+		,p.photo_url
+		,p.img_url_small `photo_url_small`
+		,p.program_name `name`
+		,p.program_version_num `version`
+		,p.program_status `status`
+		FROM info_program p
+		<if test="tagId != null and tagId != ''">
+			LEFT JOIN info_label_program_middle m on m.program_id = p.id
+			LEFT JOIN info_programe_label pl on pl.id = m.program_label_id
+		</if>
+		<where>
+			<choose>
+				<when test="tagId != null and tagId != ''">
+					pl.id = #{tagId} AND (p.program_type IS NULL OR p.program_type = '0')
+					AND p.recorder_status &lt;&gt; '0' AND ((p.program_status = '2' and #{isInnerTest} = '1') or (p.program_status = '1'))
+				</when>
+				<when test="tagId == null or tagId = ''">
+					(p.program_type IS NULL OR p.program_type = '0')
+					AND p.recorder_status &lt;&gt; '0' AND ((p.program_status = '2' and #{isInnerTest} = '1') or (p.program_status = '1'))
+				</when>
+			</choose>
+		</where>
+		ORDER BY p.creat_time desc
+	</select>
+
+
+    <!--查询内测及正式版本-->
+    <select id="findInfoProgramByProgramStatusAndRecorderStatus" resultMap="BaseResultMap" >
+        SELECT
+        p.id,
+        p.program_name,
+        p.program_version_num,
+        p.program_name_pinyin,
+        p.program_name_jianpin,
+        p.sys_attachment_url,
+        p.sys_attachment_id,
+        p.photo_url,
+        p.img_url_big,
+        p.img_url_small,
+        p.img_url_init,
+        p.img_url_middle,
+        p.program_sort,
+        p.program_update_batch,
+        p.program_status,
+        p.recorder_status,
+        p.program_version_num
+        FROM info_program p
+        WHERE 1=1
+        <if test="_parameter.containsKey('programStatus')">
+            AND p.program_status= #{programStatus}
+        </if>
+        <if test="_parameter.containsKey('recorderStatus')">
+            AND p.recorder_status= #{recorderStatus}
+        </if>
+        ORDER By p.program_sort DESC
+    </select>
+
+    <!--批量逻辑删除-->
+    <update id="batchLogicalDelProgram" parameterType="java.util.List">
+        UPDATE info_program
+        SET recorder_status='0'
+        WHERE id IN
+        <foreach collection="list" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <!--批量物理删除-->
+    <delete id="batchPhysicalDelProgram" parameterType="java.util.List">
+        DELETE From info_program
+        WHERE id IN
+        <foreach collection="list" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <update id="batchUpdateProgram"  parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update info_program
+            <set>
+                program_name='${item.programName}',
+                program_version_num='${item.programVersionNum}',
+                program_name_pinyin='${item.programNamePinyin}',
+                program_name_jianpin='${item.programNameJianpin}',
+                sys_attachment_url='${item.sysAttachmentUrl}',
+                sys_attachment_id='${item.sysAttachmentId}',
+                photo_url='${item.photoUrl}',
+                img_url_big='${item.imgUrlBig}',
+                img_url_small='${item.imgUrlSmall}',
+                img_url_init='${item.imgUrlInit}',
+                img_url_middle='${item.imgUrlMiddle}',
+                program_update_batch='${item.programUpdateBatch}',
+                program_status='${item.programStatus}',
+	            program_type=#{item.programType},
+                recorder_status='${item.recorderStatus}'
+            </set>
+            where id = '${item.id}'
+        </foreach>
+    </update>
+
+    <!--批量添加节目-->
+    <insert id="batchAddProgram" parameterType="java.util.List">
+        insert into info_program (
+        id,
+        program_name,
+        program_version_num,
+        program_name_pinyin,
+        program_name_jianpin,
+        sys_attachment_url,
+        sys_attachment_id,
+        photo_url,
+        img_url_big,
+        img_url_small,
+        img_url_init,
+        img_url_middle,
+        program_update_batch,
+        program_status,
+        recorder_status,
+	    program_type,
+        creat_time,
+        modify_time
+        ) values
+        <foreach collection="list" item="item" index="index" open="" close="" separator=",">
+            ('${item.id}',
+            '${item.programName}',
+            '${item.programVersionNum}',
+            '${item.programNamePinyin}',
+            '${item.programNameJianpin}',
+            '${item.sysAttachmentUrl}',
+            '${item.sysAttachmentId}',
+            '${item.photoUrl}',
+            '${item.imgUrlBig}',
+            '${item.imgUrlSmall}',
+            '${item.imgUrlInit}',
+            '${item.imgUrlMiddle}',
+            '${item.programUpdateBatch}',
+            '${item.programStatus}',
+            '${item.recorderStatus}',
+            '${item.programType}',
+            #{item.creatTime,jdbcType=TIMESTAMP},
+            #{item.modifyTime,jdbcType=TIMESTAMP})
+        </foreach>;
+    </insert>
+
+
+
+    <!--批量物理删除-->
+    <delete id="batchPhysicalDelProgramByProgramStatus" parameterType="java.lang.String">
+        DELETE From info_program
+        WHERE program_status=${programStatus}
+    </delete>
+
+    <select id="queryProgramCommandById" resultType="com.thinkwin.common.dto.publish.TerminalProgramCommandDto">
+        SELECT p.id
+        ,p.photo_url
+        ,p.program_name
+        ,p.program_status
+        ,p.sys_attachment_url `attachment_url`
+        ,m.player_start_time `start`
+        ,m.player_end_time `end`
+        ,m.is_long_play `standing`
+        FROM info_program p
+        LEFT JOIN info_program_terminal_middle m on p.id = m.program_id
+        WHERE p.id = #{id}
+        AND ((p.program_status = '2' and #{isInnerTest} = '1') or (p.program_status = '1'))
+        limit 1;
+    </select>
+
+
+</mapper>

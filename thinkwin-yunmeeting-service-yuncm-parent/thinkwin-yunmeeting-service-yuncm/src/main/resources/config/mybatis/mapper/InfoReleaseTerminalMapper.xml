@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.InfoReleaseTerminalMapper">
+	<resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.InfoReleaseTerminal">
+		<!--
+		  WARNING - @mbg.generated
+		-->
+		<id column="id" jdbcType="VARCHAR" property="id"/>
+		<result column="tenant_id" jdbcType="VARCHAR" property="tenantId"/>
+		<result column="meeting_room_id" jdbcType="VARCHAR" property="meetingRoomId"/>
+		<result column="hardware_id" jdbcType="VARCHAR" property="hardwareId"/>
+		<result column="terminal_name" jdbcType="VARCHAR" property="terminalName"/>
+		<result column="terminal_type_id" jdbcType="VARCHAR" property="terminalTypeId"/>
+		<result column="terminal_os" jdbcType="VARCHAR" property="terminalOs"/>
+		<result column="init_os_ver" jdbcType="VARCHAR" property="initOsVer"/>
+		<result column="curr_os_ver" jdbcType="VARCHAR" property="currOsVer"/>
+		<result column="init_client_ver" jdbcType="VARCHAR" property="initClientVer"/>
+		<result column="curr_client_ver" jdbcType="VARCHAR" property="currClientVer"/>
+		<result column="resolution_ratio" jdbcType="VARCHAR" property="resolutionRatio"/>
+		<result column="background_url" jdbcType="VARCHAR" property="backgroundUrl"/>
+		<result column="background_id" jdbcType="VARCHAR" property="backgroundId"/>
+		<result column="public_key" jdbcType="VARCHAR" property="publicKey"/>
+		<result column="private_key" jdbcType="VARCHAR" property="privateKey"/>
+		<result column="terminal_brightness" jdbcType="INTEGER" property="terminalBrightness"/>
+		<result column="terminal_volume" jdbcType="INTEGER" property="terminalVolume"/>
+		<result column="status" jdbcType="VARCHAR" property="status"/>
+		<result column="creater" jdbcType="VARCHAR" property="creater"/>
+		<result column="creat_time" jdbcType="TIMESTAMP" property="creatTime"/>
+		<result column="modifier" jdbcType="VARCHAR" property="modifier"/>
+		<result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+		<result column="ver" jdbcType="INTEGER" property="ver"/>
+		<result column="province" jdbcType="VARCHAR" property="province" />
+		<result column="city" jdbcType="VARCHAR" property="city" />
+		<result column="county" jdbcType="VARCHAR" property="county" />
+		<result column="street" jdbcType="VARCHAR" property="street" />
+		<result column="reserve_1" jdbcType="VARCHAR" property="reserve1"/>
+		<result column="reserve_3" jdbcType="VARCHAR" property="reserve3"/>
+		<result column="reserve_2" jdbcType="VARCHAR" property="reserve2"/>
+	</resultMap>
+
+	<sql id="filter">
+		<if test="word != null and word != ''">
+			and (t.curr_client_ver LIKE concat(concat('%', #{word}),'%')
+			or t.terminal_name LIKE concat(concat('%', #{word}),'%')
+			or room.`name` LIKE concat(concat('%', #{word}),'%')
+			or p.program_name LIKE concat(concat('%', #{word}),'%'))
+		</if>
+	</sql>
+
+	<sql id="filterApp">
+		<if test="word != null and word != ''">
+			and (t.terminal_name LIKE concat(concat('%', #{word}),'%')
+			or room.`name` LIKE concat(concat('%', #{word}),'%'))
+		</if>
+	</sql>
+
+	<select id="searchTerminal" resultType="com.thinkwin.common.model.db.InfoReleaseTerminal">
+		SELECT t.id
+		,t.tenant_id
+		,t.terminal_name
+		,t.hardware_id
+		,t.background_url
+		,t.curr_client_ver
+		,t.resolution_ratio
+		,t.terminal_type_id
+		,t.terminal_brightness
+		,t.terminal_volume
+		,t.meeting_room_id
+		,t.`status`
+		FROM info_release_terminal t
+		LEFT JOIN info_program_terminal_middle m ON m.terminal_id = t.id
+			AND m.release_status = '1' AND (m.is_long_play = '1' or (NOW() &lt; m.player_end_time))
+		LEFT JOIN info_program p ON p.id = m.program_id
+			AND ((p.program_status = '2' and #{isInnerTest} = '1') or (p.program_status = '1'))
+		LEFT JOIN yuncm_meeting_room room ON room.id = t.meeting_room_id
+		<where>
+			<choose>
+				<when test="type != null">
+					<include refid="filterApp" />
+				</when>
+				<otherwise>
+					<include refid="filter" />
+				</otherwise>
+			</choose>
+			<if test="status != null">
+				and ((ISNULL(t.`status`) and #{status} = 0) or t.`status` = #{status})
+			</if>
+		</where>
+		ORDER BY
+		<if test="type != null">
+			t.`status` DESC,
+		</if>
+		t.creat_time DESC
+	</select>
+
+	<select id="getTerminalStats" resultType="com.thinkwin.common.dto.publish.TerminalStatsDto">
+		SELECT SUM(CASE WHEN t.`status` = 1 THEN 1 ELSE 0 END) `online`
+		,SUM(CASE WHEN t.`status` = 1 THEN 0 ELSE 1 END) `offline`
+		,COUNT(0) `total`
+		FROM info_release_terminal t
+		<if test="word != null and word != ''">
+			LEFT JOIN info_program_terminal_middle m ON m.terminal_id = t.id
+				AND m.release_status = '1' AND (m.is_long_play = '1' or (NOW() &lt; m.player_end_time))
+			LEFT JOIN info_program p ON p.id = m.program_id
+				AND p.recorder_status &lt;&gt; '0'
+				AND ((p.program_status = '2' and #{isInnerTest} = '1') or (p.program_status = '1'))
+			LEFT JOIN yuncm_meeting_room room ON room.id = t.meeting_room_id
+			<where>
+				<include refid="filter" />
+			</where>
+		</if>
+	</select>
+
+	<select id="selectTerminals" resultType="com.thinkwin.common.model.db.InfoReleaseTerminal">
+		SELECT t.id
+		,t.tenant_id
+		,t.terminal_name
+		,t.hardware_id
+		,t.curr_client_ver
+		,t.resolution_ratio
+		,t.terminal_type_id
+		,t.terminal_brightness
+		,t.terminal_volume
+		,t.meeting_room_id
+		,t.`status`
+		FROM info_release_terminal t
+		WHERE t.id IN
+		<foreach collection="terminals" item="item" index="index"
+		         open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+                    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <!-- 配置connectionFactory -->
+    <beans:bean id="jmsFactory"
+                class="org.apache.activemq.pool.PooledConnectionFactory"
+                destroy-method="stop">
+        <beans:property name="connectionFactory">
+            <beans:bean  class="org.apache.activemq.ActiveMQConnectionFactory">
+                <beans:property name="brokerURL">
+                    <beans:value>${mq.url}</beans:value>
+                </beans:property>
+                <beans:property name="userName">
+                    <beans:value>${mq.userName}</beans:value>
+                </beans:property>
+                <beans:property name="password">
+                    <beans:value>${mq.passwd}</beans:value>
+                </beans:property>
+            </beans:bean>
+        </beans:property>
+    </beans:bean>
+
+    <!-- 读取信息 -->  
+    <beans:bean id="publishMQConsumer" class="com.thinkwin.push.handler.ProgramMQConsumer"/>
+
+    <!-- 消息监听器 -->
+    <beans:bean id="listenerContainer_central"
+                class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <beans:property name="concurrentConsumers" value="100" />
+        <beans:property name="connectionFactory" ref="jmsFactory" />
+        <beans:property name="destinationName" value="publish002_downlink_queue" />
+        <beans:property name="messageListener" ref="publishMQConsumer" />
+    </beans:bean>
+    
+    <beans:bean id="SpringContextUtil" class="com.thinkwin.yunmeeting.framework.util.spring.SpringContextUtil"
+                lazy-init="false"></beans:bean>
+    </beans:beans>

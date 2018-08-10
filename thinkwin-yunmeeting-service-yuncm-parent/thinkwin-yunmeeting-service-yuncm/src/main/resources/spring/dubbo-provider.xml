@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://code.alibabatech.com/schema/dubbo
+  http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+  ">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="service-yuncm-dubbo-provider"/>
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" file="../dubbo-registry/yuncm/dubbo-registry.properties"/>
+
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="-1"/>
+
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:provider delay="-1" timeout="60000" retries="0" filter="dubboContextFilter"/><!-- 全局超时,重试机制 -->
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.YuncmRoomAreaService" ref="yuncmRoomAreaService"
+                   group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.YuncmMeetingService" ref="yuncmMeetingService"
+                   group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.SearchMeetingRoomService" ref="searchMeetingRoomService"
+                   group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.MeetingStatisticsService" ref="meetingStatisticsService"
+                   group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.MeetingReserveService" ref="meetingReserveService"
+                   group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.MeetingScreeningService" ref="meetingScreeningService"
+                   group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.MeetingDynamicService" ref="meetingDynamicService"
+                   group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.MeetingRoomStatisticsService" ref="meetingRoomStatisticsService"
+                   group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.InfoReleaseTerminalService" ref="infoReleaseTerminalService"
+                   group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.TerminalService" ref="terminalService" group="${group.scope}" version="${interface.version}"/>
+
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.SyncProgramService" ref="syncProgramService" group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.InfoBootDownTaskService" ref="infoBootDownTaskService" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:service interface="com.thinkwin.yuncm.service.InfoBootDownLogService" ref="infoBootDownLogService" group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.InfoProgramService" ref="infoProgramService" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:service interface="com.thinkwin.yuncm.service.InfoProgramLabelService" ref="infoProgramLabelService" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:service interface="com.thinkwin.yuncm.service.InfoLabelProgramMiddleService" ref="infoLabelProgramMiddleService" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:service interface="com.thinkwin.yuncm.service.SysSetingService" ref="sysSetingService" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:service interface="com.thinkwin.yuncm.service.ConferenceService" ref="conferenceService" group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:service interface="com.thinkwin.yuncm.service.BizImageRecorderService" ref="bizImageRecorderService" group="${group.scope}" version="${interface.version}"/>
+</beans>

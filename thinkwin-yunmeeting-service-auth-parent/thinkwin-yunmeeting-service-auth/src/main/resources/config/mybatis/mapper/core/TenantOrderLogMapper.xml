@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.auth.mapper.core.TenantOrderLogMapper">
+	<insert id="createTenantOrderLog" parameterType="java.lang.String" >
+		INSERT INTO `tenant_order_log` (`tenant_id`, `current_order`, `order_processed`, `create_time`)
+		VALUES( #{tenantId}, '', 0, now())
+		ON DUPLICATE KEY UPDATE
+		`update_time` = now();
+	</insert>
+</mapper>

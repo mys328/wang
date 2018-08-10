@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.YunmeetingDynamicsMapper">
+    <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.YunmeetingDynamics">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="conference_id" jdbcType="VARCHAR" property="conferenceId"/>
+        <result column="participants_id" jdbcType="VARCHAR" property="participantsId"/>
+        <result column="inform_time" jdbcType="TIMESTAMP" property="informTime"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_id" jdbcType="VARCHAR" property="createId"/>
+        <result column="dynamics_type" jdbcType="VARCHAR" property="dynamicsType"/>
+        <result column="delete_state" jdbcType="VARCHAR" property="deleteState"/>
+        <result column="reserve_1" jdbcType="VARCHAR" property="reserve1"/>
+        <result column="reserve_3" jdbcType="VARCHAR" property="reserve3"/>
+        <result column="reserve_2" jdbcType="VARCHAR" property="reserve2"/>
+    </resultMap>
+
+    <select id="selectMeetingDynamicByTime" resultMap="BaseResultMap">
+        SELECT * FROM yunmeeting_dynamics WHERE delete_state = '0'
+        AND (participants_id = #{userId} or dynamics_type = '0')
+        /*根据会议id查询*/
+        <if test="_parameter.containsKey('meetingId')">
+            AND conference_id = #{meetingId}
+        </if>
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="selectMeetingDynamicSearch" resultMap="BaseResultMap">
+        SELECT yd.* FROM yunmeeting_dynamics as yd
+        LEFT JOIN sys_user as su ON su.id = yd.create_id
+        LEFT JOIN yunmeeting_conference as yc ON yc.id = yd.conference_id
+        WHERE (yd.content like #{search} or su.user_name like #{search} or
+        yc.conference_name LIKE #{search})
+        AND yd.conference_id = #{meetingId}
+        AND yd.delete_state = '0'
+    </select>
+    <!--动态排序用-->
+    <select id="selectDynaicOrderBy" resultMap="BaseResultMap">
+        SELECT Max(create_time) as create_time,conference_id FROM yunmeeting_dynamics where delete_state = '0'
+        <if test="_parameter.containsKey('userId')">
+            AND (participants_id = #{userId} or create_id = #{userId})
+        </if>
+
+        /*查询近期（7天）动态 */
+        <if test="_parameter.containsKey('startTime') and _parameter.containsKey('endTime')">
+            AND DATE_FORMAT(create_time,'%Y-%m-%d')
+            BETWEEN DATE_FORMAT(#{startTime},'%Y-%m-%d')
+            AND DATE_FORMAT(#{endTime},'%Y-%m-%d')
+        </if>
+        <if test="_parameter.containsKey('all') and _parameter.containsKey('startTime')">
+            AND DATE_FORMAT(#{startTime},'%Y-%m-%d') >= DATE_FORMAT(create_time,'%Y-%m-%d')
+        </if>
+        GROUP BY conference_id order by create_time desc
+    </select>
+
+    <select id="selectMeetingDynamicCreateIdsByMeetingId" resultType="java.lang.Integer">
+      SELECT COUNT(1) FROM yunmeeting_dynamics
+      WHERE
+      conference_id = #{yunmeetingConferenceId}
+      AND create_id = #{userId}
+      and dynamics_type = "0"
+      AND delete_state = "0"
+    </select>
+</mapper>

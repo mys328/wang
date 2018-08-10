@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.InfoBroadcastMessageMapper">
+	<resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.InfoBroadcastMessage">
+		<!--
+		  WARNING - @mbg.generated
+		-->
+		<id column="id" jdbcType="VARCHAR" property="id"/>
+		<result column="message_content" jdbcType="VARCHAR" property="messageContent"/>
+		<result column="is_Internal_test" jdbcType="VARCHAR" property="isInternalTest"/>
+		<result column="sys_attachment_url" jdbcType="VARCHAR" property="sysAttachmentUrl"/>
+		<result column="send_time" jdbcType="TIMESTAMP" property="sendTime"/>
+		<result column="creater" jdbcType="VARCHAR" property="creater"/>
+		<result column="creat_time" jdbcType="TIMESTAMP" property="creatTime"/>
+		<result column="reserve_1" jdbcType="VARCHAR" property="reserve1"/>
+		<result column="reserve_3" jdbcType="VARCHAR" property="reserve3"/>
+		<result column="reserve_2" jdbcType="VARCHAR" property="reserve2"/>
+		<result column="expiry_time" jdbcType="TIMESTAMP" property="expiryTime"/>
+	</resultMap>
+
+
+	<select id="selectMessageByTerminalIds" resultType="com.thinkwin.common.dto.publish.TerminalMessageDto">
+		SELECT t.id terminal_id
+		,msg.id message_id
+		,msg.message_content `content`
+		,msg.unit
+		,msg.length
+		,msg.send_time
+		,msg.expiry_time
+		,m.msg_status `status`
+		FROM info_release_terminal t
+		LEFT JOIN info_message_terminal_middle m ON m.terminal_id = t.id
+		LEFT JOIN info_broadcast_message msg ON msg.id = m.broadcast_message_id
+		WHERE t.id IN
+		<foreach collection="terminalIds" item="item" index="index"
+		         open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+	<select id="updateMessageStatus" resultType="com.thinkwin.common.dto.publish.TerminalMessageDto">
+		UPDATE info_broadcast_message msg
+		LEFT JOIN info_message_terminal_middle m on m.broadcast_message_id = msg.id
+		SET m.msg_status = #{status}
+		WHERE m.terminal_id = #{terminalId} AND msg.id = #{msgId}
+	</select>
+
+</mapper>

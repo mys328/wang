@@ -1,0 +1,67 @@
+	*{margin: 0;padding: 0;}
+	a{text-decoration: none;color: #000}
+	ul,li,ol {list-style: none;}
+	html,body {width: 100%;height: 100%;background:#fbfaff;overflow: hidden;}
+	.box{width: 100%;height: 100%;position: relative;line-height: 1;background:#f6f6f6;}
+	/* 扫描二维码后进入页面的样式*/
+	.meetingRoomDiv{height:145px;width: 100%;box-shadow: 0px 2px 4px 0px rgba(106,102,128,0.2);background:#fff;} 
+	.meetingRoomstate{position: absolute;left:-4px;top: 10px;width:63px;height:21px}
+	.meetingRoomPicture{width: 125px;height: 125px;}
+	.leftDiv{float: left;width: 125px;height: 125px;margin-left: 15px;margin-top: 10px;margin-right: 15px;position: relative;}
+	.rightDiv{float: left;width: 50%;height: 145px;}
+	.meetingRoomName{margin-top:21px;color: #222;font-size: 18px;line-height: 1.2;height: 40px;}
+	.meetingRoomcapacity{margin-top:13px;color: #919199;font-size: 15px;}
+	.rightDiv p{margin-top:17px;color: #919199;font-size: 15px;}
+	.rightDiv p span{line-height:15px;width: 28px;height: 15px;display:inline-block;font-size: 10px;text-align: center;margin-right: 6px;border-radius: 2px;}
+	.bor1{border: 1px solid #fc656a;color:#fc656a}
+	.bor2{border: 1px solid #51b8ac;color:#51b8ac}
+	.bor3{border: 1px solid #62abf5;color:#62abf5}
+	.notmeeting{margin-top: 60px;text-align: center;display: block;}
+	.notmeeting .blankBj{margin-bottom: 18px;font-size: 54px;}
+	.notmeeting span{font-size: 18px;color: #9d9da6;display: block;}
+	.bottomDiv{position: absolute;bottom: 0;width: 100%;height: 50px;box-shadow:0 -1px 0 0 rgba(0,0,0,0.14);line-height: 50px;font-size: 18px;background: #fff;}
+	.bottomDiv span{float: left;padding-left:28px;}
+	.bottomDiv div{float: right;width: 150px;height: 50px;text-align: center;color: #fff;background:#288afa;}
+	.scanMeeting{margin:-145px 0 -50px 0;padding:145px 0 50px 0;box-sizing:border-box;height:100%;}
+	.meetinglistAll{height: 100%;overflow-y:auto}
+	.meetinglistDiv{padding: 13px 0 28px 21px;position: relative;border-left:2px solid #c8d2dc;margin-left: 26px;}
+	.meetinglisticon{width:13px;height:21px;position: absolute;top: 13px;left: -8px;background: #f6f6f6;}
+	.meetinglisticon div{font-size: 15px;margin-top: 3px}
+	.meetinglisttopDiv{height: 21px;width: 100%;line-height: 21px;}
+	.meetinglisttopDiv span{float: left;}
+	.meetingTime{font-size:18px;color:#333333;margin-right: 16px;}
+	.personnel{font-size: 14px;margin-right: 4px;}
+	.personnelName{font-size:16px;color:#aaaaaa;}
+	.meetinglistbottomDiv{clear: both;font-size:12px;color:#aaaaaa;width: 100%;height: 17px;line-height: 17px;margin-top: 4px;}
+	/* 预定会议页面样式 */
+	.newbox{margin-top: 8px;position: relative;padding-left: 15px;background:#ffffff;}
+	.newbox div{width: 100%;height:44px;line-height: 44px;position: relative;font-size: 15px;background: #fff;}
+	.meetingname {background: #fff;width: 100%;height:44px;line-height: 44px;font-size: 15px;}
+	.site{border-bottom: 1px solid #dadfe7;}
+	.starttime{border-bottom: 1px solid #dadfe7;}
+	.phone{border-bottom: 1px solid #dadfe7;}
+	.meetingname input{height: 44px;width: 90%;border:none;outline: none;color: #222;margin-left: 18px;}
+	.createmeetingroomicon{float: left;font-size:13px;position: relative;top: 1px;}
+	.newname{color:#aaafb2;float: left;margin-left: 12px;}
+	.createmeetingroomName{float: right;color:#aaafb2;margin-right: 14px;}
+	.outinput{outline: none;border: none;font-size: 15px;color: #797980;padding-right: 14px;text-align: right;width:60%;position: absolute;right: 0;top:13px;line-height:1;padding-right: 12px;color: #000}
+	input::-webkit-input-placeholder{ color: #919199 !important;}
+	.createbth{width: 100%;height:44px;text-align: center;margin-top: 28px;}
+	.createbth p{display: inline-block;background:#288afa;border-radius:22px;width:200px;height:44px;line-height: 44px;color: #fff;font-size:18px;}
+	.phoneDiv input{outline: none;border: none;font-size: 15px;color: #797980;width: 80%;margin-left: 13px;margin-top: 11px;}	
+	/* 错误页面样式 */
+ 	.errorDiv{text-align: center;width: 100%;}
+	.erroricon{height: 100px;font-size: 100px;padding-top: 50px;margin-bottom: 21px;color: #f76260;}
+	.errorlisyt{font-size:20px;color:#000000;line-height: 28px;margin-bottom: 12px;}
+	.errorlisyt1{font-size:14px;color:#888888;line-height: 18px;}
+	 /* 弹框样式处理*/
+	.alertDiv{width:164px;height:115px;font-size:16px;} 
+	.alertDiv1{width:191px;height:115px; font-size:16px;}
+	.hint{ line-height: 16px;margin-top: 18px;}
+	.alert-icon{display:inline-block;width:38px;height:38px;margin-top:18px;font-size: 38px;position: relative;top: 8px;}
+	.dwb{
+		    color: #288afa !important;
+		}
+		.mbsc-ios .dwbc{
+			border-bottom: 0.5px solid #ebeef2 !important;;
+		}

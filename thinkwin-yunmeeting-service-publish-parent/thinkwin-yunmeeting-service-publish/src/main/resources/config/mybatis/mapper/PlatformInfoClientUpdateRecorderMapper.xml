@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.publish.mapper.PlatformInfoClientUpdateRecorderMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.publish.PlatformInfoClientUpdateRecorder">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="terminal_id" jdbcType="VARCHAR" property="terminalId" />
+    <result column="old_client_ver" jdbcType="VARCHAR" property="oldClientVer" />
+    <result column="curr_client_ver" jdbcType="VARCHAR" property="currClientVer" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_status" jdbcType="VARCHAR" property="updateStatus" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+  </resultMap>
+</mapper>

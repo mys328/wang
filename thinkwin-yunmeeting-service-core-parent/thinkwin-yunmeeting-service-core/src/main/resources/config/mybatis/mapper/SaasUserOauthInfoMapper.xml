@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.core.mapper.SaasUserOauthInfoMapper">
+    <resultMap id="BaseResultMap" type="com.thinkwin.common.model.core.SaasUserOauthInfo">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="Id" jdbcType="VARCHAR" property="id"/>
+        <result column="user_oauth_id" jdbcType="VARCHAR" property="userOauthId"/>
+        <result column="oauth_open_id" jdbcType="VARCHAR" property="oauthOpenId"/>
+        <result column="oauth_union_id" jdbcType="VARCHAR" property="oauthUnionId"/>
+        <result column="oauth_type" jdbcType="INTEGER" property="oauthType"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="sex" jdbcType="INTEGER" property="sex"/>
+        <result column="language" jdbcType="VARCHAR" property="language"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="province" jdbcType="VARCHAR" property="province"/>
+        <result column="country" jdbcType="VARCHAR" property="country"/>
+        <result column="subscribe" jdbcType="INTEGER" property="subscribe"/>
+        <result column="subscribe_time" jdbcType="TIMESTAMP" property="subscribeTime"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="tagid_list" jdbcType="VARCHAR" property="tagidList"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <!--查询类型为微信-->
+    <resultMap id="WechatResultMap" type="com.thinkwin.common.model.core.SaasUserOauthInfo">
+        <id column="Id" jdbcType="VARCHAR" property="id"/>
+        <result column="user_oauth_id" jdbcType="VARCHAR" property="userOauthId"/>
+        <result column="oauth_open_id" jdbcType="VARCHAR" property="oauthOpenId"/>
+        <result column="oauth_union_id" jdbcType="VARCHAR" property="oauthUnionId"/>
+        <result column="oauth_type" jdbcType="INTEGER" property="oauthType"/>
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName"/>
+        <result column="sex" jdbcType="INTEGER" property="sex"/>
+        <result column="language" jdbcType="VARCHAR" property="language"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="province" jdbcType="VARCHAR" property="province"/>
+        <result column="country" jdbcType="VARCHAR" property="country"/>
+        <result column="subscribe" jdbcType="INTEGER" property="subscribe"/>
+        <result column="subscribe_time" jdbcType="TIMESTAMP" property="subscribeTime"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="tagid_list" jdbcType="VARCHAR" property="tagidList"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <sql id="selectOauthInfoWechatWhere">
+        <if test="userOauthId != null and userOauthId != ''">
+            AND user_oauth_id = #{userOauthId}
+        </if>
+    </sql>
+    <select id="selectOauthInfoWechat" resultMap="BaseResultMap">
+        SELECT Id,user_oauth_id,oauth_open_id,oauth_union_id,oauth_type,nick_name,sex,`language`,city,province,
+        country,subscribe,subscribe_time,remark,tagid_list,create_time,update_time
+        FROM saas_user_oauth_info WHERE 1=1
+        <!--<include refid="selectOauthInfoWechatWhere"></include>-->
+        AND user_oauth_id = #{userOauthId}
+    </select>
+
+    <select id="findByUserOauthInfo" resultMap="BaseResultMap">
+        SELECT Id,user_oauth_id,oauth_open_id,oauth_union_id,oauth_type,nick_name,sex,`language`,city,province,
+        country,subscribe,subscribe_time,remark,tagid_list,create_time,update_time
+        FROM saas_user_oauth_info WHERE 1=1
+        <if test="unionId != null  and unionId != ''">
+            AND oauth_union_id = #{unionId}
+        </if>
+        <if test="openId != null  and openId != ''">
+            AND oauth_open_id = #{openId}
+        </if>
+        <if test="oauthType != null  and oauthType != ''">
+            AND oauth_type = #{oauthType}
+        </if>
+    </select>
+
+    <!--批量删除-->
+    <delete id="batchDelete" parameterType="java.lang.Integer">
+        DELETE FROM saas_user_oauth_info WHERE 1=1
+        <if test="unionId != null  and unionId != ''">
+            AND oauth_union_id = #{unionId}
+        </if>
+        <if test="openId != null  and openId != ''">
+            AND oauth_open_id = #{openId}
+        </if>
+        <if test="oauthType != null  and oauthType != ''">
+            AND oauth_type = #{oauthType}
+        </if>
+    </delete>
+</mapper>

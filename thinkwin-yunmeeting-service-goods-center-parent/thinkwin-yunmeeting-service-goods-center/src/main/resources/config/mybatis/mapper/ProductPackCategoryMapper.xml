@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.goodscenter.mapper.ProductPackCategoryMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.ProductPackCategory">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="category_code" jdbcType="CHAR" property="categoryCode" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+    <result column="category_desc" jdbcType="VARCHAR" property="categoryDesc" />
+    <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+
+
+  <select id="selectByProductPackCategoryInfo" resultMap="BaseResultMap" >
+    SELECT
+    ory.*
+    FROM
+    product_pack_category AS ory LEFT JOIN
+    product_pack AS pack ON ory.category_code = pack.category_code
+    WHERE
+     pack.package_id = #{packageId}
+  </select>
+
+
+
+</mapper>

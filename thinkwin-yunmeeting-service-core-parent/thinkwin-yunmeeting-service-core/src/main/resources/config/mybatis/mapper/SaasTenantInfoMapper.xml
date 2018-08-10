@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.core.mapper.SaasTenantInfoMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.core.SaasTenantInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="tenant_name" jdbcType="VARCHAR" property="tenantName" />
+    <result column="company_logo" jdbcType="VARCHAR" property="companyLogo" />
+    <result column="company_type" jdbcType="VARCHAR" property="companyType" />
+    <result column="company_address" jdbcType="VARCHAR" property="companyAddress" />
+    <result column="company_description" jdbcType="VARCHAR" property="companyDescription" />
+    <result column="company_invitation_code" jdbcType="VARCHAR" property="companyInvitationCode" />
+    <result column="qrcode_path" jdbcType="VARCHAR" property="qrcodePath" />
+    <result column="admin_id" jdbcType="VARCHAR" property="adminId" />
+  </resultMap>
+
+  <!--<select id="selectSaasTenantInfoByTenantId" resultMap="BaseResultMap">
+    SELECT * FROM saas_tenant_info WHERE tenant_id = #{tenantId}
+  </select>-->
+</mapper>

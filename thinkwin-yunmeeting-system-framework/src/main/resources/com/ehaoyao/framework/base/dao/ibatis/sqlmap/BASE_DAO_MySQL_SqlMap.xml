@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="BASE_DAO">
+  <select id="BASE_DAO.getCurrentTime"  resultClass="java.util.Date">
+    select now() 
+  </select>
+  
+  <sql id="BASE_DAO.pagination_Clause">
+      <isPropertyAvailable property="pageturn" >
+	   limit #pageturn.start:INTEGER#, #pageturn.pageSize:INTEGER#
+     </isPropertyAvailable>
+  </sql>  
+  
+  <sql id="BASE_DAO.pagination_Start">
+  </sql>  
+  <sql id="BASE_DAO.pagination_End">
+      <isPropertyAvailable property="pageturn" >
+	   limit #pageturn.start:INTEGER#, #pageturn.pageSize:INTEGER#
+     </isPropertyAvailable>
+  </sql>  
+
+  <select id="BASE_DAO.getSequenceNextValue" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+	UPDATE sys_sequence SET currentid=LAST_INSERT_ID(currentid+1)  where name=$value$;
+	
+	SELECT LAST_INSERT_ID();
+  </select>
+  
+  <select id="BASE_DAO.getSequenceCurrentValue" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+    select currentid from sys_sequence where name=$value$
+  </select>
+
+  <select id="BASE_DAO.getRowCountOfTable" parameterClass="java.lang.String" resultClass="java.lang.Integer">
+    select count(1) from #value#
+  </select>
+  
+  <select id="BASE_DAO.getCountFromCacheTable" parameterClass="java.lang.String" resultClass="com.ehaoyao.framework.base.dao.ibatis.CountCacheItem">
+    select COUNT_VALUE, EXPIRE_SECOND, UPDATE_TIME from SYS_COUNT_CACHE where COUNT_KEY=#value#;
+  </select>
+
+  <insert id="BASE_DAO.insertCountCache2Table" parameterClass="com.ehaoyao.framework.base.dao.ibatis.CountCacheItem" >
+    insert into SYS_COUNT_CACHE (COUNT_KEY, COUNT_VALUE, EXPIRE_SECOND, UPDATE_TIME)
+    values (#countKey:VARCHAR#, #countValue:DECIMAL#, #expireSecond:DECIMAL#, now() )
+  </insert>
+  
+  <update id="BASE_DAO.updateCountCache2Table" parameterClass="com.ehaoyao.framework.base.dao.ibatis.CountCacheItem" >
+    update SYS_COUNT_CACHE
+    set COUNT_VALUE = #countValue:DECIMAL#, EXPIRE_SECOND = #expireSecond:DECIMAL#, UPDATE_TIME = now()
+    where COUNT_KEY = #countKey:VARCHAR#
+  </update>  
+
+    
+</sqlMap>

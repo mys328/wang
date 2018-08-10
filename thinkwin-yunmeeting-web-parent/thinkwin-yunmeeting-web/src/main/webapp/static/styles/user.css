@@ -1,0 +1,147 @@
+#profile {
+    position: relative;
+    padding-top: 16px;
+    background-color: #f6f6f6;
+    font-size: 14px;
+}
+
+#profile .pic span{
+    margin-right: 32px;
+    /*background-color: #fff;*/
+}
+#profile a.btn-close{
+    position: absolute;
+    right: 46px;
+    top: 16px;
+    font-size: 16px;
+    color: #757575;
+    padding: 0;
+}
+#profile a.btn-close:hover{
+    color: #23b8fd;
+}
+#profile h4{
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 48px;
+    border-bottom: 1px solid #e1e1e1;
+}
+#profile .row{
+     margin: 0;
+    padding: 16px 0 8px 0;
+    width: 494px;
+    position: relative;
+}
+#profile .labels{
+    color: #696969;
+    width: 94px;
+}
+.btn-outline{
+    background-color: #fff;
+    color:#1896f0;
+    border:1px solid #1896f0;
+    width: 88px;
+}
+#profile .avatar p{
+    color: #aaa;
+    font-size: 12px;
+    line-height: 24px;
+    margin: 0;
+}
+#profile .cropper + .text-right{
+    margin: 32px 0;
+}
+#profile form p.error-msg {
+    position: absolute;
+    bottom: 68px;
+    left: 416px;
+    color: #f74555;
+    white-space: nowrap;
+}
+#profile form#changePhoneForm p.error-msg {
+    bottom: 76px;
+}
+#profile form p.error-msg-email,#profile form p.error-msg-name{
+    position: absolute;
+    bottom: 22px;
+    left: 510px;
+}
+#profile .line{
+    margin:14px 0 24px 0;
+}
+#nameform .row{
+    padding:0 0 18px 0;
+}
+#nameform .cont{
+    padding-top: 14px;
+}
+#profile .img-size-label{
+    float: right;
+    display: block;
+    width: 100px;
+    text-align: center;
+    margin-top: 16px;
+    font-size: 12px;
+}
+i.icon-error{
+    margin-right: 4px;
+}
+.alert span.icon{
+    margin-left: 18px!important;
+}
+#profile #nameform button[type='submit']{
+    margin-bottom: 32px;
+    width: 120px;
+}
+#changePhoneForm .text-right{
+    margin-bottom: 32px;
+    padding-top: 8px;
+}
+#unbindWeixin .text-right{
+    margin-bottom: 32px;
+    padding-top: 8px;
+}
+.has-danger .form-control:focus{
+    border:1px solid rgba(71,192,252,0.50);
+}
+input.form-control{
+    cursor: text;
+    height: 40px;
+}
+.btn{
+    height: 40px;
+}
+.btn-outline-primary:focus, .btn-outline-primary.focus{
+    box-shadow: none;
+}
+.btn-outline-primary.disabled, .btn-outline-primary:disabled{
+    color: #888;
+}
+#profile .rows .cont .form-group.new-phone{
+    margin-bottom: 16px;
+}
+.change-photo{
+    position: relative;
+    width:88px;
+}
+#profile .wrap{
+    width: 59.5rem;
+    padding: 0 24px;
+    margin: 0 auto;
+    box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.02), 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 2px;
+    background-color: #fff;
+    min-height: calc(100vh - 66px);
+}
+.get-code{
+    color:#2fa2f5;
+}
+.change-photo-btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 88px;
+}

@@ -1,0 +1,351 @@
+.content {
+  padding: 0px 0px;
+  overflow: auto;
+}
+.order{
+  position: relative;
+  overflow: hidden;
+}
+.flex-column .index1 {
+  background: #dde3eb;
+  border-left: 4px solid #2ca5f5;
+}
+.table-1 {
+  width: 9.9%;
+}
+.table-2 {
+  width: 14.6%;
+}
+.table-3 {
+  width: 13.9%;
+}
+.table-4 {
+  width: 7.8%;
+}
+.table-5 {
+  width: 13.7%;
+}
+.table-6 {
+  width: 7.5%;
+}
+.table-7 {
+  width: 7.6%;
+}
+.table-8 {
+  width: 9.3%;
+}
+.table-9 {
+  width: 130px;
+}
+.img-content {
+  background-color: rgba(1,1,1,0);
+}
+.img-header {
+  border-bottom: 0px solid rgba(1,1,1,0);
+  padding: 0;
+}
+.img-body {
+  text-align: center;
+  padding: 0;
+}
+.img {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+#cer {
+  height: 100%;
+  width: 100%;
+}
+.img-close {
+  position: absolute;
+  right: -30px;
+  top: -10px;
+  color: #ffffff;
+}
+.img-close span {
+  color: #ffffff !important;
+  font-weight: normal !important;
+  text-shadow: 0 0px 0 rgba(0,0,0,0) !important;
+}
+#sureModal .modal-dialog {
+  margin-top: 125px;
+}
+#remarkModal .modal-dialog {
+  margin-top: 125px;
+}
+#sureModal .modal-content {
+  padding: 0 24px 0 24px;
+}
+#remarkModal .modal-content {
+  padding: 0 24px 0 24px;
+}
+#sureModal .modal-header {
+  height: 55px;
+  line-height: 55px;
+}
+#remarkModal .modal-header {
+   height: 55px;
+   line-height: 55px;
+ }
+#sureModal .modal-title {
+  margin: 15px 0 17px 0;
+  height: 23px;
+  line-height: 23px;
+  font-size: 18px;
+  color: #333333;
+}
+#remarkModal .modal-title {
+  margin: 15px 0 17px 0;
+  height: 23px;
+  line-height: 23px;
+  font-size: 18px;
+  color: #333333;
+}
+#sureModal button.close {
+  color: #333333;
+  font-size: 24px;
+  transform: scale(0.8);
+}
+#remarkModal button.close {
+  color: #333333;
+  font-size: 24px;
+  transform: scale(0.8);
+}
+#sureModal .modal-body {
+  padding: 15px 0 0 0;
+}
+#remarkModal .modal-body {
+  padding: 15px 0 0 0;
+}
+#sureModal .row {
+  margin: 0 0 24px 0;
+}
+#remarkModal .row {
+  margin: 0 0 24px 0;
+}
+#sureModal .col-left {
+  color: #757575;
+  font-size: 14px;
+  height: 19px;
+  margin-right: 0px;
+  line-height: 19px;
+  margin-bottom: 0px;
+}
+#remarkModal .col-left {
+  color: #757575;
+  font-size: 14px;
+  height: 19px;
+  margin-right: 0px;
+  line-height: 19px;
+  margin-bottom: 0px;
+}
+
+#sureModal .col-right {
+  font-size: 14px;
+  line-height: 1;
+  color: #333333;
+  margin-bottom: 0px;
+}
+#remarkModal .col-right {
+  font-size: 14px;
+  line-height: 1;
+  color: #333333;
+  margin-bottom: 0px;
+}
+#sureModal .modal-body label {
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 0px;
+}
+#sureModal .modal-body .row:nth-child(2) .col-left{
+  display: inline-block;
+  width: 81px;
+}
+#sureModal .modal-body .row:nth-child(2) .col-right{
+  display: inline-block;
+  width: 371px;
+}
+#remarkModal .modal-body label {
+  font-size: 16px;
+  color: #333333;
+  margin-bottom: 0px;
+}
+
+#sureModal .modal-footer {
+  padding: 0px 0 24px 0;
+}
+#remarkModal .modal-footer {
+  padding: 0px 0 24px 0;
+}
+#sureModal .modal-footer .btn {
+  width: 96px;
+  font-size: 14px !important;
+}
+#remarkModal .modal-footer .btn {
+  width: 96px;
+  font-size: 14px !important;
+}
+#sureModal .modal-footer > :not(:last-child) {
+  margin-right: 49px !important;
+}
+#remarkModal .modal-footer > :not(:last-child) {
+  margin-right: 49px !important;
+}
+#sureModal .modal-footer > :not(:first-child) {
+  margin-left: 0px !important;
+}
+#remarkModal .modal-footer > :not(:first-child) {
+  margin-left: 0px !important;
+}
+.countersign-btn {
+  width: 96px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  background-color: #2ea2f5 !important;
+  border-color: #2ea2f5 !important;
+  color: #ffffff;
+  padding: 0px !important;
+}
+#sureModal .cancel-btn {
+  padding: 0px !important;
+  background-color: rgba(1,1,1,0) !important;
+  border: none !important;
+  width: 28px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  color: #696969;
+}
+#remarkModal .cancel-btn {
+  padding: 0px !important;
+  background-color: rgba(1,1,1,0) !important;
+  border: none !important;
+  width: 28px !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  color: #696969;
+}
+.orderNum-label {
+  height: 32px;
+  line-height: 32px;
+  width: 112px;
+}
+.orderNum-input {
+  height: 40px;
+  width: 340px;
+  padding: 0px 1rem;
+}
+.textremark{
+  background:#ffffff;
+  border:1px solid #e0e0e0;
+  border-radius:4px;
+  width:450px;
+  height:98px;
+  resize : none;
+  font-size: 14px;
+  padding: 6px 12px;
+  line-height:26px;
+}
+.textremarkinfo{
+  background:#ffffff;
+  border:1px solid #e0e0e0;
+  border-radius:4px;
+  width:450px;
+  height:130px;
+  resize : none;
+  font-size: 14px;
+  padding: 6px 12px;
+  line-height:26px;
+}
+.textremark::-webkit-input-placeholder{
+  color:#d1d1d1;
+}
+.textremarkinfo::-webkit-input-placeholder{
+  color:#d1d1d1;
+}
+.textremark:-moz-placeholder{
+  color:#d1d1d1;
+}
+.textremarkinfo:-moz-placeholder{
+  color:#d1d1d1;
+}
+.textremark::-moz-placeholder{
+  color:#d1d1d1;
+}
+.textremarkinfo::-moz-placeholder{
+  color:#d1d1d1;
+}
+.textremark::-ms-input-placeholder{
+  color:#d1d1d1;
+}
+.textremarkinfo::-ms-input-placeholder{
+  color:#d1d1d1;
+}
+.examine{
+  font-size:12px;
+  color:#09a7f0;
+}
+.examinediv{
+  width:280px;
+  padding:20px 24px 0px 24px;
+  box-shadow:0 7px 21px 0 rgba(0,0,0,0.14);
+  border-radius:4px;
+  position: absolute;
+  left: 34%;
+  top: 60%;
+  background: #fff;
+  display: none;
+  z-index: 999;
+}
+.examinediv div{
+ line-height: 16px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  color: #333;
+  Word-break: break-all;
+  white-space: normal;
+}
+.Discountcontent{
+  position: relative !important;
+  overflow: visible !important;
+}
+.namediv{
+  color:#757575 !important;
+}
+.discount{
+  color:#FA553C;
+}
+.examinediv span{
+  word-break: normal !important;
+   white-space: normal !important;
+}
+.giveas{display: inline-block;width: 156px;}
+
+.listBox{
+  padding-top: 40px;
+  position: relative;
+  margin: 0 16px;
+  height: 100%;
+}
+.listBox tr th {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 0;
+  line-height: 40px;
+}
+.listBox tr th span {
+  position: absolute;
+  top: 0;
+  color: #757575;
+  line-height: 40px;
+}
+.scroll-list{
+  height: calc(100% - 56px);
+  overflow-y: auto;
+}
+.innerPageBox .dropdown-menu{
+  left: 15px;
+}

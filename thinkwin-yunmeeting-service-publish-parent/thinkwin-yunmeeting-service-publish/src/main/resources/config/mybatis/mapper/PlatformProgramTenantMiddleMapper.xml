@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.publish.mapper.PlatformProgramTenantMiddleMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.publish.PlatformProgramTenantMiddle">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="program_id" jdbcType="VARCHAR" property="programId" />
+  </resultMap>
+
+  <select id="selectPlatformProgramTenantMiddle" resultMap="BaseResultMap">
+      SELECT *  FROM platform_program_tenant_middle GROUP BY tenant_id
+  </select>
+
+  <select id="selectPlatformProgrameIdsByLabelType" resultType="String">
+  SELECT program_id FROM platform_program_tenant_middle WHERE tenant_id = #{platformProgrameLabeId}
+  </select>
+</mapper>

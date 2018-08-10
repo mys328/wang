@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.auth.mapper.core.SaasUserOauthMapper">
+    <resultMap id="BaseResultMap" type="com.thinkwin.common.model.core.SaasUserOauth">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="oauth_type" jdbcType="INTEGER" property="oauthType"/>
+        <result column="oauth_open_id" jdbcType="VARCHAR" property="oauthOpenId"/>
+        <result column="oauth_union_id" jdbcType="VARCHAR" property="oauthUnionId"/>
+        <result column="ticket" jdbcType="VARCHAR" property="ticket"/>
+        <result column="ticket_time" jdbcType="TIMESTAMP" property="ticketTime"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="tenant_id" jdbcType="VARCHAR" property="tenantId"/>
+        <result column="oauth_photo" jdbcType="VARCHAR" property="oauthPhoto"/>
+        <result column="oauth_user_name" jdbcType="VARCHAR" property="oauthUserName"/>
+        <result column="oauth_access_token" jdbcType="VARCHAR" property="oauthAccessToken"/>
+        <result column="oauth_refresh_token" jdbcType="VARCHAR" property="oauthRefreshToken"/>
+        <result column="oauth_expires" jdbcType="VARCHAR" property="oauthExpires"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="is_bind" jdbcType="INTEGER" property="isBind"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <resultMap id="WechatResultMap" type="com.thinkwin.common.model.core.SaasUserOauth">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
+        <result column="oauth_type" jdbcType="INTEGER" property="oauthType"/>
+        <result column="oauth_open_id" jdbcType="VARCHAR" property="oauthOpenId"/>
+        <result column="oauth_union_id" jdbcType="VARCHAR" property="oauthUnionId"/>
+        <result column="ticket" jdbcType="VARCHAR" property="ticket"/>
+        <result column="ticket_time" jdbcType="TIMESTAMP" property="ticketTime"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="tenant_id" jdbcType="VARCHAR" property="tenantId"/>
+        <result column="oauth_photo" jdbcType="VARCHAR" property="oauthPhoto"/>
+        <result column="oauth_user_name" jdbcType="VARCHAR" property="oauthUserName"/>
+        <result column="oauth_access_token" jdbcType="VARCHAR" property="oauthAccessToken"/>
+        <result column="oauth_refresh_token" jdbcType="VARCHAR" property="oauthRefreshToken"/>
+        <result column="oauth_expires" jdbcType="VARCHAR" property="oauthExpires"/>
+        <result column="state" jdbcType="INTEGER" property="state"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="is_bind" jdbcType="INTEGER" property="isBind"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+
+    <sql id="query_wechat_where">
+        <if test="userId != null  and userId != ''">
+            AND user_id = #{userId}
+        </if>
+        <if test="oauthType != null  and oauthType != ''">
+            AND oauth_type = #{oauthType}
+        </if>
+        <if test="oauthOpenId != null  and oauthOpenId != ''">
+            AND oauth_open_id = #{oauthOpenId}
+        </if>
+        <if test="oauthUnionId != null  and oauthUnionId != ''">
+            AND oauth_union_id = #{oauthUnionId}
+        </if>
+        <if test="tenantId != null  and tenantId != ''">
+            AND tenant_id = #{tenantId}
+        </if>
+        <if test="ticket != null  and ticket != ''">
+            AND ticket = #{ticket}
+        </if>
+        <if test="isBind != null  and isBind != ''">
+            AND is_bind = #{isBind}
+        </if>
+    </sql>
+
+
+    <!--微信第三方查询-->
+    <select id="selectSaasUserOauthByWechat" resultMap="WechatResultMap">
+        SELECT id,user_id,oauth_type,oauth_open_id,oauth_union_id,ticket,ticket_time,password,tenant_id,
+        oauth_photo,oauth_user_name,oauth_access_token,oauth_refresh_token,oauth_expires,state,status,
+        is_bind,create_time,update_time
+        FROM saas_user_oauth
+        WHERE 1=1
+        <include refid="query_wechat_where"></include>
+    </select>
+
+</mapper>

@@ -1,0 +1,92 @@
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #f8fbfd;
+    font-family: 'Helvetica Neue',helvetica,'Hiragino Sans GB','Microsoft Yahei',sans-serif;
+    display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+    display: -moz-box; /* Firefox 17- */
+    display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+    display: -moz-flex; /* Firefox 18+ */
+    display: -ms-flexbox; /* IE 10 */
+    display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+    justify-content: center;
+    -webkit-align-items:center;
+    align-items:center;
+    flex-wrap: start;
+}
+input::-ms-clear{display:none;}
+.form-control:focus{
+    box-shadow:0 0 4px 1px rgba(71,192,252,0.50);
+    font-size: 14px;
+}
+body input.form-control{
+    outline-color: #4CC2FD;
+    font-size: 14px;
+    padding: 0.782rem .75rem;
+    color: #333;
+    font-family: 'Helvetica Neue',helvetica,'Hiragino Sans GB','Microsoft Yahei',sans-serif;
+}
+.btn{
+    padding: 0.688rem .75rem;
+    font-family: 'Helvetica Neue',helvetica,'Hiragino Sans GB','Microsoft Yahei',sans-serif;
+}
+.input-group .form-control:not(:last-child) {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+/*input框的placeholder的 字体自定义*/
+input.form-control::-webkit-input-placeholder{/*webkit browsers*/
+    color:#d1d1d1;
+}
+input.form-control:-moz-placeholder{/*Mozilla firefox 4-18*/
+    color:#d1d1d1;
+}
+input.form-control::-moz-placeholder{/*Mozilla firefox 19+*/
+    color:#d1d1d1;
+}
+input.form-control:-ms-input-placeholder{/*ie 10+*/
+    color:#d1d1d1;
+}
+/*dwj 输入框默认的黄色背景 2017-1-16*/
+input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+}
+/*获取二维码按钮样式*/
+.code{
+    margin-left: 28px;
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    color:#1896f0;;
+    border:1px solid #1896f0;;
+}
+.btn-secondary{
+    color: #1896f0;
+    background-color: #fff;
+    border-color: #1896f0;
+    cursor: pointer;
+}
+.btn-secondary:hover{
+    color: #1896f0;
+    background-color: #fff;
+    border-color: #1896f0;
+}
+.btn-secondary.disabled, .btn-secondary:disabled{
+    background-color:#fff;
+    border-color: #1896f0;
+}
+/*input标红框*/
+/*警告框样式*/
+.warningBox{
+    font-family:MicrosoftYaHei;
+    font-size:14px;
+    color:#f74555;
+    letter-spacing:0;
+    text-align:left;
+    margin-top: -10px;
+    display: none;
+}
+.warring{
+    border: 1px solid red;
+    margin-bottom: 10px;
+}

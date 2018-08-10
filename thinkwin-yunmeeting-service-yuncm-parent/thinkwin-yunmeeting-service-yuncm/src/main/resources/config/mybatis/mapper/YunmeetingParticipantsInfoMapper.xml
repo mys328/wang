@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.YunmeetingParticipantsInfoMapper">
+    <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.YunmeetingParticipantsInfo">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="conference_id" jdbcType="VARCHAR" property="conferenceId"/>
+        <result column="org_id" jdbcType="VARCHAR" property="orgId"/>
+        <result column="participants_id" jdbcType="VARCHAR" property="participantsId"/>
+        <result column="participants_name" jdbcType="VARCHAR" property="participantsName"/>
+        <result column="participants_name_pinyin" jdbcType="VARCHAR" property="participantsNamePinyin"/>
+        <result column="is_inner" jdbcType="VARCHAR" property="isInner"/>
+        <result column="creater_id" jdbcType="VARCHAR" property="createrId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="sort" property="sort" />
+        <result column="reserve_1" jdbcType="VARCHAR" property="reserve1"/>
+        <result column="reserve_3" jdbcType="VARCHAR" property="reserve3"/>
+        <result column="reserve_2" jdbcType="VARCHAR" property="reserve2"/>
+    </resultMap>
+    <!--查询当月参加会议数   普通参会 不包含组织机构  根据用户Id-->
+    <select id="selectParticipateMeetingByUser" resultMap="BaseResultMap">
+        SELECT * FROM yunmeeting_participants_info
+        WHERE conference_id = #{conferenceId}
+        AND `type` = #{type}
+        /*如果userId不为空 则查询的是当前用户是否参加会议*/
+        <if test="userId != null and userId != ''">
+            AND participants_id = #{userId}
+        </if>
+    </select>
+
+    <!--微信端-我组织的会议-->
+    <select id="organizeMeeting" resultMap="BaseResultMap">
+        SELECT *
+        FROM
+        yunmeeting_conference AS hy
+        where  1=1
+        <if test="userId != null and userId != ''">
+        AND hy.organizer_id=#{userId}
+        </if>
+        <if test="startTime != null and startTime != ''">
+            and hy.take_start_date>=#{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and #{endTime}>=hy.take_end_date
+        </if>
+        ORDER By hy.take_start_date ASC
+        <if test="pageBegin!= null and pageBegin!='' and step!= null and step!=''">
+            LIMIT #{pageBegin},#{step}
+        </if>
+
+    </select>
+
+    <!--微信端-我参与的会议-->
+    <select id="aboutMeeting" resultMap="BaseResultMap">
+        SELECT *
+        FROM
+        yunmeeting_conference AS hy
+        left join yunmeeting_participants_info AS ry on hy.id = ry.conference_id
+        left join yunmeeting_conference_user_info AS ycui on ycui.participants_info_id=ry.id
+        where  1=1
+        <if test="userId != null and userId != ''">
+            AND hy.organizer_id!=#{userId}
+            AND (ry.participants_id=#{userId} or ycui.participants_id=#{userId})
+        </if>
+        <if test="startTime != null and startTime != ''">
+            and hy.take_start_date>=#{startTime}
+        </if>
+        <if test="endTime != null and endTime != ''">
+            and #{endTime}>=hy.take_end_date
+        </if>
+        ORDER By hy.take_start_date ASC
+        <if test="pageBegin!= null and pageBegin!='' and step!= null and step!=''">
+            LIMIT #{pageBegin},#{step}
+        </if>
+
+    </select>
+
+    <!--查询会议参会人员 包含组织机构(带搜索功能)-->
+    <select id="selectMeetingReplay" resultMap="BaseResultMap">
+        select * from yunmeeting_participants_info where conference_id = #{meetingId}
+        <!-- 判断状态条件是否为空 -->
+        <if test="_parameter.containsKey('type')">
+            AND `type` = #{type}
+        </if>
+        <!-- 判断搜索条件是否为空 -->
+        <if test="_parameter.containsKey('search')">
+            AND (participants_name LIKE #{search} or participants_name_pinyin LIKE #{search})
+        </if>
+        ORDER BY sort
+    </select>
+</mapper>

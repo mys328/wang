@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.log.mapper.SysLogMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.log.SysLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="loglevel" jdbcType="VARCHAR" property="loglevel" />
+    <result column="operator" jdbcType="VARCHAR" property="operator" />
+    <result column="operatedate" jdbcType="TIMESTAMP" property="operatedate" />
+    <result column="businesstype" jdbcType="VARCHAR" property="businesstype" />
+    <result column="businessid" jdbcType="VARCHAR" property="businessid" />
+    <result column="eventtype" jdbcType="VARCHAR" property="eventtype" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="methodname" jdbcType="VARCHAR" property="methodname" />
+    <result column="classname" jdbcType="VARCHAR" property="classname" />
+    <result column="operate_user_id" jdbcType="VARCHAR" property="operateUserId" />
+    <result column="ip" jdbcType="VARCHAR" property="ip" />
+    <result column="businessname" jdbcType="VARCHAR" property="businessname" />
+    <result column="eventname" jdbcType="VARCHAR" property="eventname" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="result" jdbcType="LONGVARCHAR" property="result" />
+    <result column="methodarg" jdbcType="LONGVARCHAR" property="methodarg" />
+  </resultMap>
+
+    <select id="selectSysLogListByPage" resultMap="BaseResultMap">
+      select * from sys_log  where tenant_id = #{tenantId} and  state=0
+
+        <if test="_parameter.containsKey('businesstypes')">
+          and businesstype in
+          <foreach item="item" index="index" collection="businesstypes" open="(" separator="," close=")">
+            #{item}
+          </foreach>
+        </if>
+
+        <if test="_parameter.containsKey('eventtype')">
+          and eventtype = #{eventtype}
+        </if>
+
+        <if test="_parameter.containsKey('content')">
+          and ( operator like concat(concat('%',#{content}),'%')
+             or content like concat(concat('%',#{content}),'%')
+             or  ip like concat(concat('%',#{content}),'%')
+             or  operatedate like concat(concat('%',#{content}),'%')
+          )
+        </if>
+        and operatedate > DATE_SUB(CURDATE(), INTERVAL 3 MONTH) order by operatedate desc
+    </select>
+
+    <update id="updateSysLogList" parameterType="Map">
+       update  sys_log  set  state=1 where  tenant_id = #{tenantId}
+          <if test="_parameter.containsKey('businesstypes')">
+            and businesstype in
+            <foreach item="item" index="index" collection="businesstypes" open="(" separator="," close=")">
+              #{item}
+            </foreach>
+          </if>
+          <if test="_parameter.containsKey('eventtype')">
+            and eventtype = #{eventtype}
+          </if>
+    </update>
+</mapper>

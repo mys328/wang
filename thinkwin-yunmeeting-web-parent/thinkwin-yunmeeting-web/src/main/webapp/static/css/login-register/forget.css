@@ -1,0 +1,56 @@
+/*忘记密码*/
+/*找回密码的容器*/
+.resetPassword{
+    width: 354px;
+    border-radius: 0.3rem;
+}
+/*表单标题*/
+.form-title{
+    text-align: center;
+    margin-bottom: 24px;
+    font-size:18px;
+    color:#696969;
+    letter-spacing:0;
+}
+.input-group .form-control:not(:last-child){
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.code-btn{
+    margin-left: 16px;
+}
+.form-footer{
+    width: 100%;
+}
+/*表单按钮*/
+.green{
+    color: #333;
+}
+.red{
+    color: red;
+}
+.goBack{
+    margin-top: 32px;
+    padding: 16px 0 ;
+    font-size:14px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    outline: none;
+}
+.goBack a{
+    color:#696969;
+}
+.goBack a:hover {
+    color: #23b8fd;
+}
+.code-btn{
+    background:#ffffff;
+    border:1px solid #1896f0;
+    border-radius:4px;
+    width:122px;
+    height:42px;
+    margin-left: 16px;
+}
+form .form-group:nth-child(5){
+    margin-bottom: 24px;
+}

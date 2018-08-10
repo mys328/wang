@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.InfoBootDownTaskMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.InfoBootDownTask">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="task_name" jdbcType="VARCHAR" property="taskName" />
+    <result column="if_open_down" jdbcType="VARCHAR" property="ifOpenDown" />
+    <result column="down_start_time" jdbcType="TIMESTAMP" property="downStartTime" />
+    <result column="down_end_time" jdbcType="TIMESTAMP" property="downEndTime" />
+    <result column="cmd_content" jdbcType="VARCHAR" property="cmdContent" />
+    <result column="cmd_code" jdbcType="VARCHAR" property="cmdCode" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+  </resultMap>
+
+  <select id="getAllInfoBootDownTask" resultType="com.thinkwin.common.dto.publish.BootDownTaskDto">
+    SELECT
+    d.id,
+    d.task_name,
+    d.if_open_down,
+    d.down_start_time,
+    d.down_end_time,
+    d.`status` AS STATUS,
+    count( t.id ) AS terminalCount,
+    sum( CASE WHEN ( mi.run_status IS NOT NULL AND mi.run_status = 0 ) THEN 1 ELSE 0 END ) AS errorCount,
+    GROUP_CONCAT( CASE WHEN ( mi.run_status IS NOT NULL AND mi.run_status = 0 ) THEN t.id ELSE NULL END ) AS terminals
+    FROM
+    `info_boot_down_task` d
+    LEFT JOIN info_task_terminal_middle mi ON d.id = mi.boot_down_task_id
+    LEFT JOIN info_release_terminal t ON mi.terminal_id = t.id
+    WHERE 1=1
+    <if test="condition != null and condition != ''">
+      AND (d.task_name LIKE concat(concat('%',#{condition}),'%')
+      or t.terminal_name LIKE concat(concat('%',#{condition}),'%'))
+    </if>
+    <if test="state != null and state != ''">
+      AND d.`status` = #{state}
+    </if>
+    <if test="terminalId != null and terminalId != ''">
+      AND mi.terminal_id = #{terminalId}
+    </if>
+    GROUP BY
+    d.id
+  </select>
+  <select id="getTerminalTaskState" resultType="java.util.Map">
+    SELECT
+        count(1) as taskState,t.task_name as taskName,t.id as taskId
+    FROM
+        info_task_terminal_middle mi
+    LEFT JOIN info_boot_down_task t ON mi.boot_down_task_id = t.id
+    WHERE
+        mi.terminal_id = #{terminalId}
+    AND t.`status` = 1
+  </select>
+  <select id="getPlanCount" resultType="java.lang.String">
+    SELECT
+      d.`status`
+    FROM
+        `info_boot_down_task` d
+        LEFT JOIN info_task_terminal_middle mi ON d.id = mi.boot_down_task_id
+        LEFT JOIN info_release_terminal t ON mi.terminal_id = t.id
+    WHERE
+        1 = 1
+    <if test="condition != null and condition != ''">
+      AND (d.task_name LIKE concat(concat('%',#{condition}),'%')
+      or t.terminal_name LIKE concat(concat('%',#{condition}),'%'))
+    </if>
+    GROUP BY
+    d.id
+  </select>
+</mapper>

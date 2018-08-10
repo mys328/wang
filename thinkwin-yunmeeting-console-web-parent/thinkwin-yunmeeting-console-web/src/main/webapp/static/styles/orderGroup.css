@@ -1,0 +1,442 @@
+@charset "UTF-8";
+.status-label {
+  margin-top: 20px;
+}
+button:focus{
+  outline: none;
+}
+button {
+  border: none;
+}
+button:active, button:focus, button:hover {
+  border: none;
+}
+.introduce{
+  border: none;
+  margin-left: 32px;
+  font-size:14px;
+  color:#2ea2f5;
+}
+.status-label .status-label-line {
+  color: #ebebeb;
+}
+
+.status-label .status-label-text {
+  color: #1896f0;
+}
+
+.status-label .status-label-text i {
+  color: #fff;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  background-color: #1896f0 !important;
+  border-radius: 50%;
+  margin-right: 3px;
+}
+
+.col-form-label {
+  font-size: 16px;
+  color: #757575;
+  letter-spacing: 0;
+  width: 104px;
+  padding: 0 0 0 15px;
+}
+
+.content-serve {
+  width: 1200px;
+  min-width: 1000px;
+  margin: 16px auto;
+  margin-bottom: -7px;
+  padding: 20px 40px;
+  position: relative;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14);
+}
+
+.content-serve .form-group {
+  margin-bottom: 0;
+}
+
+.content-serve .version {
+  font-size: 14px;
+  color: #2ea2f5;
+  letter-spacing: 0;
+  line-height: 32px;
+}
+
+.content-serve label.key {
+  font-size: 14px;
+  color: #999999;
+  letter-spacing: 0;
+}
+
+.content-serve label.value {
+  font-size: 14px;
+  color: #666666;
+  letter-spacing: 0;
+  margin-left: 5px;
+}
+
+.tab-content .free {
+  padding: 13px 40px;
+  margin-bottom: 80px;
+  min-height: calc(100vh - 160px);
+  width: 1200px;
+}
+
+.tab-content .free .content-produce, .tab-content .free .content-time, .tab-content .free .content-list {
+  padding: 20px 0;
+  position: relative;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.tab-content .free .content-produce .col-form-label {
+  margin-top: 22px;
+}
+
+.tab-content .free .content-produce .unitPrice {
+  font-size: 16px;
+  color: #333333;
+  letter-spacing: 0;
+  text-align: right;
+  position: absolute;
+  right: 0;
+}
+
+.tab-content .free .content-produce .last {
+  height: 63px;
+  margin-bottom: 0;
+}
+
+.tab-content .free .content-produce .value {
+  margin-top: 22px;
+  line-height: 32px;
+  padding-left: 10px;
+}
+.tab-content .free .content-produce .relevanceDiscount{
+  line-height: 80px;
+  font-size:16px;
+  color:#333333;
+  width: 140px;
+}
+.tab-content .free .content-produce .relevanceDiscount .discount{
+  color:#fa553c;
+}
+
+.tab-content .free .content-time .first {
+  margin-top: 30px;
+  height: 54px;
+  margin-bottom: 35px;
+  line-height: 54px;
+}
+
+.tab-content .free .content-time .end {
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.tab-content .free .content-time .renew {
+  font-size: 16px;
+  color: #333333;
+  letter-spacing: 0;
+  text-align: right;
+  position: absolute;
+  right: 20px;
+}
+
+.tab-content .free .content-time .rooms {
+  background: #ffffff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  width: 110px;
+  height: 54px;
+  line-height: 54px;
+  text-align: center;
+  margin-left: 48px;
+  position: relative;
+  cursor: pointer;
+}
+
+.tab-content .free .content-time .rooms.one {
+  margin-left: 15px;
+}
+
+.tab-content .free .content-time .select {
+  border: 1px solid #2ea2f5;
+}
+
+.tab-content .free .content-time .selectedIcon {
+  display: none;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: 15px solid transparent;
+  border-right: 15px solid #2ea2f5;
+  border-bottom: 15px solid #2ea2f5;
+}
+.tab-content .free .content-time .select .selectedIcon{
+  display: block;
+}
+
+.tab-content .free .content-time .selectedIcon:after {
+  content: '\e651';
+  font-family: "iconfont" !important;
+  font-size: 12px;
+  padding-right: 5px;
+  position: absolute;
+  top: -20px;
+  color: white;
+}
+
+.tab-content .free .content-time .discountYears {
+  font-size: 12px;
+  color: #ffffff;
+  background: #fa553c;
+  border-radius: 2px;
+  width: 44px;
+  height: 24px;
+  line-height: 24px;
+  right: -8px;
+  top: -6px;
+  position: absolute;
+}
+
+.tab-content .free .content-showDiscount {
+  padding: 20px 0;
+  position: relative;
+}
+
+.tab-content .free .content-showDiscount .col-form-label {
+  padding-left: 0;
+  height: 54px;
+  line-height: 54px;
+  margin-bottom: 5px;
+}
+
+.tab-content .free .content-showDiscount .col-sm-5 {
+  padding: 0;
+}
+
+.tab-content .free .content-showDiscount .col-sm-3 {
+  padding: 0;
+  max-width: 220px;
+  margin-left: 15px;
+}
+
+.tab-content .free .content-showDiscount .col-form-label .icon-info-down {
+  margin-left: 5px;
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  font-size: 10px;
+}
+
+.tab-content .free .content-showDiscount .col-form-label.collapsed .icon-info-down {
+  margin-left: 5px;
+  font-size: 10px;
+  -webkit-transform: rotate(-360deg);
+  transform: rotate(-360deg);
+}
+
+.tab-content .free .content-showDiscount .discountIput {
+  background: #ffffff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  width: 200px;
+  height: 32px;
+}
+
+.tab-content .free .content-showDiscount .discountIput.disabled {
+  background: #fbfbfb;
+}
+
+.tab-content .free .content-showDiscount .discountBtn {
+  margin-left: -10px;
+  background: #2fa2f5;
+  border-radius: 4px;
+  width: 64px;
+  height: 32px;
+  font-size: 14px;
+  color: #ffffff;
+  z-index: 1;
+}
+
+.tab-content .free .content-showDiscount .describe {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #999999;
+}
+
+.tab-content .free .content-showDiscount .correct, .tab-content .free .content-showDiscount .error {
+  font-size: 14px;
+  color: #333333;
+  line-height: 32px;
+  margin-left: 48px;
+  display: none;
+}
+
+.tab-content .free .content-list {
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  background: #fbfbfb;
+  margin-left: -40px;
+  padding-left: 40px;
+  width: 1200px;
+  height: 149px;
+}
+
+.tab-content .free .content-list .form-group {
+  margin-bottom: 0;
+  line-height: 28px;
+}
+
+.tab-content .free .content-list .col-sm-4, .tab-content .free .content-list .col-sm-3 {
+  padding: 0;
+  padding-left: 15px;
+}
+.tab-content .free .content-list .col-form-label {
+  margin-right: 15px;
+}
+.tab-content .free .content-list .key {
+  font-size: 14px;
+  color: #999999;
+  line-height: 28px;
+  width: 70px;
+  display: inline-block;
+}
+
+.tab-content .free .content-list .value {
+  font-size: 14px;
+  color: #666666;
+  line-height: 28px;
+  width: 200px;
+  display: inline-block;
+  margin-right: 64px;
+}
+
+.tab-content .free .content-bottom {
+  padding-top: 20px;
+  height: 124px;
+}
+
+.tab-content .free .content-bottom .col-form-label {
+  padding-top: 0;
+}
+
+.tab-content .free .content-bottom .form-group {
+  margin-bottom: 0;
+  line-height: 56px;
+  height: 56px;
+}
+
+.tab-content .free .content-bottom .submit {
+  background: #2fa2f5;
+  border-radius: 4px;
+  width: 132px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 8px;
+  position: absolute;
+  right: 48px;
+  cursor: pointer;
+
+}
+
+.tab-content .free .content-bottom .loaded {
+  padding-left: 15px;
+}
+
+.tab-content .free .content-bottom .loading {
+  font-size: 16px;
+  color: #2ea2f5;
+  padding-left: 15px;
+  display: none;
+}
+
+.tab-content .free .content-bottom .discountPrice {
+  font-size: 24px;
+  color: #2ea2f5;
+  text-align: left;
+}
+
+.tab-content .free .content-bottom .price {
+  font-size: 12px;
+  color: #999999;
+  margin-left: 8px;
+  text-decoration: line-through;
+}
+
+.tab-content .free .content-bottom .total {
+  font-size: 16px;
+  color: #999999;
+}
+
+body {
+  overflow: auto;
+}
+
+.budget {
+  height: 56px;
+  line-height: 56px;
+  position: absolute;
+  left: 497px;
+}
+.budget .label {
+  height: 32px;
+  line-height: 32px;
+  margin-top: 12px;
+  color: #333;
+  font-size: 14px;
+  margin-right: 24px;
+  padding: 0;
+}
+.budget input {
+  height: 32px;
+  line-height: 32px;
+  margin-top: 12px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  width: 120px;
+  padding-left: 10px;
+  margin-right: 10px;
+}
+.budget .unit {
+  color: #999;
+  margin-right: 56px;
+}
+.budget #discountValue {
+  font-size: 24px;
+  color: #2ea2f5;
+  margin-left: 24px;
+}
+.tab-content .free .content-time {
+  border-bottom: none ;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button ,input::-webkit-inner-spin-button {
+  -wekit-appearance:none !important;
+  margin: 0;
+}
+.content-produce .loading, .content-produce .loaded {
+  width: 100%;
+  text-align: right;
+  height: 63px;
+  line-height: 63px;
+  font-size: 16px;
+  margin-right: 15px;
+}
+.sliderange.bwer .actual {
+  display: none;
+}

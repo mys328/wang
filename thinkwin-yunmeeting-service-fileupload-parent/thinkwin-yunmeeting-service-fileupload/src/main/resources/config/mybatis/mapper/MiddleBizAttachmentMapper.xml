@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.fileupload.mapper.MiddleBizAttachmentMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.MiddleBizAttachment">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="biz_id" jdbcType="VARCHAR" property="bizId" />
+    <result column="biz_type" jdbcType="VARCHAR" property="bizType" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="platform_type" jdbcType="VARCHAR" property="platformType" />
+    <result column="sys_attachment" jdbcType="VARCHAR" property="sysAttachment" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+  </resultMap>
+
+<!--
+  <select id="selectAllTenentId"  resultMap="BaseResultMap" >
+        SELECT * FROM middle_biz_attachment
+  </select>-->
+  <select id="insertTimingTaskTenementFile" resultMap="BaseResultMap" >
+    SELECT DISTINCT(tenant_id) tenant_id FROM  middle_biz_attachment
+  </select>
+
+
+
+
+
+
+
+</mapper>

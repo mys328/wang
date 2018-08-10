@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.YunmeetingConferenceUserInfoMapper">
+    <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.YunmeetingConferenceUserInfo">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="participants_info_id" jdbcType="VARCHAR" property="participantsInfoId"/>
+        <result column="participants_id" jdbcType="VARCHAR" property="participantsId"/>
+        <result column="participants_name" jdbcType="VARCHAR" property="participantsName"/>
+        <result column="participants_name_pinyin" jdbcType="VARCHAR" property="participantsNamePinyin"/>
+        <result column="creater_id" jdbcType="VARCHAR" property="createrId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="reserve_1" jdbcType="VARCHAR" property="reserve1"/>
+        <result column="reserve_3" jdbcType="VARCHAR" property="reserve3"/>
+        <result column="reserve_2" jdbcType="VARCHAR" property="reserve2"/>
+    </resultMap>
+
+    <sql id="Column_List">
+         ycui.id,ycui.participants_info_id,ycui.participants_id,ycui.participants_name,ycui.participants_name_pinyin,
+         ycui.creater_id,ycui.create_time
+    </sql>
+
+    <!--查询当月参加会议数  组织机构  根据用户Id和参会信息Id-->
+    <select id="selectParticipateMeetingByOrg" resultMap="BaseResultMap">
+        SELECT <include refid="Column_List"/>  FROM yunmeeting_participants_info ypi
+        LEFT JOIN yunmeeting_conference_user_info ycui
+        ON ypi.id = ycui.participants_info_id
+        WHERE ycui.participants_info_id = #{participateInfoId}
+        /*如果userId不为空 则查询的是该参会信息下所有组织机构人员是否存在该用户*/
+        <if test="userId != null and userId != ''">
+            AND ypi.participants_id = ycui.participants_id
+            AND ypi.participants_id = #{userId}
+        </if>
+    </select>
+    <!--查询会议全部参会人员  不包含组织结构（带搜索功能）-->
+    <select id="selectMeetingAllPerson" resultMap="BaseResultMap">
+        SELECT * FROM yunmeeting_conference_user_info where participants_info_id = #{participantsInfoId}
+        <!-- 判断搜索条件是否为空 -->
+        <if test="_parameter.containsKey('search')">
+            AND (participants_name LIKE #{search} or participants_name_pinyin LIKE #{search})
+        </if>
+    </select>
+</mapper>

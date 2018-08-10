@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.config.mapper.TimerTaskMapper">
+	<select id="getTaskId" resultType="java.lang.String">
+	    SELECT `task_id` from `saas_timer`
+	    WHERE `service_type` = #{serviceType}
+	    and task_type = #{taskType}
+	    and service_id = #{serviceId};
+  	</select>
+
+	<select id="getLogByTaskId" resultType="com.thinkwin.common.model.core.SaasTimerLog">
+	    SELECT `id`
+	    ,`service_type`
+	    ,`task_type`
+	    ,`service_id`
+	    ,`task_id`
+	    ,`tenant_id`
+	    ,`task_status`
+	    ,`cancel_time`
+	    from `saas_timer`
+	    WHERE `task_id` = #{taskId};
+  	</select>
+
+	<select id="updateLogByTaskId" parameterType="com.thinkwin.common.model.core.SaasTimerLog">
+	    UPDATE `saas_timer`
+		<set >
+			<if test="log.taskStatus != null" >
+				task_status = #{log.taskStatus},
+			</if>
+			<if test="log.cancelTime != null" >
+				cancel_time = #{log.cancelTime},
+			</if>
+		</set>
+		WHERE `task_id` = #{log.taskId};
+  	</select>
+</mapper>

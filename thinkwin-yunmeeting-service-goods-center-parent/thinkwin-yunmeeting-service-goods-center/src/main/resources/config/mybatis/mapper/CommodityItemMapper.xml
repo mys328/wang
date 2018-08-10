@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.goodscenter.mapper.CommodityItemMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.CommodityItem">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="category_code" jdbcType="VARCHAR" property="categoryCode" />
+    <result column="item_name" jdbcType="VARCHAR" property="itemName" />
+    <result column="item_desc" jdbcType="VARCHAR" property="itemDesc" />
+    <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
+  </resultMap>
+
+  <!--查询返回 可以多个-->
+  <sql id="CommodityItem-Fields">
+      Id,
+      category_code,
+      item_name,
+      item_desc,
+      sort_order
+  </sql>
+
+
+  <select id="selectCommodityItemAll" resultMap="BaseResultMap" >
+    SELECT
+    <include refid="CommodityItem-Fields"/>
+    FROM commodity_item
+    WHERE category_code = #{categoryCode} ORDER BY sort_order
+  </select>
+
+
+
+
+
+
+
+
+
+
+</mapper>

@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.thinkwin</groupId>
+    <artifactId>thinkwin-yunmeeting-service-document</artifactId>
+    <version>2.1.0-DZJM</version>
+    <packaging>jar</packaging>
+
+    <name>thinkwin-yunmeeting-service-document</name>
+    <url>http://maven.apache.org</url>
+
+    <parent>
+        <groupId>com.thinkwin</groupId>
+        <artifactId>thinkwin-yunmeeting-service-document-parent</artifactId>
+        <version>2.1.0-DZJM</version>
+        <relativePath>../../thinkwin-yunmeeting-service-document-parent</relativePath>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-system-common</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-document</artifactId>
+            <version>2.1.0-DZJM</version>
+		</dependency>
+
+        <dependency>
+            <groupId>com.thinkwin</groupId>
+            <artifactId>thinkwin-yunmeeting-api-fileupload</artifactId>
+            <version>2.1.0-DZJM</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jodconverter</groupId>
+            <artifactId>jodconverter-core</artifactId>
+            <version>4.0.0-RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-client</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>

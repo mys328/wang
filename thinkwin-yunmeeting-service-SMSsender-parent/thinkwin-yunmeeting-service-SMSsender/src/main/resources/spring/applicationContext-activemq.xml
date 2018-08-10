@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <!--ActiveMQ
+        简介：是Apache出品，最流行的，能力强劲的开源消息总线。
+        JMS（Java消息服务）：是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，
+        或分布式系统中发送消息，进行异步通信。
+        JMS是一个用于提供消息服务的技术规范，它制定了在整个消息服务提供过程中的所有数据结构和交互流程。
+        而MQ则是消息队列服务，是面向消息中间件（MOM）的最终实现，是真正的服务提供者；MQ的实现可以基于JMS，
+        也可以基于其他规范或标准。
+        ActiveMQ的特性之一是很好的支持JMX。通过JMX MBeans可以很方便的监听和控制ActiveMQ的broker。
+
+        MQ不仅可以缓解系统压力，还可以让系统与系统之间解耦。通过消息传递，可以实现两个
+        系统之间交互。像观察者模式一样，减少了交互对象之间的耦合度。
+
+        JMS消息模式
+　       1、点对点或队列模式：每个消息只能有一个消费者。消息的生产者和消费者之间
+            没有时间上的相关性，无论消费者在生产者发送消息的时候是否处于运行状态，
+            它都可以提取消息。
+         2、Pub/Sub 发布/订阅模式：每个消息可以有多个消费者。生产者和消费者之间有
+            时间上的相关性。订阅一个主题的消费者只能消费自它订阅之后发布的消息。
+    -->
+
+
+
+    <!-- 第一、配置 jms连接池  activemq的连接池
+        activemq的连接池，通过spring的JmsTemplate发送消息到指定的Destination
+       JMS VM连接工厂
+    -->
+    <beans:bean id="jmsFactory" class="org.apache.activemq.pool.PooledConnectionFactory"
+                destroy-method="stop">
+        <!-- ActiveMQ 连接工厂 -->
+        <beans:property name="connectionFactory">
+            <beans:bean class="org.apache.activemq.ActiveMQConnectionFactory">
+                <beans:property name="brokerURL">
+                    <!--Transport传输方式：客户端通过TCP Socket连接到远程Broker。-->
+                    <beans:value>${mq.url}</beans:value>
+                </beans:property>
+            </beans:bean>
+        </beans:property>
+    </beans:bean>
+
+    <!-- 第二、配置生产者
+        配置Jms模板 生产者负责产生消息并发送到JMS服务器。在Spring中提供JmsTemplate类来实现。
+        用JmsTemplate进行消息发送的时候需要告诉程序发送的那种类型，点对点还是，发布订阅？
+        -->
+    <!-- a、消息转换器    -->
+    <beans:bean id="sMSMQMessageCoverter" class="com.thinkwin.SMSsender.util.SMSMQMessageCoverter"/>
+
+    <!--b、消息发送者-->
+    <beans:bean id="sMSJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <!--MQ连接池-->
+        <beans:property name="connectionFactory">
+            <beans:ref local="jmsFactory"/>
+        </beans:property>
+        <!--消息发送的目的地，即destination
+            在Jms中有一个用来表示目的地的Destination接口，它里面没有任何方法定义，只是用来做一个标识而已
+            默认Destination可以通过在定义jmsTemplate bean对象时通过属性defaultDestination
+            或defaultDestinationName来进行注入，defaultDestinationName对应的就是一个普通字符串。-->
+        <beans:property name="defaultDestinationName" value="system_SMS_${group.scope}"/>
+        <!-- 消消息转换器 -->
+        <beans:property name="messageConverter" ref="sMSMQMessageCoverter"/>
+        <!-- 区别它采用的模式为false是p2p为true是订阅
+            队列模式
+         -->
+        <beans:property name="pubSubDomain" value="false"/>
+        <!-- 接收消息时的超时时间 -->
+        <!--<property name="receiveTimeout" value="10000" />  -->
+        <!--explicitQosEnabled：默认false，是否开启是否开启 deliveryMode, priority, timeToLive的配置-->
+        <!--<beans:property name="explicitQosEnabled" value="true"/>-->
+    </beans:bean>
+
+    <!-- c、发送信息  发送工具类 集成了JmsTemplate和Destination，作为一个工具类方便使用-->
+    <beans:bean id="sMSMQProducer" class="com.thinkwin.SMSsender.util.SMSMQProducer">
+        <beans:property name="jmsTemplet" ref="sMSJmsTemplate"/>
+    </beans:bean>
+
+    <!-- 第三、配置消费者
+            Spring整合JMS的应用中在定义消息监听器的时候一共可以定义三种类型的消息监听器，
+            分别是MessageListener、SessionAwareMessageListener和MessageListenerAdapter。
+        -->
+    <beans:bean id="sMSMQConsumer" class="com.thinkwin.SMSsender.util.SMSMQConsumer"/>
+
+    <!--注意：三种方式都要配一个DefaultMessageListenerContainer消息监听容器。-->
+    <beans:bean id="listenerContainer_SMS"
+                class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <beans:property name="concurrentConsumers" value="5"/>
+        <beans:property name="connectionFactory" ref="jmsFactory"/>
+        <!--监控队列名称-->
+        <beans:property name="destinationName" value="system_SMS_${group.scope}"/>
+        <!-- 当列队有消息，将触发指定方法，形成方法调用 -->
+        <beans:property name="messageListener" ref="sMSMQConsumer"/>
+    </beans:bean>
+
+</beans:beans>

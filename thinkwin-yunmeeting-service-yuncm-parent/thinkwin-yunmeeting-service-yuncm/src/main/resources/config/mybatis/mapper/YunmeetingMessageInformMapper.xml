@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.YunmeetingMessageInformMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.YunmeetingMessageInform">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="conference_id" jdbcType="VARCHAR" property="conferenceId" />
+    <result column="inform_type" jdbcType="VARCHAR" property="informType" />
+    <result column="inform_time" jdbcType="TIMESTAMP" property="informTime" />
+    <result column="timed_task_id" jdbcType="VARCHAR" property="timedTaskId" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+  </resultMap>
+</mapper>

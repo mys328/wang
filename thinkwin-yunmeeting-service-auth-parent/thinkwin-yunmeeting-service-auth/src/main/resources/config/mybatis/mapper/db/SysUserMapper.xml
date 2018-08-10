@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.auth.mapper.db.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.SysUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_name_pinyin" jdbcType="VARCHAR" property="userNamePinyin" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="openid" jdbcType="VARCHAR" property="openId" />
+    <result column="is_subscribe" jdbcType="VARCHAR" property="isSubscribe" />
+    <result column="org_id" jdbcType="VARCHAR" property="orgId" />
+    <result column="org_name" jdbcType="VARCHAR" property="orgName" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="photo" jdbcType="VARCHAR" property="photo" />
+    <result column="centralGraph" jdbcType="VARCHAR" property="centralgraph" />
+    <result column="thumbnails" jdbcType="VARCHAR" property="thumbnails" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifyer" jdbcType="VARCHAR" property="modifyer" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="device_token" jdbcType="VARCHAR" property="deviceToken" />
+    <result column="device_type" jdbcType="INTEGER" property="deviceType" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="user_number" jdbcType="VARCHAR" property="userNumber" />
+  </resultMap>
+  <select id="selectUserLickCondition" parameterType="String" resultMap="BaseResultMap">
+    SELECT * FROM sys_user WHERE org_id = "0" AND (user_name LIKE #{searchParameter} OR user_name_pinyin LIKE #{searchParameter})
+  </select>
+  <select id="selectUserLickConditionNew" parameterType="String" resultMap="BaseResultMap">
+    SELECT * FROM sys_user WHERE 1 = 1 AND (user_name LIKE #{searchParameter} OR user_name_pinyin LIKE #{searchParameter}) and status != 89
+  </select>
+  <select id="likeSeachUsersByCondition" resultMap="BaseResultMap">
+    SELECT * FROM sys_user where 1=1
+    <if test="status != null">
+      and status != #{status}
+    </if>
+    <if test="seachCondition != null">
+    and (user_name LIKE #{seachCondition} or user_name_pinyin LIKE #{seachCondition} or phone_number LIKE #{seachCondition} or email LIKE #{seachCondition})
+    </if>
+    <if test="orgIds != null">
+      and org_id in
+      <foreach collection="orgIds" item="listId" open="(" close=")"
+               separator=",">
+        #{listId}
+      </foreach>
+    </if>
+
+  </select>
+
+  <select id="likeSeachUsersByConditionByOrgIds" resultMap="BaseResultMap">
+    SELECT * FROM sys_user where 1=1
+     <if test="orgIds != null">
+      and org_id in
+      <foreach collection="orgIds" item="listId" open="(" close=")"
+               separator=",">
+        #{listId}
+      </foreach>
+    </if>
+    <if test="status != null">
+    and status != #{status}
+    </if>
+  </select>
+
+  <select id="selectUserCount" resultType="java.lang.Integer">
+    SELECT COUNT(1) FROM sys_user where  1=1
+<if test="status != null">
+  and status != #{status}
+</if>
+    <if test="orgIds != null">
+      and org_id in
+      <foreach collection="orgIds" item="listId" open="(" close=")"
+               separator=",">
+        #{listId}
+      </foreach>
+    </if>
+
+  </select>
+
+  <select id="batchQuery" resultMap="BaseResultMap">
+    SELECT
+    *
+    from sys_user
+    WHERE 1=1
+    <if test="list != null">
+    and org_id in
+    <foreach collection="list" item="listId" open="(" close=")"
+             separator=",">
+      #{listId}
+    </foreach>
+    </if>
+    AND status != 89
+  </select>
+
+  <select id="selectUserCountByStatus" resultType="java.lang.Integer">
+    SELECT COUNT(1) FROM sys_user where  1=1
+    <if test="status != null">
+    and status = #{status}
+    </if>
+    <if test="orgIds != null">
+      and org_id in
+      <foreach collection="orgIds" item="listId" open="(" close=")"
+               separator=",">
+        #{listId}
+      </foreach>
+    </if>
+
+  </select>
+
+  <select id="selectUserByUserStatus" resultMap="BaseResultMap">
+    SELECT
+    *
+    from sys_user
+    WHERE 1=1
+    <if test="userStatus != null">
+      and status = #{userStatus}
+    </if>
+    <if test="notUserStatus != null">
+      and status != #{notUserStatus}
+      </if>
+    <if test="seachCondition != null">
+      and (user_name LIKE #{seachCondition} or user_name_pinyin LIKE #{seachCondition} or phone_number LIKE #{seachCondition} or email LIKE #{seachCondition})
+    </if>
+    <if test="orgIds != null">
+      and org_id in
+      <foreach collection="orgIds" item="listId" open="(" close=")"
+               separator=",">
+        #{listId}
+      </foreach>
+    </if>
+
+  </select>
+
+  <select id="selectUserCountSeach" resultType="java.lang.Integer">
+    SELECT COUNT(1) FROM sys_user where  1=1
+    <if test="userStatus != null">
+      and status = #{userStatus}
+    </if>
+    <if test="notUserStatus != null">
+      and status != #{notUserStatus}
+    </if>
+    <if test="seachCondition != null">
+      and (user_name LIKE #{seachCondition} or user_name_pinyin LIKE #{seachCondition} or phone_number LIKE #{seachCondition} or email LIKE #{seachCondition})
+    </if>
+    <if test="orgIds != null">
+      and org_id in
+      <foreach collection="orgIds" item="listId" open="(" close=")"
+               separator=",">
+        #{listId}
+      </foreach>
+    </if>
+  </select>
+
+  <select id="selectUserTotalCount" resultType="java.lang.Integer">
+    SELECT COUNT(1) FROM sys_user where  1=1 and status != 89
+  </select>
+
+  <select id="findByUserMap" resultMap="BaseResultMap">
+        SELECT u.* FROM sys_user As u where  1=1 AND u.status !=3
+        <!--查询用户Id-->
+        <if test="id!=null and id!=''">
+            AND u.id=#{id}
+        </if>
+        <!--手机号-->
+        <if test="null!=phoneNumber and phoneNumber!=''">
+            AND u.phone_number=#{phoneNumber}
+        </if>
+        <!--用户名-->
+        <if test="null!=userName and userName!=''">
+            AND u.user_name like CONCAT(CONCAT('%',#{userName}),'%')
+        </if>
+        <!--openid-->
+        <if test="null!=openId and openId!=''">
+            AND u.openid=#{openId}
+        </if>
+        <!-- 是否关注公众号-->
+        <if test="null!=isSubscribe and isSubscribe!=''">
+            AND u.is_subscribe=#{isSubscribe}
+        </if>
+        <!--租户id-->
+        <if test="null!=tenantId and tenantId!=''">
+            AND u.tenant_id=#{tenantId}
+        </if>
+        <!--状态-->
+        <if test="null!=status and status!=''">
+            AND u.status=#{status}
+        </if>
+        <if test="notUserStatus != null">
+              AND u.status != #{notUserStatus}
+        </if>
+        <!--组织机构Id-->
+        <if test="null!=orgId and orgId!=''">
+            AND u.org_id=#{orgId}
+        </if>
+
+    </select>
+
+  <select id="getUserIds" resultMap="BaseResultMap">
+    SELECT
+    *
+    from sys_user
+    WHERE 1=1
+    AND status != 89
+  </select>
+
+
+</mapper>

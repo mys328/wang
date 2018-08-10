@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://code.alibabatech.com/schema/dubbo
+  http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+  ">
+  
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="service-auth-dubbo-provider" />
+
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry address="zookeeper://${dubbo.registry.address}" file="../dubbo-registry/auth/dubbo-registry.properties"/>
+
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol name="dubbo"  port="-1" />
+
+	<!-- 声明需要暴露的服务接口 -->
+	<dubbo:provider delay="-1" timeout="100000" retries="0" filter="dubboContextFilter"/><!-- 全局超时,重试机制 -->
+
+	<dubbo:service interface="com.thinkwin.auth.service.LoginRegisterService" ref="loginRegisterService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.UserService" ref="userService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.RolePermissionService" ref="rolePermissionService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.PermissionService" ref="permissionService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.UserRoleService" ref="userRoleService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.RoleService" ref="roleService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.MenuService" ref="menuService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.RoleMenuService" ref="roleMenuService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.OrganizationService" ref="organizationService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.SaasTenantService" ref="saasTenantService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.SaasTenantInfoService" ref="saasTenantInfoService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.ImportExcelService" ref="importExcelService" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="fileUploadService" interface="com.thinkwin.fileupload.service.FileUploadService" check="false" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:reference id="saasTenantServcie" interface="com.thinkwin.core.service.SaasTenantService" check="false" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.UserStatisticalAnalysisService"  ref="userStatisticalAnalysisService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.DepStatisticalAnalysisService"  ref="depStatisticalAnalysisService" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:reference interface="com.thinkwin.yuncm.service.MeetingReserveService" id="meetingReserveService" check="false" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:reference interface="com.thinkwin.yuncm.service.MeetingDynamicService" id="meetingDynamicService" check="false" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:reference interface="com.thinkwin.yuncm.service.MeetingStatisticsService" id="meetingStatisticsService" check="false" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:service interface="com.thinkwin.auth.service.DepartmentService" ref="departmentService" group="${group.scope}" version="${interface.version}"/>
+
+</beans>

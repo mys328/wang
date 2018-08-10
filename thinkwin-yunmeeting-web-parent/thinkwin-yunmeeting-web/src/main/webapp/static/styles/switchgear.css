@@ -1,0 +1,793 @@
+#logsModal .table {
+    position: relative;
+    padding-top: 40px;
+}
+.periods ul{
+    margin-bottom: 0;
+}
+.period-form  .form-control:disabled, .form-control[readonly]{
+    background-color: #f7f7f7;
+}
+#particularsSave{
+   height: 40px;
+}
+#taskModal .selector .result{
+    padding: 10px 0 10px 10px;
+}
+#logsModal .table .scrollview {
+    height: 462px;
+    overflow: auto;
+}
+
+#logsModal .table th {
+    font-size: 12px;
+    border-top: none;
+    padding: 0;
+}
+#logsModal .table th:nth-child(2) {
+    width: 110px;
+}
+#logsModal .table th:nth-child(3) {
+    width: 170px;
+}
+#logsModal .table th span {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 2px solid #dae1eb;
+    padding-left: 16px;
+}
+
+#logsModal .table td {
+    font-size: 12px;
+    padding: 12px 0 11px 16px;
+    border-top: none;
+    border-bottom: 1px solid #f0f0f0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#logsModal .table td.fail {
+    color: #f84555;
+}
+#taskModal .modal-content, #logsModal .modal-content {
+    padding: 0;
+    background-color: #fafafa;
+    overflow: hidden;
+}
+
+#taskModal .modal-header, #logsModal .modal-header {
+    padding: 18px 24px;
+    border-bottom: none;
+}
+
+#taskModal .modal-title, #logsModal .modal-title {
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+}
+
+#taskModal .modal-title h3, #logsModal .modal-title h3 {
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: normal;
+}
+
+#taskModal .modal-body, #logsModal .modal-body {
+    padding-bottom: 0;
+    width: 900px;
+    height: 600px;
+}
+
+#taskModal .bottom, #logsModal .bottom {
+    position: absolute;
+    right: 24px;
+    left: 24px;
+    bottom: 0;
+    border-top: 1px solid #e0e0e0;
+    padding: 16px 0;
+    text-align: right;
+}
+
+#taskModal .modal-dialog.modal-lg, #logsModal .modal-dialog.modal-lg {
+    max-width: 900px;
+    margin: 56px auto;
+}
+
+#logsModal .logs {
+    padding: 0 24px;
+}
+
+#logsModal .modal-content {
+    background-color: #fff;
+}
+
+#logsModal .bottom {
+    height: 50px;
+    right: 0;
+    left: 0;
+    padding: 9px 0;
+    background-color: #fafbfc;
+}
+.ta_calendar {
+    z-index: 1100 !important;
+}
+.logs .table-top {
+    height: 49px;
+    padding: 8px 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.logs .table-top .search-box {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    width: 176px;
+    height: 32px;
+    min-width: 176px;
+    float: left;
+    overflow: hidden;
+}
+
+.logs .runtime {
+    width: 208px;
+    margin-left: 16px;
+    font-size: 14px;
+    padding-left: 16px;
+    display: inline-block;
+}
+.logs .table-top .border-shadow {
+    border-color: #90ccf8;
+    outline: none;
+    box-shadow: rgba(71, 192, 252, 0.5) 0px 0px 8px 0px;
+}
+
+.logs .table-top .search-box i.icon-search {
+    display: inline-block;
+    float: left;
+    color: #aaaaaa;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    min-width: 30px;
+    margin-right: 2px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logs .table-top .search-box i.icon-search-del {
+    display: inline-block;
+    float: right;
+    color: #aaaaaa;
+    width: 18px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    cursor: pointer;
+    display: none;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+}
+
+.logs .table-top .search-box .search-input {
+    width: 120px;
+    min-width: 120px;
+    height: 100%;
+    border: 0;
+    outline: none;
+    font-size: 14px;
+    border-radius: 4px;
+    box-shadow: none;
+    padding: 6px 0;
+    display: inline-block;
+}
+
+.logs .table-top .btn-box {
+    float: right;
+    margin-right: 24px;
+    display: none;
+    overflow: hidden;
+}
+
+.logs .table-top .btn-box button {
+    border-radius: 4px !important;
+    width: 88px;
+    height: 32px;
+    padding: 0;
+    text-align: center;
+    margin-left: 16px;
+    font-size: 14px;
+}
+
+.switchgear-table {
+    position: relative;
+    padding: 6px 24px;
+    height: calc(100% - 56px);
+    overflow: auto;
+}
+
+.is-invalid {
+    border-color: #f74555 !important;
+}
+
+.task-form {
+    height: 536px;
+    overflow: auto;
+    font-size: 14px;
+    margin: 0 0 0 24px;
+}
+
+.task-form .flex {
+    padding-bottom: 24px;
+    z-index: 0;
+}
+
+.task-form .flex.add-periods {
+    position: relative;
+    z-index: 1;
+}
+
+.task-form .lable {
+    line-height: 30px;
+}
+
+.task-form .col {
+    line-height: 30px;
+    padding-left: 40px;
+    padding-right: 10px;
+}
+
+.task-form .col p {
+    color: #aaa;
+    margin-bottom: 0;
+}
+.task-form .col p.tips {
+    padding-left: 36px;
+}
+.task-form .select-terminals {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    height: 92px;
+    overflow: auto;
+}
+
+.task-form .periods li {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+}
+
+.task-form .periods li:nth-child(3n+1) {
+    margin-left: 0;
+}
+
+.task-form .timerange {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.task-form .timerange input {
+    display: inline-block;
+    width: 158px;
+    height: 30px;
+    line-height: 16px;
+}
+
+.task-form .timerange span {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding: 0 8px;
+}
+
+.task-form input[name="taskName"] {
+    width: 400px;
+}
+
+.task-form p {
+    font-size: 12px;
+}
+
+.task-form .checkbox {
+    margin-left: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.task-form .checkbox span:before {
+    margin-right: 8px;
+}
+
+.task-form .timerange {
+    margin-top: 10px;
+}
+
+#taskModal .modal-header {
+    position: relative;
+}
+
+#taskModal .modal-header:before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    bottom: 0;
+    height: 1px;
+    background-color: #e0e0e0;
+}
+
+#taskModal .selector-terminals, #taskModal .select-terminals {
+    width: 756px;
+}
+
+#taskModal .btn-save-as-task {
+    display: none;
+}
+
+.task {
+    position: relative;
+    border-left: 5px solid #fa623c;
+    padding-left: 16px;
+    padding-right: 48px;
+    box-shadow: inset 0 -1px 0 0 #e8e8e8;
+    margin-top: 4px;
+}
+
+.task.running {
+    border-left-color: #27d050;
+}
+
+.task.running .head .title span {
+    color: #0eb036;
+}
+
+.task .head {
+    height: 41px;
+    line-height: 32px;
+    overflow: hidden;
+    padding-top: 9px;
+    margin: 0 0 8px 12px;
+}
+
+.task .head h3 {
+    display: inline-block;
+    max-width: calc(100% - 60px);
+    font-size: 16px;
+    margin-bottom: 0;
+    line-height: 32px;
+    font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    margin-right: 12px;
+}
+
+.task .head .title {
+    float: left;
+    width: 45%;
+    height: 32px;
+}
+
+.task .head .title span {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #fa553c;
+}
+
+.task .head .runnings {
+    float: left;
+    height: 32px;
+}
+
+.task .head .runnings a {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0;
+    margin-right: 9px;
+    color: #0aa7f0;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.task .head .runnings button {
+    float: none;
+}
+
+.task .head .runnings .errors {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+    color: #999999;
+}
+
+.task .head .runnings .errors button {
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: -1.5px;
+}
+
+.task .head button {
+    float: right;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 32px;
+    font-size: 14px;
+}
+
+.task .terminals {
+    display: none;
+    position: absolute;
+    top: 44px;
+    left: 50%;
+    width: 756px;
+    margin-left: -378px;
+    box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.14);
+    background-color: #fff;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+.task .terminals:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    left: 50%;
+}
+
+.task .terminals:before {
+    border-width: 7px;
+    top: -7px;
+    margin-left: -7px;
+    border-top-width: 0;
+    border-bottom-color: #fff;
+}
+
+.task .terminals.top {
+    top: auto;
+    bottom: 100%;
+}
+
+.task .terminals.top:before {
+    top: auto;
+    bottom: -7px;
+    border-top-width: 7px;
+    border-bottom-color: transparent;
+    border-bottom-width: 0;
+    border-top-color: #fff;
+}
+
+.task .terminals .content {
+    height: auto;
+    max-height: 364px;
+    overflow: auto;
+    padding: 10px 0;
+}
+
+.task .terminals .item {
+    padding: 0 4px;
+    float: left;
+    width: 164px;
+    height: 66px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    margin: 10px 0 10px 20px;
+    text-align: center;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.task .terminals .item.fail {
+    border-color: #f84555;
+    padding: 5px;
+}
+.task .terminals h5 {
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
+    margin-bottom: 0;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task .terminals p {
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 0;
+    color: #757575;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.task .terminals p.fail {
+    color: #f84555;
+}
+.task .terminals p.unbound {
+    color: #d1d1d1;
+}
+.task .terminals button {
+    font-size: 12px;
+    padding: 0;
+    position: relative;
+    top: -1.5px;
+}
+
+.task .terminals span {
+    color: #757575;
+    font-size: 12px;
+    line-height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-right: 10px;
+}
+
+.programs-form .col {
+    padding-right: 0;
+}
+
+@media screen and (max-width: 1895px) {
+    .switchgear-table li {
+        width: calc(20% - 12px);
+    }
+}
+
+@media screen and (max-width: 1635px) {
+    .switchgear-table li {
+        width: calc(25% - 12px);
+    }
+}
+
+@media screen and (max-width: 1375px) {
+    .switchgear-table li {
+        width: calc(33% - 12px);
+    }
+}
+
+@media screen and (max-width: 1115px) {
+    .switchgear-table li {
+        width: calc(50% - 12px);
+    }
+}
+
+@media screen and (max-width: 855px) {
+    .switchgear-table li {
+        width: calc(100% - 12px);
+    }
+}
+
+.periods {
+    margin-bottom: 2px;
+    overflow: hidden;
+}
+
+.periods li {
+    float: left;
+    min-width: 248px;
+    border: 2px solid #dae1eb;
+    padding: 2px 14px 10px;
+    margin: 0 0 12px 12px;
+    border-radius: 3px;
+    font-size: 0;
+}
+
+.periods li p {
+    height: 29px;
+    line-height: 20px;
+    padding-top: 9px;
+}
+
+.periods li p.actions {
+    text-align: right;
+}
+
+.periods li p.actions button.btn:first-child {
+    margin-right: 24px;
+}
+
+.periods button.btn {
+    width: auto;
+    padding: 0;
+}
+
+.periods span {
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 6px;
+    color: #757575;
+}
+
+.periods b {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.periods b:first-child {
+    margin-right: 24px;
+}
+
+.periods i {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    font-style: normal;
+    margin-right: 24px;
+}
+
+.add-periods .btn-add-period {
+    display: block;
+    width: auto;
+    padding: 0;
+}
+
+.period-form {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100px;
+    background-color: #fff;
+    box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 3px;
+    width: 566px;
+    height: 218px;
+    padding: 0 24px;
+}
+
+.period-form .title {
+    font-size: 16px;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 14px 0;
+    line-height: 20px;
+}
+
+.period-form .title span {
+    float: right;
+    opacity: .5;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+.period-form .content {
+    height: 113px;
+    padding-top: 24px;
+    line-height: 32px;
+    white-space: nowrap;
+    font-size: 0;
+}
+
+.period-form .footer button {
+    width: 120px;
+    height: 40px;
+}
+
+.period-form input {
+    display: inline-block;
+    width: 120px;
+    vertical-align: top;
+    margin-left: 8px;
+    text-align: center;
+}
+
+.period-form .icon-error {
+    display: none;
+    color: #f74555;
+    font-size: 14px;
+}
+
+.period-form .icon-error:before {
+    margin-right: 4px;
+}
+
+.period-form .weeklys {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 8px;
+}
+
+.period-form .weeklys span {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 32px;
+    padding-right: 8px;
+    text-align: center;
+}
+
+.period-form .weeklys label {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 0;
+}
+
+.period-form .weeklys label:nth-child(2) span {
+    border-left-width: 1px;
+}
+
+.period-form .weeklys label input {
+    display: none;
+}
+
+.period-form .weeklys label input:checked ~ span {
+    background-color: #32b9fc;
+    color: #fff;
+    border-color: #fff;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.period-form .weeklys label input:disabled ~ span {
+    background-color: #d1d1d1;
+}
+
+.period-form .weeklys label span {
+    width: 31px;
+    height: 32px;
+    padding-right: 0;
+    text-align: center;
+    border: 1px solid #ededed;
+    border-left-width: 0;
+    color: #666;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.period-form .weeklys label span:first-child {
+    border-left-width: 1px;
+}
+.datetimepicker.period-timepicker {
+    top: 210px !important;
+}
+#feedbackModal h4 {
+    font-size: 16px;
+    margin-bottom: 24px;
+    margin-top: 16px;
+}
+
+#feedbackModal p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #757575;
+}
+

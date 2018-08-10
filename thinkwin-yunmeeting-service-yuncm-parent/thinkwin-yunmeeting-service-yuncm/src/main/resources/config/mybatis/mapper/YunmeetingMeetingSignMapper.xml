@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.YunmeetingMeetingSignMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.YunmeetingMeetingSign">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="confreren_id" jdbcType="VARCHAR" property="confrerenId" />
+    <result column="participants_id" jdbcType="VARCHAR" property="participantsId" />
+    <result column="sign_time" jdbcType="TIMESTAMP" property="signTime" />
+    <result column="sign_source" jdbcType="VARCHAR" property="signSource" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+  </resultMap>
+
+  <select id="selectAllSignByMeetingIds" resultMap="BaseResultMap">
+    SELECT * FROM yunmeeting_meeting_sign WHERE 1=1
+    <if test="meetingIds != null">
+      and confreren_id in
+      <foreach collection="meetingIds" item="listId" open="(" close=")"
+               separator=",">
+        #{listId}
+      </foreach>
+    </if>
+  </select>
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.orders.mapper.OrderInvoiceMapper">
+    <resultMap id="BaseResultMap" type="com.thinkwin.common.model.orders.OrderInvoice">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="tenand_id" jdbcType="VARCHAR" property="tenandId"/>
+        <result column="order_Id" jdbcType="VARCHAR" property="orderId"/>
+        <result column="issue_type" jdbcType="INTEGER" property="issueType"/>
+        <result column="header" jdbcType="VARCHAR" property="header"/>
+        <result column="invoice_type" jdbcType="VARCHAR" property="invoiceType"/>
+        <result column="tax_number" jdbcType="VARCHAR" property="taxNumber"/>
+        <result column="opening_bank" jdbcType="VARCHAR" property="openingBank"/>
+        <result column="account_number" jdbcType="VARCHAR" property="accountNumber"/>
+        <result column="address" jdbcType="VARCHAR" property="address"/>
+        <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="location" jdbcType="VARCHAR" property="location"/>
+        <result column="detailed_address" jdbcType="VARCHAR" property="detailedAddress"/>
+        <result column="postal_code" jdbcType="VARCHAR" property="postalCode"/>
+        <result column="express_tracking_number" jdbcType="VARCHAR" property="expressTrackingNumber"/>
+        <result column="express_company" jdbcType="VARCHAR" property="expressCompany"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="create_time" jdbcType="VARCHAR" property="createTime"/>
+        <result column="express_gate_url" jdbcType="LONGVARCHAR" property="expressGateUrl"/>
+        <result column="invoice_phone" jdbcType="VARCHAR" property="invoicePhone"/>
+
+    </resultMap>
+
+    <select id="selectOrderInvoiceByPage" resultMap="BaseResultMap">
+        select * from order_invoice  where 1=1
+
+        <if test="_parameter.containsKey('status')">
+            and status in
+            <foreach item="item" index="index" collection="status" open="(" separator="," close=")">
+                #{item}
+            </foreach>
+        </if>
+
+        <if test="_parameter.containsKey('orderId')">
+            and ( order_Id like concat(concat('%',#{orderId}),'%')
+            or phone_number like concat(concat('%',#{orderId}),'%')
+            or name like concat(concat('%',#{orderId}),'%')
+            )
+        </if>
+         order by create_time desc
+    </select>
+
+</mapper>

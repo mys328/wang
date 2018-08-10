@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:aop="http://www.springframework.org/schema/aop"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+			 		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                    http://www.springframework.org/schema/security
+                    http://www.springframework.org/schema/security/spring-security-3.2.xsd
+                    http://www.springframework.org/schema/aop
+                    http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 不需要权限访问 -->
+    <http pattern="/static/**" security="none"></http>
+    <http pattern="/template/**" security="none"></http>
+    <http pattern="/login.do" security="none"/>
+    <http pattern="/index.do" security="none"/>
+    <http pattern="/login.jsp" security="none"></http>
+    <http pattern="/404.jsp" security="none"></http>
+    <http pattern="/500.jsp" security="none"></http>
+    <http pattern="/view/exception/**" security="none"></http>
+    <http pattern="/index.jsp" security="none"></http>
+    <http pattern="/access.jsp" security="none"></http>
+    <http pattern="/error.jsp" security="none"></http>
+    <http pattern="/system/**" security="none"/>
+    <http pattern="/register.jsp" security="none"></http>
+    <http pattern="/index1.jsp" security="none"></http>
+    <http pattern="/sessionTimeOut.jsp" security="none"/>
+
+    <http auto-config='true'>
+        <!-- 没有权限跳转页面  -->
+        <access-denied-handler error-page="/access.jsp"/>
+
+        <!-- 登陆可访问 -->
+        <!--<intercept-url pattern="/index.do"  access="IS_AUTHENTICATED_FULLY" />-->
+        <!--
+            校验登陆可访问-->
+        <intercept-url pattern="/**" access="IS_AUTHENTICATED_FULLY"/>
+        <!-- default-target-url 指定了从登录页面登录后进行跳转的页面
+            always-use-default-target true表示登录成功后强制跳转
+            authentication-failure-url 表示验证失败后进入的页面
+            login-processing-url 设置验证登录验证地址，如果不设置，默认是j_spring_security_check
+            username-parameter,password-parameter 设置登录用户名和密码的请求name，默认：j_username,j_password
+            default-target-url="/index.jsp" -->
+        <form-login
+                login-page="/system/loginpage"
+                login-processing-url="/logincheck"
+                authentication-failure-handler-ref="failureHandler"
+                authentication-success-handler-ref="successHandler"/>
+        <!-- 退出   logout-url 退出后验证url  logout-success-url 退出后跳转页面 -->
+        <!--  下面注释的方法是在用户退出时接着清空cookies的信息 -->
+        <!--	<logout delete-cookies="JSESSIONID" logout-url="/logout"    logout-success-url="/system/loginpage" />-->
+        <logout logout-url="/logout" logout-success-url="/system/loginpage"/>
+        <!-- error-if-maximum-exceeded="false" 后登陆的账号会挤掉第一次登陆的账号
+         session-fixation-protection	防止伪造sessionid攻击,用户登录成功后会销毁用户当前的session。
+         max-sessions="1" 一个账号只允许登陆一次
+         expired-url session过期跳转页面-->
+        <session-management invalid-session-url="/sessionTimeOut.jsp" session-fixation-protection="none">
+            <!--	<session-management invalid-session-url="/sessionTimeOut.jsp"  session-fixation-protection="migrateSession" >-->
+            <concurrency-control max-sessions="1" error-if-maximum-exceeded="false" expired-url="/sessionTimeOut.jsp"/>
+        </session-management>
+        <!-- 1、注释此过滤器，不再验证是否有访问权限(访问所有资源不再判断是否具有权限)
+             2、注释此过滤器，并更改max-sessions="9999",可用一个账号登陆9999次,并且不再验证是否有访问权限(访问所有资源不再判断是否具有权限) -->
+        <custom-filter ref="mySecurityFilter" before="FILTER_SECURITY_INTERCEPTOR"/>
+
+    </http>
+
+
+    <authentication-manager alias="authManager" erase-credentials="false">
+        <authentication-provider user-service-ref="userServiceDetail">
+            <password-encoder ref="passwordEncoder">
+                <!-- 盐值 [添加这个属性后，加密密码明文为:"密码明文{盐值}"] -->
+                <!--<salt-source user-property="username" />-->
+            </password-encoder>
+        </authentication-provider>
+    </authentication-manager>
+    <!-- MD5加密方式 -->
+    <!--	<beans:bean id="passwordEncoder"
+      class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />-->
+    <!-- SHA加密方式 -->
+    <beans:bean id="passwordEncoder"
+                class="org.springframework.security.authentication.encoding.ShaPasswordEncoder"/>
+
+    <beans:bean id="dubboAop" class="com.thinkwin.console.web.DubboServiceContextAop"/>
+    <aop:config>
+        <aop:aspect id="dubboAspect" ref="dubboAop">
+            <!-- @Before -->
+            <aop:pointcut id="pointCutBefore" expression="execution(* com.thinkwin..service.*.*(..))"/>
+
+            <aop:before method="dubboContext" pointcut-ref="pointCutBefore"/>
+
+        </aop:aspect>
+
+    </aop:config>
+
+
+    <!-- 登录失败后业务处理 -->
+    <beans:bean id="failureHandler"
+                class="com.thinkwin.console.web.security.LoginAuthenticationFailureHandler">
+    </beans:bean>
+
+    <!-- 登录成功业务处理 -->
+    <beans:bean id="successHandler"
+                class="com.thinkwin.console.web.security.LoginAuthenticationSuccesssHandler">
+        <beans:property name="saasUserService" ref="saasUserService"></beans:property>
+        <beans:property name="saasRoleService" ref="saasRoleService"></beans:property>
+        <beans:property name="saasRolePermissionService" ref="saasRolePermissionService"></beans:property>
+        <beans:property name="defaultUrl" value="/index.do"></beans:property>  <!-- 可变换登录成功后的路径，验证用户是否拥有该权限 -->
+    </beans:bean>
+
+    <!-- 自定义过滤器 -->
+    <beans:bean id="mySecurityFilter"
+                class="com.thinkwin.console.web.security.MyFilterSecurityInterceptor">
+        <beans:property name="accessDecisionManager" ref="accessDescisionManager"></beans:property>
+        <beans:property name="fisMetadataSource" ref="securityMetadataSource"></beans:property>
+        <beans:property name="authenticationManager" ref="authManager"></beans:property>
+    </beans:bean>
+
+    <beans:bean id="securityMetadataSource"
+                class="com.thinkwin.console.web.security.MySecurityMetadataSource">
+    </beans:bean>
+
+    <beans:bean id="accessDescisionManager"
+                class="com.thinkwin.console.web.security.MyAccessDescisionManager"></beans:bean>
+
+    <beans:bean id="userServiceDetail"
+                class="com.thinkwin.console.web.security.MyUserDetailServiceImpl">
+        <beans:property name="saasUserService" ref="saasUserService"></beans:property>
+        <beans:property name="saasRoleService" ref="saasRoleService"></beans:property>
+    </beans:bean>
+</beans:beans>

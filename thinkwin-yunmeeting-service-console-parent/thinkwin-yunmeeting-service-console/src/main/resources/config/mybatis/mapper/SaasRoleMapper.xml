@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.console.mapper.SaasRoleMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.console.SaasRole">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="org_code" jdbcType="VARCHAR" property="orgCode" />
+    <result column="org_name" jdbcType="VARCHAR" property="orgName" />
+    <result column="descript" jdbcType="VARCHAR" property="descript" />
+    <result column="sort_num" jdbcType="INTEGER" property="sortNum" />
+    <result column="is_system" jdbcType="INTEGER" property="isSystem" />
+    <result column="creater_id" jdbcType="VARCHAR" property="createrId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifyer" jdbcType="VARCHAR" property="modifyer" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+  </resultMap>
+</mapper>

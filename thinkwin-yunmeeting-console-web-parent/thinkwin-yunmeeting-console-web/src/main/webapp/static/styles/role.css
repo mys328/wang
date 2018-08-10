@@ -1,0 +1,544 @@
+.content {
+  padding: 0;
+  overflow: auto;
+}
+
+.content .top {
+  height: 56px;
+  box-shadow: inset 0 -1px 0 0 #e6e6e6;
+  padding: 12px 24px 12px 16px;
+  left:0;
+  right: 0;
+  background-color: #ffffff;
+}
+
+.content .top .create-btn {
+  float: right;
+  width: 96px;
+  height: 32px;
+  background-color: #2ea2f5;
+  color: #fff;
+  border-color: #2ea2f5;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: normal;
+  display: none;
+}
+.content .listBox {
+  margin-top: 56px;
+}
+.content .listBox .table {
+  margin-bottom: 0;
+}
+.content .listBox .table .table-1 {
+  width: 41.8%;
+}
+
+.content .listBox .table .table-2 {
+  width: 39.6%;
+}
+
+.content .listBox .table .table-3 {
+  width: 120px;
+}
+
+.flex-column .index2 {
+  background: #dde3eb;
+  border-left: 4px solid #2ca5f5;
+}
+
+span.span {
+  color: #0990f0;
+}
+
+span.btn-span:first-child {
+  margin-right: 16px;
+}
+
+span.btn-span:last-child {
+  margin-right: 0;
+}
+
+.input-search {
+  float: left;
+  width: 400px;
+  height: 32px;
+  border: 1px solid #d1d1d1;
+  margin-right: 18px;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 0px;
+}
+
+.input-heighLight {
+  border-color: #47c0fc;
+  box-shadow: 0 0 8px 0 rgba(71, 192, 252, 0.5);
+}
+
+.input-search .icon-search {
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+  color: #b8b8b8;
+  margin-left: 11px;
+}
+
+.input-search #search {
+  border: none;
+  vertical-align: baseline;
+  height: 32px;
+  line-height: 32px;
+  width: 340px;
+  background-color: transparent;
+}
+
+.input-search .icon-search-del {
+  height: 32px;
+  line-height: 32px;
+  color: #d9d9d9;
+  float: right;
+  font-size: 16px;
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+  position: absolute;
+  margin-left: 8px;
+  display: none;
+  cursor: pointer;
+}
+
+#search::-webkit-input-placeholder {
+  color: #d1d1d1 !important;
+  opacity: 1;
+}
+
+#search:-ms-input-placeholder {
+  color: #d1d1d1 !important;
+  opacity: 1;
+}
+
+#search::placeholder {
+  color: #d1d1d1 !important;
+  opacity: 1;
+}
+
+.invoice-info-box {
+  position: fixed;
+  top: 0;
+  right: -600px;
+  bottom: 0;
+  width: 560px;
+  padding: 24px 24px 41px 24px;
+  overflow: auto;
+  background-color: #fff;
+  box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.14);
+  transition: right 0.5s ease-in;
+  z-index: 1031;
+}
+
+.invoice-info-box .inner-box {
+  position: relative;
+  height: 100%;
+  min-height: 579px;
+}
+
+.invoice-info-box h3 {
+  font-size: 16px;
+  color: #222;
+  text-align: center;
+  font-weight: normal;
+  margin-bottom: 24px;
+}
+
+.invoice-info-box.show {
+  right: 0;
+}
+
+.invoice-info-box .form-group {
+  margin-bottom: 24px;
+}
+
+.invoice-info-box .form-group label {
+  font-size: 14px;
+  height: 19px;
+  line-height: 19px;
+  margin-bottom: 16px;
+}
+
+.invoice-info-box .countersign-btn {
+  position: absolute;
+  float: right;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  height: 40px;
+  background-color: #2ea2f5;
+  border-color: #2ea2f5;
+  font-size: 14px;
+}
+
+.invoice-info-box .countersign-btn:hover {
+  background-color: #2ea2f5;
+  border-color: #2ea2f5;
+}
+
+.invoice-info-box .cancel-btn {
+  position: absolute;
+  float: right;
+  bottom: 0;
+  right: 170px;
+  width: 28px;
+  height: 40px;
+  font-size: 14px;
+  background-color: transparent;
+  color: #696969;
+  border: none;
+}
+
+.invoice-info-box .cancel-btn:hover {
+  background-color: transparent;
+  border: none;
+  color: #696969;
+}
+
+table th {
+  border-top: none !important;
+}
+
+#authorizeModal .modal-dialog {
+  /*margin-top: 125px;*/
+  height: 520px;
+  width: 1000px;
+  max-width: 1000px;
+  background-color: #fafafa;
+  border-radius: 4px;
+}
+
+#authorizeModal .modal-dialog .modal-content {
+  height: 100%;
+  padding: 0 24px;
+  position: relative;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-header {
+  border-bottom: 1px solid #d8d8d8;
+  height: 57px;
+  line-height: 57px;
+  color: #333;
+  font-size: 18px;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-header .modal-title {
+  height: 57px;
+  line-height: 57px;
+  color: #333;
+  font-size: 18px;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-header .close {
+  font-size: 12px;
+  color: #222;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-header .close:focus {
+  border: none;
+  outline: none;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-header .close .icon-close {
+  font-size: 12px;
+  color: #222;
+  font-weight: normal;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body {
+  margin-top: 0;
+  padding: 0;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-info {
+  height: 53px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 53px;
+  border-bottom: 1px solid #d8d8d8;
+  display: inline-block;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-info label {
+  font-size: 16px;
+  color: #333;
+  height: 53px;
+  line-height: 1;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-info label.role-name {
+  margin-left: 40px;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-operate {
+  height: 321px;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-operate .un-authorize {
+  width: 379px;
+  height: 100%;
+  float: left;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-operate .un-authorize .ul {
+  border: 1px solid #d8d8d8;
+  height: 281px;
+  overflow: auto;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-operate .operate {
+  width: 146px;
+  height: 100%;
+  float: left;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-operate .operate .ul {
+  height: 281px;
+  padding: 52px 0 36px 0;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-operate .authorize {
+  width: 379px;
+  height: 100%;
+  float: left;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-operate .authorize .ul {
+  height: 281px;
+  border: 1px solid #d8d8d8;
+  overflow: auto;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-operate label {
+  height: 40px;
+  line-height: 40px;
+  color: #757575;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  margin: 0;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-body .role-operate .operate-btn {
+  border: 1px solid #1896f0;
+  color: #1896f0;
+  width: 146px;
+  height: 32px;
+  font-size: 14px;
+  line-height: 32px;
+  margin-bottom: 16px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#authorizeModal .modal-dialog .modal-content .modal-body .role-operate #error{
+  display: none;
+  color: #fa5a55;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+}
+#authorizeModal .modal-dialog .modal-content .modal-footer {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  height: 40px;
+  left: 0;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-footer .btn-primary {
+  position: absolute;
+  float: right;
+  bottom: 0;
+  right: 0;
+  width: 96px;
+  height: 40px;
+  background-color: #2ea2f5;
+  border-color: #2ea2f5;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-footer .btn-primary:hover {
+  background-color: #2ea2f5;
+  border-color: #2ea2f5;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-footer .btn-clear-secondary {
+  position: absolute;
+  right: 146px;
+  width: 28px;
+  height: 40px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: #696969;
+  cursor: pointer;
+}
+
+#authorizeModal .modal-dialog .modal-content .modal-footer .btn-clear-secondary:hover {
+  background-color: transparent;
+  border: none;
+}
+
+#delModal .modal-dialog {
+  margin-top: 125px;
+  height: 216px;
+  background-color: #fafafa;
+  border-radius: 4px;
+}
+
+#delModal .modal-dialog .modal-content {
+  height: 100%;
+  padding: 0 24px;
+  position: relative;
+}
+
+#delModal .modal-dialog .modal-content .modal-header {
+  border-bottom: 1px solid #d8d8d8;
+  height: 57px;
+  line-height: 57px;
+  color: #333;
+  font-size: 18px;
+}
+
+#delModal .modal-dialog .modal-content .modal-header .modal-title {
+  height: 57px;
+  line-height: 57px;
+  color: #333;
+  font-size: 18px;
+}
+
+#delModal .modal-dialog .modal-content .modal-header .close {
+  font-size: 12px;
+  color: #222;
+}
+
+#delModal .modal-dialog .modal-content .modal-header .close:focus {
+  border: none;
+  outline: none;
+}
+
+#delModal .modal-dialog .modal-content .modal-header .close .icon-close {
+  font-size: 12px;
+  color: #222;
+  font-weight: normal;
+}
+
+#delModal .modal-dialog .modal-content .modal-body {
+  margin-top: 16px;
+  padding: 0;
+}
+
+#delModal .modal-dialog .modal-content .modal-body label {
+  font-size: 16px;
+  color: #333;
+  height: 21px;
+  line-height: 1;
+}
+
+#delModal .modal-dialog .modal-content .modal-footer {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  height: 40px;
+  left: 0;
+}
+
+#delModal .modal-dialog .modal-content .modal-footer .btn-danger {
+  width: 96px;
+  height: 40px;
+  background-color: #fa5a55;
+  border-color: #fa5a55;
+}
+
+#delModal .modal-dialog .modal-content .modal-footer .btn-danger:hover {
+  background-color: #fa5a55;
+  border-color: #fa5a55;
+}
+
+#delModal .modal-dialog .modal-content .modal-footer .btn-clear-secondary {
+  margin-right: 50px;
+  width: 28px;
+  height: 40px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: #696969;
+}
+
+#delModal .modal-dialog .modal-content .modal-footer .btn-clear-secondary:hover {
+  background-color: transparent;
+  border: none;
+}
+#errormsg {
+  display: none;
+  color: #fa5a55;
+  font-size: 14px;
+}
+
+.list-group {
+  padding: 8px 0;
+}
+.list-group-item {
+  border: none;
+  height: 32px;
+  line-height: 32px;
+  font-size: 12px;
+  color: #333333;
+  padding: 0 0 0 24px;
+  cursor: pointer;
+}
+.list-group-item:focus{
+  outline: 0;
+}
+.selected {
+  background-color: #f5f6f8;
+}
+.main-panel > .content{
+  overflow: hidden;
+}
+.table-Box{
+  position: relative;
+  margin: 0 16px;
+  height: 100%;
+  padding-top: 40px;
+}
+.scroll-list tr th {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 0;
+  line-height: 40px;
+}
+.scroll-list tr th span {
+  position: absolute;
+  top: 0;
+  color: #757575;
+  line-height: 40px;
+}
+.scroll-list{
+  height: calc(100% - 112px);
+  overflow-y: auto;
+}
+.list-pie{
+  position: absolute;
+  height: 0;
+  top: 39px;
+  width: 100%;
+  border-bottom: 2px solid #f0f0f0;
+  margin-bottom: 0;
+}
+.innerPageBox .dropdown-menu{
+  left: 15px;
+}

@@ -1,0 +1,89 @@
+/*form表单*/
+.form{
+    width: 340px;
+    height: auto;
+}
+/*登陆导航*/
+.nav-tabs{
+    border-bottom: 2px solid #d9d9d9;
+}
+.form ul{
+    color: #989898;
+}
+.form ul li{
+    width:50%;text-align:center;
+}
+.form ul li a{
+    border-radius: 0;
+    border:0;
+    cursor: pointer;
+}
+.form ul li a:hover{
+    color: #23b8fd !important;
+}
+
+.form ul li:hover{
+    border-bottom: 0!important;
+}
+
+.nav-tabs .nav-link{
+    border: 0;
+    padding: 0 1rem 8px 1rem;
+    font-size: 16px;
+    color: #979797;
+}
+/*微信登陆*/
+#login_container{
+    width: 100%;
+    text-align: center;
+}
+/*账号密码*/
+.account-login{
+    width: 100%;
+    margin-top: 48px;
+}
+.login-btn{
+    width: 100%;
+}
+.green{
+    color: #333;
+}
+.red{
+    color: red;
+}
+
+.password-input{
+    margin-bottom: 0!important;
+}
+.losed-psd{
+    text-align: right;
+    font-size:14px;
+    color:#1896f0;
+    padding-top:7px;
+}
+.reminder{
+    display: none;
+    float: left;
+    color: #f74555;
+}
+.register-link{
+    text-align: center;
+    font-size:14px;
+    color:#a6a6a6;
+}
+.login-active{
+    color: #1896f0!important;
+    border-bottom: 3px solid #1896f0!important;
+}
+.nav-tabs .nav-item{
+    margin-bottom: -3px;
+}
+form .form-group:nth-child(5){
+    margin-top: 8px;
+}
+form .warningBox{
+    margin-bottom: 0;
+}
+form .phone-group{
+    margin-bottom: 24px;
+}

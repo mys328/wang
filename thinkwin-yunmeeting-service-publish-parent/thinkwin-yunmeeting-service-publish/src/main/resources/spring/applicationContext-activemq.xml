@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<!-- 配置connectionFactory -->
+	<beans:bean id="jmsFactory"
+	            class="org.apache.activemq.pool.PooledConnectionFactory"
+	            destroy-method="stop">
+		<beans:property name="connectionFactory">
+			<beans:bean
+					class="org.apache.activemq.ActiveMQConnectionFactory">
+				<beans:property name="brokerURL">
+					<beans:value>${mq.url}</beans:value>
+				</beans:property>
+				<beans:property name="userName">
+					<beans:value>${mq.userName}</beans:value>
+				</beans:property>
+				<beans:property name="password">
+					<beans:value>${mq.passwd}</beans:value>
+				</beans:property>
+			</beans:bean>
+		</beans:property>
+	</beans:bean>
+
+	<!-- Publish MQ 异步发送 配置 -->
+	<beans:bean id="publishJmsTemplate001"
+	            class="org.springframework.jms.core.JmsTemplate">
+		<beans:property name="connectionFactory">
+			<beans:ref local="jmsFactory"/>
+		</beans:property>
+		<beans:property name="defaultDestinationName" value="publish001_downlink_queue"/>
+		<beans:property name="messageConverter" ref="publishMQMessageCoverter"/>
+		<!-- 区别它采用的模式为false是p2p为true是订阅 -->
+		<beans:property name="pubSubDomain" value="false"/>
+	</beans:bean>
+
+	<beans:bean id="publishJmsTemplate002"
+				class="org.springframework.jms.core.JmsTemplate">
+		<beans:property name="connectionFactory">
+			<beans:ref local="jmsFactory"/>
+		</beans:property>
+		<beans:property name="defaultDestinationName" value="publish002_downlink_queue"/>
+		<beans:property name="messageConverter" ref="publishMQMessageCoverter"/>
+		<!-- 区别它采用的模式为false是p2p为true是订阅 -->
+		<beans:property name="pubSubDomain" value="false"/>
+	</beans:bean>
+
+	<!-- 发送信息 -->
+	<beans:bean id="publish001_downlink_queue" class="com.thinkwin.common.mqMessage.MQProducer">
+		<beans:property name="jmsTemplet" ref="publishJmsTemplate001"/>
+	</beans:bean>
+	<beans:bean id="publish002_downlink_queue" class="com.thinkwin.common.mqMessage.MQProducer">
+		<beans:property name="jmsTemplet" ref="publishJmsTemplate002"/>
+	</beans:bean>
+	<!-- 消息转换     -->
+	<beans:bean id="publishMQMessageCoverter"
+	            class="com.thinkwin.common.mqMessage.MQMessageCoverter"/>
+
+	<beans:bean id="SpringContextUtil" class="com.thinkwin.yunmeeting.framework.util.spring.SpringContextUtil"
+	            lazy-init="false"></beans:bean>
+
+	<beans:bean id="messageGrouping" class="com.thinkwin.common.messageGrouping.MessageGrouping"></beans:bean>
+</beans:beans>

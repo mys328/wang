@@ -1,0 +1,1208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="5e2274d9-7dc8-4dc2-b1e6-b3e80b278ce2" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/thinkwin-yunmeeting-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/thinkwin-yunmeeting-parent/pom.xml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-dictionary-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-base-parent/thinkwin-yunmeeting-service-base/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-timertask-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-pay-parent/thinkwin-yunmeeting-service-pay/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-publish-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-weixin-parent/thinkwin-yunmeeting-api-weixin/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-goods-center-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-cron-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-timertask-parent/thinkwin-yunmeeting-service-timertask/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-dictionary-parent/thinkwin-yunmeeting-api-dictionary/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-tenant-sysconfig-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-weixin-web-parent/thinkwin-yunmeeting-weixin-web/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-fileupload-parent/thinkwin-yunmeeting-api-fileupload/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-yuncm-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-console-parent/thinkwin-yunmeeting-api-console/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-core-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-base-parent/thinkwin-yunmeeting-api-base/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-config-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-yuncm-parent/thinkwin-yunmeeting-api-yuncm/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-yuncm-parent/thinkwin-yunmeeting-service-yuncm/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-document-parent/thinkwin-yunmeeting-api-document/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-auth-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-SMSsender-parent/thinkwin-yunmeeting-api-SMSsender/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-orders-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-orders-parent/thinkwin-yunmeeting-api-orders/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-auth-parent/thinkwin-yunmeeting-api-auth/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-promotion-parent/thinkwin-yunmeeting-api-promotion/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-core-parent/thinkwin-yunmeeting-api-core/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-auth-parent/thinkwin-yunmeeting-service-auth/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-config-parent/thinkwin-yunmeeting-api-config/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-system-framework/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-cron-parent/thinkwin-yunmeeting-service-cron/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-system-common/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-tenant-sysconfig-parent/thinkwin-yunmeeting-api-tenant-sysconfig/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-publish-parent/thinkwin-yunmeeting-api-publish/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-console-parent/thinkwin-yunmeeting-service-console/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-weixin-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-mailsender-parent/thinkwin-yunmeeting-api-mailsender/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-goods-center-parent/thinkwin-yunmeeting-service-goods-center/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-serialnumber-parent/thinkwin-yunmeeting-api-serialnumber/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-tenant-sysconfig-parent/thinkwin-yunmeeting-service-tenant-sysconfig/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-console-web-parent/thinkwin-yunmeeting-console-web/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-web-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-log-parent/thinkwin-yunmeeting-api-log/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-goods-center-parent/thinkwin-yunmeeting-api-goods-center/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-promotion-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-weixin-web-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-cron-parent/thinkwin-yunmeeting-api-cron/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-promotion-parent/thinkwin-yunmeeting-service-promotion/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-console-web-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-push-parent/thinkwin-yunmeeting-service-push/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-weixin-parent/thinkwin-yunmeeting-service-weixin/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-pay-parent/thinkwin-yunmeeting-api-pay/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-document-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-pay-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-dictionary-parent/thinkwin-yunmeeting-service-dictionary/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-console-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-fileupload-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-base-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-document-parent/thinkwin-yunmeeting-service-document/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-push-parent/thinkwin-yunmeeting-api-push/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-mailsender-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-mailsender-parent/thinkwin-yunmeeting-service-mailsender/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-fileupload-parent/thinkwin-yunmeeting-service-fileupload/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-core-parent/thinkwin-yunmeeting-service-core/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-SMSsender-parent/thinkwin-yunmeeting-service-SMSsender/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-SMSsender-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-log-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-serialnumber-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-push-parent/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-config-parent/thinkwin-yunmeeting-service-config/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-web-parent/thinkwin-yunmeeting-web/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-orders-parent/thinkwin-yunmeeting-service-orders/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-log-parent/thinkwin-yunmeeting-service-log/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-publish-parent/thinkwin-yunmeeting-service-publish/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-timertask-parent/thinkwin-yunmeeting-api-timertask/target/" />
+    <ignored path="$PROJECT_DIR$/thinkwin-yunmeeting-service-serialnumber-parent/thinkwin-yunmeeting-service-serialnumber/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-parent/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21315">
+              <caret line="1015" selection-start-line="862" selection-end-line="1015" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServletContainerInitializer.java" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/maven/responsity/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletContainerInitializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="798">
+              <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpringServletContainerInitializer.java" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/maven/responsity/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/web/SpringServletContainerInitializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2898">
+              <caret line="162" column="13" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-parent/readme.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-auth-parent/readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="6" selection-start-column="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="javax.servlet.ServletContainerInitializer" pinned="false" current-in-tab="false">
+        <entry file="jar://D:/maven/responsity/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/META-INF/services/javax.servlet.ServletContainerInitializer">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="PlatformProgrameLabelServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-publish-parent/thinkwin-yunmeeting-service-publish/src/main/java/com/thinkwin/publish/service/impl/PlatformProgrameLabelServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="761" column="4" selection-start-line="761" selection-start-column="4" selection-end-line="761" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoreDubboMain.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-core-parent/thinkwin-yunmeeting-service-core/src/main/java/com/thinkwin/core/util/CoreDubboMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindBugs-IDEA-Workspace">
+    <toolWindowEditorPreview>false</toolWindowEditorPreview>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>dev&lt;</find>
+      <find>co</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/thinkwin-yunmeeting-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/thinkwin-yunmeeting-service-publish-parent/thinkwin-yunmeeting-service-publish/src/main/java/com/thinkwin/publish/service/impl/PlatformProgrameLabelServiceImpl.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="D:\worksoft\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="devWxl" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Profiles" type="6783ec58:MavenProjectsStructure$ProfilesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="thinkwin-yunmeeting-parent" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="thinkwin-yunmeeting-parent" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="thinkwin-yunmeeting-main" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thinkwin-yunmeeting-main" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="SpringServletContainerInitializer&#9;PSI&#9;JAVA://org.springframework.web.SpringServletContainerInitializer&#10;ServletContainerInitializer &#9;PSI&#9;JAVA://javax.servlet.ServletContainerInitializer&#10;coredu&#9;PSI&#9;JAVA://com.thinkwin.core.util.CoreDubboMain" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="E:/开源项目/example-starter-master" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-goods-center-parent\thinkwin-yunmeeting-service-goods-center\src\main\java\com\thinkwin\goodscenter\mapper\CommodityItemMapper.java</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-goods-center-parent\thinkwin-yunmeeting-service-goods-center\src\main\java\com\thinkwin\goodscenter\service\impl\ProductOrderServiceImpl.java</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-goods-center-parent\thinkwin-yunmeeting-service-goods-center\src\main\resources\config\mybatis\mapper\CommodityItemMapper.xml</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-parent</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-pay-parent\thinkwin-yunmeeting-service-pay\src\main\resources\spring\dubbo-provider.xml</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-web-parent\thinkwin-yunmeeting-web\src\main\java\com\thinkwin\web\terminalController\TerminalLoginController.java</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-web-parent\thinkwin-yunmeeting-web\src\main\java\com\thinkwin\web\controller\ImportController.java</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-web-parent\thinkwin-yunmeeting-web\src\main\webapp\static\scripts\terminal.js</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-console-web-parent\thinkwin-yunmeeting-console-web\src\main\webapp\static\scripts\programManagement.js</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-console-web-parent\thinkwin-yunmeeting-console-web\src\main\webapp\static\styles\terminalLog.css</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-console-web-parent\thinkwin-yunmeeting-console-web\src\main\webapp\WEB-INF\jsp\console\meetingShow.jsp</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-weixin-web-parent\thinkwin-yunmeeting-weixin-web\src\main\webapp\WEB-INF\views\scanMeetingSign\info.jsp</PATH>
+          <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+        <PATH vcs="svn" revision="12373">E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-parent\pom.xml</PATH>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="CoreDubboMain" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.thinkwin.core.util.CoreDubboMain" />
+      <module name="thinkwin-yunmeeting-service-core" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.thinkwin.core.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\dell\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-console-web-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-console-web-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-console-web-parent\thinkwin-yunmeeting-console-web" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-console-web-parent\thinkwin-yunmeeting-console-web" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-auth-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-auth-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-auth-parent\thinkwin-yunmeeting-api-auth" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-auth-parent\thinkwin-yunmeeting-api-auth" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-auth-parent\thinkwin-yunmeeting-service-auth" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-auth-parent\thinkwin-yunmeeting-service-auth" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-base-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-base-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-base-parent\thinkwin-yunmeeting-api-base" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-base-parent\thinkwin-yunmeeting-api-base" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-base-parent\thinkwin-yunmeeting-service-base" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-base-parent\thinkwin-yunmeeting-service-base" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-config-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-config-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-config-parent\thinkwin-yunmeeting-api-config" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-config-parent\thinkwin-yunmeeting-api-config" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-config-parent\thinkwin-yunmeeting-service-config" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-config-parent\thinkwin-yunmeeting-service-config" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-console-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-console-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-console-parent\thinkwin-yunmeeting-api-console" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-console-parent\thinkwin-yunmeeting-api-console" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-console-parent\thinkwin-yunmeeting-service-console" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-console-parent\thinkwin-yunmeeting-service-console" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-core-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-core-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-core-parent\thinkwin-yunmeeting-api-core" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-core-parent\thinkwin-yunmeeting-api-core" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-core-parent\thinkwin-yunmeeting-service-core" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-core-parent\thinkwin-yunmeeting-service-core" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-cron-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-cron-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-cron-parent\thinkwin-yunmeeting-api-cron" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-cron-parent\thinkwin-yunmeeting-api-cron" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-cron-parent\thinkwin-yunmeeting-service-cron" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-cron-parent\thinkwin-yunmeeting-service-cron" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-dictionary-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-dictionary-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-dictionary-parent\thinkwin-yunmeeting-api-dictionary" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-dictionary-parent\thinkwin-yunmeeting-api-dictionary" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-dictionary-parent\thinkwin-yunmeeting-service-dictionary" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-dictionary-parent\thinkwin-yunmeeting-service-dictionary" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-document-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-document-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-document-parent\thinkwin-yunmeeting-api-document" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-document-parent\thinkwin-yunmeeting-api-document" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-document-parent\thinkwin-yunmeeting-service-document" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-document-parent\thinkwin-yunmeeting-service-document" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-fileupload-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-fileupload-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-fileupload-parent\thinkwin-yunmeeting-api-fileupload" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-fileupload-parent\thinkwin-yunmeeting-api-fileupload" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-fileupload-parent\thinkwin-yunmeeting-service-fileupload" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-fileupload-parent\thinkwin-yunmeeting-service-fileupload" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-goods-center-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-goods-center-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-goods-center-parent\thinkwin-yunmeeting-api-goods-center" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-goods-center-parent\thinkwin-yunmeeting-api-goods-center" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-goods-center-parent\thinkwin-yunmeeting-service-goods-center" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-goods-center-parent\thinkwin-yunmeeting-service-goods-center" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-log-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-log-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-log-parent\thinkwin-yunmeeting-api-log" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-log-parent\thinkwin-yunmeeting-api-log" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-log-parent\thinkwin-yunmeeting-service-log" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-log-parent\thinkwin-yunmeeting-service-log" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-mailsender-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-mailsender-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-mailsender-parent\thinkwin-yunmeeting-api-mailsender" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-mailsender-parent\thinkwin-yunmeeting-api-mailsender" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-mailsender-parent\thinkwin-yunmeeting-service-mailsender" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-mailsender-parent\thinkwin-yunmeeting-service-mailsender" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-orders-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-orders-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-orders-parent\thinkwin-yunmeeting-api-orders" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-orders-parent\thinkwin-yunmeeting-api-orders" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-orders-parent\thinkwin-yunmeeting-service-orders" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-orders-parent\thinkwin-yunmeeting-service-orders" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-pay-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-pay-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-pay-parent\thinkwin-yunmeeting-api-pay" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-pay-parent\thinkwin-yunmeeting-api-pay" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-pay-parent\thinkwin-yunmeeting-service-pay" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-pay-parent\thinkwin-yunmeeting-service-pay" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-promotion-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-promotion-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-promotion-parent\thinkwin-yunmeeting-api-promotion" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-promotion-parent\thinkwin-yunmeeting-api-promotion" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-promotion-parent\thinkwin-yunmeeting-service-promotion" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-promotion-parent\thinkwin-yunmeeting-service-promotion" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-publish-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-publish-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-publish-parent\thinkwin-yunmeeting-api-publish" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-publish-parent\thinkwin-yunmeeting-api-publish" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-publish-parent\thinkwin-yunmeeting-service-publish" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-publish-parent\thinkwin-yunmeeting-service-publish" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-push-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-push-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-push-parent\thinkwin-yunmeeting-api-push" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-push-parent\thinkwin-yunmeeting-api-push" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-push-parent\thinkwin-yunmeeting-service-push" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-push-parent\thinkwin-yunmeeting-service-push" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-serialnumber-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-serialnumber-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-serialnumber-parent\thinkwin-yunmeeting-api-serialnumber" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-serialnumber-parent\thinkwin-yunmeeting-api-serialnumber" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-serialnumber-parent\thinkwin-yunmeeting-service-serialnumber" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-serialnumber-parent\thinkwin-yunmeeting-service-serialnumber" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-SMSsender-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-SMSsender-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-SMSsender-parent\thinkwin-yunmeeting-api-SMSsender" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-SMSsender-parent\thinkwin-yunmeeting-api-SMSsender" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-SMSsender-parent\thinkwin-yunmeeting-service-SMSsender" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-SMSsender-parent\thinkwin-yunmeeting-service-SMSsender" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-tenant-sysconfig-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-tenant-sysconfig-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-tenant-sysconfig-parent\thinkwin-yunmeeting-api-tenant-sysconfig" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-tenant-sysconfig-parent\thinkwin-yunmeeting-api-tenant-sysconfig" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-tenant-sysconfig-parent\thinkwin-yunmeeting-service-tenant-sysconfig" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-tenant-sysconfig-parent\thinkwin-yunmeeting-service-tenant-sysconfig" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-timertask-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-timertask-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-timertask-parent\thinkwin-yunmeeting-api-timertask" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-timertask-parent\thinkwin-yunmeeting-api-timertask" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-timertask-parent\thinkwin-yunmeeting-service-timertask" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-timertask-parent\thinkwin-yunmeeting-service-timertask" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-weixin-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-weixin-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-weixin-parent\thinkwin-yunmeeting-api-weixin" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-weixin-parent\thinkwin-yunmeeting-api-weixin" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-weixin-parent\thinkwin-yunmeeting-service-weixin" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-weixin-parent\thinkwin-yunmeeting-service-weixin" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-yuncm-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-yuncm-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-yuncm-parent\thinkwin-yunmeeting-api-yuncm" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-yuncm-parent\thinkwin-yunmeeting-api-yuncm" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-yuncm-parent\thinkwin-yunmeeting-service-yuncm" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-service-yuncm-parent\thinkwin-yunmeeting-service-yuncm" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-system-common" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-system-common" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-system-framework" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-system-framework" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-web-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-web-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-web-parent\thinkwin-yunmeeting-web" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-web-parent\thinkwin-yunmeeting-web" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-weixin-web-parent" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-weixin-web-parent" />
+        </SvnCopyRootSimple>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-weixin-web-parent\thinkwin-yunmeeting-weixin-web" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main\thinkwin-yunmeeting-weixin-web-parent\thinkwin-yunmeeting-weixin-web" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main" />
+          <option name="myCopyRoot" value="E:\dingzhijiemu-2.1.0\thinkwin-yunmeeting-main" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e2274d9-7dc8-4dc2-b1e6-b3e80b278ce2" name="Default" comment="" />
+      <created>1533715519344</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1533715519344</updated>
+      <workItem from="1533715520968" duration="3611000" />
+      <workItem from="1533774681275" duration="5115000" />
+      <workItem from="1533861774161" duration="1597000" />
+      <workItem from="1533866647146" duration="4453000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="14776000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="6" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="16" show_stripe_button="false" weight="0.32876712" />
+      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="JRebel Console" order="14" sideWeight="0.5030257" side_tool="true" weight="0.32935154" />
+      <window_info anchor="right" id="Maven Projects" order="0" weight="0.32980332" />
+      <window_info anchor="bottom" id="JRebel Executor" order="13" sideWeight="0.4969743" weight="0.32935154" />
+      <window_info anchor="bottom" id="Database Changes" order="16" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Designer" order="0" />
+      <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="1" />
+      <window_info id="Structure" order="7" sideWeight="0.49425286" side_tool="true" weight="0.24962178" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
+      <window_info id="UI Designer" order="1" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" show_stripe_button="false" weight="0.32991454" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Java Enterprise" order="2" weight="0.32820514" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Run" order="15" weight="0.32876712" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.3270548" />
+      <window_info anchor="bottom" id="Spring" order="4" weight="0.32991454" />
+      <window_info anchor="bottom" id="Terminal" order="5" weight="0.32876712" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.48768473" visible="true" weight="0.36081696" />
+      <window_info id="Web" order="3" sideWeight="0.5123153" side_tool="true" weight="0.30635402" />
+      <window_info id="JRebel" order="8" side_tool="true" />
+      <window_info anchor="right" id="BPMNPalette" order="10" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Favorites" order="4" sideWeight="0.50574714" side_tool="true" weight="0.30635402" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="right" x="92" y="92" width="1182" height="544" id="Documentation" order="4" type="FLOATING" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="1" weight="0.3270548" />
+      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32991454" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.32991454" />
+      <window_info anchor="right" id="Commander" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="7" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-parent/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21315">
+          <caret line="1015" selection-start-line="862" selection-end-line="1015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven/responsity/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletContainerInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven/responsity/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/web/SpringServletContainerInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2898">
+          <caret line="162" column="13" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-parent/readme.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-auth-parent/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven/responsity/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/META-INF/services/javax.servlet.ServletContainerInitializer">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-core-parent/thinkwin-yunmeeting-service-core/src/main/java/com/thinkwin/core/util/CoreDubboMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-publish-parent/thinkwin-yunmeeting-service-publish/src/main/java/com/thinkwin/publish/service/impl/PlatformProgrameLabelServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15834">
+          <caret line="770" column="7" lean-forward="true" selection-start-line="770" selection-start-column="7" selection-end-line="770" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-parent/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21315">
+          <caret line="1015" selection-start-line="862" selection-end-line="1015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven/responsity/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletContainerInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven/responsity/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/web/SpringServletContainerInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2898">
+          <caret line="162" column="13" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-parent/readme.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-auth-parent/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven/responsity/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/META-INF/services/javax.servlet.ServletContainerInitializer">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-core-parent/thinkwin-yunmeeting-service-core/src/main/java/com/thinkwin/core/util/CoreDubboMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-publish-parent/thinkwin-yunmeeting-service-publish/src/main/java/com/thinkwin/publish/service/impl/PlatformProgrameLabelServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15750">
+          <caret line="766" column="7" lean-forward="true" selection-start-line="766" selection-start-column="7" selection-end-line="766" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-parent/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21315">
+          <caret line="1015" selection-start-line="862" selection-end-line="1015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven/responsity/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletContainerInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven/responsity/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/META-INF/services/javax.servlet.ServletContainerInitializer">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-publish-parent/thinkwin-yunmeeting-service-publish/src/main/java/com/thinkwin/publish/service/impl/PlatformProgrameLabelServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12537">
+          <caret line="621" lean-forward="true" selection-start-line="621" selection-end-line="621" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-core-parent/thinkwin-yunmeeting-service-core/src/main/java/com/thinkwin/core/util/CoreDubboMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven/responsity/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/web/SpringServletContainerInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3087">
+          <caret line="171" column="14" lean-forward="true" selection-start-line="171" selection-start-column="14" selection-end-line="171" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-core-parent/thinkwin-yunmeeting-service-core/src/main/java/com/thinkwin/core/util/CoreDubboMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-parent/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21315">
+          <caret line="1015" selection-start-line="862" selection-end-line="1015" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven/responsity/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/ServletContainerInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="76" column="36" selection-start-line="76" selection-start-column="36" selection-end-line="76" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven/responsity/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/META-INF/services/javax.servlet.ServletContainerInitializer">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://D:/maven/responsity/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE-sources.jar!/org/springframework/web/SpringServletContainerInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2898">
+          <caret line="162" column="13" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-parent/readme.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-auth-parent/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkwin-yunmeeting-service-publish-parent/thinkwin-yunmeeting-service-publish/src/main/java/com/thinkwin/publish/service/impl/PlatformProgrameLabelServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="761" column="4" selection-start-line="761" selection-start-column="4" selection-end-line="761" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="ideajad">
+    <property name="annotate" value="false" />
+    <property name="annotateFully" value="false" />
+    <property name="braces" value="false" />
+    <property name="clear" value="false" />
+    <property name="confirmNavigationTriggeredDecompile" value="true" />
+    <property name="dead" value="true" />
+    <property name="defaultInitializers" value="false" />
+    <property name="dissassemblerOnly" value="false" />
+    <property name="fieldsFirst" value="true" />
+    <property name="fileExtension" value="java" />
+    <property name="fullyQualifiedNames" value="false" />
+    <property name="indentation" value="4" />
+    <property name="intRadix" value="10" />
+    <property name="lineNumbersAsComments" value="true" />
+    <property name="longRadix" value="10" />
+    <property name="maxStringLength" value="64" />
+    <property name="nocast" value="false" />
+    <property name="noclass" value="false" />
+    <property name="nocode" value="false" />
+    <property name="noconv" value="false" />
+    <property name="noctor" value="false" />
+    <property name="nodos" value="false" />
+    <property name="nofd" value="false" />
+    <property name="noinner" value="false" />
+    <property name="nolvt" value="false" />
+    <property name="nonlb" value="false" />
+    <property name="outputDirectory" value="" />
+    <property name="packFields" value="3" />
+    <property name="packImports" value="7" />
+    <property name="prefixNumericalClasses" value="_cls" />
+    <property name="prefixNumericalFields" value="_fld" />
+    <property name="prefixNumericalLocals" value="_lcl" />
+    <property name="prefixNumericalMethods" value="_mth" />
+    <property name="prefixNumericalParameters" value="_prm" />
+    <property name="prefixUnusedExceptions" value="_ex" />
+    <property name="readonly" value="false" />
+    <property name="safe" value="false" />
+    <property name="sort" value="false" />
+    <property name="spaceAfterKeyword" value="false" />
+    <property name="splitStringsAtNewline" value="false" />
+    <property name="useTabs" value="false" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArquillianSettingsConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>thinkwin-yunmeeting-console-web:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>thinkwin-yunmeeting-api-auth</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

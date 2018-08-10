@@ -1,0 +1,204 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="thinkwin-yunmeeting-weixin-web:war exploded">
+    <output-path>$PROJECT_DIR$/thinkwin-yunmeeting-weixin-web-parent/thinkwin-yunmeeting-weixin-web/target/thinkwin-yunmeeting-weixin-web</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="thinkwin-yunmeeting-weixin-web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.github.binarywang:weixin-java-mp:2.9.0" />
+          <element id="library" level="project" name="Maven: com.github.binarywang:weixin-java-common:2.9.0" />
+          <element id="library" level="project" name="Maven: com.thoughtworks.xstream:xstream:1.4.9" />
+          <element id="library" level="project" name="Maven: xmlpull:xmlpull:1.1.3.1" />
+          <element id="library" level="project" name="Maven: xpp3:xpp3_min:1.1.4c" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.24" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.0" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:19.0" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.16.18" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.6" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.6" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: cglib:cglib:3.1" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm:4.2" />
+          <element id="library" level="project" name="Maven: org.javassist:javassist:3.18.0-GA" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.5" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.5" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
+          <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.6.7" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.6.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.6.7" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.6" />
+          <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.9" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-server:9.3.0.RC0" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-http:9.3.0.RC0" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-util:9.3.0.RC0" />
+          <element id="library" level="project" name="Maven: org.eclipse.jetty:jetty-io:9.3.0.RC0" />
+          <element id="archive" name="thinkwin-yunmeeting-system-common-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-system-common" />
+          </element>
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jms:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-messaging:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-broker:5.14.5" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-client:5.14.5" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-jms_1.1_spec:1.1.1" />
+          <element id="library" level="project" name="Maven: org.fusesource.hawtbuf:hawtbuf:1.11" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-j2ee-management_1.1_spec:1.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-openwire-legacy:5.14.5" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-pool:5.14.5" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-jms-pool:5.14.5" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-jta_1.0.1B_spec:1.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-pool2:2.4.2" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:activemq-spring:5.14.5" />
+          <element id="library" level="project" name="Maven: org.apache.xbean:xbean-spring:4.2" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:artemis-jms-client:2.3.0" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:artemis-core-client:2.3.0" />
+          <element id="library" level="project" name="Maven: org.jgroups:jgroups:3.6.13.Final" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:artemis-commons:2.3.0" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-all:4.1.28.Final" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-json_1.0_spec:1.0-alpha-1" />
+          <element id="library" level="project" name="Maven: org.apache.johnzon:johnzon-core:0.9.5" />
+          <element id="library" level="project" name="Maven: org.apache.activemq:artemis-selector:2.3.0" />
+          <element id="library" level="project" name="Maven: org.apache.geronimo.specs:geronimo-jms_2.0_spec:1.0-alpha-2" />
+          <element id="library" level="project" name="Maven: org.apache.camel:camel-core:2.21.1" />
+          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-core:2.3.0" />
+          <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:2.3.0" />
+          <element id="library" level="project" name="Maven: redis.clients:jedis:2.9.0" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.5" />
+          <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.6" />
+          <element id="library" level="project" name="Maven: commons-configuration:commons-configuration:1.10" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4.7" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.23" />
+          <element id="library" level="project" name="Maven: javax.persistence:persistence-api:1.0" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.31" />
+          <element id="library" level="project" name="Maven: org.csource:fastdfs-client-java:1.25" />
+          <element id="archive" name="thinkwin-yunmeeting-system-framework-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-system-framework" />
+          </element>
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.18" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpmime:4.3.4" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:fluent-hc:4.3.4" />
+          <element id="library" level="project" name="Maven: commons-httpclient:commons-httpclient:3.1" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:1.3.2" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:3.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.ant:ant:1.9.3" />
+          <element id="library" level="project" name="Maven: org.apache.ant:ant-launcher:1.9.3" />
+          <element id="library" level="project" name="Maven: com.belerweb:pinyin4j:2.5.1" />
+          <element id="library" level="project" name="Maven: com.google.zxing:core:3.2.1" />
+          <element id="library" level="project" name="Maven: com.swetake:QRCode:1.0" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi:3.9" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml:3.9" />
+          <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml-schemas:3.9" />
+          <element id="library" level="project" name="Maven: org.apache.xmlbeans:xmlbeans:2.6.0" />
+          <element id="library" level="project" name="Maven: stax:stax-api:1.0.1" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.38" />
+          <element id="library" level="project" name="Maven: net.sourceforge.jchardet:jchardet:1.0" />
+          <element id="library" level="project" name="Maven: tk.mybatis:mapper:3.4.0" />
+          <element id="archive" name="thinkwin-yunmeeting-api-auth-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-auth" />
+          </element>
+          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.0.0" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:0.9.5" />
+          <element id="library" level="project" name="Maven: net.sf.json-lib:json-lib:jdk15:2.4" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.8.0" />
+          <element id="library" level="project" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" />
+          <element id="archive" name="thinkwin-yunmeeting-api-SMSsender-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-SMSsender" />
+          </element>
+          <element id="archive" name="thinkwin-yunmeeting-api-yuncm-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-yuncm" />
+          </element>
+          <element id="archive" name="thinkwin-yunmeeting-api-weixin-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-weixin" />
+          </element>
+          <element id="archive" name="thinkwin-yunmeeting-api-core-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-core" />
+          </element>
+          <element id="archive" name="thinkwin-yunmeeting-api-log-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-log" />
+          </element>
+          <element id="archive" name="thinkwin-yunmeeting-api-fileupload-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-fileupload" />
+          </element>
+          <element id="archive" name="thinkwin-yunmeeting-api-promotion-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-promotion" />
+          </element>
+          <element id="archive" name="thinkwin-yunmeeting-api-publish-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-publish" />
+          </element>
+          <element id="archive" name="thinkwin-yunmeeting-api-timertask-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-timertask" />
+          </element>
+          <element id="library" level="project" name="Maven: io.netty:netty-common:4.1.28.Final" />
+          <element id="archive" name="thinkwin-yunmeeting-service-timertask-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-service-timertask" />
+          </element>
+          <element id="library" level="project" name="Maven: joda-time:joda-time:2.9.9" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:4.2.5.RELEASE" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.1" />
+          <element id="library" level="project" name="Maven: c3p0:c3p0:0.9.1" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.3.1" />
+          <element id="archive" name="thinkwin-yunmeeting-api-mailsender-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-mailsender" />
+          </element>
+          <element id="archive" name="thinkwin-yunmeeting-api-config-2.1.0-DZJM.jar">
+            <element id="module-output" name="thinkwin-yunmeeting-api-config" />
+          </element>
+          <element id="library" level="project" name="Maven: org.apache.curator:curator-framework:4.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.curator:curator-client:4.0.1" />
+          <element id="library" level="project" name="Maven: org.redisson:redisson:3.6.3" />
+          <element id="library" level="project" name="Maven: io.netty:netty-codec:4.1.22.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-buffer:4.1.22.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-transport:4.1.22.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-resolver:4.1.22.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-resolver-dns:4.1.22.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-codec-dns:4.1.22.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-handler:4.1.22.Final" />
+          <element id="library" level="project" name="Maven: javax.cache:cache-api:1.0.0" />
+          <element id="library" level="project" name="Maven: io.projectreactor:reactor-core:3.1.1.RELEASE" />
+          <element id="library" level="project" name="Maven: org.reactivestreams:reactive-streams:1.0.1" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.7.9" />
+          <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.15" />
+          <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.7.10" />
+          <element id="library" level="project" name="Maven: org.jodd:jodd-bean:3.7.1" />
+          <element id="library" level="project" name="Maven: org.jodd:jodd-core:3.7.1" />
+          <element id="library" level="project" name="Maven: com.alibaba:dubbo:2.6.2" />
+          <element id="library" level="project" name="Maven: org.jboss.netty:netty:3.2.5.Final" />
+          <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper:3.4.9" />
+          <element id="library" level="project" name="Maven: jline:jline:0.9.94" />
+          <element id="library" level="project" name="Maven: io.netty:netty:3.10.5.Final" />
+          <element id="library" level="project" name="Maven: com.101tec:zkclient:0.7" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/thinkwin-yunmeeting-weixin-web-parent/thinkwin-yunmeeting-weixin-web/target/thinkwin-yunmeeting-weixin-web/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="thinkwin-yunmeeting-weixin-web/web/Web" />
+    </root>
+  </artifact>
+</component>

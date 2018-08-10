@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <context:component-scan base-package="com.thinkwin.yunmeeting.weixin.controller,com.thinkwin.yunmeeting.weixin.h5.controller"/>
+
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <mvc:annotation-driven >
+        <mvc:message-converters register-defaults="true">
+            <!-- 解决@ResponseBody中文乱码 -->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes" value="text/html;charset=UTF-8" />
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!-- 自定义的转换器的服务 -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <!-- 自定义的转换器的集合 -->
+        <property name="converters">
+            <set>
+                <!-- 日期类型转换器 -->
+                <bean class="com.thinkwin.mailsender.utils.converter.DateConverter"/>
+                <!-- 其他类型转换器 -->
+            </set>
+        </property>
+    </bean>
+
+    <!-- 配置ViewResolver。 可以用多个ViewResolver。 使用order属性排序。 InternalResourceViewResolver放在最后。 -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="1"/>
+        <property name="defaultViews">
+            <list>
+                <!-- JSON View -->
+                <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+                </bean>
+            </list>
+        </property>
+        <!--<property name="ignoreAcceptHeader" value="true" />-->
+    </bean>
+    <!-- 指定静态文件的访问方式 -->
+    <mvc:default-servlet-handler />
+
+    <!-- 定义JSP文件的位置 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--国际化-->
+    <!-- LocaleResolver 是指用什么策略来检测请求是哪一种Local
+        存储区域设置信息4种方式
+      SessionLocaleResolver和CookieLocaleResolver的区别，
+      通过 Session只能对当前的会话有效，Cookie则对Cookie有效期内的会话都有效。
+      在使用Cookie的时候，需要设置Cookie的过期时间， 否则关闭浏览器之后，
+      Cookie即失效了，没有达到目的。当然，也可以保存用户的语言设置信息到数据库，
+      用户登录之后即可将语言改变成用户设置的语言。-->
+    <!--第一种 基于Session的本地化解析器-->
+    <bean id="localeResolver"
+          class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+
+    <!-- 第二种 基于Cookie的本地化解析器 -->
+    <!--<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+        <property name="cookieMaxAge" value="604800"/>
+        <property name="defaultLocale" value="zh_CN"/>
+        <property name="cookieName" value="Language"></property>
+    </bean>-->
+
+    <!-- 国际化资源文件 -->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <!-- 定义消息资源文件的相对路径 -->
+        <!--<property name="basename" value="classpath:messages" />-->
+        <!-- 如果在国际化资源文件中找不到对应代码的信息，就用这个代码作为名称  -->
+        <property name="useCodeAsDefaultMessage" value="true"/>
+    </bean>
+
+
+
+    <!--LocaleChangeInterceptor 拦截器将检查传入的请求-->
+    <mvc:interceptors>
+        <bean id="localeChangeInterceptor"
+              class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="lang"/>
+        </bean>
+    </mvc:interceptors>
+
+    <!-- 配置全局的拦截器 -->
+    <!--<mvc:interceptors>
+        &lt;!&ndash; 配置登录验证拦截器 &ndash;&gt;
+        <mvc:interceptor>
+            &lt;!&ndash; path 指定对何种请求的 url 拦截， /** 表示对所有的url及子url进行拦截 &ndash;&gt;
+            <mvc:mapping path="/**"/>
+            <bean class="com.thinkwin.web.interceptor.LoginInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>-->
+
+    <!--<aop:aspectj-autoproxy expose-proxy="true"></aop:aspectj-autoproxy>-->
+
+
+
+</beans>

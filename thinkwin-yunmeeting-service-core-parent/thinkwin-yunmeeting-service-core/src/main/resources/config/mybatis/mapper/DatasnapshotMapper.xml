@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.core.mapper.DatasnapshotMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.core.Datasnapshot">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="dep_num" jdbcType="INTEGER" property="depNum" />
+    <result column="total_conference_room_num" jdbcType="INTEGER" property="totalConferenceRoomNum" />
+    <result column="total_conference_room_area_num" jdbcType="INTEGER" property="totalConferenceRoomAreaNum" />
+    <result column="total_user_num" jdbcType="INTEGER" property="totalUserNum" />
+    <result column="used_storage_space" jdbcType="VARCHAR" property="usedStorageSpace" />
+    <result column="total_conference_num" jdbcType="INTEGER" property="totalConferenceNum" />
+    <result column="cancel_conference_num" jdbcType="INTEGER" property="cancelConferenceNum" />
+    <result column="total_conference_length" jdbcType="INTEGER" property="totalConferenceLength" />
+    <result column="meeting_response_rate" jdbcType="VARCHAR" property="meetingResponseRate" />
+    <result column="total_attendance_rate" jdbcType="VARCHAR" property="totalAttendanceRate" />
+    <result column="conference_usage_rate" jdbcType="VARCHAR" property="conferenceUsageRate" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="dissolution_time" jdbcType="TIMESTAMP" property="dissolutionTime" />
+    <result column="terminal_total_num" jdbcType="INTEGER" property="terminalTotalNum"/>
+  </resultMap>
+</mapper>

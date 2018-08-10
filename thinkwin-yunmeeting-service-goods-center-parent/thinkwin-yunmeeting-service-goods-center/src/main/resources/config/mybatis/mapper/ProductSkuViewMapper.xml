@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.goodscenter.mapper.ProductSkuViewMapper">
+	<select id="getProductSkuByCode" parameterType="String" resultType="com.thinkwin.goodscenter.dataview.ProductSkuView">
+		SELECT p.product_id, ps.sku, ps.sort_order, ps.list_price, ps.sale_price, ps.display_name, ps.sku_desc
+		, GROUP_CONCAT(su.uom_value, '|', ud.uom_name ORDER BY su.sort_order SEPARATOR '#') sku_uom
+		from product_sku ps
+		INNER JOIN product p on p.product_id = ps.product_id and p.`status` = 1
+		LEFT JOIN sku_uom su on su.sku = ps.sku
+		LEFT JOIN uom_def ud on ud.uom_code = su.uom_code
+		WHERE ps.`status` = 1 AND ps.sku IN
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		GROUP BY ps.sku;
+	</select>
+</mapper>

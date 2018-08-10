@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.orders.mapper.InvoiceMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.orders.Invoice">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="tenand_id" jdbcType="VARCHAR" property="tenandId" />
+    <result column="issue_type" jdbcType="INTEGER" property="issueType" />
+    <result column="header" jdbcType="VARCHAR" property="header" />
+    <result column="invoice_type" jdbcType="VARCHAR" property="invoiceType" />
+    <result column="tax_number" jdbcType="VARCHAR" property="taxNumber" />
+    <result column="opening_bank" jdbcType="VARCHAR" property="openingBank" />
+    <result column="account_number" jdbcType="VARCHAR" property="accountNumber" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.auth.mapper.db.SysOrganizationMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.SysOrganization">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="org_code" jdbcType="VARCHAR" property="orgCode" />
+    <result column="org_name" jdbcType="VARCHAR" property="orgName" />
+    <result column="org_name_pinyin" jdbcType="VARCHAR" property="orgNamePinyin" />
+    <result column="org_nick_name" jdbcType="VARCHAR" property="orgNickName" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <result column="org_type" jdbcType="INTEGER" property="orgType" />
+    <result column="org_latitude" jdbcType="INTEGER" property="orgLatitude" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+  </resultMap>
+
+  <select id="selectUserLikeCondition" resultMap="BaseResultMap">
+SELECT * FROM sys_organization WHERE parent_id = "0" AND (org_name LIKE #{searchParameter} OR org_name_pinyin LIKE #{searchParameter})
+  </select>
+
+  <select id="selectUserLikeConditionAll" resultMap="BaseResultMap">
+    SELECT * FROM sys_organization WHERE org_name LIKE #{searchParameter} OR org_name_pinyin LIKE #{searchParameter}
+  </select>
+
+  <select id="selectAllSysOrganiztionsAndOrderBy" resultMap="BaseResultMap">
+    SELECT * FROM sys_organization where parent_id = #{parentId} ORDER BY compositor
+  </select>
+
+  <select id="selectOrganizationByName" resultMap="BaseResultMap">
+    SELECT  * FROM  sys_organization where org_name = #{orgName}
+  </select>
+
+  <select id="selectOrganizationNum" resultMap="BaseResultMap">
+    SELECT * FROM  sys_organization where parent_id != "0"
+  </select>
+</mapper>

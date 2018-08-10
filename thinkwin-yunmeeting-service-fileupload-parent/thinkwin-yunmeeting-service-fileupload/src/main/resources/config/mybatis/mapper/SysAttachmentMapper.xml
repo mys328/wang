@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.fileupload.mapper.SysAttachmentMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.SysAttachment">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="group" jdbcType="VARCHAR" property="group" />
+    <result column="attachment_path" jdbcType="VARCHAR" property="attachmentPath" />
+    <result column="file_name" jdbcType="VARCHAR" property="fileName" />
+    <result column="file_cn_name" jdbcType="VARCHAR" property="fileCnName" />
+    <result column="creater_id" jdbcType="VARCHAR" property="createrId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifyer_id" jdbcType="VARCHAR" property="modifyerId" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="attachment_size" jdbcType="INTEGER" property="attachmentSize" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+  </resultMap>
+
+
+
+  <!-- 批量查询图片信息 -->
+  <select id="selectSysAttachmentInfo" resultMap="BaseResultMap">
+    SELECT
+    *
+    FROM
+    sys_attachment
+    WHERE
+     id IN
+    <foreach collection="list" item="id" open="(" close=")"
+             separator=",">
+      #{id}
+    </foreach>
+  </select>
+
+
+
+
+
+</mapper>

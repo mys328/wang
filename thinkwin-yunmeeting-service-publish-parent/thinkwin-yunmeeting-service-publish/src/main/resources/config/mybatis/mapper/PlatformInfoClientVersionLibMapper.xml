@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.publish.mapper.PlatformInfoClientVersionLibMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.publish.PlatformInfoClientVersionLib">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="version_title" jdbcType="VARCHAR" property="versionTitle" />
+    <result column="sys_attachment_url" jdbcType="VARCHAR" property="sysAttachmentUrl" />
+    <result column="sys_attachment_id" jdbcType="VARCHAR" property="sysAttachmentId" />
+    <result column="ver_num" jdbcType="VARCHAR" property="verNum" />
+    <result column="code" jdbcType="INTEGER" property="code" />
+    <result column="terminal_type" jdbcType="VARCHAR" property="terminalType" />
+    <result column="size" jdbcType="VARCHAR" property="size" />
+    <result column="change_num" jdbcType="INTEGER" property="changeNum" />
+    <result column="reasle_status" jdbcType="VARCHAR" property="reasleStatus" />
+    <result column="ver_status" jdbcType="VARCHAR" property="verStatus" />
+    <result column="recorder_status" jdbcType="VARCHAR" property="recorderStatus" />
+    <result column="change_recode" jdbcType="LONGVARCHAR" property="changeRecode" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+
+  </resultMap>
+
+    <select id="getId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        SELECT
+            t1.id,
+            t1.tenant_id,
+            t1.version_title,
+            t1.sys_attachment_url,
+            t1.sys_attachment_id,
+            t1.ver_num,
+            t1. CODE,
+            t1.size,
+            t1.terminal_type,
+            t2.num as change_num,
+            t1.reasle_status,
+            t1.ver_status,
+            t1.change_recode,
+            t1.creater,
+            t1.creat_time,
+            t1.modifier,
+            t1.modify_time
+        FROM
+            platform_info_client_version_lib AS t1
+        LEFT JOIN (
+            SELECT
+                client_version_id,
+                count(client_version_id) AS num
+            FROM
+                platform_client_version_upgrade_recorder
+            WHERE
+                STATUS = '1' and client_version_id= #{id}
+        ) AS t2 ON t1.id = t2.client_version_id
+        WHERE
+            t1.id = #{id}
+    </select>
+
+    <!--按版本号查询-->
+    <select id="findByVerNum" resultMap="BaseResultMap" parameterType="Map" >
+        SELECT id,tenant_id,version_title,sys_attachment_url,sys_attachment_id,ver_num,code,size,terminal_type,change_num,reasle_status,ver_status,change_recode,creater,creat_time,modifier,modify_time
+        FROM platform_info_client_version_lib
+        where ver_num = #{verNum}
+        <if test="_parameter.containsKey('verStatus')">
+            and ver_status=#{verStatus}
+        </if>
+    </select>
+
+    <!--按正式，内测类型查询-->
+    <select id="findByVerStatus" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        SELECT
+        t1.id,
+        t1.tenant_id,
+        t1.version_title,
+        t1.sys_attachment_url,
+        t1.sys_attachment_id,
+        t1.ver_num,
+        t1. CODE,
+        t1.size,
+        t2.num AS change_num,
+        t1.terminal_type,
+        t1.reasle_status,
+        t1.ver_status,
+        t1.change_recode,
+        t1.creater,
+        t1.creat_time,
+        t1.modifier,
+        t1.modify_time
+    FROM
+        platform_info_client_version_lib AS t1
+    LEFT JOIN (
+        SELECT
+            client_version_id AS id,
+            count(client_version_id) AS num
+        FROM
+            platform_client_version_upgrade_recorder
+        WHERE
+            STATUS = '1'
+        AND client_version_id = (
+            SELECT
+                id
+            FROM
+                platform_info_client_version_lib
+            WHERE
+                ver_status = #{verStatus}
+        )
+    ) AS t2 ON t1.id = t2.id
+    WHERE
+	t1.ver_status = #{verStatus}
+    </select>
+
+    <!--查询列表-->
+    <select id="getList" resultMap="BaseResultMap" parameterType="Map" >
+        SELECT
+        t1.id,
+        t1.tenant_id,
+        t1.version_title,
+        t1.sys_attachment_url,
+        t1.sys_attachment_id,
+        t1.ver_num,
+        t1. CODE,
+        t1.size,
+        t2.num AS change_num,
+        t1.terminal_type,
+        t1.reasle_status,
+        t1.ver_status,
+        t1.change_recode,
+        t1.creater,
+        t1.creat_time,
+        t1.modifier,
+        t1.modify_time
+        FROM
+        platform_info_client_version_lib AS t1
+        LEFT JOIN (
+        SELECT
+        t.client_version_id,
+        count(t.client_version_id) AS num
+        FROM
+        platform_client_version_upgrade_recorder AS t
+        WHERE t.status='1'
+        GROUP BY
+        t.client_version_id
+        ) AS t2 ON t1.id = t2.client_version_id
+        where 1=1
+        <if test="_parameter.containsKey('searchKey')">
+          AND (
+            (t1.version_title LIKE concat(concat('%',#{searchKey}),'%'))
+            or (t1.ver_num LIKE concat(concat('%',#{searchKey}),'%'))
+            or (t1.terminal_type LIKE concat(concat('%',#{searchKey}),'%'))
+            or (t1.creater LIKE concat(concat('%',#{searchKey}),'%'))
+            )
+        </if>
+        <if test="_parameter.containsKey('verStatus')">
+           AND t1.ver_status = #{verStatus}
+        </if>
+        ORDER BY modify_time DESC
+    </select>
+
+    <!--查询已发布的终端版本列表-->
+    <select id="getReleaseList" resultMap="BaseResultMap" parameterType="Map" >
+        SELECT id,tenant_id,version_title,sys_attachment_url,sys_attachment_id,ver_num,code,size,terminal_type,change_num,reasle_status,ver_status,change_recode,creater,creat_time,modifier,modify_time
+        FROM platform_info_client_version_lib
+        where 1=1
+        <if test="_parameter.containsKey('searchKey')">
+            AND ((version_title LIKE concat(concat('%',#{searchKey}),'%')) or (ver_num LIKE concat(concat('%',#{searchKey}),'%')))
+        </if>
+        <if test="_parameter.containsKey('releaseStatus')">
+            AND reasle_status != #{releaseStatus}
+        </if>
+        ORDER BY modify_time DESC
+    </select>
+</mapper>

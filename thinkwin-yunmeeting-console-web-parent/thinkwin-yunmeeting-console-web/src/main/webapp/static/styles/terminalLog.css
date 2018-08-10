@@ -1,0 +1,330 @@
+#terminalCustomer {
+  position: relative;
+  height:calc(100vh - 56px);
+}
+#terminalCustomer .tabel-out-box{
+  height:100%;
+}
+#terminalCustomer .tabel-out-box .tabel-box{
+  height:100%;
+}
+#terminalCustomer .top .customer-name {
+  margin-left: 18px;
+}
+
+#terminalCustomer .top .customer-num {
+  margin-left: 8px;
+  vertical-align: middle;
+}
+#terminalCustomer .top #search {
+  border: none;
+  vertical-align: top;
+  height: 30px;
+  line-height: 30px;
+  width: 227px;
+  background-color: transparent;
+}
+#terminalCustomer .top .veiw-error-log {
+  float: right;
+  width: 148px;
+}
+
+.tabel-box {
+  padding-top: 40px;
+  position: relative;
+  margin: 0 16px;
+}
+
+.tabel-box .scroll-list {
+  height: calc(100% - 56px);
+  overflow-y: auto;
+  padding-bottom: 56px;
+}
+
+.tabel-box .scroll-list .list-pie {
+  position: absolute;
+  height: 0;
+  top: 39px;
+  width: 100%;
+  border-bottom: 2px  solid #f0f0f0;
+  margin-bottom: 0;
+}
+
+.tabel-box .scroll-list .table {
+  table-layout: fixed;
+}
+
+.tabel-box .scroll-list .table tr th {
+  height: 0;
+  line-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: transparent;
+  border: none;
+  white-space: nowrap;
+}
+
+.tabel-box .scroll-list .table tr th span {
+  position: absolute;
+  top: 0;
+  color: #757575;
+  line-height: 40px;
+}
+
+/*popover*/
+.popover-button {
+  background-color: transparent !important;
+  border: none !important;
+  color: #333 !important;
+}
+
+.popover {
+  z-index: 1031 !important;
+  padding: 0 !important;
+}
+
+.popover table {
+  font-size: 14px;
+  margin-bottom: 0;
+  table-layout: fixed;
+  margin-top: 0;
+}
+
+.popover table th {
+  border-top: 0px solid transparent;
+  border-bottom: 2px solid #dae1eb ;
+  height: 39px;
+  line-height: 39px;
+  padding: 0 0 0 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.popover table tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.popover table tr:nth-child(even) {
+  background-color: #f8fafd;
+}
+
+.popover table td {
+  height: 39px;
+  line-height: 39px;
+  padding: 0 0 0 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+  border-top: none;
+  border-bottom: none;
+}
+
+.popover table td span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.popover.popover-meeting {
+  max-height: 450px;
+  width: calc(100% - 52%) !important;
+  max-width: calc(100% - 52%) !important;
+  overflow: auto;
+}
+
+.popover.popover-unpass {
+  max-height: 300px;
+  width: calc(100% - 210px - 161px - 246px) !important;
+  max-width: calc(100% - 210px - 161px - 246px) !important;
+  overflow: hidden;
+}
+.popover-unpass .unmeeting-table {
+  max-height: 255px;
+}
+.popover.popover-person-meeting {
+  max-height: 451px;
+  overflow: hidden;
+}
+
+.popover.popover-department-meeting, .popover.popover-child-meeting {
+  max-height: 450px;
+  width: calc(100% - 258px) !important;
+  max-width: calc(100% - 258px) !important;
+  overflow: hidden;
+}
+.popover.popover-unmeeting, .popover.popover-child-unmeeting {
+  max-height: 450px;
+  max-width: 200px;
+  overflow: hidden;
+}
+.popover.popover-unmeeting .popover-content, .popover.popover-child-unmeeting .popover-content{
+  max-height: 450px;
+  overflow: hidden;
+}
+.popover-table-title {
+  height: 45px;
+  /*width: calc(100% - 8px);*/
+  padding: 4px 16px 0 16px;
+}
+.unmeeting-table {
+  max-height: 405px;
+  overflow: auto;
+  padding: 0 16px  9px 16px;
+}
+.popover-unmeeting tr, .popover-child-unmeeting tr {
+  background-color: #fff !important;
+}
+
+.popover-unmeeting tr td, .popover-child-unmeeting tr td {
+  border-top: none;
+}
+
+.show-table .table-1 {
+  width: 24.1%;
+}
+
+.show-table .table-2 {
+  width: 22.3%;
+}
+
+.show-table .table-3 {
+  width: 14.9%;
+}
+
+.show-table .table-4 {
+  width: 13.9%;
+}
+
+.show-table .table-5 {
+  width: 13.5%;
+}
+
+.show-table .table-6 {
+  width: 11.3%;
+}
+
+.show-unpass .table-1 {
+  width: 44.8%;
+}
+
+.show-unpass .table-2 {
+  width: 37.3%;
+}
+
+.show-unpass .table-3 {
+  width: 17.9%;
+}
+
+.person-meeting-table .table-1 {
+  width: 43%;
+}
+
+.person-meeting-table .table-2 {
+  width: 26%;
+}
+
+.person-meeting-table .table-3 {
+  width: 17%;
+}
+
+.person-meeting-table .table-4 {
+  width: 14%;
+}
+
+.popover::before {
+  display: none !important;
+}
+
+.popover::after {
+  display: none !important;
+}
+#terminalCustomer .table tr td,#terminalCustomer .table tr th{
+  line-height: 40px;
+}
+
+#terminalCustomer .table tr td span,#terminalCustomer .table tr th span{
+  margin-left: 8px;
+}
+
+#terminalCustomer .tabel-out-box .table-1{
+  width: 18%;
+}
+#terminalCustomer .tabel-out-box .table-2{
+  width: 14%;
+  overflow: inherit;
+}
+#terminalCustomer .tabel-out-box .table-3{
+  width: 12%;
+}
+#terminalCustomer .tabel-out-box .table-4{
+  width: 9%;
+}
+#terminalCustomer .tabel-out-box .table-5{
+  width: 10.47%;
+}
+#terminalCustomer .tabel-out-box .table-6{
+  width: 18.301%;
+}
+#terminalCustomer .tabel-out-box .table-7{
+  width: 8%;
+}
+#terminalCustomer .tabel-out-box .table-8{
+  width: 8%;
+}
+#terminalCustomer .tabel-out-box .table-9{
+  width: 8.113%;
+}
+/*duanweijie 2018-8-9 设置定制用户角色样式修改*/
+#terminalCustomer .dropdown-box{
+  position: relative;
+  float: left;
+  top: 6px;
+  left: 15px;
+}
+#terminalCustomer .dropdown-box{
+  left:0;
+  top:0;
+}
+#terminalCustomer .dropdown-box .select-btn,#terminalCustomer .dropdown-box .select-btn{
+  font-size: 14px;
+  color: #757575;
+  background-color: #fff;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 8px;
+}
+#terminalCustomer .select-btn{
+  font-size: 12px;
+}
+#terminalCustomer .dropdown-ul,#terminalCustomer  .dropdown-ul{
+  position: absolute;
+  top: 28px;
+  left:0;
+  z-index: 300;
+  box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.14);
+  border-radius: 2px;
+  width: 200px;
+  display: none;
+  background-color: #fff;
+  padding: 6px 0;
+}
+#terminalCustomer .dropdown-ul{
+  height: 54px;
+}
+#terminalCustomer .dropdown-ul .span-list{
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 9px 1.5rem;
+  line-height: normal;
+  height: 42px;
+  margin-left: 0;
+}
+#terminalCustomer .dropdown-ul .dropdown-item.active,#terminalCustomer .dropdown-ul .dropdown-item:active{
+  background-color: #f7f7f9;
+  color: #333;
+}

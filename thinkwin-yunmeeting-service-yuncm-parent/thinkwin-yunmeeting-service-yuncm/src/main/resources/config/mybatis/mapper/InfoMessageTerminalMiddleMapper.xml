@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.InfoMessageTerminalMiddleMapper">
+	<resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.InfoMessageTerminalMiddle">
+		<!--
+		  WARNING - @mbg.generated
+		-->
+		<id column="id" jdbcType="VARCHAR" property="id"/>
+		<result column="terminal_id" jdbcType="VARCHAR" property="terminalId"/>
+		<result column="broadcast_message_id" jdbcType="VARCHAR" property="broadcastMessageId"/>
+		<result column="msg_status" jdbcType="INTEGER" property="msgStatus"/>
+	</resultMap>
+</mapper>

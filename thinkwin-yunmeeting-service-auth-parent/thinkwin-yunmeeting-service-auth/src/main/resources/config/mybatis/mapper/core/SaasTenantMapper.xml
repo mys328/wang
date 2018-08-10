@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.auth.mapper.core.SaasTenantMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.core.SaasTenant">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="tenant_code" jdbcType="VARCHAR" property="tenantCode" />
+    <result column="tenant_name" jdbcType="VARCHAR" property="tenantName" />
+    <result column="contacts" jdbcType="VARCHAR" property="contacts" />
+    <result column="contacts_email" jdbcType="VARCHAR" property="contactsEmail" />
+    <result column="contacts_tel" jdbcType="VARCHAR" property="contactsTel" />
+    <result column="contacts_qq" jdbcType="VARCHAR" property="contactsQq" />
+    <result column="expect_number" jdbcType="INTEGER" property="expectNumber" />
+    <result column="expect_device" jdbcType="INTEGER" property="expectDevice" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="30click" jdbcType="VARCHAR" property="m30click" />
+    <result column="encrypt_config" jdbcType="VARCHAR" property="encryptConfig" />
+    <result column="total_space" jdbcType="VARCHAR" property="totalSpace" />
+    <result column="used_space" jdbcType="VARCHAR" property="usedSpace" />
+    <result column="saas_db_config_id" jdbcType="VARCHAR" property="saasDbConfigId" />
+    <result column="base_package_type" jdbcType="VARCHAR" property="basePackageType" />
+    <result column="base_package_expir" jdbcType="TIMESTAMP" property="basePackageExpir" />
+    <result column="base_package_room_num" jdbcType="INTEGER" property="basePackageRoomNum" />
+    <result column="base_package_space_num" jdbcType="INTEGER" property="basePackageSpaceNum" />
+    <result column="base_package_spac_unit" jdbcType="VARCHAR" property="basePackageSpacUnit" />
+    <result column="tenant_type" jdbcType="VARCHAR" property="tenantType" />
+    <result column="buy_room_num_total" jdbcType="INTEGER" property="buyRoomNumTotal" />
+    <result column="buy_space_num_total" jdbcType="INTEGER" property="buySpaceNumTotal" />
+    <result column="db_config" jdbcType="LONGVARCHAR" property="dbConfig" />
+    <result column="base_package_start" jdbcType="TIMESTAMP" property="BasePackageStart" />
+    <result column="delete_file" jdbcType="INTEGER" property="deleteFile" />
+    <result column="is_inner_test" jdbcType="VARCHAR" property="isInnerTest" />
+    <result column="terminal_manager_passwd" jdbcType="VARCHAR" property="terminalManagerPasswd" />
+    <result column="login_num" jdbcType="BIGINT" property="loginNum" />
+  </resultMap>
+</mapper>

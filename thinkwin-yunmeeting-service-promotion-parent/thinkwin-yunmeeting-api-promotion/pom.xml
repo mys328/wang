@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.thinkwin</groupId>
+    <artifactId>thinkwin-yunmeeting-api-promotion</artifactId>
+    <packaging>jar</packaging>
+    <version>2.1.0-DZJM</version>
+    <name>thinkwin-yunmeeting-api-promotion</name>
+    <url>http://maven.apache.org</url>
+    
+	<parent>
+		<groupId>com.thinkwin</groupId>
+		<artifactId>thinkwin-yunmeeting-service-promotion-parent</artifactId>
+		<version>2.1.0-DZJM</version>
+		<relativePath>../../thinkwin-yunmeeting-service-promotion-parent</relativePath>
+	</parent>
+
+	<build>
+		<finalName>thinkwin-yunmeeting-api-promotion</finalName>
+		<resources>
+			<resource>
+				<filtering>true</filtering> <!-- 加上filter会过滤该资源路径中的文件 -->
+				<directory>${project.basedir}/src/main/resources</directory>
+				<includes>
+					<include>*.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.dll</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+	
+	<dependencies>
+	
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-system-common</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+        </dependency>
+	</dependencies> 
+	
+	
+</project>

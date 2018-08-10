@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:util="http://www.springframework.org/schema/util"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:mail.properties" ignore-resource-not-found="true"/>
+
+    <beans:bean id="timerService" class="com.thinkwin.schedule.service.impl.RedissonTimerService">
+        <beans:constructor-arg name="config">
+            <beans:bean class="org.redisson.config.SingleServerConfig">
+                <!-- Redis server 地址 -->
+                <beans:property name="address" value="tcp://${redis.ip}:${redis.port}"></beans:property>
+                <beans:property name="password" value="${redis.password}"></beans:property>
+            </beans:bean>
+        </beans:constructor-arg>
+        <beans:constructor-arg name="serviceType">
+            <util:constant static-field="com.thinkwin.schedule.service.ServiceType.BOTH"/>
+        </beans:constructor-arg>
+        <!-- 定时服务名称 -->
+        <beans:constructor-arg name="workerGroupName" value="mail-sender-executor_${group.scope}"></beans:constructor-arg>
+    </beans:bean>
+
+    </beans:beans>

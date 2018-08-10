@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.InfoProgramComponentMapper">
+
+	<!--批量添加节目组件-->
+	<insert id="batchAddProgramComponent" parameterType="java.util.List">
+		insert into info_program_components (
+		id,
+		comp_name,
+		c_code,
+		creater,
+		creat_time,
+		modifier,
+		modify_time,
+		ver) values
+		<foreach collection="list" item="item" index="index" open="" close="" separator=",">
+			('${item.id}',
+			'${item.compName}',
+			'${item.code}',
+			'${item.creater}',
+			#{item.creatTime,jdbcType=TIMESTAMP},
+			'${item.modifier}',
+			#{item.modifyTime,jdbcType=TIMESTAMP},
+			'${item.ver}')
+		</foreach>;
+	</insert>
+
+</mapper>

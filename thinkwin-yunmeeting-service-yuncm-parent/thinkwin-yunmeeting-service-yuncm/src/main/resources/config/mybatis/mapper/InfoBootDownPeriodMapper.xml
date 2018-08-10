@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.InfoBootDownPeriodMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.InfoBootDownPeriod">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="boot_down_task_id" jdbcType="VARCHAR" property="bootDownTaskId" />
+    <result column="weekly" jdbcType="VARCHAR" property="weekly" />
+    <result column="am_start_time" jdbcType="TIME" property="amStartTime" />
+    <result column="am_end_time" jdbcType="TIME" property="amEndTime" />
+    <result column="pm_start_time" jdbcType="TIME" property="pmStartTime" />
+    <result column="pm_end_time" jdbcType="TIME" property="pmEndTime" />
+  </resultMap>
+</mapper>

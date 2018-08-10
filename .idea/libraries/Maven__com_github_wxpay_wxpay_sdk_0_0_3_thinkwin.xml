@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.github.wxpay:wxpay-sdk:0.0.3.thinkwin">
+    <CLASSES>
+      <root url="jar://D:/maven/responsity/com/github/wxpay/wxpay-sdk/0.0.3.thinkwin/wxpay-sdk-0.0.3.thinkwin.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/maven/responsity/com/github/wxpay/wxpay-sdk/0.0.3.thinkwin/wxpay-sdk-0.0.3.thinkwin-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/maven/responsity/com/github/wxpay/wxpay-sdk/0.0.3.thinkwin/wxpay-sdk-0.0.3.thinkwin-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

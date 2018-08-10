@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd  
+  http://code.alibabatech.com/schema/dubbo
+  http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+
+
+	 <!-- 生成远程服务代理，可以和本地bean一样使用itemsService -->
+	<dubbo:reference id="userService" interface="com.thinkwin.auth.service.UserService" check="false" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:reference id="saasTenantService" interface="com.thinkwin.auth.service.SaasTenantService" check="false" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:reference id="saasTenantCoreService" interface="com.thinkwin.core.service.SaasTenantService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="organizationService" interface="com.thinkwin.auth.service.OrganizationService" check="false" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:reference id="fileUploadService" interface="com.thinkwin.fileupload.service.FileUploadService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="userRoleService" interface="com.thinkwin.auth.service.UserRoleService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="dictionaryService" interface="com.thinkwin.dictionary.service.DictionaryService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="publishService" interface="com.thinkwin.publish.service.PublishService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="platformInfoClientVersionLibService" interface="com.thinkwin.publish.service.PlatformInfoClientVersionLibService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="configService" interface="com.thinkwin.config.service.ConfigService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="platformProgramVersionSerevice" interface="com.thinkwin.publish.service.PlatformProgramVersionSerevice" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="platformLabelProgramMiddleService" interface="com.thinkwin.publish.service.PlatformLabelProgramMiddleService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="platformProgrameService" interface="com.thinkwin.publish.service.PlatformProgrameService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="platformProgrameLabelService" interface="com.thinkwin.publish.service.PlatformProgrameLabelService" check="false" group="${group.scope}" version="${interface.version}"/>
+	<dubbo:reference id="platformClientVersionUpgradeRecorderService" interface="com.thinkwin.publish.service.PlatformClientVersionUpgradeRecorderService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="configManagerService" interface="com.thinkwin.publish.service.ConfigManagerService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference interface="com.thinkwin.log.service.TerminalLogService" id="terminalLogService" check="false" group="${group.scope}" version="${interface.version}"/>
+
+</beans>
+

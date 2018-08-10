@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.YuncmRoomReserveAuthMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.YuncmRoomReserveAuth">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="meeting_room_id" jdbcType="VARCHAR" property="meetingRoomId" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="creater_id" jdbcType="VARCHAR" property="createrId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifyer_id" jdbcType="VARCHAR" property="modifyerId" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+
+    <!--会议室的权限是否为全体人员-->
+    <select id="findMeetingRoomId" resultMap="BaseResultMap">
+        SELECT
+        yrra.*
+        FROM
+        yuncm_room_reserve_auth AS yrra
+        WHERE 1=1
+        <if test="meetingRoomId != null and meetingRoomId != ''">
+            and yrra.meeting_root_id=#{meetingRoomId}
+        </if>
+    </select>
+</mapper>

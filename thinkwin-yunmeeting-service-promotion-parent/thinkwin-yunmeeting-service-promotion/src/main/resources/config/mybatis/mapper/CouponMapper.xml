@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.promotion.mapper.CouponMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.promotion.Coupon">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="coupon_code" jdbcType="CHAR" property="couponCode" />
+    <result column="batch_id" jdbcType="CHAR" property="batchId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="order_id" jdbcType="CHAR" property="orderId" />
+    <result column="tenant_id" jdbcType="CHAR" property="tenantId" />
+    <result column="sales_agent_id" jdbcType="CHAR" property="salesAgentId" />
+    <result column="used_by" jdbcType="CHAR" property="usedBy" />
+    <result column="obtained_by" jdbcType="CHAR" property="obtainedBy" />
+    <result column="used_at" jdbcType="TIMESTAMP" property="usedAt" />
+  </resultMap>
+</mapper>

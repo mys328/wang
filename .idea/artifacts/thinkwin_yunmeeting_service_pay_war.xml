@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="thinkwin-yunmeeting-service-pay:war">
+    <output-path>$PROJECT_DIR$/thinkwin-yunmeeting-service-pay-parent/thinkwin-yunmeeting-service-pay/target</output-path>
+    <root id="archive" name="thinkwin-yunmeeting-service-pay.war">
+      <element id="artifact" artifact-name="thinkwin-yunmeeting-service-pay:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,293 @@
+@charset "UTF-8";
+
+.sliderange .sliderange-critical {
+  position: relative;
+  height: 22px;
+}
+
+.sliderange .sliderange-critical span {
+  position: absolute;
+  top: 0;
+  min-width: 36px;
+  font-size: 12px;
+  padding: 0 5px;
+  line-height: 20px;
+  height: 20px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #fedcd8;
+  border: 1px solid #fb9689;
+  border-radius: 2px;
+  color: #fa553c;
+  text-align: center;
+}
+
+.sliderange .sliderange-critical span.attained {
+  color: #fff;
+  background-color: #fa553c;
+  border-color: #fa553c;
+}
+
+.sliderange .sliderange-critical span.attained:before, .sliderange .sliderange-critical span.attained:after {
+  border-color: #fa553c transparent transparent;
+}
+
+.sliderange .sliderange-critical span:before, .sliderange .sliderange-critical span:after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  content: '';
+  width: 0;
+  height: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-width: 3px 4px;
+  border-style: solid;
+  border-color: #fb9689 transparent transparent;
+}
+
+.sliderange .sliderange-critical span:after {
+  margin-top: -1.5px;
+  border-color: #fedcd8 transparent transparent;
+}
+
+.sliderange .sliderange-track {
+  position: relative;
+  float: left;
+  cursor: pointer;
+  height: 24px;
+  margin-right: 40px;
+  margin-top: 4px;
+}
+
+.sliderange .sliderange-section, .sliderange .sliderange-selected, .sliderange .sliderange-default {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  line-height: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #fafafa;
+  border: 1px solid #d5e8f5;
+  padding: 1px 0;
+}
+
+.sliderange .sliderange-section span, .sliderange .sliderange-selected span, .sliderange .sliderange-default span {
+  display: inline-block;
+  text-align: right;
+  height: 20px;
+  line-height: 20px;
+  color: #999;
+  border-right: 1px solid #d5e8f5;
+  font-size: 12px;
+}
+
+.sliderange .sliderange-section span i, .sliderange .sliderange-selected span i, .sliderange .sliderange-default span i {
+  font-style: normal;
+  padding-right: 4px;
+}
+
+.sliderange .sliderange-section span.through, .sliderange .sliderange-selected span.through, .sliderange .sliderange-default span.through {
+  color: #fff;
+}
+
+.sliderange .sliderange-section span:last-child, .sliderange .sliderange-selected span:last-child, .sliderange .sliderange-default span:last-child {
+  border-right: none;
+}
+
+.sliderange .sliderange-selected {
+  width: 0;
+  background-color: #32a7fa;
+  border-color: #32a7fa;
+  border-width: 0;
+  line-height: 22px;
+}
+
+.sliderange .sliderange-selected span {
+  color: #fff;
+}
+
+.sliderange .sliderange-selected .section {
+  position: relative;
+  height: 24px;
+  padding: 1px 0;
+}
+
+.sliderange .sliderange-default {
+  width: 0;
+  background-color: #7ac5fa;
+  border-width: 0;
+  z-index: 0;
+}
+
+.sliderange .sliderange-thumb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 18px;
+  height: 30px;
+  border-radius: 2px;
+  background-color: #1d98f0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-left: -9px;
+}
+
+.sliderange .sliderange-thumb:hover span, .sliderange .sliderange-thumb.moving span {
+  display: block;
+}
+
+.sliderange .sliderange-thumb:before, .sliderange .sliderange-thumb:after {
+  position: absolute;
+  top: 50%;
+  content: '';
+  width: 2px;
+  height: 12px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background-color: #fff;
+}
+
+.sliderange .sliderange-thumb:before {
+  left: 6px;
+}
+
+.sliderange .sliderange-thumb:after {
+  right: 6px;
+}
+
+.sliderange .sliderange-thumb span {
+  position: absolute;
+  background-color: #9c9cad;
+  left: 50%;
+  bottom: 100%;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  color: #fff;
+  border-radius: 2px;
+  font-size: 12px;
+  min-width: 50px;
+  line-height: 22px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
+  display: none;
+}
+
+.sliderange .sliderange-thumb span:before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  content: '';
+  width: 0;
+  height: 0;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-width: 3px 4px;
+  border-style: solid;
+  border-color: #9c9cad transparent transparent;
+}
+
+.sliderange .sliderange-number {
+  float: left;
+}
+
+.sliderange .sliderange-number input {
+  float: left;
+  width: 56px;
+  height: 32px;
+  border: 1px solid #d1d1d1;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  background-color: #fff;
+}
+
+.sliderange .sliderange-number input:focus {
+  box-shadow: 0 0 8px 0 rgba(71, 192, 252, 0.5);
+  border-color: #47c0fc;
+}
+
+.sliderange .sliderange-number span {
+  float: left;
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.sliderange .sliderange-number span.minus, .sliderange .sliderange-number span.plus {
+  position: relative;
+  cursor: pointer;
+  border: 1px solid #d1d1d1;
+  background-color: #fcfcfc;
+}
+
+.sliderange .sliderange-number span.minus:before, .sliderange .sliderange-number span.minus:after, .sliderange .sliderange-number span.plus:before, .sliderange .sliderange-number span.plus:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: '';
+  width: 12px;
+  height: 2px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #757575;
+}
+
+.sliderange .sliderange-number span.minus {
+  border-right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.sliderange .sliderange-number span.plus {
+  border-left: 0;
+  border-radius: 0 2px 2px 0;
+}
+
+.sliderange .sliderange-number span.plus:after {
+  width: 2px;
+  height: 12px;
+}
+
+.sliderange .sliderange-number span.unit {
+  line-height: 32px;
+  font-size: 14px;
+  color: #333;
+  padding-left: 8px;
+}
+
+.sliderange .sliderange-number span.disabled:before, .sliderange .sliderange-number span.disabled:after {
+  background-color: #d1d1d1;
+}
+
+.sliderange .sliderange-tips {
+  clear: both;
+  font-size: 12px;
+  color: #999;
+  padding-top: 10px;
+  line-height: 16px;
+}
+
+.sliderange .sliderange-tips b {
+  font-weight: normal;
+}
+
+.sliderange .sliderange-tips .prompt {
+  float: left;
+  margin-right: 40px;
+}
+
+.sliderange .sliderange-tips .prompt b {
+  color: #fa553c;
+}
+
+.sliderange .sliderange-tips .actual b {
+  padding: 0 4px;
+  display: inline-block;
+  color: #333;
+}

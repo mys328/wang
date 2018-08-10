@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="thinkwin-yunmeeting-console-web:war">
+    <output-path>$PROJECT_DIR$/thinkwin-yunmeeting-console-web-parent/thinkwin-yunmeeting-console-web/target</output-path>
+    <root id="archive" name="thinkwin-yunmeeting-console-web.war">
+      <element id="artifact" artifact-name="thinkwin-yunmeeting-console-web:war exploded" />
+    </root>
+  </artifact>
+</component>

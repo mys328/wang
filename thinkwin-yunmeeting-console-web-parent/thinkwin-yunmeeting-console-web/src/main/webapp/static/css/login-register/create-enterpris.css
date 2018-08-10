@@ -1,0 +1,18 @@
+/*创建企业*/
+.create-enterpris{
+    width:354px;text-align:center;
+}
+.create-btn{
+    font-size:16px;
+    color:#ffffff;
+}
+.backLogin{
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    text-align:center ;
+    font-size:16px;
+    color:#1896f0;
+    cursor: pointer;
+    border-top: 1px solid #d9d9d9;
+}

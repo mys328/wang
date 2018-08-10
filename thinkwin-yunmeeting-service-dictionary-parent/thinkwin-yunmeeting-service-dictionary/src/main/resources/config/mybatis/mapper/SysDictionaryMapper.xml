@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.dictionary.mapper.SysDictionaryMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.SysDictionary">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="dict_id" jdbcType="VARCHAR" property="dictId" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <result column="dict_sort" jdbcType="VARCHAR" property="dictSort" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="dict_code" jdbcType="VARCHAR" property="dictCode" />
+    <result column="dict_name" jdbcType="VARCHAR" property="dictName" />
+    <result column="dict_value" jdbcType="VARCHAR" property="dictValue" />
+    <result column="descript" jdbcType="VARCHAR" property="descript" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="create_id" jdbcType="VARCHAR" property="createId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_id" jdbcType="VARCHAR" property="updateId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="order_num" jdbcType="INTEGER" property="orderNum" />
+    <result column="platform_id" jdbcType="INTEGER" property="platformId" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+  </resultMap>
+
+  <select id="selectAllSysDictionary" resultMap="BaseResultMap" >
+    SELECT  * FROM
+    sys_dictionary WHERE ( dict_id = #{dictId} OR  parent_id = #{dictId} ) AND status = 1  order by order_num
+  </select>
+
+
+
+</mapper>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.publish.mapper.PlatformProgrameLabelMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.publish.PlatformProgrameLabel">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="label_name" jdbcType="VARCHAR" property="labelName" />
+    <result column="label_update_batch" jdbcType="VARCHAR" property="labelUpdateBatch" />
+    <result column="label_sort" jdbcType="INTEGER" property="labelSort" />
+    <result column="label_status" jdbcType="VARCHAR" property="labelStatus" />
+    <result column="recorder_status" jdbcType="VARCHAR" property="recorderStatus" />
+    <result column="ver" jdbcType="VARCHAR" property="ver" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+  </resultMap>
+
+  <update id="updateLabelStatusByLabelStatus"  parameterType="map">
+    update platform_programe_label
+    <set >
+      <if test="afterStatus != null" >
+        label_status = #{afterStatus}
+      </if>
+    </set>
+    where label_status = #{beforeStatus}
+  </update>
+</mapper>

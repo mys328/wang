@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.InfoProgramTerminalMiddleMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.InfoProgramTerminalMiddle">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="terminal_id" jdbcType="VARCHAR" property="terminalId" />
+    <result column="program_id" jdbcType="VARCHAR" property="programId" />
+    <result column="player_start_time" jdbcType="TIMESTAMP" property="playerStartTime" />
+    <result column="player_end_time" jdbcType="TIMESTAMP" property="playerEndTime" />
+    <result column="is_long_play" jdbcType="VARCHAR" property="isLongPlay" />
+    <result column="is_leisure_play" jdbcType="VARCHAR" property="isLeisurePlay" />
+    <result column="release_status" jdbcType="VARCHAR" property="releaseStatus" />
+  </resultMap>
+</mapper>

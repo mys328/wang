@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="thinkwin-yunmeeting-api-auth" />
+        <module name="thinkwin-yunmeeting-api-base" />
+        <module name="thinkwin-yunmeeting-api-config" />
+        <module name="thinkwin-yunmeeting-api-console" />
+        <module name="thinkwin-yunmeeting-api-core" />
+        <module name="thinkwin-yunmeeting-api-cron" />
+        <module name="thinkwin-yunmeeting-api-dictionary" />
+        <module name="thinkwin-yunmeeting-api-document" />
+        <module name="thinkwin-yunmeeting-api-fileupload" />
+        <module name="thinkwin-yunmeeting-api-goods-center" />
+        <module name="thinkwin-yunmeeting-api-log" />
+        <module name="thinkwin-yunmeeting-api-mailsender" />
+        <module name="thinkwin-yunmeeting-api-orders" />
+        <module name="thinkwin-yunmeeting-api-pay" />
+        <module name="thinkwin-yunmeeting-api-promotion" />
+        <module name="thinkwin-yunmeeting-api-publish" />
+        <module name="thinkwin-yunmeeting-api-push" />
+        <module name="thinkwin-yunmeeting-api-serialnumber" />
+        <module name="thinkwin-yunmeeting-api-SMSsender" />
+        <module name="thinkwin-yunmeeting-api-tenant-sysconfig" />
+        <module name="thinkwin-yunmeeting-api-timertask" />
+        <module name="thinkwin-yunmeeting-api-weixin" />
+        <module name="thinkwin-yunmeeting-api-yuncm" />
+        <module name="thinkwin-yunmeeting-console-web" />
+        <module name="thinkwin-yunmeeting-service-auth" />
+        <module name="thinkwin-yunmeeting-service-base" />
+        <module name="thinkwin-yunmeeting-service-config" />
+        <module name="thinkwin-yunmeeting-service-console" />
+        <module name="thinkwin-yunmeeting-service-core" />
+        <module name="thinkwin-yunmeeting-service-cron" />
+        <module name="thinkwin-yunmeeting-service-dictionary" />
+        <module name="thinkwin-yunmeeting-service-document" />
+        <module name="thinkwin-yunmeeting-service-fileupload" />
+        <module name="thinkwin-yunmeeting-service-goods-center" />
+        <module name="thinkwin-yunmeeting-service-log" />
+        <module name="thinkwin-yunmeeting-service-mailsender" />
+        <module name="thinkwin-yunmeeting-service-orders" />
+        <module name="thinkwin-yunmeeting-service-pay" />
+        <module name="thinkwin-yunmeeting-service-promotion" />
+        <module name="thinkwin-yunmeeting-service-publish" />
+        <module name="thinkwin-yunmeeting-service-push" />
+        <module name="thinkwin-yunmeeting-service-serialnumber" />
+        <module name="thinkwin-yunmeeting-service-SMSsender" />
+        <module name="thinkwin-yunmeeting-service-tenant-sysconfig" />
+        <module name="thinkwin-yunmeeting-service-timertask" />
+        <module name="thinkwin-yunmeeting-service-weixin" />
+        <module name="thinkwin-yunmeeting-service-yuncm" />
+        <module name="thinkwin-yunmeeting-system-common" />
+        <module name="thinkwin-yunmeeting-system-framework" />
+        <module name="thinkwin-yunmeeting-web" />
+        <module name="thinkwin-yunmeeting-weixin-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="thinkwin-yunmeeting-api-auth" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-base" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-config" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-console" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-core" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-cron" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-dictionary" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-document" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-fileupload" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-goods-center" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-log" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-mailsender" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-orders" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-pay" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-promotion" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-publish" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-push" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-serialnumber" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-SMSsender" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-tenant-sysconfig" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-timertask" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-weixin" target="1.8" />
+      <module name="thinkwin-yunmeeting-api-yuncm" target="1.8" />
+      <module name="thinkwin-yunmeeting-console-web" target="1.8" />
+      <module name="thinkwin-yunmeeting-console-web-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-auth" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-auth-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-base" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-base-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-config" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-config-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-console" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-console-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-core" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-core-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-cron" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-cron-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-dictionary" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-dictionary-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-document" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-document-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-fileupload" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-fileupload-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-goods-center" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-goods-center-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-log" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-log-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-mailsender" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-mailsender-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-orders" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-orders-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-pay" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-pay-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-promotion" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-promotion-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-publish" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-publish-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-push" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-push-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-serialnumber" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-serialnumber-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-SMSsender" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-SMSsender-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-tenant-sysconfig" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-tenant-sysconfig-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-timertask" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-timertask-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-weixin" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-weixin-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-yuncm" target="1.8" />
+      <module name="thinkwin-yunmeeting-service-yuncm-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-system-common" target="1.8" />
+      <module name="thinkwin-yunmeeting-system-framework" target="1.8" />
+      <module name="thinkwin-yunmeeting-web" target="1.8" />
+      <module name="thinkwin-yunmeeting-web-parent" target="1.8" />
+      <module name="thinkwin-yunmeeting-weixin-web" target="1.8" />
+      <module name="thinkwin-yunmeeting-weixin-web-parent" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

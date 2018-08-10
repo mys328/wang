@@ -1,0 +1,107 @@
+/*form表单*/
+.form{
+    width: 340px;
+    height: auto;
+}
+/*登陆导航*/
+.nav-tabs{
+    border-bottom: 2px solid #d9d9d9;
+}
+.form ul{
+    color: #989898;
+}
+.form ul li{
+    width:50%;text-align:center;
+}
+.form ul li a{
+    border-radius: 0;
+    border:0;
+    cursor: pointer;
+}
+.form ul li a:hover{
+    color: #1896f0;
+    border:0;
+    border-bottom: 3px solid #1896f0;
+}
+
+.form ul li:hover{
+    border-bottom: 0!important;
+}
+/*微信登陆*/
+#login_container{
+    width: 100%;
+}
+/*账号密码*/
+.account-login{
+    width: 100%;
+    margin-top: 48px;
+}
+.login-btn{
+    width: 100%;
+    margin-top: 20px;
+}
+.green{
+    color: #333;
+}
+.red{
+    color: red;
+}
+
+.password-input{
+    margin-bottom: 0!important;
+}
+.losed-psd{
+    text-align: right;
+    font-size:14px;
+    color:#1896f0;
+    padding: 9px 0;
+}
+.reminder{
+    display: none;
+    float: left;
+    color: #f74555;
+}
+.btn{
+    border-radius:4px;
+    width:340px;
+    height:44px;
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: #1896f0;
+    border-color: #1896f0;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #025aa5;
+    border-color: #01549b;
+}
+.register-link{
+    text-align: center;
+    font-size:14px;
+    color:#a6a6a6;
+}
+.warningBox{
+    font-family:MicrosoftYaHei;
+    font-size:14px;
+    color:#f74555;
+    letter-spacing:0;
+    text-align:left;
+    margin-top: 10px !important;
+    display: none;
+}
+.warring{
+    border: 1px solid red;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.login-active{
+    color: #1896f0!important;
+    border-bottom: 3px solid #1896f0!important;
+}
+.verify-input {
+    margin-top: 20px;
+    height: 44px;
+    line-height: 44px;
+}
+

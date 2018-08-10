@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.InfoProgrameLabelMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.InfoProgrameLabel">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="label_name" jdbcType="VARCHAR" property="labelName" />
+    <result column="label_sort" jdbcType="INTEGER" property="labelSort" />
+    <result column="label_update_batch" jdbcType="VARCHAR" property="labelUpdateBatch" />
+    <result column="label_status" jdbcType="VARCHAR" property="labelStatus" />
+    <result column="recorder_status" jdbcType="VARCHAR" property="recorderStatus" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+  </resultMap>
+
+
+    <select id="findByStatus" parameterType="java.lang.String" >
+        SELECT id,label_name,label_sort,label_update_batch,label_status,recorder_status FROM  info_programe_label
+        WHERE 1=1
+        <if test="_parameter.containsKey('status')">
+            AND label_status=${status}
+        </if>
+        ORDER  BY create_time
+    </select>
+
+
+    <!--批量逻辑删除-->
+    <update id="batchLogicalDelProgramLabel" parameterType="java.util.List">
+        UPDATE info_programe_label
+        SET recorder_status='0'
+        WHERE id IN
+        <foreach collection="list" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+    <!--批量物理删除-->
+    <delete id="batchPhysicalDelProgramLabel" parameterType="java.util.List">
+        DELETE From info_programe_label
+        WHERE id IN
+        <foreach collection="list" item="item" index="index"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <update id="batchUpdateProgramLabel"  parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update info_programe_label
+            <set>
+                label_name='${item.labelName}',
+                label_sort=${item.labelSort},
+                label_update_batch='${item.labelUpdateBatch}',
+                label_status='${item.labelStatus}',
+                recorder_status='${item.recorderStatus}'
+            </set>
+            where id = '${item.id}'
+        </foreach>
+    </update>
+
+    <!--批量添加节目-->
+    <insert id="batchAddProgramLabel" parameterType="java.util.List">
+        insert into info_programe_label (
+        id,
+        label_name,
+        label_sort,
+        label_update_batch,
+        label_status,
+        recorder_status
+        ) values
+        <foreach collection="list" item="item" index="index" open="" close="" separator=",">
+            ('${item.id}',
+            '${item.labelName}',
+             ${item.labelSort},
+            '${item.labelUpdateBatch}',
+            '${item.labelStatus}',
+            '${item.recorderStatus}')
+        </foreach>;
+    </insert>
+
+    <!--批量物理删除-->
+    <delete id="batchPhysicalDelLabelByLabelStatus" parameterType="java.lang.String">
+        DELETE From info_programe_label
+        WHERE label_status=${labelStatus}
+    </delete>
+
+</mapper>

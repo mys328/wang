@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.publish.mapper.PlatformProgramVersionMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.publish.PlatformProgramVersion">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="program_version_num" jdbcType="VARCHAR" property="programVersionNum" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="creat_time" jdbcType="TIMESTAMP" property="creatTime" />
+    <result column="modifier" jdbcType="VARCHAR" property="modifier" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="ver" jdbcType="VARCHAR" property="ver" />
+    <result column="custom_tenant_Id" jdbcType="VARCHAR" property="customTenantId" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="publish_note" jdbcType="LONGVARCHAR" property="publishNote" />
+    <result column="version_update_batch" jdbcType="VARCHAR" property="versionUpdateBatch" />
+
+  </resultMap>
+</mapper>

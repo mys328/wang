@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.orders.mapper.TenantOrderInfoMapper">
+	<select id="getOrderInfoByIdLocked" parameterType="String" resultType="com.thinkwin.orders.model.TenantOrderInfo">
+		SELECT tenant_id
+		,`current_order`
+		,`create_time`
+		,`update_time`
+		from `tenant_order_info`
+		where tenant_id = #{tenantId} for update;
+	</select>
+
+</mapper>

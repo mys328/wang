@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.goodscenter.mapper.UomDefMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.UomDef">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="uom_code" jdbcType="CHAR" property="uomCode" />
+    <result column="uom_class" jdbcType="VARCHAR" property="uomClass" />
+    <result column="uom_name" jdbcType="VARCHAR" property="uomName" />
+    <result column="uom_desc" jdbcType="VARCHAR" property="uomDesc" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>

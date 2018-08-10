@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.dictionary.mapper.CityDictionaryMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.CityDictionary">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="city_code" jdbcType="VARCHAR" property="cityCode" />
+    <result column="city_english" jdbcType="VARCHAR" property="cityEnglish" />
+    <result column="city_chinese" jdbcType="VARCHAR" property="cityChinese" />
+    <result column="country_code" jdbcType="VARCHAR" property="countryCode" />
+    <result column="country_english" jdbcType="VARCHAR" property="countryEnglish" />
+    <result column="country_chinese" jdbcType="VARCHAR" property="countryChinese" />
+    <result column="province_english" jdbcType="VARCHAR" property="provinceEnglish" />
+    <result column="province_chinese" jdbcType="VARCHAR" property="provinceChinese" />
+    <result column="parent_city_english" jdbcType="VARCHAR" property="parentCityEnglish" />
+    <result column="parent_city_chinese" jdbcType="VARCHAR" property="parentCityChinese" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="adcode" jdbcType="VARCHAR" property="adcode" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+  </resultMap>
+
+  <select id="selectParentCityByABCAndGroup" resultMap="BaseResultMap" >
+    SELECT parent_city_english,parent_city_chinese FROM
+    city_dictionary where parent_city_english   like #{ABC}  group by  parent_city_chinese
+  </select>
+
+  <select id="groupSelectAllParentCity" resultMap="BaseResultMap" >
+    SELECT city_code,parent_city_english,parent_city_chinese FROM city_dictionary WHERE province_chinese = #{province}
+    group by parent_city_chinese
+  </select>
+
+  <select id="selectCountysByParentCity" resultMap="BaseResultMap">
+    SELECT city_english,city_chinese FROM city_dictionary WHERE parent_city_chinese = #{parenetCity}
+  </select>
+
+  <select id="groupSelectAllProvince" resultMap="BaseResultMap" >
+    SELECT city_code,province_english,province_chinese FROM city_dictionary
+    group by province_chinese  order by city_code
+  </select>
+</mapper>

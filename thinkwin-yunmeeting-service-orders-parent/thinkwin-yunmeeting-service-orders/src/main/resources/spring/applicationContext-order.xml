@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <context:property-placeholder location="classpath:order.properties"/>
+    <context:property-placeholder location="classpath:redis.properties"/>
+
+    <bean id="contextHolder" class="com.thinkwin.common.ContextHolder"></bean>
+
+    <bean id="timerService" class="com.thinkwin.schedule.service.impl.RedissonTimerService">
+        <constructor-arg name="config">
+            <bean class="org.redisson.config.SingleServerConfig">
+                <!-- Redis server 地址 -->
+                <property name="address" value="tcp://${redis.ip}:${redis.port}"></property>
+                <property name="password" value="${redis.password}"></property>
+            </bean>
+        </constructor-arg>
+        <constructor-arg name="serviceType">
+            <util:constant static-field="com.thinkwin.schedule.service.ServiceType.BOTH"/>
+        </constructor-arg>
+        <!-- 定时服务名称 -->
+        <constructor-arg name="workerGroupName" value="order-notify-executor_${group.scope}"></constructor-arg>
+
+        <property name="timerLogService" ref="timerLogService" />
+    </bean>
+
+    <util:map id="trustStoreSearchOrder" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="console" value="${order.trustStore.searchOrder.console}" />
+    </util:map>
+
+    <util:map id="trustStoreTradeSuccess" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="daemon" value="${order.trustStore.TradeSuccess.daemon}" />
+        <entry key="console" value="${order.trustStore.TradeSuccess.console}" />
+        <!--0元订单公钥-->
+        <entry key="zeroPrice" value="${order.trustStore.TradeSuccess.zeroPrice}" />
+    </util:map>
+
+    <util:map id="keyStoreTradeSuccess" key-type="java.lang.String" value-type="java.lang.String">
+        <!--0元订单私钥-->
+        <entry key="zeroPrice" value="${order.keyStore.tradeSuccess.zeroPrice}" />
+    </util:map>
+
+    <bean id="dubboAop" class="com.thinkwin.common.DubboServiceContextAop"/>
+    <aop:config>
+        <aop:aspect id="dubboAspect" ref="dubboAop">
+            <aop:pointcut id="pointCutBefore" expression="execution(* com.thinkwin..service.*.*(..)) "/>
+            <aop:before method="dubboContext" pointcut-ref="pointCutBefore"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="orderUtil" class="com.thinkwin.orders.schedule.OrderServiceUtil"></bean>
+
+</beans>

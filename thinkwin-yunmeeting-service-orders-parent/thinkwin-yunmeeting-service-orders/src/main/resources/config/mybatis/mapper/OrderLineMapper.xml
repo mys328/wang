@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.orders.mapper.OrderLineMapper">
+	<insert id="InsertOrderLines" parameterType="com.thinkwin.orders.model.OrderLine">
+		INSERT INTO `order_line`(id, order_id, product_sku, product_pack_sku, item_desc, `uom`, qty, `free`, `giveaway`, create_time )
+		VALUES
+		<foreach collection="list" item="item" separator="," >
+			(#{item.id}
+			,#{item.orderId}
+			,#{item.productSku}
+			,#{item.productPackSku}
+			,#{item.itemDesc}
+			,#{item.uom}
+			,#{item.qty}
+			,#{item.free}
+			,#{item.giveaway}
+			,#{item.createTime})
+		</foreach>;
+	</insert>
+</mapper>

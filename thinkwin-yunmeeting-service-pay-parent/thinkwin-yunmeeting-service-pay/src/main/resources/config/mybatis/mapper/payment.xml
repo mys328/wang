@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.pay.mapper.PaymentMapper">
+	<!--<resultMap id="paymentMap" type="com.thinkwin.pay.model.Payment">-->
+		<!--<id column="trade_no" jdbcType="CHAR" property="tradeNo" />-->
+		<!--<result column="out_trade_no" jdbcType="VARCHAR" property="outTradeNo" />-->
+		<!--<result column="subject" jdbcType="VARCHAR" property="subject" />-->
+		<!--<result column="body" jdbcType="VARCHAR" property="body" />-->
+		<!--<result column="pay_channel" jdbcType="CHAR" property="payChannel" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler" />-->
+		<!--<result column="pay_way" jdbcType="INTEGER" property="payWay" typeHandler="org.apache.ibatis.type.EnumTypeHandler" />-->
+		<!--<result column="buyer_id" jdbcType="VARCHAR" property="buyerId" />-->
+		<!--<result column="fee_type" jdbcType="CHAR" property="feeType" />-->
+		<!--<result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />-->
+		<!--<result column="status" jdbcType="INTEGER" property="status" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler" />-->
+		<!--<result column="created_on" jdbcType="TIMESTAMP" property="createTime" />-->
+		<!--<result column="client_ip" jdbcType="VARCHAR" property="clientIp" />-->
+		<!--<result column="product_id" jdbcType="VARCHAR" property="productId" />-->
+		<!--<result column="last_updated_on" jdbcType="TIMESTAMP" property="updateTime" />-->
+	<!--</resultMap>-->
+
+	<resultMap id="payment" type="com.thinkwin.pay.model.Payment">
+		<result column="order_id" property="orderId"/>
+		<result column="tenant_id" property="tenantId"/>
+		<result column="subject" property="subject"/>
+		<result column="body" property="body"/>
+		<result column="product_id" property="productId"/>
+		<result column="total_amount" property="totalAmount"/>
+		<result column="fee_type" property="feeType"/>
+		<result column="seller_id" property="sellerId"/>
+		<result column="status" property="status"/>
+		<result column="expire_time" property="expireTime"/>
+		<result column="create_time" property="createTime"/>
+		<result column="update_time" property="updateTime"/>
+		<!--<association property="book" resultMap="bookMap"/>-->
+		<collection property="paymentLogs" column="order_id" ofType="com.thinkwin.pay.model.PaymentLog" select="getLogs"/>
+	</resultMap>
+
+	<select id="getLogs" parameterType="String" resultType="com.thinkwin.pay.model.PaymentLog">
+		select
+		a.order_id
+		,a.trade_no
+		,a.out_trade_no
+		,a.buyer_user_id
+		,a.buyer_user_name
+		,a.pay_channel
+		,a.channel_name
+		,a.pay_way
+		,a.status
+		,a.client_ip
+		,a.create_time
+		,a.update_time
+		from payment_log a
+		where a.order_id = #{orderId}
+	</select>
+
+	<select id="getPaymentById" parameterType="String" resultMap="payment">
+		SELECT `order_id`
+		,`tenant_id`
+		,`subject`
+		,`body`
+		,`product_id`
+		,`fee_type`
+		,`seller_id`
+		,`total_amount`
+		,`status`
+		,`retry_times`
+		,`expire_time`
+		,`create_time`
+		,`update_time`
+		FROM `payment`
+		WHERE order_id = #{orderId};
+	</select>
+
+	<select id="selectPaymentByIdLocked" parameterType="String" resultType="com.thinkwin.pay.model.Payment">
+		SELECT `order_id`
+		,`tenant_id`
+		,`subject`
+		,`body`
+		,`product_id`
+		,`total_amount`
+		,`fee_type`
+		,`seller_id`
+		,`trade_no`
+		,`status`
+		,`retry_times`
+		,`expire_time`
+		,`timer_task_id`
+		,`create_time`
+		,`update_time`
+		FROM `payment`
+		WHERE order_id = #{orderId} for update;
+	</select>
+
+	<update id="updatePaymentById" parameterType="com.thinkwin.pay.model.Payment">
+		update `payment`
+		<set>
+			<if test="payment.status != null">
+				`status` = #{payment.status},
+			</if>
+			<if test="payment.outTradeNo != null">
+				`out_trade_no` = #{payment.outTradeNo},
+			</if>
+			<if test="payment.updateTime != null">
+				`last_updated_on` = #{payment.updateTime},
+			</if>
+		</set>
+		WHERE order_id = #{orderId};
+	</update>
+
+</mapper>

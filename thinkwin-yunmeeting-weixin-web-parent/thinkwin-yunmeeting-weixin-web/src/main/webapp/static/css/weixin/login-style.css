@@ -1,0 +1,41 @@
+iframe{
+    width: 100%!important;
+}
+body{
+    width: 100%!important;
+    margin: 0!important;
+}
+.impowerBox .title {
+    display: none;
+}
+.impowerBox .info{
+    width:100%;
+    margin-top: 24px;
+}
+.impowerBox .status{
+    padding:0;
+    text-align: center;
+    line-height:normal;
+}
+.wrp_code {
+    width: 308px;
+    height: 308px;
+    background-color: #fff;
+    margin-top: 45px;
+    padding: 21px;
+    box-sizing: border-box;
+    border: 1px solid #d9d9d9;
+    margin: 40px auto;
+    margin-bottom:0;
+}
+.impowerBox .qrcode{
+    width: 266px;
+    border: 0;
+    margin-top: 0;
+}
+
+.impowerBox .icon38_msg {
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+}

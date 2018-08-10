@@ -1,0 +1,1635 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.thinkwin</groupId>
+	<artifactId>thinkwin-yunmeeting-parent</artifactId>
+	<version>2.1.0-DZJM</version>
+	<packaging>pom</packaging>
+
+	<name>thinkwin-yunmeeting-parent</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- spring version -->
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <mybatis.version>3.4.2</mybatis.version>
+        <jackson.version>2.6.7</jackson.version>
+        <netty.version>4.1.28.Final</netty.version>
+
+        <system-common.version>2.1.0-DZJM</system-common.version>
+        <system-framework.version>2.1.0-DZJM</system-framework.version>
+        <api-mailsender.version>2.1.0-DZJM</api-mailsender.version>
+        <service-mailsender.version>2.1.0-DZJM</service-mailsender.version>
+        <service-SMSsender.version>2.1.0-DZJM</service-SMSsender.version>
+        <config.version>2.1.0-DZJM</config.version>
+        <web.version>2.1.0-DZJM</web.version>
+		<tkmybatis.version>3.4.0</tkmybatis.version>
+		<spring.security.version>3.2.5.RELEASE</spring.security.version>
+        <weixin-java-mp.version>2.9.0</weixin-java-mp.version><!--Weixin SDK-->
+        <weixin-java-common.version>2.9.0</weixin-java-common.version><!--Weixin SDK-->
+	</properties>
+	<modules>
+		<!--公共模块-->
+		<module>../thinkwin-yunmeeting-system-common</module>
+		<module>../thinkwin-yunmeeting-system-framework</module>
+		<module>../thinkwin-yunmeeting-service-config-parent</module>
+
+		<!--后台服务模块-->
+		<!--base基础服务作用：项目cope搭建，服务代码测试等-->
+		<module>../thinkwin-yunmeeting-service-base-parent</module>
+
+		<module>../thinkwin-yunmeeting-service-auth-parent</module>
+		<module>../thinkwin-yunmeeting-service-push-parent</module>
+		<module>../thinkwin-yunmeeting-service-weixin-parent</module>
+		<module>../thinkwin-yunmeeting-service-fileupload-parent</module>
+		<module>../thinkwin-yunmeeting-service-mailsender-parent</module>
+		<module>../thinkwin-yunmeeting-service-SMSsender-parent</module>
+		<module>../thinkwin-yunmeeting-service-tenant-sysconfig-parent</module>
+		<module>../thinkwin-yunmeeting-service-timertask-parent</module>
+		<module>../thinkwin-yunmeeting-service-yuncm-parent</module>
+		<module>../thinkwin-yunmeeting-service-serialnumber-parent</module>
+		<module>../thinkwin-yunmeeting-service-orders-parent</module>
+		<module>../thinkwin-yunmeeting-service-pay-parent</module>
+		<module>../thinkwin-yunmeeting-service-promotion-parent</module>
+		<module>../thinkwin-yunmeeting-service-cron-parent</module>
+		<module>../thinkwin-yunmeeting-service-console-parent</module>
+		<module>../thinkwin-yunmeeting-service-core-parent</module>
+		<module>../thinkwin-yunmeeting-service-goods-center-parent</module>
+		<module>../thinkwin-yunmeeting-service-publish-parent</module>
+		<!--
+                <module>../thinkwin-yunmeeting-service-thirdparty-parent</module>
+        -->
+		<module>../thinkwin-yunmeeting-service-dictionary-parent</module>
+		<module>../thinkwin-yunmeeting-service-log-parent</module>
+
+
+		<!--前台web模块-->
+		<module>../thinkwin-yunmeeting-web-parent</module>
+		<!--微信web模块-->
+		<module>../thinkwin-yunmeeting-weixin-web-parent</module>
+		<!--云平台web模块-->
+		<module>../thinkwin-yunmeeting-console-web-parent</module>
+
+		<!--文档格式转换模块-->
+		<module>../thinkwin-yunmeeting-service-document-parent</module>
+	</modules>
+	
+	<dependencyManagement>
+
+<dependencies>
+		<!-- spring-core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- spring-context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Spring AOP -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Spring JMS -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- AspectJ Runtime -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.6</version>
+		</dependency>
+
+		<!-- AspectJ Weaver -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.6</version>
+		</dependency>
+
+		<!-- Spring Jdbc 的支持 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+		<!-- SpringMVC -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- commons-fileupload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<!-- mysql-connector -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
+		</dependency>
+
+		<!-- cglib javassist -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.18.0-GA</version>
+		</dependency>
+
+		<!-- logger -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+		</dependency>
+
+
+		<!-- jstl 标签库 -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<!-- jsp -->
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<!--fastjson-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.31</version>
+		</dependency>
+
+        <!--项目API依赖-->
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-system-common</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-mailsender</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-publish</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-push</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-SMSsender</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-fileupload</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-console</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+    <dependency>
+       <groupId>com.thinkwin</groupId>
+       <artifactId>thinkwin-yunmeeting-api-auth</artifactId>
+       <version>2.1.0-DZJM</version>
+    </dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-config</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-core</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-system-framework</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-promotion</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+		<!--<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-thirdparty</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>-->
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-dictionary</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-yuncm</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-timertask</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-service-timertask</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-serialnumber</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-log</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-weixin</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-orders</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-pay</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thinkwin</groupId>
+			<artifactId>thinkwin-yunmeeting-api-goods-center</artifactId>
+			<version>2.1.0-DZJM</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>2.6.2</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.101tec</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>0.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<!--ActiveMQ配置开始-->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-broker</artifactId>
+			<version>5.14.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>5.14.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-spring</artifactId>
+			<version>5.14.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>artemis-jms-client</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+			<version>2.21.1</version>
+		</dependency>
+	<!--ActiveMQ配置结束-->
+	<!-- http -->
+	<!--<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<version>4.3.4</version>
+	</dependency>-->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>fluent-hc</artifactId>
+			<version>4.3.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<!-- atomikos transactions -->
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-jta</artifactId>
+			<version>4.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions</artifactId>
+			<version>4.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>transactions-jdbc</artifactId>
+			<version>4.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.atomikos</groupId>
+			<artifactId>atomikos-util</artifactId>
+			<version>4.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+	<!--#################mybatis相关依赖的jar#########################-->
+		<!--mybatis 引入-->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<!--项目依赖于JPA的注解,需要引入-->
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<!--mybatis 通用mapper 引入 建议使用最新版本,最新版本请从项目首页查找 -->
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper</artifactId>
+			<version>${tkmybatis.version}</version>
+		</dependency>
+
+		<!-- Mybatis Generator MyBatis Generator(以下简称MBG)插件，
+		   使用该插件可以很方便的生成实体类、Mapper接口以及对应的XML文件。-->
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-core</artifactId>
+			<version>1.3.4</version>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<!--PageHelper插件-->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+	<!--#################################################-->
+
+		<!--Druid数据库连接池-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.18</version>
+		</dependency>
+
+
+        <!-- c3p0 datasource -->
+        <dependency>
+            <groupId>c3p0</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+
+	<dependency>
+		<groupId>org.csource</groupId>
+		<artifactId>fastdfs-client-java</artifactId>
+		<version>1.25</version>
+	</dependency>
+
+
+	<!-- springsecurity 所需jar包-->
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-web</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-config</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-acl</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-core</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-taglibs</artifactId>
+		<version>${spring.security.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<version>4.5.3</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.esotericsoftware</groupId>
+		<artifactId>kryo</artifactId>
+		<version>3.0.3</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.redisson</groupId>
+		<artifactId>redisson</artifactId>
+		<version>3.6.3</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>3.5</version>
+	</dependency>
+
+	<dependency>
+		<groupId>joda-time</groupId>
+		<artifactId>joda-time</artifactId>
+		<version>2.9.9</version>
+	</dependency>
+
+	<!--ant.jar 的 SQLExec 执行 SQL 脚本文件-->
+	<dependency>
+		<groupId>org.apache.ant</groupId>
+		<artifactId>ant</artifactId>
+		<version>1.9.3</version>
+	</dependency>
+	<!--拼音-->
+	<dependency>
+		<groupId>com.belerweb</groupId>
+		<artifactId>pinyin4j</artifactId>
+		<version>2.5.1</version>
+	</dependency>
+
+	<!--生成二维码-->
+	<dependency>
+		<groupId>com.google.zxing</groupId>
+		<artifactId>core</artifactId>
+		<version>3.2.1</version>
+	</dependency>
+	<!--生成和解析二维码-->
+	<dependency>
+		<groupId>com.swetake</groupId>
+		<artifactId>QRCode</artifactId>
+		<version>1.0</version>
+	</dependency>
+	<!--导出word文档-->
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi</artifactId>
+		<version>3.9</version>
+	</dependency>
+
+	<!--第三方SDK  容联-->
+	<dependency>
+		<groupId>com.thinkwin</groupId>
+		<artifactId>thinkwin-ronglian-im-sdk</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</dependency>
+
+	<!-- 极光推送 -->
+	<dependency>
+		<groupId>cn.jpush.api</groupId>
+		<artifactId>jiguang-common</artifactId>
+		<version>1.0.3</version>
+	</dependency>
+	<dependency>
+		<groupId>cn.jpush.api</groupId>
+		<artifactId>jpush-client</artifactId>
+		<version>3.2.17</version>
+	</dependency>
+
+    <dependency>
+    <groupId>com.github.binarywang</groupId>
+    <artifactId>weixin-java-mp</artifactId>
+    <version>${weixin-java-mp.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.github.binarywang</groupId>
+        <artifactId>weixin-java-common</artifactId>
+        <version>${weixin-java-common.version}</version>
+    </dependency>
+
+
+    <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>19.0</version>
+    </dependency>
+
+	<!--  poi  -->
+
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-ooxml</artifactId>
+		<version>3.9</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-examples</artifactId>
+		<version>3.9</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-excelant</artifactId>
+		<version>3.9</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-ooxml-schemas</artifactId>
+		<version>3.9</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.poi</groupId>
+		<artifactId>poi-scratchpad</artifactId>
+		<version>3.9</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.xmlbeans</groupId>
+		<artifactId>xmlbeans</artifactId>
+		<version>2.6.0</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.geronimo.specs</groupId>
+		<artifactId>geronimo-stax-api_1.0_spec</artifactId>
+		<version>1.0.1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-collections4</artifactId>
+		<version>4.1</version>
+	</dependency>
+
+	<dependency>
+		<groupId>net.sf.json-lib</groupId>
+		<artifactId>json-lib</artifactId>
+		<version>2.4</version>
+		<classifier>jdk15</classifier>
+	</dependency>
+	<!--   读取.csv文件需要的jar  -->
+	<dependency>
+		<groupId>net.sourceforge.javacsv</groupId>
+		<artifactId>javacsv</artifactId>
+		<version>2.0</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/net.sourceforge.jchardet/jchardet -->
+	<dependency>
+		<groupId>net.sourceforge.jchardet</groupId>
+		<artifactId>jchardet</artifactId>
+		<version>1.0</version>
+	</dependency>
+	
+  <dependency>
+     <groupId>com.thinkwin</groupId>
+     <artifactId>thinkwin-yunmeeting-api-document</artifactId>
+     <version>2.1.0-DZJM</version>
+  </dependency> 
+   <dependency>
+     <groupId>com.thinkwin</groupId>
+     <artifactId>thinkwin-yunmeeting-api-base</artifactId>
+     <version>2.1.0-DZJM</version>
+  </dependency>
+  <dependency>
+     <groupId>com.thinkwin</groupId>
+     <artifactId>thinkwin-yunmeeting-api-cron</artifactId>
+     <version>2.1.0-DZJM</version>                                 
+     </dependency>                                                                                                                                                                                                                                                                                                                                       <dependency>
+    <groupId>org.jodconverter</groupId>
+    <artifactId>jodconverter-core</artifactId>
+    <version>4.0.0-RELEASE</version>
+  </dependency>                                                                    
+  <dependency>
+   <groupId>redis.clients</groupId>
+   <artifactId>jedis</artifactId>
+   <version>2.9.0</version>
+</dependency>
+
+	<dependency>
+		<groupId>org.apache.curator</groupId>
+		<artifactId>curator-framework</artifactId>
+		<version>4.0.1</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.curator</groupId>
+		<artifactId>curator-client</artifactId>
+		<version>4.0.1</version>
+	</dependency>
+ <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-pool2</artifactId>
+    <version>2.4.2</version>
+ </dependency>
+ 
+ <dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>mail</artifactId>
+    <version>1.4.7</version>
+ </dependency>
+ 
+ <dependency>
+    <groupId>org.freemarker</groupId>
+    <artifactId>freemarker</artifactId>
+    <version>2.3.23</version>
+ </dependency>
+ <dependency>
+    <groupId>commons-lang</groupId>
+    <artifactId>commons-lang</artifactId>
+    <version>2.6</version>
+ </dependency>
+ 
+ <dependency>
+    <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+    <version>1.9</version>
+ </dependency>
+ 
+ <dependency>
+    <groupId>commons-collections</groupId>
+    <artifactId>commons-collections</artifactId>
+    <version>3.2.2</version>
+ </dependency>
+ 
+ <dependency>
+    <groupId>io.netty</groupId>
+    <artifactId>netty-common</artifactId>
+    <version>${netty.version}</version>
+ </dependency>
+ <dependency>
+    <groupId>io.netty</groupId>
+    <artifactId>netty-all</artifactId>
+    <version>${netty.version}</version>
+</dependency>
+ 
+ <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>4.2.5.RELEASE</version>
+    <scope>test</scope>
+ </dependency>
+ 
+ <dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-redis</artifactId>
+    <version>1.7.0.RELEASE</version>
+ </dependency>
+ 
+ <dependency>
+    <groupId>com.alipay</groupId>
+    <artifactId>sdk-java</artifactId>
+    <version>20170615110434</version>
+ </dependency>
+ 
+ <dependency>
+     <groupId>com.github.wxpay</groupId>
+     <artifactId>wxpay-sdk</artifactId>
+     <version>0.0.3.thinkwin</version>
+ </dependency>
+ 
+ <dependency>
+    <groupId>org.codehaus.jackson</groupId>
+    <artifactId>jackson-mapper-asl</artifactId>
+    <version>1.9.13</version>
+ </dependency>
+ 
+ <dependency>
+    <groupId>com.thinkwin</groupId>
+    <artifactId>thinkwin-yunmeeting-api-push</artifactId>
+    <version>2.1.0-DZJM</version>
+ </dependency>
+ 
+ <dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>1.2.17</version>
+ </dependency>
+ 
+ <dependency>
+    <groupId>commons-configuration</groupId>
+    <artifactId>commons-configuration</artifactId>
+    <version>1.10</version>
+ </dependency>
+ 
+ <dependency>
+     <groupId>org.eclipse.jetty</groupId>
+     <artifactId>jetty-server</artifactId>
+     <version>9.3.0.RC0</version>
+ </dependency>
+ <!--和风天气-->
+ <dependency>
+    <groupId>com.heweather</groupId>
+    <version>1.1.0</version>
+    <artifactId>heweather-sdk</artifactId>
+</dependency>
+ 
+</dependencies>
+	
+	</dependencyManagement>
+	<!-- 多资源公共配置  可以根据自己的需求实现不同的自动打包配置 -->
+	<profiles>
+		<profile>
+			<!-- 本地环境可更改  -->
+			<id>devWxl</id>
+			<properties>
+				<!--开发分组-->
+				<group.scope>devWxl</group.scope>
+				<!--zookeeper地址-->
+				<dubbo.registry.address>10.10.11.53:2181</dubbo.registry.address>
+				<interface.version>1.0</interface.version>
+
+				<!--parentDataSource  core数据源配置-->
+				<auth.jdbc.url>jdbc:mysql://10.10.11.72:3307/yunmeeting_core</auth.jdbc.url>
+				<auth.jdbc.username>yunmeeting</auth.jdbc.username>
+				<auth.jdbc.password>yunmeeting</auth.jdbc.password>
+				<auth.initialSize>10</auth.initialSize>
+
+				<!--上传数据源配置-->
+				<upload.jdbc.url>10.10.11.72:3307/yunmeeting_upload</upload.jdbc.url>
+				<upload.jdbc.username>yunmeeting</upload.jdbc.username>
+				<upload.jdbc.password>yunmeeting</upload.jdbc.password>
+				
+				<!--促销服务数据源-->
+				<promotion.jdbc.url>10.10.11.72:3307/yunmeeting_promotion</promotion.jdbc.url>
+				<promotion.jdbc.username>yunmeeting</promotion.jdbc.username>
+				<promotion.jdbc.password>yunmeeting</promotion.jdbc.password>
+
+				<!--支付服务数据源-->
+				<pay.jdbc.url>10.10.11.72:3307/yunmeeting_payment</pay.jdbc.url>
+				<pay.jdbc.username>yunmeeting</pay.jdbc.username>
+				<pay.jdbc.password>yunmeeting</pay.jdbc.password>
+
+				<!-- 支付回调url -->
+				<pay.wxPayConf.returnUrl>http://paydev.yunmeetings.com/pay/return</pay.wxPayConf.returnUrl>
+				<pay.wxPayConf.notifyUrl>http://paydev.yunmeetings.com/pay/tenpay/notify</pay.wxPayConf.notifyUrl>
+				<pay.aliPayConf.returnUrl>http://paydev.yunmeetings.com/pay/return</pay.aliPayConf.returnUrl>
+				<pay.aliPayConf.notifyUrl>http://paydev.yunmeetings.com/pay/alipay/notify</pay.aliPayConf.notifyUrl>
+
+				<!--微信支付密钥-->
+				<pay.wxPayConf.keyPath>D:/weixin_cert/apiclient_cert.p12</pay.wxPayConf.keyPath>
+				<pay.wxPayConf.appId>wxdcf49b673a10c6a2</pay.wxPayConf.appId>
+				<pay.wxPayConf.mchId>1468332802</pay.wxPayConf.mchId>
+				<pay.wxPayConf.key>NidwfUOkDZvsVtFCYzuP8e2ISXjmbAM4</pay.wxPayConf.key>
+
+				<!--支付宝密钥-->
+				<pay.aliPayConf.partner>2088721540963625</pay.aliPayConf.partner>
+				<pay.aliPayConf.appId>2017072107836534</pay.aliPayConf.appId>
+				<pay.aliPayConf.privateKey>MIIEwAIBADANB...</pay.aliPayConf.privateKey>
+				<pay.aliPayConf.publicKey>MIIBIjANBg...</pay.aliPayConf.publicKey>
+				<pay.aliPayConf.gateway>https://openapi.alipaydev.com/gateway.do</pay.aliPayConf.gateway>
+				<pay.aliPayConf.zfbPublicKey>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx998VHJHJDCakIQkBxOsTXG5mAp6dBCfr1f/ExmWL0a5Lz5FCnG04Bh+NuBSCHG29E67Ilq2JdmIAxrz9wGAqd0XG5iMfjaOf5HCBxmhm6xxgQQ9ySetx1R9jub3tD4gaQH3kl3uY9SSVGrGH5NijhTHtIMYsEzmdBhvEqcZ3xEl66S4PCCUhsYSReJn++DkBNE17CDrxAM0fsXSkriHgdg2h0bV2c8w2vwAYB8X3GlnZa5zLvFAivGE8JjFtHgZvg7YY1Jb4Thn/wme0pRuykfC/UZqRCuyzcWPs6PaNQjKUAcQLU/SMiHEeQASrBHN9KsT5bu+jDqtZKYKA3TvRwIDAQAB</pay.aliPayConf.zfbPublicKey>
+
+				<!--确认到帐接口密钥-->
+				<pay.keyStore.tradeSuccess.daemon>MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAKte9GD/UJQD8Sz7qSTLBNqb/uIaBHr0OF8zomEtyJQYJin0efDuWb8dTlMAZDEXeS8mS8a30piD8pkSYiEDvnrT4P7l2GSkCEl7XI7dah6IrqG9RHffB9aRycG58+zY0DqcFac7Y8pOiOnhsEDLEpW1VwM6HWlhnpQAOXpyYt8PAgMBAAECgYBSuLQ4OiYYPMrnTtd39jPynohrdemhvE+VzOPeCu6eZgXODL/sB/H0ad4L/M1gURdjJhY/5y3WByNMtm39x8Pi1WTPfY6IyHt4xkgfWUB3+exN5ZQ16GMC15fk+c7AAQucRaGKULxaAeXLka8eI1HZoAN5FQbnI7E+ouOfyY7u2QJBAOVt0geV9fnFMJPrbvt8BZVrm1b6H/t6Xr5p2Mgg5CLrQOrwOwf/i5Ujv/tlsCJTL84319hdXI2bpPxUSSn6UiMCQQC/N8+iQT+AxVMbHLFEDPvjOou0fEboCVGkLKP+Fh7ozFLZ3C3+NB00MHqf3+TOt4ItrYETRWsCeW9G8izYxwAlAkAKpjhThdBvEYoZs5npLm6L6vzA4sdNQvbW287mKzCrtkPDI/d5fZEbERe+MZAlZ7sWVV09e8fqAsl7tOXYfvgFAkBPvPVPwwe5KhAC0U82gneThPl3FQ/4eNJbtOXZ8d2H1JSEFuXzCEZZWhH4k0P1095sL9sQbzU1ffAiVKDQ8QMlAkADWN9WQDDuvIRveFxcJcgzL4xbQ+sDMr/fGXyrz7DDXrWhwlK+1Zq3irRcf/xt96pTIRemmuKcDC/JiIH27xL7</pay.keyStore.tradeSuccess.daemon>
+				<pay.trustStore.tradeSuccess.console>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYcUvA1C9Wbkv/TnJ4vnEjlNRhM1NTvvv4Q7fXsa87pbX90XcC0fw688b6gvhHRcOI9R/mmZFjG6Ee61OalcIw73tWeDxyk93LNgz1s+d2CogBZRJUBZsKV7N3xZDZ0LC0QCdzRyfBPx8Rc1bi5nFHIg14yN70KYtLQxCDd6KedQIDAQAB</pay.trustStore.tradeSuccess.console>
+
+				<!--字典数据源配置-->
+				<dict.jdbc.url>10.10.11.72:3307/yunmeeting_dict</dict.jdbc.url>
+				<dict.jdbc.username>yunmeeting</dict.jdbc.username>
+				<dict.jdbc.password>yunmeeting</dict.jdbc.password>
+
+				<!--日志数据源配置-->
+				<log.jdbc.url>10.10.11.72:3307/yunmeeting_logs</log.jdbc.url>
+				<log.jdbc.username>yunmeeting</log.jdbc.username>
+				<log.jdbc.password>yunmeeting</log.jdbc.password>
+				
+				<!--信发数据源配置-->
+				<publish.jdbc.url>10.10.11.72:3307/yunmeeting_publish</publish.jdbc.url>
+				<publish.jdbc.username>yunmeeting</publish.jdbc.username>
+				<publish.jdbc.password>yunmeeting</publish.jdbc.password>
+				
+				<!--推送数据源配置-->
+				<push.jdbc.url>10.10.11.72:3307/yunmeeting_push</push.jdbc.url>
+				<push.jdbc.username>yunmeeting</push.jdbc.username>
+				<push.jdbc.password>yunmeeting</push.jdbc.password>
+
+				<!--订单数据源配置-->
+				<orders.jdbc.url>10.10.11.72:3307/yunmeeting_orders</orders.jdbc.url>
+				<orders.jdbc.username>yunmeeting</orders.jdbc.username>
+				<orders.jdbc.password>yunmeeting</orders.jdbc.password>
+
+				<!--订单接口密钥-->
+				<order.trustStore.TradeSuccess.daemon>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrXvRg/1CUA/Es+6kkywTam/7iGgR69DhfM6JhLciUGCYp9Hnw7lm/HU5TAGQxF3kvJkvGt9KYg/KZEmIhA7560+D+5dhkpAhJe1yO3WoeiK6hvUR33wfWkcnBufPs2NA6nBWnO2PKTojp4bBAyxKVtVcDOh1pYZ6UADl6cmLfDwIDAQAB</order.trustStore.TradeSuccess.daemon>
+				<order.trustStore.TradeSuccess.console>Q2BH+LKeRDUEN29yrfOkS2E2WY+4nUCSCIjRaXDBFO5xNkhoyi5ttnsnKaU</order.trustStore.TradeSuccess.console>
+				<order.trustStore.searchOrder.console>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4rM4xq7O1eVLEceZuVA8FU2XP6G6iYMuRmWLR7ab/c1Xd2/tpv1JB2F6onazbbHYGLtHwOaI37pc9RGJxn3wI/xExUzzJ4sdKQTPHjt03099eR9m3t+hJmAYQ24yxe1TZ6tjZq7MGodf+hSmuY1tlxTyPv8zLt8P2QH5lvghijwIDAQAB</order.trustStore.searchOrder.console>
+
+
+				<!--0元订单支付密钥-公钥-->
+				<order.trustStore.TradeSuccess.zeroPrice>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQClmJiczwLvKbGbmL109MHBpCiZo+m7EtI6fKmFwz3vnQlTdXwh+a2kNPo+PaEKzoORcnNlE3IGpFRXp58JHlGf0hmGesPWkwIXH+zZyTJgSUooe6uDY6RbX/0+92kOfR0v/v1CWD1GUOnZ6dnbZwBmP4hVsjXWU61mL1MgUz17DQIDAQAB</order.trustStore.TradeSuccess.zeroPrice>
+				<!--0元订单支付密钥-私钥-->
+				<order.keyStore.tradeSuccess.zeroPrice>MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKWYmJzPAu8psZuYvXT0wcGkKJmj6bsS0jp8qYXDPe+dCVN1fCH5raQ0+j49oQrOg5Fyc2UTcgakVFennwkeUZ/SGYZ6w9aTAhcf7NnJMmBJSih7q4NjpFtf/T73aQ59HS/+/UJYPUZQ6dnp2dtnAGY/iFWyNdZTrWYvUyBTPXsNAgMBAAECgYBfdLE0Yxhb6PraqJc9ngE6sHg+6H/JOLY6xLWrx7oiL7G6jFS7+QMhTvCZhEkaw6SP6Rufvi/SqFN+G7/PL8z4mAeNcs0IqoU5BIymdPzNWb2g7MSgPkOL4YTWFWUg2n5aPb6B0ushZRmMPpcciWTcJKZ4O7DSmgasLTIsPMSowQJBANpy0wVsree8dOk65sfUH6746mKQkbXckIS504nIN64GWwRgSpvy5OfsLmbp7KSJ2tJgmORnfQJ9HAeB9/jijDkCQQDCD+pYVYXHu9hHDkA+3M6C2ch70FQl3Dcw274xqYZZIWXwkL73akudlUpPNdgfd4YJIYY5uGejAx3aJKkgOI11AkEAwIT90QQM5/TBHGOazHX4Tl51QtSidiKjAzY6Zm2cFLTpNhwe5P3WG0edRXnX4tLTlSEo3fMOy0izkTJL9n7CkQJAEzk4YZ+3LN3ywrcqrg95dYTVU06Dx2xVG0XpRUohwNqKGpZ8FE43R1juj4Ip8pQIdwcXIMifm4pHfsB68HIpsQJANIQ56a7EzZq6OaNbxjJca10mFv7lRqTNJdp10cLyXUxoOSVHftEHYJDjVooEaAvnqL7zYdy57pmLel1vPclEDg==</order.keyStore.tradeSuccess.zeroPrice>
+
+				<!--商品数据源配置-->
+				<goods.jdbc.url>10.10.11.72:3307/yunmeeting_goods</goods.jdbc.url>
+				<goods.jdbc.username>yunmeeting</goods.jdbc.username>
+				<goods.jdbc.password>yunmeeting</goods.jdbc.password>
+
+                <!--core数据源配置-->
+                <core.jdbc.url>10.10.11.72:3307/yunmeeting_core</core.jdbc.url>
+                <core.jdbc.username>yunmeeting</core.jdbc.username>
+                <core.jdbc.password>yunmeeting</core.jdbc.password>
+
+				<!--console平台据源配置-->
+				<console.jdbc.url>10.10.11.72:3307/yunmeeting_console</console.jdbc.url>
+				<console.jdbc.username>yunmeeting</console.jdbc.username>
+				<console.jdbc.password>yunmeeting</console.jdbc.password>
+
+				<!--一下是注册时候执行脚本的连接数据源-->
+				<jdbc.host>jdbc:mysql://10.10.11.72:3307/</jdbc.host>
+				<jdbc.username>yunmeeting</jdbc.username>
+				<jdbc.password>yunmeeting</jdbc.password>
+				<jdbc.createTablePath>..\\thinkwin-yunmeeting-main\\thinkwin-yunmeeting-service-auth-parent\\thinkwin-yunmeeting-service-auth\\src\\main\\resources\\</jdbc.createTablePath>
+				<jdbc.outputPath>..\\thinkwin-yunmeeting-main\\thinkwin-yunmeeting-service-auth-parent\\thinkwin-yunmeeting-service-auth\\src\\main\\resources\\sql.out</jdbc.outputPath>
+
+				<!--mq-->
+				<mq.url>tcp://10.10.11.72:61616</mq.url>
+				<mq.userName></mq.userName>
+				<mq.passwd></mq.passwd>
+
+				<!--redis-->
+				<redis.ip>10.10.11.72</redis.ip>
+				<redis.port>6380</redis.port>
+				<redis.password>xBHeqVxC</redis.password>
+				<redis.pool.maxActive>10</redis.pool.maxActive>
+				<redis.pool.maxIdle>300</redis.pool.maxIdle>
+				<redis.pool.maxWait>3000</redis.pool.maxWait>
+				<redis.pool.testOnBorrow>true</redis.pool.testOnBorrow>
+				<redis.pool.testOnReturn>true</redis.pool.testOnReturn>
+				<redis.pool.timeout>1000</redis.pool.timeout>
+
+				<!--push服务器配置-->
+				<pushService.port>7820</pushService.port>
+				<pushService.queueFlag>publish001_downlink_queue</pushService.queueFlag>
+
+				<!-- 图片服务器 -->
+				<fastdfs.path>http://imgdev.yunmeetings.com</fastdfs.path>
+				<fastdfs.service.url>10.10.11.56</fastdfs.service.url>
+				<!--  excelimport  -->
+				<file.outputPath>D:\fileServer</file.outputPath>
+
+                <!--微信配置-->
+                <wx.appid>wx429a0288676e758a</wx.appid>
+                <wx.appsecret>52b7e976a097d0931a4999d26e51eb38</wx.appsecret>
+                <wx.token>yunmeeting</wx.token>
+                <wx.aeskey>SVnqh1PY3b2aHM3v7UQxJxzrv80K0bwQTEiddRnZUuM</wx.aeskey>
+                <wx.wechatServer>http://17lz063909.51mypc.cn</wx.wechatServer>
+                <wx.yunMeetingServer>http://17lz063909.51mypc.cn</wx.yunMeetingServer>
+
+				<!--微信开放平台配置-->
+				<wechat.appid>wxbbfa4f1f885a306d</wechat.appid>
+				<wechat.appsecret>67d986c173c225824456656f8e79b44d</wechat.appsecret>
+				<wechat.callbackurl>http://weining.imwork.net/system/oauthtest</wechat.callbackurl>
+				<wechat.websitedomain>https://www.elehui.com.cn</wechat.websitedomain>
+
+				<!-- 确认到账的私钥 -->
+				<console.privateKey>MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJhxS8DUL1ZuS/9Ocni+cSOU1GEzU1O++/hDt9exrzultf3RdwLR/DrzxvqC+EdFw4j1H+aZkWMboR7rU5qVwjDve1Z4PHKT3cs2DPWz53YKiAFlElQFmwpXs3fFkNnQsLRAJ3NHJ8E/HxFzVuLmcUciDXjI3vQpi0tDEIN3op51AgMBAAECgYAItD9dDUB+sOGJ/FKw7j7Lh03xFtslJvyAGm2+1RhqUXXovjMLaC38t7qexyeh+ivGACkII7CXdhZnC4zEgNSLnDGu6QQhgcUzwsdunJMs6Jy6r60yGdtim2SAI6X1tFwBNgc2gkvR2f9hQNuVtJMB1bio8fo5BbqafENDQnBPKQJBAMZwI+UBA5w5BuUWnNTzfCkkMBI/I/0pxxoCd0v7PXE21eBgngp8LfPaq2ffJfADNAsOxKhtM/YDuB4VwE40cPsCQQDEqZDMw6z0uMaBui+MmUvab8T7Q89cww1qW4SjTzCrbxa+bkUxkJxWRAoU/PemVqZDkOyXigmK/IuyVlTDqXNPAkEApzSaqj3+gsZyjtpM8AryVeBOOTHG620mfT4Ss41RqnHgKZ5/zKnyNoXM5EtdNi4czix1fM33eJaNr5v4XG1HvQJAYu7OmkQB2SavLgnE690ebKf3l1OYmJjDQfMCOcmXuVZsQaZlhrax/y/BRqevye0jPTBF5UIa5OGBQVju0XOIPwJBAKBn86rVzP8GdiqwC1Qy769BRpi5X6jeMgEi9JXT6d3GJr0TpUmi9Ylv1uiyLoXzIgjKQR+J/kxLOm/4LTIFh2g=</console.privateKey>
+				<console.queryOrderListKey>MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALiszjGrs7V5UsRx5m5UDwVTZc/obqJgy5GZYtHtpv9zVd3b+2m/UkHYXqidrNtsdgYu0fA5ojfulz1EYnGffAj/ETFTPMnix0pBM8eO3TfT315H2be36EmYBhDbjLF7VNnq2Nmrswah1/6FKa5jW2XFPI+/zMu3w/ZAfmW+CGKPAgMBAAECgYA3noPzXb0gGMweshcuf06O0hFFzsETUoe88C9c/nBfW0MvMIPF04NYpWvM6MAYzc+2CP/dk94RbmBKaYAkrF3Uaz3aGmVSg/49XmbmyyUI/lh61KMqDN0M5rNblKmA5G1tD8kX1NoUTHCmdN8q5UsEz+gewXzOE3gT58/PEegAIQJBAP4OZ+CTWcf3r4gjrbRkqi0ghoMu4scaVCV0Gz8V3kI9MfCvTofN31SiI5qdhjRJVQy0/u0bvR5Mx2ZKowA5CrkCQQC6FoJ5LiJYlvxuCpy4GlaQL0bT+MxGwTmyyzR2jVIYdLwd4R/hOyELGnodcj8BQxBzDPcvxPVh5oZZSPfRaBOHAkEA9NWBOiYG4fVKzlJD9pMEhVTRDN9EYUh4S1fnYhZ7CS7cT+1CKxI15eQTl8+zI/R/6C0NeAfBa8/mYigPiglu0QJAAfqlTpagBOMuMhloy0h0bTojfbOisInzjCQ/HZepLNto+MRhK2sOkeipLdD+PIwzC5Yyts5Ycb8a5K4y/IYn1wJAf3V2cgsXkw7qmt2HtbEsLrfaj8DUuJMh+2+rShmaPsjzWZdUz2dsm1nkrPqK1ucDe83oUKKFdC56LgK+iQLFNg==</console.queryOrderListKey>
+
+				<!--天气组件-和风天气userId-->
+        <weather.userId>HE1707261653071083</weather.userId>
+        <weather.paid>0</weather.paid> <!--0免费，1付费-->
+        
+        <!--支付服务registry路径配置，因为是web与dubbo合体，后续会做拆分-->
+        <dubbo.registry.lock.user>developer</dubbo.registry.lock.user>
+        
+			</properties>
+
+			<repositories>
+				<repository>
+					<id>nexus</id>
+					<url>http://10.10.11.12:8080/nexus/content/groups/public</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>nexus</id>
+					<url>http://10.10.11.12:8080/nexus/content/groups/public</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+
+        <profile>
+            <!-- 测试专用服务器  -->
+            <id>skwTest</id>
+            <properties>
+                <!--测试分组-->
+                <group.scope>skwTest</group.scope>
+
+                <!--zookeeper地址-->
+                <dubbo.registry.address>10.10.11.53:2181</dubbo.registry.address>
+                <interface.version>1.0</interface.version>
+
+                <!--parentDataSource  core数据源配置-->
+                <auth.jdbc.url>jdbc:mysql://10.10.11.52:3307/yunmeeting_core</auth.jdbc.url>
+                <auth.jdbc.username>yunmeeting</auth.jdbc.username>
+                <auth.jdbc.password>yunmeeting</auth.jdbc.password>
+                <auth.initialSize>10</auth.initialSize>
+
+                <!--上传数据源配置-->
+                <upload.jdbc.url>10.10.11.52:3307/yunmeeting_upload</upload.jdbc.url>
+                <upload.jdbc.username>yunmeeting</upload.jdbc.username>
+                <upload.jdbc.password>yunmeeting</upload.jdbc.password>
+                
+                <!--促销服务数据源-->
+								<promotion.jdbc.url>10.10.11.52:3307/yunmeeting_promotion</promotion.jdbc.url>
+								<promotion.jdbc.username>yunmeeting</promotion.jdbc.username>
+								<promotion.jdbc.password>yunmeeting</promotion.jdbc.password>
+
+                <!--字典数据源配置-->
+                <dict.jdbc.url>10.10.11.52:3307/yunmeeting_dict</dict.jdbc.url>
+                <dict.jdbc.username>yunmeeting</dict.jdbc.username>
+                <dict.jdbc.password>yunmeeting</dict.jdbc.password>
+
+	            <!--支付服务数据源-->
+	            <pay.jdbc.url>10.10.11.52:3307/yunmeeting_payment</pay.jdbc.url>
+	            <pay.jdbc.username>yunmeeting</pay.jdbc.username>
+	            <pay.jdbc.password>yunmeeting</pay.jdbc.password>
+
+	            <!--支付回调url-->
+	            <pay.wxPayConf.returnUrl>http://test.yunmeetings.com/pay/return</pay.wxPayConf.returnUrl>
+	            <pay.wxPayConf.notifyUrl>http://paytest.yunmeetings.com/pay/tenpay/notify</pay.wxPayConf.notifyUrl>
+	            <pay.aliPayConf.returnUrl>http://test.yunmeetings.com/pay/return</pay.aliPayConf.returnUrl>
+	            <pay.aliPayConf.notifyUrl>http://paytest.yunmeetings.com/pay/alipay/notify</pay.aliPayConf.notifyUrl>
+
+	            <!--微信支付密钥-->
+	            <pay.wxPayConf.keyPath>D:/weixin_cert/apiclient_cert.p12</pay.wxPayConf.keyPath>
+	            <pay.wxPayConf.appId>wxdcf49b673a10c6a2</pay.wxPayConf.appId>
+	            <pay.wxPayConf.mchId>1468332802</pay.wxPayConf.mchId>
+	            <pay.wxPayConf.key>NidwfUOkDZvsVtFCYzuP8e2ISXjmbAM4</pay.wxPayConf.key>
+
+	            <!--支付宝密钥-->
+	            <pay.aliPayConf.partner>2088102172209105</pay.aliPayConf.partner>
+	            <pay.aliPayConf.appId>2016082000294169</pay.aliPayConf.appId>
+				<pay.aliPayConf.privateKey>MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCILmZQzTCTbrgCt9B1GPi5ZA8KrGJr27Q7uSOoduG3d/QAjxfsX2HrVJAmNPZhoSQr2dgEDJGp026qmK4r9emj+s0e6Yt3IfXNScBMZt1/wU52C0XxUo5VFgujNmlLmDCVW1V6elLeRZiJzRmkcMkEh9PZgYMIVBK3l+EyRfLs0D1MM2no29rkxSH3d7EZdZEA2PxiJIVXFrt+5S0Dk1CkVl2dHGzXbaAiK9nJG9kilwPozRfhkW+wWp9yA0xkHXIrgXoFR7d1jGNA8G8lEh1O7qD+uQ6wO7aRyP81+FxEMvr/PxJ8cA/o1BmkcrhR8amqyTu5hlJKkLtSKK11cH97AgMBAAECggEARb/2OcaO7cSUzReW1pMeud3s8luO4Y2bR8ew4tVZEN6IhEzGRRQplB4w4tDXrPObEja2tIQ3i1M26HvhIbUHoSyRKRcXjsI/IpF2w+sf4hKBfGaTwWG2cxAij8sLrWNa5vTr2BqVHTFqSpJZYuc9nmtvb4UtNvPQzmYlOtmm7fGPTtRTSzlT3OEijl/02OHfSjK7/bJ/mg6nIurpaneTsQpG+SQpRQ82SjpiPMnYKosUMRb7fwuexuJmxp4Q/ttoVBRRMlIIs++fflD0lMzQUeT3Hk3CAgVQCNEP33fQn1Qb3X6afA/cYQoeOUR1j/NBbMolSm8MiodvIE2c9LKzWQKBgQC/oaxwXtjmt9Uh4GG3NHgEYUHqMXL6TTihEYbOVD1C82dXiZsSsAMu/BrFJFcEmHOMuQM2YGvkusdtSw6CIChW25NGbojoXw0slZa3nqomUUrrbzPaaJDD3/HRyQEensE6fo8poeSxgQ+PfEtQ4lOiR9/P59LqZogYYzOo1FyLVwKBgQC17JNrmuRXGQhBzd3+5B+GM4mCdv3AuaJskXzP/U9XRmA9VbutQjgqSYRxmDUT9XzhkWY6YknuLTtqw4mxjlnrpITkZcvlWZe8uqVXqUtlFvcNS1UX+NCGB+HlJRh96AigVE/3yAg8FjDED+1Eq86s+TItf492TuG4ipn6Zk96fQKBgDoKs/oNIFExWQK7vZ0J7VgWRSqz84lQnlhawKP569w9cQ2YhjmwyiYPAeS4Twr7SfRTjV+I8OUElabK1wgeyVkVhJQOorUPJSRd4pqXGh4k/TY2JlR+22oYiFvsL8SgfRJEhwQrHuOMnbPuB7nl80Lx1h5Yrw+EIrCQS3NVbvpdAoGBAJu3g/f2/LwQkSDCNeKXIOSd+HXTpB/yxTRo04y0JdVuR7I4UAxdQfXwN42D2uralan96qLOvrk/vjwEYze3wQASMi3NdFk79sV0fVIrdn1wysZ2VL/QGayf0ptwxSYAFmIlyM0uSt4joFoxx8WfyagFJQ4MwZ9ipZJwEJxkNmOBAoGBAI8MoTmMWfPL4VpEvt4ONt3huBzXPYTBH8wRwwIdpRguffnpWYWDzuTkvnVEOWIal5jhdhEHjOpPuANC3Di9sZ81jW+0bM+AlcoSJ4M0yRwlV8fCfuRvHKqlrAW3w0sgCdKc6ubZ2ZRhcbQjD3fDwIk5fOcl6SFDEQxw623WfkLD</pay.aliPayConf.privateKey>
+				<pay.aliPayConf.publicKey>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiC5mUM0wk264ArfQdRj4uWQPCqxia9u0O7kjqHbht3f0AI8X7F9h61SQJjT2YaEkK9nYBAyRqdNuqpiuK/Xpo/rNHumLdyH1zUnATGbdf8FOdgtF8VKOVRYLozZpS5gwlVtVenpS3kWYic0ZpHDJBIfT2YGDCFQSt5fhMkXy7NA9TDNp6Nva5MUh93exGXWRANj8YiSFVxa7fuUtA5NQpFZdnRxs122gIivZyRvZIpcD6M0X4ZFvsFqfcgNMZB1yK4F6BUe3dYxjQPBvJRIdTu6g/rkOsDu2kcj/NfhcRDL6/z8SfHAP6NQZpHK4UfGpqsk7uYZSSpC7UiitdXB/ewIDAQAB</pay.aliPayConf.publicKey>
+	            <pay.aliPayConf.gateway>https://openapi.alipaydev.com/gateway.do</pay.aliPayConf.gateway>
+	            <pay.aliPayConf.zfbPublicKey>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx998VHJHJDCakIQkBxOsTXG5mAp6dBCfr1f/ExmWL0a5Lz5FCnG04Bh+NuBSCHG29E67Ilq2JdmIAxrz9wGAqd0XG5iMfjaOf5HCBxmhm6xxgQQ9ySetx1R9jub3tD4gaQH3kl3uY9SSVGrGH5NijhTHtIMYsEzmdBhvEqcZ3xEl66S4PCCUhsYSReJn++DkBNE17CDrxAM0fsXSkriHgdg2h0bV2c8w2vwAYB8X3GlnZa5zLvFAivGE8JjFtHgZvg7YY1Jb4Thn/wme0pRuykfC/UZqRCuyzcWPs6PaNQjKUAcQLU/SMiHEeQASrBHN9KsT5bu+jDqtZKYKA3TvRwIDAQAB</pay.aliPayConf.zfbPublicKey>
+
+	            <!--确认到帐接口密钥-->
+	            <pay.keyStore.tradeSuccess.daemon>MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAKte9GD/UJQD8Sz7qSTLBNqb/uIaBHr0OF8zomEtyJQYJin0efDuWb8dTlMAZDEXeS8mS8a30piD8pkSYiEDvnrT4P7l2GSkCEl7XI7dah6IrqG9RHffB9aRycG58+zY0DqcFac7Y8pOiOnhsEDLEpW1VwM6HWlhnpQAOXpyYt8PAgMBAAECgYBSuLQ4OiYYPMrnTtd39jPynohrdemhvE+VzOPeCu6eZgXODL/sB/H0ad4L/M1gURdjJhY/5y3WByNMtm39x8Pi1WTPfY6IyHt4xkgfWUB3+exN5ZQ16GMC15fk+c7AAQucRaGKULxaAeXLka8eI1HZoAN5FQbnI7E+ouOfyY7u2QJBAOVt0geV9fnFMJPrbvt8BZVrm1b6H/t6Xr5p2Mgg5CLrQOrwOwf/i5Ujv/tlsCJTL84319hdXI2bpPxUSSn6UiMCQQC/N8+iQT+AxVMbHLFEDPvjOou0fEboCVGkLKP+Fh7ozFLZ3C3+NB00MHqf3+TOt4ItrYETRWsCeW9G8izYxwAlAkAKpjhThdBvEYoZs5npLm6L6vzA4sdNQvbW287mKzCrtkPDI/d5fZEbERe+MZAlZ7sWVV09e8fqAsl7tOXYfvgFAkBPvPVPwwe5KhAC0U82gneThPl3FQ/4eNJbtOXZ8d2H1JSEFuXzCEZZWhH4k0P1095sL9sQbzU1ffAiVKDQ8QMlAkADWN9WQDDuvIRveFxcJcgzL4xbQ+sDMr/fGXyrz7DDXrWhwlK+1Zq3irRcf/xt96pTIRemmuKcDC/JiIH27xL7</pay.keyStore.tradeSuccess.daemon>
+	            <pay.trustStore.tradeSuccess.console>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYcUvA1C9Wbkv/TnJ4vnEjlNRhM1NTvvv4Q7fXsa87pbX90XcC0fw688b6gvhHRcOI9R/mmZFjG6Ee61OalcIw73tWeDxyk93LNgz1s+d2CogBZRJUBZsKV7N3xZDZ0LC0QCdzRyfBPx8Rc1bi5nFHIg14yN70KYtLQxCDd6KedQIDAQAB</pay.trustStore.tradeSuccess.console>
+
+                <!--日志数据源配置-->
+                <log.jdbc.url>10.10.11.52:3307/yunmeeting_logs</log.jdbc.url>
+                <log.jdbc.username>yunmeeting</log.jdbc.username>
+                <log.jdbc.password>yunmeeting</log.jdbc.password>
+                
+                <!--信发数据源配置-->
+                <publish.jdbc.url>10.10.11.52:3307/yunmeeting_publish</publish.jdbc.url>
+                <publish.jdbc.username>yunmeeting</publish.jdbc.username>
+                <publish.jdbc.password>yunmeeting</publish.jdbc.password>
+                
+                <!--推送数据源配置-->
+                <push.jdbc.url>10.10.11.52:3307/yunmeeting_push</push.jdbc.url>
+                <push.jdbc.username>yunmeeting</push.jdbc.username>
+                <push.jdbc.password>yunmeeting</push.jdbc.password>
+
+				<!--订单数据源配置-->
+				<orders.jdbc.url>10.10.11.52:3307/yunmeeting_orders</orders.jdbc.url>
+				<orders.jdbc.username>yunmeeting</orders.jdbc.username>
+				<orders.jdbc.password>yunmeeting</orders.jdbc.password>
+
+	            <!--订单接口校验公钥-->
+	            <order.trustStore.TradeSuccess.daemon>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrXvRg/1CUA/Es+6kkywTam/7iGgR69DhfM6JhLciUGCYp9Hnw7lm/HU5TAGQxF3kvJkvGt9KYg/KZEmIhA7560+D+5dhkpAhJe1yO3WoeiK6hvUR33wfWkcnBufPs2NA6nBWnO2PKTojp4bBAyxKVtVcDOh1pYZ6UADl6cmLfDwIDAQAB</order.trustStore.TradeSuccess.daemon>
+	            <order.trustStore.TradeSuccess.console>Q2BH+LKeRDUEN29yrfOkS2E2WY+4nUCSCIjRaXDBFO5xNkhoyi5ttnsnKaU</order.trustStore.TradeSuccess.console>
+	            <order.trustStore.searchOrder.console>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4rM4xq7O1eVLEceZuVA8FU2XP6G6iYMuRmWLR7ab/c1Xd2/tpv1JB2F6onazbbHYGLtHwOaI37pc9RGJxn3wI/xExUzzJ4sdKQTPHjt03099eR9m3t+hJmAYQ24yxe1TZ6tjZq7MGodf+hSmuY1tlxTyPv8zLt8P2QH5lvghijwIDAQAB</order.trustStore.searchOrder.console>
+
+							<!--0元订单支付密钥-公钥-->
+							<order.trustStore.TradeSuccess.zeroPrice>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQClmJiczwLvKbGbmL109MHBpCiZo+m7EtI6fKmFwz3vnQlTdXwh+a2kNPo+PaEKzoORcnNlE3IGpFRXp58JHlGf0hmGesPWkwIXH+zZyTJgSUooe6uDY6RbX/0+92kOfR0v/v1CWD1GUOnZ6dnbZwBmP4hVsjXWU61mL1MgUz17DQIDAQAB</order.trustStore.TradeSuccess.zeroPrice>
+							<!--0元订单支付密钥-私钥-->
+							<order.keyStore.tradeSuccess.zeroPrice>MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKWYmJzPAu8psZuYvXT0wcGkKJmj6bsS0jp8qYXDPe+dCVN1fCH5raQ0+j49oQrOg5Fyc2UTcgakVFennwkeUZ/SGYZ6w9aTAhcf7NnJMmBJSih7q4NjpFtf/T73aQ59HS/+/UJYPUZQ6dnp2dtnAGY/iFWyNdZTrWYvUyBTPXsNAgMBAAECgYBfdLE0Yxhb6PraqJc9ngE6sHg+6H/JOLY6xLWrx7oiL7G6jFS7+QMhTvCZhEkaw6SP6Rufvi/SqFN+G7/PL8z4mAeNcs0IqoU5BIymdPzNWb2g7MSgPkOL4YTWFWUg2n5aPb6B0ushZRmMPpcciWTcJKZ4O7DSmgasLTIsPMSowQJBANpy0wVsree8dOk65sfUH6746mKQkbXckIS504nIN64GWwRgSpvy5OfsLmbp7KSJ2tJgmORnfQJ9HAeB9/jijDkCQQDCD+pYVYXHu9hHDkA+3M6C2ch70FQl3Dcw274xqYZZIWXwkL73akudlUpPNdgfd4YJIYY5uGejAx3aJKkgOI11AkEAwIT90QQM5/TBHGOazHX4Tl51QtSidiKjAzY6Zm2cFLTpNhwe5P3WG0edRXnX4tLTlSEo3fMOy0izkTJL9n7CkQJAEzk4YZ+3LN3ywrcqrg95dYTVU06Dx2xVG0XpRUohwNqKGpZ8FE43R1juj4Ip8pQIdwcXIMifm4pHfsB68HIpsQJANIQ56a7EzZq6OaNbxjJca10mFv7lRqTNJdp10cLyXUxoOSVHftEHYJDjVooEaAvnqL7zYdy57pmLel1vPclEDg==</order.keyStore.tradeSuccess.zeroPrice>
+
+
+                <!--商品数据源配置-->
+                <goods.jdbc.url>10.10.11.52:3307/yunmeeting_goods</goods.jdbc.url>
+                <goods.jdbc.username>yunmeeting</goods.jdbc.username>
+                <goods.jdbc.password>yunmeeting</goods.jdbc.password>
+
+                <!--core数据源配置-->
+                <core.jdbc.url>10.10.11.52:3307/yunmeeting_core</core.jdbc.url>
+                <core.jdbc.username>yunmeeting</core.jdbc.username>
+                <core.jdbc.password>yunmeeting</core.jdbc.password>
+
+				<!--console平台据源配置-->
+				<console.jdbc.url>10.10.11.52:3307/yunmeeting_console</console.jdbc.url>
+				<console.jdbc.username>yunmeeting</console.jdbc.username>
+				<console.jdbc.password>yunmeeting</console.jdbc.password>
+
+                <!--一下是注册时候执行脚本的连接数据源-->
+                <jdbc.host>jdbc:mysql://10.10.11.52:3307/</jdbc.host>
+                <jdbc.username>yunmeeting</jdbc.username>
+                <jdbc.password>yunmeeting</jdbc.password>
+                <jdbc.createTablePath>/home/skwtest/config/</jdbc.createTablePath>
+                <jdbc.outputPath>/home/skwtest/config/sql.out</jdbc.outputPath>
+
+                <!--mq-->
+                <mq.url>tcp://10.10.11.51:61618</mq.url>
+				<mq.userName></mq.userName>
+				<mq.passwd></mq.passwd>
+
+                <!--redis-->
+                <redis.ip>10.10.11.51</redis.ip>
+                <redis.port>6380</redis.port>
+				<redis.password>xBHeqVxC</redis.password>
+                <redis.pool.maxActive>10</redis.pool.maxActive>
+                <redis.pool.maxIdle>300</redis.pool.maxIdle>
+                <redis.pool.maxWait>3000</redis.pool.maxWait>
+                <redis.pool.testOnBorrow>true</redis.pool.testOnBorrow>
+                <redis.pool.testOnReturn>true</redis.pool.testOnReturn>
+                <redis.pool.timeout>1000</redis.pool.timeout>
+
+				<!--push服务器配置-->
+				<pushService.port>7810</pushService.port>
+				<pushService.queueFlag>publish001_downlink_queue</pushService.queueFlag>
+
+				<!-- 图片服务器 -->
+				<fastdfs.path>http://imgtest.yunmeetings.com</fastdfs.path>
+				<fastdfs.service.url>10.10.11.56</fastdfs.service.url>
+                <!--  excelimport  -->
+                <file.outputPath>/home/skwtest</file.outputPath>
+
+                <!--微信配置-->
+                <wx.appid>wxdcf49b673a10c6a2</wx.appid>
+                <wx.appsecret>21adb52c8ea3b04ac32fc0426e065034</wx.appsecret>
+                <wx.token>yunmeeting</wx.token>
+                <wx.aeskey>SVnqh1PY3b2aHM3v7UQxJxzrv80K0bwQTEiddRnZUuM</wx.aeskey>
+                <wx.wechatServer>http://weixintest.yunmeetings.com</wx.wechatServer>
+                <wx.yunMeetingServer>http://test.yunmeetings.com</wx.yunMeetingServer>
+
+				<!--微信开放平台配置-->
+				<wechat.appid>wxb20d8bbd36d511c3</wechat.appid>
+				<wechat.appsecret>836987f91fdce586375b12e1836cf5eb</wechat.appsecret>
+				<wechat.callbackurl>http://test.yunmeetings.com/system/oauthtest</wechat.callbackurl>
+				<wechat.websitedomain>https://www.yunmeetings.com</wechat.websitedomain>
+
+				<!-- 确认到账的私钥 -->
+				<console.privateKey>MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJhxS8DUL1ZuS/9Ocni+cSOU1GEzU1O++/hDt9exrzultf3RdwLR/DrzxvqC+EdFw4j1H+aZkWMboR7rU5qVwjDve1Z4PHKT3cs2DPWz53YKiAFlElQFmwpXs3fFkNnQsLRAJ3NHJ8E/HxFzVuLmcUciDXjI3vQpi0tDEIN3op51AgMBAAECgYAItD9dDUB+sOGJ/FKw7j7Lh03xFtslJvyAGm2+1RhqUXXovjMLaC38t7qexyeh+ivGACkII7CXdhZnC4zEgNSLnDGu6QQhgcUzwsdunJMs6Jy6r60yGdtim2SAI6X1tFwBNgc2gkvR2f9hQNuVtJMB1bio8fo5BbqafENDQnBPKQJBAMZwI+UBA5w5BuUWnNTzfCkkMBI/I/0pxxoCd0v7PXE21eBgngp8LfPaq2ffJfADNAsOxKhtM/YDuB4VwE40cPsCQQDEqZDMw6z0uMaBui+MmUvab8T7Q89cww1qW4SjTzCrbxa+bkUxkJxWRAoU/PemVqZDkOyXigmK/IuyVlTDqXNPAkEApzSaqj3+gsZyjtpM8AryVeBOOTHG620mfT4Ss41RqnHgKZ5/zKnyNoXM5EtdNi4czix1fM33eJaNr5v4XG1HvQJAYu7OmkQB2SavLgnE690ebKf3l1OYmJjDQfMCOcmXuVZsQaZlhrax/y/BRqevye0jPTBF5UIa5OGBQVju0XOIPwJBAKBn86rVzP8GdiqwC1Qy769BRpi5X6jeMgEi9JXT6d3GJr0TpUmi9Ylv1uiyLoXzIgjKQR+J/kxLOm/4LTIFh2g=</console.privateKey>
+				<console.queryOrderListKey>MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALiszjGrs7V5UsRx5m5UDwVTZc/obqJgy5GZYtHtpv9zVd3b+2m/UkHYXqidrNtsdgYu0fA5ojfulz1EYnGffAj/ETFTPMnix0pBM8eO3TfT315H2be36EmYBhDbjLF7VNnq2Nmrswah1/6FKa5jW2XFPI+/zMu3w/ZAfmW+CGKPAgMBAAECgYA3noPzXb0gGMweshcuf06O0hFFzsETUoe88C9c/nBfW0MvMIPF04NYpWvM6MAYzc+2CP/dk94RbmBKaYAkrF3Uaz3aGmVSg/49XmbmyyUI/lh61KMqDN0M5rNblKmA5G1tD8kX1NoUTHCmdN8q5UsEz+gewXzOE3gT58/PEegAIQJBAP4OZ+CTWcf3r4gjrbRkqi0ghoMu4scaVCV0Gz8V3kI9MfCvTofN31SiI5qdhjRJVQy0/u0bvR5Mx2ZKowA5CrkCQQC6FoJ5LiJYlvxuCpy4GlaQL0bT+MxGwTmyyzR2jVIYdLwd4R/hOyELGnodcj8BQxBzDPcvxPVh5oZZSPfRaBOHAkEA9NWBOiYG4fVKzlJD9pMEhVTRDN9EYUh4S1fnYhZ7CS7cT+1CKxI15eQTl8+zI/R/6C0NeAfBa8/mYigPiglu0QJAAfqlTpagBOMuMhloy0h0bTojfbOisInzjCQ/HZepLNto+MRhK2sOkeipLdD+PIwzC5Yyts5Ycb8a5K4y/IYn1wJAf3V2cgsXkw7qmt2HtbEsLrfaj8DUuJMh+2+rShmaPsjzWZdUz2dsm1nkrPqK1ucDe83oUKKFdC56LgK+iQLFNg==</console.queryOrderListKey>
+
+				<!--天气组件-和风天气userId-->
+        <weather.userId>HE1707261653071083</weather.userId>
+        <weather.paid>0</weather.paid> <!--0免费，1付费-->
+        
+        <!--支付服务registry路径配置，因为是web与dubbo合体，后续会做拆分-->
+        <dubbo.registry.lock.user>skwtest</dubbo.registry.lock.user>
+
+			</properties>
+
+            <repositories>
+                <repository>
+                    <id>nexus</id>
+                    <url>http://10.10.11.12:8080/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>nexus</id>
+                    <url>http://10.10.11.12:8080/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+		<profile>
+			<!-- 阿里云预发布环境  -->
+			<id>preRelease</id>
+			<properties>
+				<!--开发分组-->
+				<group.scope>preRelease</group.scope>
+
+				<!--zookeeper地址-->
+				<dubbo.registry.address>10.29.17.250:2181</dubbo.registry.address>
+				<interface.version>1.0</interface.version>
+
+				<!--parentDataSource  core数据源配置-->
+				<auth.jdbc.url>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_core</auth.jdbc.url>
+				<auth.jdbc.username>yunmeeting</auth.jdbc.username>
+				<auth.jdbc.password>yunmeeting</auth.jdbc.password>
+				<auth.initialSize>10</auth.initialSize>
+
+				<!--上传数据源配置-->
+				<upload.jdbc.url>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_upload</upload.jdbc.url>
+				<upload.jdbc.username>yunmeeting</upload.jdbc.username>
+				<upload.jdbc.password>yunmeeting</upload.jdbc.password>
+				
+				<!--促销服务数据源-->
+				<promotion.jdbc.url>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_promotion</promotion.jdbc.url>
+				<promotion.jdbc.username>yunmeeting</promotion.jdbc.username>
+				<promotion.jdbc.password>yunmeeting</promotion.jdbc.password>
+
+				<!--字典数据源配置-->
+				<dict.jdbc.url>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_dict</dict.jdbc.url>
+				<dict.jdbc.username>yunmeeting</dict.jdbc.username>
+				<dict.jdbc.password>yunmeeting</dict.jdbc.password>
+
+
+				<!--支付服务数据源-->
+				<pay.jdbc.url>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_payment</pay.jdbc.url>
+				<pay.jdbc.username>yunmeeting</pay.jdbc.username>
+				<pay.jdbc.password>yunmeeting</pay.jdbc.password>
+
+				<!--支付回调url-->
+				<pay.wxPayConf.returnUrl>http://paypre.yunmeetings.com/pay/return</pay.wxPayConf.returnUrl>
+				<pay.wxPayConf.notifyUrl>http://paypre.yunmeetings.com/pay/tenpay/notify</pay.wxPayConf.notifyUrl>
+				<pay.aliPayConf.returnUrl>http://paypre.yunmeetings.com/pay/return</pay.aliPayConf.returnUrl>
+				<pay.aliPayConf.notifyUrl>http://paypre.yunmeetings.com/pay/alipay/notify</pay.aliPayConf.notifyUrl>
+
+				<!--微信支付密钥-->
+				<pay.wxPayConf.keyPath>/home/developer/apiclient_cert.p12</pay.wxPayConf.keyPath>
+				<pay.wxPayConf.appId>wxdcf49b673a10c6a2</pay.wxPayConf.appId>
+				<pay.wxPayConf.mchId>1468332802</pay.wxPayConf.mchId>
+				<pay.wxPayConf.key>NidwfUOkDZvsVtFCYzuP8e2ISXjmbAM4</pay.wxPayConf.key>
+
+				<!--支付宝密钥-->
+				<pay.aliPayConf.partner>2088721540963625</pay.aliPayConf.partner>
+				<pay.aliPayConf.appId>2017072107836534</pay.aliPayConf.appId>
+				<pay.aliPayConf.privateKey>MIIEwAIBADANB...</pay.aliPayConf.privateKey>
+				<pay.aliPayConf.publicKey>MIIBIjANBg...</pay.aliPayConf.publicKey>
+				<pay.aliPayConf.gateway>https://openapi.alipay.com/gateway.do</pay.aliPayConf.gateway>
+				<pay.aliPayConf.zfbPublicKey>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7s6erdAmVFPG61UKI8qHAxYC7pk6ZqpNJEfii/P4UFv+JhX1PHDUbUX178a1ZKt96dm8/ozD99N3N/3Zmb8DXCFyIy9Dhhj90a8FRF4+QHrsYouI4n/Fjij2W4B58JLIzxglxCjV+a7LGD7WxvtiqkUgYYpmgI0L9VRFZ5NFPKutRgLH56BXCtDAsAsdf1i2fWexcnpQNjG3SZFxUtKcZ+fb/yMFxogwFwlqgtm4JbS/wdE2pAhG22u24F7xinKG2JrvCEevfZWLWB4quCDLNkG8wmp1cQeVkwJXsh80gyRj58SRmc/JtfsmtcqHNeGV5oDRXED4y5CLkqu/SmeaaQIDAQAB</pay.aliPayConf.zfbPublicKey>
+
+				<!--确认到帐接口密钥-->
+				<pay.keyStore.tradeSuccess.daemon>MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAKte9GD/UJQD8Sz7qSTLBNqb/uIaBHr0OF8zomEtyJQYJin0efDuWb8dTlMAZDEXeS8mS8a30piD8pkSYiEDvnrT4P7l2GSkCEl7XI7dah6IrqG9RHffB9aRycG58+zY0DqcFac7Y8pOiOnhsEDLEpW1VwM6HWlhnpQAOXpyYt8PAgMBAAECgYBSuLQ4OiYYPMrnTtd39jPynohrdemhvE+VzOPeCu6eZgXODL/sB/H0ad4L/M1gURdjJhY/5y3WByNMtm39x8Pi1WTPfY6IyHt4xkgfWUB3+exN5ZQ16GMC15fk+c7AAQucRaGKULxaAeXLka8eI1HZoAN5FQbnI7E+ouOfyY7u2QJBAOVt0geV9fnFMJPrbvt8BZVrm1b6H/t6Xr5p2Mgg5CLrQOrwOwf/i5Ujv/tlsCJTL84319hdXI2bpPxUSSn6UiMCQQC/N8+iQT+AxVMbHLFEDPvjOou0fEboCVGkLKP+Fh7ozFLZ3C3+NB00MHqf3+TOt4ItrYETRWsCeW9G8izYxwAlAkAKpjhThdBvEYoZs5npLm6L6vzA4sdNQvbW287mKzCrtkPDI/d5fZEbERe+MZAlZ7sWVV09e8fqAsl7tOXYfvgFAkBPvPVPwwe5KhAC0U82gneThPl3FQ/4eNJbtOXZ8d2H1JSEFuXzCEZZWhH4k0P1095sL9sQbzU1ffAiVKDQ8QMlAkADWN9WQDDuvIRveFxcJcgzL4xbQ+sDMr/fGXyrz7DDXrWhwlK+1Zq3irRcf/xt96pTIRemmuKcDC/JiIH27xL7</pay.keyStore.tradeSuccess.daemon>
+				<pay.trustStore.tradeSuccess.console>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYcUvA1C9Wbkv/TnJ4vnEjlNRhM1NTvvv4Q7fXsa87pbX90XcC0fw688b6gvhHRcOI9R/mmZFjG6Ee61OalcIw73tWeDxyk93LNgz1s+d2CogBZRJUBZsKV7N3xZDZ0LC0QCdzRyfBPx8Rc1bi5nFHIg14yN70KYtLQxCDd6KedQIDAQAB</pay.trustStore.tradeSuccess.console>
+
+
+				<!--日志数据源配置-->
+				<log.jdbc.url>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_logs</log.jdbc.url>
+				<log.jdbc.username>yunmeeting</log.jdbc.username>
+				<log.jdbc.password>yunmeeting</log.jdbc.password>
+				
+				<!--信发数据源配置-->
+				<publish.jdbc.url>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_publish</publish.jdbc.url>
+				<publish.jdbc.username>yunmeeting</publish.jdbc.username>
+				<publish.jdbc.password>yunmeeting</publish.jdbc.password>
+				
+				<!--推送数据源配置-->
+				<push.jdbc.url>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_push</push.jdbc.url>
+				<push.jdbc.username>yunmeeting</push.jdbc.username>
+				<push.jdbc.password>yunmeeting</push.jdbc.password>
+
+				<!--订单数据源配置-->
+				<orders.jdbc.url>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_orders</orders.jdbc.url>
+				<orders.jdbc.username>yunmeeting</orders.jdbc.username>
+				<orders.jdbc.password>yunmeeting</orders.jdbc.password>
+
+				<!--订单接口校验公钥-->
+				<order.trustStore.TradeSuccess.daemon>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrXvRg/1CUA/Es+6kkywTam/7iGgR69DhfM6JhLciUGCYp9Hnw7lm/HU5TAGQxF3kvJkvGt9KYg/KZEmIhA7560+D+5dhkpAhJe1yO3WoeiK6hvUR33wfWkcnBufPs2NA6nBWnO2PKTojp4bBAyxKVtVcDOh1pYZ6UADl6cmLfDwIDAQAB</order.trustStore.TradeSuccess.daemon>
+				<order.trustStore.TradeSuccess.console>Q2BH+LKeRDUEN29yrfOkS2E2WY+4nUCSCIjRaXDBFO5xNkhoyi5ttnsnKaU</order.trustStore.TradeSuccess.console>
+				<order.trustStore.searchOrder.console>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4rM4xq7O1eVLEceZuVA8FU2XP6G6iYMuRmWLR7ab/c1Xd2/tpv1JB2F6onazbbHYGLtHwOaI37pc9RGJxn3wI/xExUzzJ4sdKQTPHjt03099eR9m3t+hJmAYQ24yxe1TZ6tjZq7MGodf+hSmuY1tlxTyPv8zLt8P2QH5lvghijwIDAQAB</order.trustStore.searchOrder.console>
+
+				<!--0元订单支付密钥-私钥-->
+				<order.trustStore.TradeSuccess.zeroPrice>MIIEvgIBADANBgkqhkiG9w0BAQEFhASCBKgwggSkAgEAAoIBAQCtoEdylU4gw79AZAcVJ9/9MlSiuYti8NDl5ClDR/UxGMRPEf2+htnKZGLoo5Jeq3JWIcmC8MqCnfUXSz37BLeQgxekh5wXg/2eRkxCnAylqXkdipP2dQeFBTxM7nO+Mvy5GkJco3qi+Xuq6a+HLiY7ykUA3hMb+ef4lcTh9RH5iIhPHSH6pXS8Hk2lLZ3pu3ruLzyWusicYcmXmfTqtWh64Hq0DwWQIkqpZD//GGNgJxWpAatzwW73H/M7PhT0+Bk9QZl3nt6IH0foq70imxwiT/fzChLSK1SY53w4YpfS3rinveHffKCSAhPkv1ZW2XhKHj2Oi3Ncac/2A22BD44nAgMBAAECggEAZaUijssnvPi721dz6ge5EsLHV6hmGJtAwIVNPs0+luqX6m5u7X6Gu/z/BpDUHMYkHpaTISwUcllE5ckv1OeTC3AjhDe7wuyLqoAfHxO6N7W6aPf63Vrv9wj0n1ktu1igKUFdPlyabBTAOHOsRehXi8NDmFlqOIOaMSaE53+QcVNqpeoe5Vi1YT4+BWTOGUvrCh3Klu4h6KkPHoL1j8Z8zli1/SoTUsqNJzAknV6dzhi/bpOivIFp21iYfMSwhnCRSipSU+yF2Qs8c1GD1nT05a7CzX6SvhDT6M9tH+gmLJBalTclS154txqDgasA96Y1gTZq8oLAjtNFhwMF/lY3SQKBgQDyptJxheckRfoQ8JmPMvwugdFSIWmUom+bNlzjORtz5VU+FIY7Mt2iyhnMbxIvLbCWfQ6AQDdUKYpD9gF0tAhFucSGy0JFpTtaDSKBkfe+2zqvXfpGzFHqo/mKskX0uwUonftv6aU1epFQuKy3MecJGy61NNDCvT+ceh41EUgTMwKBgQC3LWTz/2RRnAX2coryRMu/OnjGM8oWhpgBUTseyx98fRzfgQVhh0j+QT8R0mSftiAsIakcFKpPWY4ox3RHTZLf8+hjd76AvC7lnQrnL527Ad2t3hvP9/k6YoxQNa5QqFZQx6vV7fFjAeg4kmP+d/NTz3KNAiEaqY/EGzqIovEZPQKBgFlAt2N+Z1jWTHbyqOkdTdklcwMMuzMq1HZ49o21sb1de49MKVuZCCEayYaCzGOCINQZx72w4SkZ5nu8/ygYGHrdK8aQ+R14+23SKwER2djf9qQOo0JrYS43hlBX5pdwOyOHiLbPcC9NmCni49S2jE6zKukINkmLJty9pmLKqoI1AoGBAK3dQ24pIhIoEqzKKcIstGts14fhTla1KABQFtpymA80PbyTHQVmQE08pt2GooXJe54H0RjbMJAig8GHF4I6SkeRnikTVlmgxK6isd+fnYoMClpmcGWkjAXz1hSn7y2VqmAANcTXlX+RJtbTdF/rgKUzSRo4RC2nddMAuT1J06hNAoGBAMQ7L5F1LFVlf0Vd7TRKyR85DacwagAmILvnA9aXsmdwGXCVqNBgf+5E8vbhxtoV8c4UJG2p/fUY5VZJ6uFOwNpWHpI/RaBkyGZgmol+8sEDn2Bad2bo5kap2Qzdg0w/vw6NNJ2Um9jZx+9x5coJe9TDNsJ3YYHNx1Ct7SuajEOu</order.trustStore.TradeSuccess.zeroPrice>
+				<!--0元订单支付密钥-公钥-->
+				<order.keyStore.tradeSuccess.zeroPrice>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8rMIIBCgKCAQEAraBHcpVOIMO/QGQHFSff/TJUormLYvDQ5eQpQ0f1MRjETxH9vobZymRi6KOSXqtyViHJgvDKgp31F0s9+wS3kIMXpIecF4P9nkZMQpwMpal5HYqT9nUHhQU8TO5zvjL8uRpCXKN6ovl7qumvhy4mO8pFAN4TG/nn+JXE4fUR+YiITx0h+qV0vB5NpS2d6bt67i88lrrInGHJl5n06rVoeuB6tA8FkCJKqWQ//xhjYCcVqQGrc8Fu9x/zOz4U9PgZPUGZd57eiB9H6Ku9IpscIk/38woS0itUmOd8OGKX0t64p73h33ygkgIT5L9WVtl4Sh49jotzXGnP9gNtgQ+OJwIDAQAB</order.keyStore.tradeSuccess.zeroPrice>
+
+				<!--商品数据源配置-->
+				<goods.jdbc.url>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_goods</goods.jdbc.url>
+				<goods.jdbc.username>yunmeeting</goods.jdbc.username>
+				<goods.jdbc.password>yunmeeting</goods.jdbc.password>
+
+				<!--core数据源配置-->
+				<core.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_core</core.jdbc.url>
+				<core.jdbc.username>yunmeeting</core.jdbc.username>
+				<core.jdbc.password>yunmeeting</core.jdbc.password>
+
+				<!--console平台据源配置-->
+				<console.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_console</console.jdbc.url>
+				<console.jdbc.username>yunmeeting</console.jdbc.username>
+				<console.jdbc.password>yunmeeting</console.jdbc.password>
+
+				<!--一下是注册时候执行脚本的连接数据源-->
+				<jdbc.host>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/</jdbc.host>
+				<jdbc.username>yunmeeting</jdbc.username>
+				<jdbc.password>yunmeeting</jdbc.password>
+				<jdbc.createTablePath>/home/developer/config/</jdbc.createTablePath>
+				<jdbc.outputPath>/home/developer/config/sql.out</jdbc.outputPath>
+
+				<!--mq-->
+				<mq.url>tcp://10.29.17.250:61616</mq.url>
+				<mq.userName></mq.userName>
+				<mq.passwd></mq.passwd>
+
+				<!--redis-->
+				<redis.ip>10.29.172.250</redis.ip>
+				<redis.port>6379</redis.port>
+				<redis.password>xBHeqVxC</redis.password>
+				<redis.pool.maxActive>10</redis.pool.maxActive>
+				<redis.pool.maxIdle>300</redis.pool.maxIdle>
+				<redis.pool.maxWait>3000</redis.pool.maxWait>
+				<redis.pool.testOnBorrow>true</redis.pool.testOnBorrow>
+				<redis.pool.testOnReturn>true</redis.pool.testOnReturn>
+				<redis.pool.timeout>1000</redis.pool.timeout>
+
+				<!--push服务器配置-->
+				<pushService.port>7800</pushService.port>
+				<pushService.queueFlag>publish001_downlink_queue</pushService.queueFlag>
+
+				<!-- 图片服务器 -->
+				<fastdfs.path>http://47.93.128.244</fastdfs.path>
+				<fastdfs.service.url>47.93.128.244</fastdfs.service.url>
+				<!--  excelimport  -->
+				<file.outputPath>/home/developer</file.outputPath>
+
+                <!--微信配置-->
+                <wx.appid>wxdcf49b673a10c6a2</wx.appid>
+                <wx.appsecret>debcdfc307fa5e562e9acfb0189bee12</wx.appsecret>
+                <wx.token>yunmeeting</wx.token>
+                <wx.aeskey>SVnqh1PY3b2aHM3v7UQxJxzrv80K0bwQTEiddRnZUuM</wx.aeskey>
+                <wx.wechatServer>http://weixintest.yunmeetings.com</wx.wechatServer>
+                <wx.yunMeetingServer>http://test.yunmeetings.com</wx.yunMeetingServer>
+
+				<!--微信开放平台配置-->
+				<wechat.appid>wxb20d8bbd36d511c3</wechat.appid>
+				<wechat.appsecret>836987f91fdce586375b12e1836cf5eb</wechat.appsecret>
+				<wechat.callbackurl>http://test.yunmeetings.com/system/oauthtest</wechat.callbackurl>
+				<wechat.websitedomain>https://www.yunmeetings.com</wechat.websitedomain>
+
+				<!-- 确认到账的私钥 -->
+				<console.privateKey>MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJhxS8DUL1ZuS/9Ocni+cSOU1GEzU1O++/hDt9exrzultf3RdwLR/DrzxvqC+EdFw4j1H+aZkWMboR7rU5qVwjDve1Z4PHKT3cs2DPWz53YKiAFlElQFmwpXs3fFkNnQsLRAJ3NHJ8E/HxFzVuLmcUciDXjI3vQpi0tDEIN3op51AgMBAAECgYAItD9dDUB+sOGJ/FKw7j7Lh03xFtslJvyAGm2+1RhqUXXovjMLaC38t7qexyeh+ivGACkII7CXdhZnC4zEgNSLnDGu6QQhgcUzwsdunJMs6Jy6r60yGdtim2SAI6X1tFwBNgc2gkvR2f9hQNuVtJMB1bio8fo5BbqafENDQnBPKQJBAMZwI+UBA5w5BuUWnNTzfCkkMBI/I/0pxxoCd0v7PXE21eBgngp8LfPaq2ffJfADNAsOxKhtM/YDuB4VwE40cPsCQQDEqZDMw6z0uMaBui+MmUvab8T7Q89cww1qW4SjTzCrbxa+bkUxkJxWRAoU/PemVqZDkOyXigmK/IuyVlTDqXNPAkEApzSaqj3+gsZyjtpM8AryVeBOOTHG620mfT4Ss41RqnHgKZ5/zKnyNoXM5EtdNi4czix1fM33eJaNr5v4XG1HvQJAYu7OmkQB2SavLgnE690ebKf3l1OYmJjDQfMCOcmXuVZsQaZlhrax/y/BRqevye0jPTBF5UIa5OGBQVju0XOIPwJBAKBn86rVzP8GdiqwC1Qy769BRpi5X6jeMgEi9JXT6d3GJr0TpUmi9Ylv1uiyLoXzIgjKQR+J/kxLOm/4LTIFh2g=</console.privateKey>
+				<console.queryOrderListKey>MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALiszjGrs7V5UsRx5m5UDwVTZc/obqJgy5GZYtHtpv9zVd3b+2m/UkHYXqidrNtsdgYu0fA5ojfulz1EYnGffAj/ETFTPMnix0pBM8eO3TfT315H2be36EmYBhDbjLF7VNnq2Nmrswah1/6FKa5jW2XFPI+/zMu3w/ZAfmW+CGKPAgMBAAECgYA3noPzXb0gGMweshcuf06O0hFFzsETUoe88C9c/nBfW0MvMIPF04NYpWvM6MAYzc+2CP/dk94RbmBKaYAkrF3Uaz3aGmVSg/49XmbmyyUI/lh61KMqDN0M5rNblKmA5G1tD8kX1NoUTHCmdN8q5UsEz+gewXzOE3gT58/PEegAIQJBAP4OZ+CTWcf3r4gjrbRkqi0ghoMu4scaVCV0Gz8V3kI9MfCvTofN31SiI5qdhjRJVQy0/u0bvR5Mx2ZKowA5CrkCQQC6FoJ5LiJYlvxuCpy4GlaQL0bT+MxGwTmyyzR2jVIYdLwd4R/hOyELGnodcj8BQxBzDPcvxPVh5oZZSPfRaBOHAkEA9NWBOiYG4fVKzlJD9pMEhVTRDN9EYUh4S1fnYhZ7CS7cT+1CKxI15eQTl8+zI/R/6C0NeAfBa8/mYigPiglu0QJAAfqlTpagBOMuMhloy0h0bTojfbOisInzjCQ/HZepLNto+MRhK2sOkeipLdD+PIwzC5Yyts5Ycb8a5K4y/IYn1wJAf3V2cgsXkw7qmt2HtbEsLrfaj8DUuJMh+2+rShmaPsjzWZdUz2dsm1nkrPqK1ucDe83oUKKFdC56LgK+iQLFNg==</console.queryOrderListKey>
+
+				<!--天气组件-和风天气userId-->
+        <weather.userId>HE1707261653071083</weather.userId>
+        <weather.paid>0</weather.paid> <!--0免费，1付费-->
+        
+       <!--支付服务registry路径配置，因为是web与dubbo合体，后续会做拆分-->
+        <dubbo.registry.lock.user>developer</dubbo.registry.lock.user>
+        
+			</properties>
+
+			<repositories>
+				<repository>
+					<id>nexus</id>
+					<url>http://10.10.11.12:8080/nexus/content/groups/public</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>nexus</id>
+					<url>http://10.10.11.12:8080/nexus/content/groups/public</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+
+
+        <profile>
+            <!-- 阿里云线上正式环境  -->
+            <id>AliCloud</id>
+            <properties>
+                <!--开发分组-->
+                <group.scope>alicloud</group.scope>
+
+                <!--zookeeper地址-->
+                <dubbo.registry.address>10.29.17.250:2181</dubbo.registry.address>
+                <interface.version>1.0</interface.version>
+
+                <!--parentDataSource  core数据源配置-->
+                <auth.jdbc.url>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_core</auth.jdbc.url>
+                <auth.jdbc.username>yunmeeting</auth.jdbc.username>
+                <auth.jdbc.password>yunmeeting</auth.jdbc.password>
+                <auth.initialSize>10</auth.initialSize>
+
+                <!--上传数据源配置-->
+                <upload.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_upload</upload.jdbc.url>
+                <upload.jdbc.username>yunmeeting</upload.jdbc.username>
+                <upload.jdbc.password>yunmeeting</upload.jdbc.password>
+                
+                
+                <!--促销服务数据源-->
+								<promotion.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_promotion</promotion.jdbc.url>
+								<promotion.jdbc.username>yunmeeting</promotion.jdbc.username>
+								<promotion.jdbc.password>yunmeeting</promotion.jdbc.password>
+
+                <!--字典数据源配置-->
+                <dict.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_dict</dict.jdbc.url>
+                <dict.jdbc.username>yunmeeting</dict.jdbc.username>
+                <dict.jdbc.password>yunmeeting</dict.jdbc.password>
+
+
+                <!--支付服务数据源-->
+                <pay.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_payment</pay.jdbc.url>
+                <pay.jdbc.username>yunmeeting</pay.jdbc.username>
+                <pay.jdbc.password>yunmeeting</pay.jdbc.password>
+
+                <!--支付回调url-->
+                <pay.wxPayConf.returnUrl>http://paypre.yunmeetings.com/pay/return</pay.wxPayConf.returnUrl>
+	            <pay.wxPayConf.notifyUrl>http://paypre.yunmeetings.com/pay/tenpay/notify</pay.wxPayConf.notifyUrl>
+                <pay.aliPayConf.returnUrl>http://paypre.yunmeetings.com/pay/return</pay.aliPayConf.returnUrl>
+	            <pay.aliPayConf.notifyUrl>http://paypre.yunmeetings.com/pay/alipay/notify</pay.aliPayConf.notifyUrl>
+
+	            <!--微信支付密钥-->
+	            <pay.wxPayConf.keyPath>/home/developer/apiclient_cert.p12</pay.wxPayConf.keyPath>
+	            <pay.wxPayConf.appId>abc</pay.wxPayConf.appId>
+	            <pay.wxPayConf.mchId>123</pay.wxPayConf.mchId>
+	            <pay.wxPayConf.key>abc</pay.wxPayConf.key>
+
+	            <!--支付宝密钥-->
+                <pay.aliPayConf.partner>2088721540963625</pay.aliPayConf.partner>
+                <pay.aliPayConf.appId>2017072107836534</pay.aliPayConf.appId>
+                <pay.aliPayConf.privateKey>MIIEwAIBADANB...</pay.aliPayConf.privateKey>
+                <pay.aliPayConf.publicKey>MIIBIjANBg...</pay.aliPayConf.publicKey>
+	            <pay.aliPayConf.gateway>https://openapi.alipay.com/gateway.do</pay.aliPayConf.gateway>
+	            <pay.aliPayConf.zfbPublicKey>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7s6erdAmVFPG61UKI8qHAxYC7pk6ZqpNJEfii/P4UFv+JhX1PHDUbUX178a1ZKt96dm8/ozD99N3N/3Zmb8DXCFyIy9Dhhj90a8FRF4+QHrsYouI4n/Fjij2W4B58JLIzxglxCjV+a7LGD7WxvtiqkUgYYpmgI0L9VRFZ5NFPKutRgLH56BXCtDAsAsdf1i2fWexcnpQNjG3SZFxUtKcZ+fb/yMFxogwFwlqgtm4JbS/wdE2pAhG22u24F7xinKG2JrvCEevfZWLWB4quCDLNkG8wmp1cQeVkwJXsh80gyRj58SRmc/JtfsmtcqHNeGV5oDRXED4y5CLkqu/SmeaaQIDAQAB</pay.aliPayConf.zfbPublicKey>
+
+	            <!--确认到帐接口密钥-->
+	            <pay.keyStore.tradeSuccess.daemon>MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAKte9GD/UJQD8Sz7qSTLBNqb/uIaBHr0OF8zomEtyJQYJin0efDuWb8dTlMAZDEXeS8mS8a30piD8pkSYiEDvnrT4P7l2GSkCEl7XI7dah6IrqG9RHffB9aRycG58+zY0DqcFac7Y8pOiOnhsEDLEpW1VwM6HWlhnpQAOXpyYt8PAgMBAAECgYBSuLQ4OiYYPMrnTtd39jPynohrdemhvE+VzOPeCu6eZgXODL/sB/H0ad4L/M1gURdjJhY/5y3WByNMtm39x8Pi1WTPfY6IyHt4xkgfWUB3+exN5ZQ16GMC15fk+c7AAQucRaGKULxaAeXLka8eI1HZoAN5FQbnI7E+ouOfyY7u2QJBAOVt0geV9fnFMJPrbvt8BZVrm1b6H/t6Xr5p2Mgg5CLrQOrwOwf/i5Ujv/tlsCJTL84319hdXI2bpPxUSSn6UiMCQQC/N8+iQT+AxVMbHLFEDPvjOou0fEboCVGkLKP+Fh7ozFLZ3C3+NB00MHqf3+TOt4ItrYETRWsCeW9G8izYxwAlAkAKpjhThdBvEYoZs5npLm6L6vzA4sdNQvbW287mKzCrtkPDI/d5fZEbERe+MZAlZ7sWVV09e8fqAsl7tOXYfvgFAkBPvPVPwwe5KhAC0U82gneThPl3FQ/4eNJbtOXZ8d2H1JSEFuXzCEZZWhH4k0P1095sL9sQbzU1ffAiVKDQ8QMlAkADWN9WQDDuvIRveFxcJcgzL4xbQ+sDMr/fGXyrz7DDXrWhwlK+1Zq3irRcf/xt96pTIRemmuKcDC/JiIH27xL7</pay.keyStore.tradeSuccess.daemon>
+	            <pay.trustStore.tradeSuccess.console>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCYcUvA1C9Wbkv/TnJ4vnEjlNRhM1NTvvv4Q7fXsa87pbX90XcC0fw688b6gvhHRcOI9R/mmZFjG6Ee61OalcIw73tWeDxyk93LNgz1s+d2CogBZRJUBZsKV7N3xZDZ0LC0QCdzRyfBPx8Rc1bi5nFHIg14yN70KYtLQxCDd6KedQIDAQAB</pay.trustStore.tradeSuccess.console>
+
+                <!--日志数据源配置-->
+                <log.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_logs</log.jdbc.url>
+                <log.jdbc.username>yunmeeting</log.jdbc.username>
+                <log.jdbc.password>yunmeeting</log.jdbc.password>
+                
+                <!--信发数据源配置-->
+                <publish.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_publish</publish.jdbc.url>
+                <publish.jdbc.username>yunmeeting</publish.jdbc.username>
+                <publish.jdbc.password>yunmeeting</publish.jdbc.password>
+                
+                <!--推送数据源配置-->
+                <push.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_push</push.jdbc.url>
+                <push.jdbc.username>yunmeeting</push.jdbc.username>
+                <push.jdbc.password>yunmeeting</push.jdbc.password>
+
+                <!--订单数据源配置-->
+                <orders.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_orders</orders.jdbc.url>
+                <orders.jdbc.username>yunmeeting</orders.jdbc.username>
+                <orders.jdbc.password>yunmeeting</orders.jdbc.password>
+
+	            <!--订单接口校验公钥-->
+	            <order.trustStore.TradeSuccess.daemon>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrXvRg/1CUA/Es+6kkywTam/7iGgR69DhfM6JhLciUGCYp9Hnw7lm/HU5TAGQxF3kvJkvGt9KYg/KZEmIhA7560+D+5dhkpAhJe1yO3WoeiK6hvUR33wfWkcnBufPs2NA6nBWnO2PKTojp4bBAyxKVtVcDOh1pYZ6UADl6cmLfDwIDAQAB</order.trustStore.TradeSuccess.daemon>
+	            <order.trustStore.TradeSuccess.console>Q2BH+LKeRDUEN29yrfOkS2E2WY+4nUCSCIjRaXDBFO5xNkhoyi5ttnsnKaU</order.trustStore.TradeSuccess.console>
+	            <order.trustStore.searchOrder.console>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4rM4xq7O1eVLEceZuVA8FU2XP6G6iYMuRmWLR7ab/c1Xd2/tpv1JB2F6onazbbHYGLtHwOaI37pc9RGJxn3wI/xExUzzJ4sdKQTPHjt03099eR9m3t+hJmAYQ24yxe1TZ6tjZq7MGodf+hSmuY1tlxTyPv8zLt8P2QH5lvghijwIDAQAB</order.trustStore.searchOrder.console>
+
+							<!--0元订单支付密钥-私钥-->
+							<order.trustStore.TradeSuccess.zeroPrice>MIIEvgIBADdNBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCtoEdylU4gw79AZAcVJ9/9MlSiuYti8NDl5ClDR/UxGMRPEf2+htnKZGLoo5Jeq3JWIcmC8MqCnfUXSz37BLeQgxekh5wXg/2eRkxCnAylqXkdipP2dQeFBTxM7nO+Mvy5GkJco3qi+Xuq6a+HLiY7ykUA3hMb+ef4lcTh9RH5iIhPHSH6pXS8Hk2lLZ3pu3ruLzyWusicYcmXmfTqtWh64Hq0DwWQIkqpZD//GGNgJxWpAatzwW73H/M7PhT0+Bk9QZl3nt6IH0foq70imxwiT/fzChLSK1SY53w4YpfS3rinveHffKCSAhPkv1ZW2XhKHj2Oi3Ncac/2A22BD44nAgMBAAECggEAZaUijssnvPi721dz6ge5EsLHV6hmGJtAwIVNPs0+luqX6m5u7X6Gu/z/BpDUHMYkHpaTISwUcllE5ckv1OeTC3AjhDe7wuyLqoAfHxO6N7W6aPf63Vrv9wj0n1ktu1igKUFdPlyabBTAOHOsRehXi8NDmFlqOIOaMSaE53+QcVNqpeoe5Vi1YT4+BWTOGUvrCh3Klu4h6KkPHoL1j8Z8zli1/SoTUsqNJzAknV6dzhi/bpOivIFp21iYfMSwhnCRSipSU+yF2Qs8c1GD1nT05a7CzX6SvhDT6M9tH+gmLJBalTclS154txqDgasA96Y1gTZq8oLAjtNFhwMF/lY3SQKBgQDyptJxheckRfoQ8JmPMvwugdFSIWmUom+bNlzjORtz5VU+FIY7Mt2iyhnMbxIvLbCWfQ6AQDdUKYpD9gF0tAhFucSGy0JFpTtaDSKBkfe+2zqvXfpGzFHqo/mKskX0uwUonftv6aU1epFQuKy3MecJGy61NNDCvT+ceh41EUgTMwKBgQC3LWTz/2RRnAX2coryRMu/OnjGM8oWhpgBUTseyx98fRzfgQVhh0j+QT8R0mSftiAsIakcFKpPWY4ox3RHTZLf8+hjd76AvC7lnQrnL527Ad2t3hvP9/k6YoxQNa5QqFZQx6vV7fFjAeg4kmP+d/NTz3KNAiEaqY/EGzqIovEZPQKBgFlAt2N+Z1jWTHbyqOkdTdklcwMMuzMq1HZ49o21sb1de49MKVuZCCEayYaCzGOCINQZx72w4SkZ5nu8/ygYGHrdK8aQ+R14+23SKwER2djf9qQOo0JrYS43hlBX5pdwOyOHiLbPcC9NmCni49S2jE6zKukINkmLJty9pmLKqoI1AoGBAK3dQ24pIhIoEqzKKcIstGts14fhTla1KABQFtpymA80PbyTHQVmQE08pt2GooXJe54H0RjbMJAig8GHF4I6SkeRnikTVlmgxK6isd+fnYoMClpmcGWkjAXz1hSn7y2VqmAANcTXlX+RJtbTdF/rgKUzSRo4RC2nddMAuT1J06hNAoGBAMQ7L5F1LFVlf0Vd7TRKyR85DacwagAmILvnA9aXsmdwGXCVqNBgf+5E8vbhxtoV8c4UJG2p/fUY5VZJ6uFOwNpWHpI/RaBkyGZgmol+8sEDn2Bad2bo5kap2Qzdg0w/vw6NNJ2Um9jZx+9x5coJe9TDNsJ3YYHNx1Ct7SuajEOu</order.trustStore.TradeSuccess.zeroPrice>
+							<!--0元订单支付密钥-公钥-->
+							<order.keyStore.tradeSuccess.zeroPrice>MIIBIjANBgkqhkfG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAraBHcpVOIMO/QGQHFSff/TJUormLYvDQ5eQpQ0f1MRjETxH9vobZymRi6KOSXqtyViHJgvDKgp31F0s9+wS3kIMXpIecF4P9nkZMQpwMpal5HYqT9nUHhQU8TO5zvjL8uRpCXKN6ovl7qumvhy4mO8pFAN4TG/nn+JXE4fUR+YiITx0h+qV0vB5NpS2d6bt67i88lrrInGHJl5n06rVoeuB6tA8FkCJKqWQ//xhjYCcVqQGrc8Fu9x/zOz4U9PgZPUGZd57eiB9H6Ku9IpscIk/38woS0itUmOd8OGKX0t64p73h33ygkgIT5L9WVtl4Sh49jotzXGnP9gNtgQ+OJwIDAQAB</order.keyStore.tradeSuccess.zeroPrice>
+
+	            <!--商品数据源配置-->
+                <goods.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_goods</goods.jdbc.url>
+                <goods.jdbc.username>yunmeeting</goods.jdbc.username>
+                <goods.jdbc.password>yunmeeting</goods.jdbc.password>
+
+                <!--core数据源配置-->
+                <core.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_core</core.jdbc.url>
+                <core.jdbc.username>yunmeeting</core.jdbc.username>
+                <core.jdbc.password>yunmeeting</core.jdbc.password>
+
+                <!--console平台据源配置-->
+                <console.jdbc.url>rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/yunmeeting_console</console.jdbc.url>
+                <console.jdbc.username>yunmeeting</console.jdbc.username>
+                <console.jdbc.password>yunmeeting</console.jdbc.password>
+
+                <!--一下是注册时候执行脚本的连接数据源-->
+                <jdbc.host>jdbc:mysql://rv-5zea9046rlyhl03y5.mysql.rds.aliyuncs.com:3306/</jdbc.host>
+                <jdbc.username>yunmeeting</jdbc.username>
+                <jdbc.password>yunmeeting</jdbc.password>
+                <jdbc.createTablePath>/home/developer/config/</jdbc.createTablePath>
+                <jdbc.outputPath>/home/developer/config/sql.out</jdbc.outputPath>
+
+                <!--mq-->
+                <mq.url>tcp://10.29.17.250:61616</mq.url>
+				<mq.userName></mq.userName>
+				<mq.passwd></mq.passwd>
+
+                <!--redis-->
+                <redis.ip>10.29.17.250</redis.ip>
+                <redis.port>6379</redis.port>
+				<redis.password>xBHeqVxC</redis.password>
+                <redis.pool.maxActive>10</redis.pool.maxActive>
+                <redis.pool.maxIdle>300</redis.pool.maxIdle>
+                <redis.pool.maxWait>3000</redis.pool.maxWait>
+                <redis.pool.testOnBorrow>true</redis.pool.testOnBorrow>
+                <redis.pool.testOnReturn>true</redis.pool.testOnReturn>
+                <redis.pool.timeout>1000</redis.pool.timeout>
+
+				<!--push服务器配置-->
+				<pushService.port>7800</pushService.port>
+				<pushService.queueFlag>publish001_downlink_queue</pushService.queueFlag>
+
+
+				<!-- 图片服务器 -->
+                <fastdfs.path>http://47.93.128.244</fastdfs.path>
+				<fastdfs.service.url>47.93.128.244</fastdfs.service.url>
+                <!--  excelimport  -->
+                <file.outputPath>/home/developer</file.outputPath>
+
+                <!--微信配置-->
+                <wx.appid>wxdcf49b673a10c6a2</wx.appid>
+                <wx.appsecret>debcdfc307fa5e562e9acfb0189bee12</wx.appsecret>
+                <wx.token>yunmeeting</wx.token>
+                <wx.aeskey>SVnqh1PY3b2aHM3v7UQxJxzrv80K0bwQTEiddRnZUuM</wx.aeskey>
+                <wx.wechatServer>http://weixin.yunmeetings.com</wx.wechatServer>
+                <wx.yunMeetingServer>http://www.yunmeetings.com</wx.yunMeetingServer>
+
+				<!--微信开放平台配置-->
+				<wechat.appid>wxcac3498ef1b9dab2</wechat.appid>
+				<wechat.appsecret>08420f41cd442723249d839c1a62bc38</wechat.appsecret>
+				<wechat.callbackurl>http://www.yunmeetings.com/system/oauthtest</wechat.callbackurl>
+				<wechat.websitedomain>https://weixin.yunmeetings.com</wechat.websitedomain>
+
+				<!-- 确认到账的私钥 -->
+				<console.privateKey>MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJhxS8DUL1ZuS/9Ocni+cSOU1GEzU1O++/hDt9exrzultf3RdwLR/DrzxvqC+EdFw4j1H+aZkWMboR7rU5qVwjDve1Z4PHKT3cs2DPWz53YKiAFlElQFmwpXs3fFkNnQsLRAJ3NHJ8E/HxFzVuLmcUciDXjI3vQpi0tDEIN3op51AgMBAAECgYAItD9dDUB+sOGJ/FKw7j7Lh03xFtslJvyAGm2+1RhqUXXovjMLaC38t7qexyeh+ivGACkII7CXdhZnC4zEgNSLnDGu6QQhgcUzwsdunJMs6Jy6r60yGdtim2SAI6X1tFwBNgc2gkvR2f9hQNuVtJMB1bio8fo5BbqafENDQnBPKQJBAMZwI+UBA5w5BuUWnNTzfCkkMBI/I/0pxxoCd0v7PXE21eBgngp8LfPaq2ffJfADNAsOxKhtM/YDuB4VwE40cPsCQQDEqZDMw6z0uMaBui+MmUvab8T7Q89cww1qW4SjTzCrbxa+bkUxkJxWRAoU/PemVqZDkOyXigmK/IuyVlTDqXNPAkEApzSaqj3+gsZyjtpM8AryVeBOOTHG620mfT4Ss41RqnHgKZ5/zKnyNoXM5EtdNi4czix1fM33eJaNr5v4XG1HvQJAYu7OmkQB2SavLgnE690ebKf3l1OYmJjDQfMCOcmXuVZsQaZlhrax/y/BRqevye0jPTBF5UIa5OGBQVju0XOIPwJBAKBn86rVzP8GdiqwC1Qy769BRpi5X6jeMgEi9JXT6d3GJr0TpUmi9Ylv1uiyLoXzIgjKQR+J/kxLOm/4LTIFh2g=</console.privateKey>
+				<console.queryOrderListKey>MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALiszjGrs7V5UsRx5m5UDwVTZc/obqJgy5GZYtHtpv9zVd3b+2m/UkHYXqidrNtsdgYu0fA5ojfulz1EYnGffAj/ETFTPMnix0pBM8eO3TfT315H2be36EmYBhDbjLF7VNnq2Nmrswah1/6FKa5jW2XFPI+/zMu3w/ZAfmW+CGKPAgMBAAECgYA3noPzXb0gGMweshcuf06O0hFFzsETUoe88C9c/nBfW0MvMIPF04NYpWvM6MAYzc+2CP/dk94RbmBKaYAkrF3Uaz3aGmVSg/49XmbmyyUI/lh61KMqDN0M5rNblKmA5G1tD8kX1NoUTHCmdN8q5UsEz+gewXzOE3gT58/PEegAIQJBAP4OZ+CTWcf3r4gjrbRkqi0ghoMu4scaVCV0Gz8V3kI9MfCvTofN31SiI5qdhjRJVQy0/u0bvR5Mx2ZKowA5CrkCQQC6FoJ5LiJYlvxuCpy4GlaQL0bT+MxGwTmyyzR2jVIYdLwd4R/hOyELGnodcj8BQxBzDPcvxPVh5oZZSPfRaBOHAkEA9NWBOiYG4fVKzlJD9pMEhVTRDN9EYUh4S1fnYhZ7CS7cT+1CKxI15eQTl8+zI/R/6C0NeAfBa8/mYigPiglu0QJAAfqlTpagBOMuMhloy0h0bTojfbOisInzjCQ/HZepLNto+MRhK2sOkeipLdD+PIwzC5Yyts5Ycb8a5K4y/IYn1wJAf3V2cgsXkw7qmt2HtbEsLrfaj8DUuJMh+2+rShmaPsjzWZdUz2dsm1nkrPqK1ucDe83oUKKFdC56LgK+iQLFNg==</console.queryOrderListKey>
+				
+				<!--天气组件-和风天气userId-->
+        <weather.userId>HE1707261653071083</weather.userId>
+        <weather.paid>0</weather.paid> <!--0免费，1付费-->
+        
+        <!--支付服务registry路径配置，因为是web与dubbo合体，后续会做拆分-->
+        <dubbo.registry.lock.user>developer</dubbo.registry.lock.user>
+        
+			</properties>
+
+            <repositories>
+                <repository>
+                    <id>nexus</id>
+                    <url>http://10.10.11.12:8080/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>nexus</id>
+                    <url>http://10.10.11.12:8080/nexus/content/groups/public</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+	</profiles>
+</project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.goodscenter.mapper.ProductPackSkuSpecMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.ProductPackSkuSpec">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="sku" jdbcType="CHAR" property="sku" />
+    <result column="spec_code" jdbcType="CHAR" property="specCode" />
+    <result column="spec_value" jdbcType="VARCHAR" property="specValue" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>

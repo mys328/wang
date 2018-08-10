@@ -1,0 +1,135 @@
+.innerPageBox{
+  position: absolute;
+  display:inline-block;
+  width: 550px;
+  height: 40px;
+  color: #757575;
+  font-size: 14px;
+ /* left:50%;  
+  top:50%;  
+  margin:-20px 0 0 -275px*/
+}
+#page-Box{
+  display: none;
+}
+.page-Box .page-count{
+  margin-left: 30px;
+}
+.page-Box #sid{
+  background:#ffffff;
+  border:1px solid #d1d1d1;
+  border-radius:4px;
+  width:54px;
+  height:30px;
+  margin-left: 16px;
+  text-align: center;
+}
+.page-Box .page-Size{
+  background:#ffffff;
+  border:1px solid #d1d1d1;
+  border-radius:4px;
+  width:54px;
+  height:30px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right: 8px;
+
+}
+.page-Box .btn{
+  background:#ffffff;
+  border:1px solid #d1d1d1;
+  border-radius:4px;
+  width:72px;
+  height:30px;
+  font-family:MicrosoftYaHei;
+  font-size:14px;
+  padding: 0;
+}
+.page-Box #lastBtn{
+   margin-left: 20px;
+}
+.page-Box #nextBtn{
+   margin-left: 10px;
+}
+.innerPageBox .dropPage{
+  width: 56px;
+  height: 32px;
+  font-family:MicrosoftYaHei;
+  font-size:14px;
+  color:#757575;
+  text-align:center;
+  left: 16px;
+}
+.innerPageBox .dropdown-menu{
+  width: 56px;
+  min-width: 0;
+  left: 15px;
+  margin-bottom: 0;
+}
+.innerPageBox .dropdown-menu .dropdown-item{
+  padding: 3px;
+  text-align: center;
+}
+.page-Box .dropdown-toggle::after {
+  border-top: 0;
+  border-bottom: 0.3em solid;
+  transform:rotate(-180deg);
+  margin-left: 0.4em;
+}
+
+
+
+/*新版分页插件*/
+
+.pages {
+  text-align: center;
+  color: #757575;
+  font-size: 14px;
+}
+.pages .dropdown-menu {
+  top: auto;
+  bottom: 100%;
+  min-width: auto;
+}
+.pages .dropdown-toggle {
+  color: #757575;
+}
+.pages .dropdown-toggle::after {
+  margin-left: 8px;
+  margin-top: -0.3em;
+  border-top-color: #bbb;
+}
+.pages .dropdown-item {
+  padding: 3px 0;
+  text-align: center;
+}
+.pages button, .pages input, .pages .dropdown-toggle {
+  display: inline-block;
+  width: 74px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+  padding: 0;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  vertical-align: middle;
+  text-align: center;
+  outline: none;
+}
+.pages .btn-group {
+  margin: 0 24px 0 16px;
+}
+.pages input {
+  margin: 0 14px 0 8px;
+  color: #333;
+}
+.pages button.next {
+  margin-left: 8px;
+}
+.pages button.prev {
+  margin-left: 24px;
+}
+.pages input, .pages .dropdown-toggle {
+  width: 56px;
+}

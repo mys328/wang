@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.promotion.mapper.PromotionRuleMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.promotion.PromotionRule">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="rule_code" jdbcType="CHAR" property="ruleCode" />
+    <result column="category" jdbcType="INTEGER" property="category" />
+    <result column="accept_code" jdbcType="VARCHAR" property="acceptCode" />
+    <result column="except_code" jdbcType="VARCHAR" property="exceptCode" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.goodscenter.mapper.ProductPackSkuViewMapper">
+	<select id="getProductPackSkuByCode" parameterType="String" resultType="com.thinkwin.goodscenter.dataview.ProductPackSkuView">
+		SELECT ppc.category_name category, pps.product_pack_id
+		, pps.sku, pps.sku_desc
+		, pps.list_price, pps.sale_price, pps.unit_price
+		, pps.discount, pps.discount_tip
+		, GROUP_CONCAT(p.product_id, '|', p.product_name, '|', ud.uom_name, '|', ud.uom_class, '|', ppl.qty SEPARATOR '#') sku_info
+		, sd.spec_name, ppss.spec_value, ud2.uom_name, ud2.uom_class
+		from product_pack_sku pps
+		INNER JOIN product_pack pp on pp.package_id = pps.product_pack_id and pp.`status` = 1
+		INNER JOIN product_pack_category ppc on ppc.category_code = pp.category_code
+		INNER JOIN product_pack_line ppl on ppl.product_pack_id = pp.package_id
+		INNER JOIN product p on p.product_id = ppl.product_id and p.`status` = 1
+		INNER JOIN product_pack_sku_spec ppss on ppss.sku = pps.sku
+		INNER JOIN uom_def ud on ud.uom_code = ppl.product_uom
+		INNER JOIN spec_def sd on sd.spec_code = ppss.spec_code
+		INNER JOIN uom_def ud2 on ud2.uom_code = sd.uom_code
+		WHERE pps.`status` = 1 AND pps.sku IN
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+		GROUP BY pps.sku;
+	</select>
+
+</mapper>

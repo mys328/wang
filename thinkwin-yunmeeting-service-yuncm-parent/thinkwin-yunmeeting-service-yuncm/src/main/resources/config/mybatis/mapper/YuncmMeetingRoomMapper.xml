@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.YuncmMeetingRoomMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.YuncmMeetingRoom">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="persion_number" jdbcType="INTEGER" property="persionNumber" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="qr_code_url" jdbcType="VARCHAR" property="qrCodeUrl" />
+    <result column="area_id" jdbcType="VARCHAR" property="areaId" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="admin_id" jdbcType="VARCHAR" property="adminId" />
+    <result column="is_audit" jdbcType="VARCHAR" property="isAudit" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="creater_id" jdbcType="VARCHAR" property="createrId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifyer_id" jdbcType="VARCHAR" property="modifyerId" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="oper_reason" jdbcType="VARCHAR" property="operReason" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+    <result column="delete_state" jdbcType="VARCHAR" property="deleteState" />
+    <result column="global_sort" jdbcType="INTEGER" property="globalSort" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+  </resultMap>
+
+
+
+
+  <select id="selectSearchMeetingRoom" resultMap="BaseResultMap" >
+    SELECT
+    DISTINCT r.*
+    FROM
+    yuncm_meeting_room AS r LEFT JOIN yunmc_room_device_service AS d ON (r.id =  d.meeting_root_id )
+    LEFT JOIN yuncm_device_service AS e  ON ( d.device_service_id = e.id )
+    WHERE (e.`name` LIKE concat(concat('%',#{searchKey}),'%') OR r.`name` LIKE concat(concat('%',#{searchKey}),'%') OR r.persion_number = #{searchKey} ) AND r.delete_state = '0' ORDER BY r.global_sort
+  </select>
+
+  <select id="selectSearchAreaMeetingRoom" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT
+    DISTINCT r.*
+    FROM
+    yuncm_meeting_room AS r LEFT JOIN yunmc_room_device_service AS d ON (r.id =  d.meeting_root_id )
+    LEFT JOIN yuncm_device_service AS e  ON ( d.device_service_id = e.id )
+    WHERE (e.`name` LIKE concat(concat('%',#{searchKey}),'%') OR r.`name` LIKE concat(concat('%',#{searchKey}),'%') OR r.persion_number = #{searchKey} ) AND r.delete_state = '0' AND r.area_id = #{areaId}  ORDER BY r.sort
+  </select>
+
+
+  <select id="selectYuncmMeetingRoomYunmeetingConference" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT
+     r.*
+    FROM
+    yuncm_meeting_room AS r LEFT JOIN yummeeting_conference_room_middle AS d ON (r.id =  d.room_id )
+    WHERE d.confreren_id = #{id}
+  </select>
+
+
+    <select id="findMeetingRoom" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        SELECT
+        r.*
+        FROM
+        yuncm_meeting_room AS r
+        WHERE 1=1
+        AND r.delete_state = '0'
+        <if test="meetingRoomId != null and meetingRoomId != ''">
+            AND r.id = #{meetingRoomId}
+        </if>
+    </select>
+
+  <!-- 筛选会议室 -->
+  <select id="selectScreeningMeetingRoomYunmeeting" resultMap="BaseResultMap" >
+      SELECT
+       *
+      FROM
+      yuncm_meeting_room  AS room
+     WHERE
+     room.delete_state = '0' AND room.state = '2'
+    <!-- 按人数筛选 -->
+    <if test="_parameter.containsKey('number')">
+      AND room.persion_number >= #{number}
+    </if>
+
+    <!-- 按权限筛选  -->
+    <if test="_parameter.containsKey('isAudit')">
+      AND room.is_audit = #{isAudit}
+    </if>
+    <!-- 按区域筛选 -->
+    <if test="_parameter.containsKey('area')">
+      AND room.area_id = #{area}
+    </if>
+    <!-- 按会议室名称搜索 -->
+    <if test="_parameter.containsKey('content')">
+       AND room.name LIKE concat(concat('%',#{content}),'%')
+    </if>
+        ORDER BY room.global_sort
+  </select>
+
+
+    <!--某个时间段某个会议室的占用情况-->
+    <select id="findMeetingRoomTakeInfo" resultMap="BaseResultMap">
+        SELECT
+        ymr.*
+        FROM
+        yuncm_meeting_room AS ymr
+        LEFT JOIN yummeeting_conference_room_middle AS ycrm ON ymr.id =  ycrm.room_id
+        LEFT JOIN yunmeeting_conference as yc on ycrm.confreren_id=yc.id
+        WHERE yc.state != '5' AND yc.state != '0' AND yc.state != '1' AND yc.delete_state != '1'
+        <!-- 按人数筛选 -->
+        <if test="meetingRoomId != null and meetingRoomId != ''">
+            AND ycrm.room_id = #{meetingRoomId}
+        </if>
+        <if test="_parameter.containsKey('state')">
+            AND yc.is_audit = #{state}
+        </if>
+        <if test="_parameter.containsKey('auditState')">
+            AND yc.state != '1'
+        </if>
+        <if test="_parameter.containsKey('begin') and _parameter.containsKey('end')">
+            and
+            (
+            (#{end}>yc.take_start_date and yc.take_end_date>=#{end})
+            OR
+            (#{begin}>=yc.take_start_date and yc.take_end_date>#{begin})
+            OR
+            (yc.take_start_date>=#{begin} and #{end}>=yc.take_end_date)
+            )
+        </if>
+        <if test="_parameter.containsKey('meetingId')">
+            and yc.id != #{meetingId}
+        </if>
+    </select>
+
+
+    <!--某个角色对会议室的权限-->
+    <select id="findMeetingRoomAndRole" resultMap="BaseResultMap">
+        SELECT
+        ymr.*
+        FROM
+        yuncm_meeting_room AS ymr
+        LEFT JOIN yuncm_room_reserve_auth AS yrra ON yrra.meeting_root_id = ymr.id
+        LEFT JOIN sys_role as sr on sr.role_id=yrra.role_id
+        WHERE 1=1
+        <if test="meetingRoomId != null and meetingRoomId != ''">
+            and ymr.id=#{meetingRoomId}
+        </if>
+        <if test="isAudit != null and isAudit != ''">
+            and ymr.is_audit=#{isAudit}
+        </if>
+        <if test="roleId != null and roleId != ''">
+            and sr.role_id=#{roleId}
+        </if>
+    </select>
+
+    <!-- 根据条件查询会议室 -->
+    <select id="selectConditionMeetingRoom" resultMap="BaseResultMap"  >
+        SELECT
+          r.*
+        FROM
+         yuncm_meeting_room AS r
+        WHERE
+         r.delete_state = 0
+        <!-- 会议室名称搜索  -->
+        <if test="_parameter.containsKey('searchKey')">
+           AND r.name LIKE concat(concat('%',#{searchKey}),'%')
+        </if>
+        <!-- 根据区域id搜索  -->
+        <if test="_parameter.containsKey('areaId')">
+            AND   r.area_id = #{areaId}
+        </if>
+        <!-- 是否需要审核 -->
+        <if test="_parameter.containsKey('isAudit')">
+            AND   r.is_audit = #{isAudit}
+        </if>
+    </select>
+
+
+
+
+
+
+
+
+</mapper>
+
+
+
+

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd  
+  http://code.alibabatech.com/schema/dubbo
+  http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="dubbo_constumer"/>
+
+    <!-- 使用zookeeper注册中心暴露服务地址 -->
+    <dubbo:registry address="zookeeper://${dubbo.registry.address}"/>
+
+    <!-- 生成远程服务代理，可以和本地bean一样使用itemsService -->
+    <dubbo:reference id="itemsService" interface="com.thinkwin.mailsender.service.ItemsService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="loginRegisterService" interface="com.thinkwin.auth.service.LoginRegisterService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="tAppUserService" interface="com.thinkwin.auth.service.TAppUserService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="fileUploadService" interface="com.thinkwin.fileupload.service.FileUploadService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="userService" interface="com.thinkwin.auth.service.UserService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="rolePermissionService" interface="com.thinkwin.auth.service.RolePermissionService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="permissionService" interface="com.thinkwin.auth.service.PermissionService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="userRoleService" interface="com.thinkwin.auth.service.UserRoleService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="roleService" interface="com.thinkwin.auth.service.RoleService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="menuService" interface="com.thinkwin.auth.service.MenuService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="sMSsenderService" interface="com.thinkwin.SMSsender.service.SMSsenderService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="roleMenuService" interface="com.thinkwin.auth.service.RoleMenuService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="organizationService" interface="com.thinkwin.auth.service.OrganizationService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="saasTenantService" interface="com.thinkwin.auth.service.SaasTenantService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="mailSenderService" interface="com.thinkwin.mailsender.service.YunmeetingSendMailService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="mailTemplateMsgService" interface="com.thinkwin.mailsender.service.MailTemplateMsgService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="dictionaryService" interface="com.thinkwin.dictionary.service.DictionaryService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="saasTenantInfoService" interface="com.thinkwin.auth.service.SaasTenantInfoService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="serialNumberService" interface="com.thinkwin.serialnumber.service.SerialNumberService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="departmentService" interface="com.thinkwin.auth.service.DepartmentService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="yuncmMeetingService" interface="com.thinkwin.yuncm.service.YuncmMeetingService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="searchMeetingRoomService" interface="com.thinkwin.yuncm.service.SearchMeetingRoomService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="yuncmRoomAreaService" interface="com.thinkwin.yuncm.service.YuncmRoomAreaService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="meetingStatisticsService" interface="com.thinkwin.yuncm.service.MeetingStatisticsService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="meetingReserveService" interface="com.thinkwin.yuncm.service.MeetingReserveService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="meetingScreeningService" interface="com.thinkwin.yuncm.service.MeetingScreeningService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="meetingRoomStatisticsService" interface="com.thinkwin.yuncm.service.MeetingRoomStatisticsService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="meetingDynamicService" interface="com.thinkwin.yuncm.service.MeetingDynamicService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="saasUserOauthInfoService" interface="com.thinkwin.core.service.SaasUserOauthInfoService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="saasUserOauthService" interface="com.thinkwin.core.service.SaasUserOauthService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="sysSetingService" interface="com.thinkwin.yuncm.service.SysSetingService" check="false" group="${group.scope}" version="${interface.version}"/>
+
+
+    <!--微信-->
+    <dubbo:reference id="weixinService" interface="com.thinkwin.yunmeeting.weixin.service.WeixinService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="wxUserService" interface="com.thinkwin.yunmeeting.weixin.service.WxUserService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="wxMenuService" interface="com.thinkwin.yunmeeting.weixin.service.WxMenuService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="wxQrcodeService" interface="com.thinkwin.yunmeeting.weixin.service.WxQrcodeService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="wxTemplateMsgService" interface="com.thinkwin.yunmeeting.weixin.service.WxTemplateMsgService"
+                     check="false" group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="sysLogTypeService" interface="com.thinkwin.log.service.SysLogTypeService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="importExcelService" interface="com.thinkwin.auth.service.ImportExcelService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <!--dubbo异步接口 异步无回调 ：async=true-->
+    <dubbo:reference id="sysLogService" interface="com.thinkwin.log.service.SysLogService" check="false"
+                     group="${group.scope}" version="${interface.version}">
+        <dubbo:method name="createLog" async="true"/>
+    </dubbo:reference>
+
+    <!--core-->
+    <dubbo:reference id="saasTenantCoreService" interface="com.thinkwin.core.service.SaasTenantService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="loginRegisterCoreService" interface="com.thinkwin.core.service.LoginRegisterCoreService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="configManagerService" interface="com.thinkwin.publish.service.ConfigManagerService" check="false" group="${group.scope}" version="${interface.version}"/>
+
+
+
+    <!--商品-->
+    <dubbo:reference id="productOrderService" interface="com.thinkwin.goodscenter.service.ProductOrderService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <!--订单-->
+    <dubbo:reference id="orderService" interface="com.thinkwin.orders.service.OrderService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="addressService" interface="com.thinkwin.orders.service.AddressService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="invoiceService" interface="com.thinkwin.orders.service.InvoiceService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="orderInvoiceService" interface="com.thinkwin.orders.service.OrderInvoiceService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+
+    <dubbo:reference id="pricingConfigService" interface="com.thinkwin.promotion.service.PricingConfigService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="productPackSkuService" interface="com.thinkwin.goodscenter.service.ProductPackSkuService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <!--支付-->
+    <dubbo:reference id="payService" interface="com.thinkwin.pay.service.PayService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <!--定时器-->
+    <dubbo:reference id="timerLogService" interface="com.thinkwin.config.service.TimerLogService" 	check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="userStatisticalAnalysisService" interface="com.thinkwin.auth.service.UserStatisticalAnalysisService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="depStatisticalAnalysisService" interface="com.thinkwin.auth.service.DepStatisticalAnalysisService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="consoleUserService" interface="com.thinkwin.console.service.SaasUserService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <!--管理console-->
+    <dubbo:reference id="saasUserRoleService" interface="com.thinkwin.console.service.SaasUserRoleService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+
+    <!--信发终端显示-->
+    <dubbo:reference interface="com.thinkwin.yuncm.service.InfoReleaseTerminalService" id="infoReleaseTerminalService" check="false"
+                   group="${group.scope}" version="${interface.version}"/>
+
+    <!--终端监控-->
+    <dubbo:reference interface="com.thinkwin.yuncm.service.TerminalService" id="terminalService" check="false"
+                   group="${group.scope}" version="${interface.version}"/>
+
+    <!--平台节目-->
+    <dubbo:reference id="platformProgrameLabelService" interface="com.thinkwin.publish.service.PlatformProgrameLabelService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="platformProgrameService" interface="com.thinkwin.publish.service.PlatformProgrameService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="platformProgramVersionSerevice" interface="com.thinkwin.publish.service.PlatformProgramVersionSerevice" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="platformLabelProgramMiddleService" interface="com.thinkwin.publish.service.PlatformLabelProgramMiddleService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="syncProgramService" interface="com.thinkwin.yuncm.service.SyncProgramService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="platformInfoClientVersionLibService" interface="com.thinkwin.publish.service.PlatformInfoClientVersionLibService" check="false" group="${group.scope}" version="${interface.version}"/>
+
+
+    <!--计划开关机-->
+    <dubbo:reference interface="com.thinkwin.yuncm.service.InfoBootDownTaskService" id="infoBootDownTaskService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference interface="com.thinkwin.yuncm.service.InfoBootDownLogService" id="infoBootDownLogService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <!--推送-->
+    <dubbo:reference id="publishService" interface="com.thinkwin.publish.service.PublishService" check="false" group="${group.scope}" version="${interface.version}"/>
+
+    <!--平台节目-->
+    <dubbo:reference interface="com.thinkwin.yuncm.service.InfoLabelProgramMiddleService" id="infoLabelProgramMiddleService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference interface="com.thinkwin.yuncm.service.InfoProgramService" id="infoProgramService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference interface="com.thinkwin.yuncm.service.InfoProgramLabelService" id="infoProgramLabelService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference interface="com.thinkwin.yuncm.service.BizImageRecorderService" id="bizImageRecorderService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="platformClientVersionUpgradeRecorderService" interface="com.thinkwin.publish.service.PlatformClientVersionUpgradeRecorderService" check="false" group="${group.scope}" version="${interface.version}"/>
+
+    <!--租户终端中间表-->
+    <dubbo:reference id="platformTenantTerminalMiddleService" interface="com.thinkwin.publish.service.PlatformTenantTerminalMiddleService" check="false" group="${group.scope}" version="${interface.version}" />
+    <dubbo:reference interface="com.thinkwin.log.service.TerminalLogService" id="terminalLogService" check="false" group="${group.scope}" version="${interface.version}"/>
+
+
+    <dubbo:reference interface="com.thinkwin.yuncm.service.ConferenceService" id="conferenceService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference interface="com.thinkwin.push.service.ChannelHelperService" id="channelHelperService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+    <!--短地址-->
+    <dubbo:reference interface="com.thinkwin.core.service.ShortUrlService" id="shortUrlService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference interface="com.thinkwin.publish.service.PlatformProgramTenantMiddleService" id="platformProgramTenantMiddleService" check="false"
+                     group="${group.scope}" version="${interface.version}"/>
+
+
+</beans>
+

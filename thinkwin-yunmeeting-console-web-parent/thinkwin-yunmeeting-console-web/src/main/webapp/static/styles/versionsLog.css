@@ -1,0 +1,264 @@
+@charset "UTF-8";
+i {
+  font-style: normal;
+}
+
+button {
+  cursor: pointer;
+}
+
+button.close {
+  outline: none;
+}
+
+button.close .icon {
+  font-size: 13px;
+}
+
+.navbar {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+  padding: 0 24px;
+  background-color: #fff;
+  line-height: 48px;
+  margin-bottom: 14px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background: #fff url('../../static/images/yunmeeting-logo-a.png') no-repeat 24px center;
+  background-size: auto 32px;
+}
+
+.navbar img {
+  width: 48px;
+  height: 48px;
+}
+
+.navbar span {
+  float: right;
+  height: 48px;
+  line-height: 48px;
+}
+
+.tab-content {
+  height: calc(100vh - 0px);
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+  padding-top: 62px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.tab-content .free {
+  width: 1000px;
+  min-width: 1000px;
+  margin: 0 auto;
+  padding: 13px 24px;
+  min-height: calc(100vh - 64px);
+  position: relative;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14);
+}
+
+.tab-content .free .title {
+  color: #333;
+  font-size: 16px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.tab-content .free .list-box {
+  margin-bottom: 0;
+}
+
+.tab-content .free .list-box li {
+  margin-top: 16px;
+}
+
+.tab-content .free .list-box li p {
+  margin-bottom: 0;
+  height: 32px;
+  line-height: 32px;
+}
+
+.tab-content .free .list-box li p .point {
+  background: #b8bbcc;
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.tab-content .free .list-box li p .versions-name {
+  font-size: 14px;
+  color: #333333;
+}
+.tab-content .free .list-box li p .versions-title{
+  font-size:16px;
+  color:#333333;
+  letter-spacing:0;
+  line-height:24px;
+  text-align:left;
+}
+
+.tab-content .free .list-box li p .log-time {
+  font-size: 12px;
+  color: #aaaaaa;
+  margin-left: 48px;
+}
+
+.tab-content .free .list-box li p button {
+  float: right;
+  font-size: 14px;
+  color: #2ea2f5;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.tab-content .free .list-box li .log-con {
+  padding: 0 20px;
+  white-space: pre-line;
+  font-size: 14px;
+  color: #5c5c66;
+  line-height: normal;
+  line-height:32px;
+  word-break: break-all;
+}
+.tab-content .free .list-box li .version-log{
+  font-size: 14px;
+  color: #787880;
+  line-height: 30px;
+  margin-left: 12px;
+  margin-top: 8px;
+}
+#synchronization .modal-header {
+  padding: 19px 0 16px 0;
+  margin-bottom: 20px;
+}
+
+#synchronization .modal-body {
+  padding: 0;
+}
+
+#synchronization .modal-body .form-control-label {
+  font-size: 14px;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+#synchronization .modal-body .form-control-label .versions-name {
+  margin-left: 24px;
+}
+
+#synchronization .modal-body .form-group {
+  margin-bottom: 0;
+}
+
+#synchronization .modal-body .form-group textarea {
+  padding: 6px 8px;
+  min-height: 168px;
+  white-space: pre-line;
+}
+
+#synchronization .modal-footer {
+  padding: 24px 0 21px;
+}
+
+#synchronization .modal-footer button {
+  font-size: 14px;
+}
+
+#synchronization .modal-footer .btn-clear-secondary {
+  margin-right: 50px;
+  padding: 0;
+  width: auto !important;
+  color: #696969;
+  background-image: none;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+#synchronization .modal-footer .btn-clear-secondary:active {
+  background-color: transparent;
+  border-color: transparent;
+  color: #696969;
+}
+
+.has-danger .form-control {
+  border-color: #fa5a55;
+  box-shadow: none;
+}
+
+/*加载条开始*/
+.loading-bubbles {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  vertical-align: middle;
+  opacity: 1;
+  height: 50px;
+  display: none;
+  line-height: 50px;
+}
+
+.loading-bubbles .bubble-container {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 5px;
+}
+
+.loading-bubbles .bubble-container .bubble {
+  border-radius: 50%;
+  background-color: #1c98f0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-animation: bubble 1.2s -0.6s infinite ease-out;
+  animation: bubble 1.2s -0.6s infinite ease-out;
+}
+
+.loading-bubbles .bubble-container:nth-of-type(2n) .bubble {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s;
+}
+
+.loading-bubbles .bubble-container:nth-of-type(3n) .bubble {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@-webkit-keyframes bubble {
+  0%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bubble {
+  0%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/*加载条结束*/

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.promotion.mapper.PromotionMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.promotion.Promotion">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="promotion_code" jdbcType="CHAR" property="promotionCode" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="enabled" jdbcType="INTEGER" property="enabled" />
+  </resultMap>
+</mapper>

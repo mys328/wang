@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.orders.mapper.OrderMapper">
+	<select id="selectOrderByIdLocked" parameterType="String" resultType="com.thinkwin.orders.model.Order">
+		SELECT order_id
+		,`order_sn`
+		,`total_price`
+		,`pay_price`
+		,`tenant_id`
+		,`tenant_name`
+		,`order_type`
+		,`coupon_code`
+		,`status`
+		from `order`
+		where order_id = #{orderId} for update;
+	</select>
+</mapper>

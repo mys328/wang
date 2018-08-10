@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.log.mapper.SysLogTypeMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.log.SysLogType">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="parent_id" jdbcType="VARCHAR" property="parentId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+
+  <select id="selectSysLogTypeListByRoleId" resultMap="BaseResultMap" parameterType="String" >
+    select * from sys_log_type lt ,sys_log_type_role tr  where   tr.role_id= #{roleId} and tr.log_type_id=lt.id and status = 0
+  </select>
+
+</mapper>

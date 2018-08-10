@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.console.mapper.SaasUserMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.console.SaasUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="user_name_pinyin" jdbcType="VARCHAR" property="userNamePinyin" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="org_id" jdbcType="VARCHAR" property="orgId" />
+    <result column="org_name" jdbcType="VARCHAR" property="orgName" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="photo" jdbcType="VARCHAR" property="photo" />
+    <result column="centralGraph" jdbcType="VARCHAR" property="centralgraph" />
+    <result column="thumbnails" jdbcType="VARCHAR" property="thumbnails" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifyer" jdbcType="VARCHAR" property="modifyer" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="device_token" jdbcType="VARCHAR" property="deviceToken" />
+    <result column="device_type" jdbcType="INTEGER" property="deviceType" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="user_number" jdbcType="VARCHAR" property="userNumber" />
+  </resultMap>
+</mapper>

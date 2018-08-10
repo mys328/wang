@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                    http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<!-- 配置connectionFactory -->  
+    <beans:bean id="jmsFactory"  
+        class="org.apache.activemq.pool.PooledConnectionFactory"  
+        destroy-method="stop">  
+        <beans:property name="connectionFactory">  
+            <beans:bean  
+                class="org.apache.activemq.ActiveMQConnectionFactory">  
+                <beans:property name="brokerURL">  
+                    <beans:value>tcp://192.168.200.130:61616</beans:value>  
+                </beans:property>  
+            </beans:bean>  
+        </beans:property>  
+    </beans:bean> 
+    
+    
+    <!-- Email MQ 异步发送 配置 -->
+    <beans:bean id="emailJmsTemplate"  
+        class="org.springframework.jms.core.JmsTemplate">  
+        <beans:property name="connectionFactory">  
+            <beans:ref local="jmsFactory" />  
+        </beans:property>  
+        <beans:property name="defaultDestinationName" value="subject50_email" />  
+        <beans:property name="messageConverter" ref="emailMQMessageCoverter" />  
+        <!-- 区别它采用的模式为false是p2p为true是订阅 -->  
+        <beans:property name="pubSubDomain" value="false" />  
+    </beans:bean> 
+    <!-- 读取信息 -->  
+    <beans:bean id="emailMQConsumer" class="com.thinkwin.mailsender.util.EmailMQConsumer"/>   
+    <!-- 发送信息 -->  
+    <beans:bean id="emailMQProducer" class="com.thinkwin.mailsender.util.EmailMQProducer">
+    	<beans:property name="jmsTemplet" ref="emailJmsTemplate" />
+    </beans:bean>
+    <!-- 消息转换     -->  
+    <beans:bean id="emailMQMessageCoverter"  
+        class="com.thinkwin.mailsender.util.EmailMQMessageCoverter" />
+    <!-- 消息监听     -->  
+    <beans:bean id="listenerContainer_email"  
+        class="org.springframework.jms.listener.DefaultMessageListenerContainer">  
+        <beans:property name="concurrentConsumers" value="5" />  
+        <beans:property name="connectionFactory" ref="jmsFactory" />  
+        <beans:property name="destinationName" value="subject50_email" />  
+        <beans:property name="messageListener" ref="emailMQConsumer" />  
+    </beans:bean> 
+    </beans:beans>

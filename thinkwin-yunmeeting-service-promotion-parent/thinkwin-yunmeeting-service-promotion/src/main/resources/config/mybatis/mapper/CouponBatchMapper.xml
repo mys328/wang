@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.promotion.mapper.CouponBatchMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.promotion.CouponBatch">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="batch_num" jdbcType="CHAR" property="batchNum" />
+    <result column="coupon_name" jdbcType="CHAR" property="couponName" />
+    <result column="coupon_name_pinyin" jdbcType="VARCHAR" property="couponNamePinyin" />
+    <result column="coupon_type" jdbcType="CHAR" property="couponType" />
+    <result column="limit" jdbcType="INTEGER" property="limit" />
+    <result column="effective_time" jdbcType="TIMESTAMP" property="effectiveTime" />
+    <result column="expire_time" jdbcType="TIMESTAMP" property="expireTime" />
+    <result column="returnable" jdbcType="INTEGER" property="returnable" />
+    <result column="total_qty" jdbcType="INTEGER" property="totalQty" />
+    <result column="used_qty" jdbcType="INTEGER" property="usedQty" />
+    <result column="issue_mode" jdbcType="INTEGER" property="issueMode" />
+    <result column="issue_status" jdbcType="INTEGER" property="issueStatus" />
+    <result column="issued_qty" jdbcType="INTEGER" property="issuedQty" />
+    <result column="created_by" jdbcType="CHAR" property="createdBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="discount_config" jdbcType="VARCHAR" property="discountConfig" />
+    <result column="tenant_id" jdbcType="CHAR" property="tenantId" />
+    <result column="sales_agent_id" jdbcType="CHAR" property="salesAgentId" />
+    <result column="obtained_by" jdbcType="CHAR" property="obtainedBy" />
+    <result column="used_by" jdbcType="CHAR" property="usedBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+</mapper>

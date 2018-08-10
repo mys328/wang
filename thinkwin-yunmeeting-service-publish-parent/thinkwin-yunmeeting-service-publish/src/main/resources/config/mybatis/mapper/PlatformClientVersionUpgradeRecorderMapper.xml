@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.publish.mapper.PlatformClientVersionUpgradeRecorderMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.publish.PlatformClientVersionUpgradeRecorder">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="tenant_id" jdbcType="VARCHAR" property="tenantId" />
+    <result column="client_version_id" jdbcType="VARCHAR" property="clientVersionId" />
+    <result column="hardware_id" jdbcType="VARCHAR" property="hardwareId" />
+    <result column="tenant_name" jdbcType="VARCHAR" property="tenantName" />
+    <result column="tenant_name_pinyin" jdbcType="VARCHAR" property="tenantNamePinyin" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="last_ver" jdbcType="VARCHAR" property="lastVer" />
+    <result column="current_ver" jdbcType="VARCHAR" property="currentVer" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="upgrade_log" jdbcType="LONGVARCHAR" property="upgradeLog" />
+  </resultMap>
+
+    <!--查询列表-->
+    <select id="findByClientVersionIdAndTenantName" resultMap="BaseResultMap" parameterType="Map" >
+        SELECT id,tenant_id,client_version_id,hardware_id,tenant_name,tenant_name_pinyin,user_name,phone_number,last_ver,current_ver,status,create_time
+        FROM platform_client_version_upgrade_recorder
+        where 1=1
+        <if test="_parameter.containsKey('clientVersionId')">
+            AND client_version_id = #{clientVersionId}
+        </if>
+        <if test="_parameter.containsKey('status')">
+            AND status = #{status}
+        </if>
+        <if test="_parameter.containsKey('searchKey')">
+            AND (
+            (hardware_id LIKE concat(concat('%',#{searchKey}),'%'))
+            or (last_ver LIKE concat(concat('%',#{searchKey}),'%'))
+            or (user_name LIKE concat(concat('%',#{searchKey}),'%'))
+            or (phone_number LIKE concat(concat('%',#{searchKey}),'%'))
+            or (tenant_name LIKE concat(concat('%',#{searchKey}),'%'))
+            or (tenant_name_pinyin LIKE concat(concat('%',#{searchKey}),'%'))
+            )
+        </if>
+        ORDER BY create_time DESC
+    </select>
+</mapper>

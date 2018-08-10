@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.InfoBootDownLogMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.InfoBootDownLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="boot_down_task_id" jdbcType="VARCHAR" property="bootDownTaskId" />
+    <result column="release_terminal" jdbcType="VARCHAR" property="releaseTerminal" />
+    <result column="terminal_name" jdbcType="VARCHAR" property="terminalName" />
+    <result column="cmd_content" jdbcType="VARCHAR" property="cmdContent" />
+    <result column="cmd_code" jdbcType="VARCHAR" property="cmdCode" />
+    <result column="run_status" jdbcType="VARCHAR" property="runStatus" />
+    <result column="run_time" jdbcType="TIMESTAMP" property="runTime" />
+    <result column="cmd_batch" jdbcType="VARCHAR" property="cmdBatch" />
+    <result column="reserve_1" jdbcType="VARCHAR" property="reserve1" />
+    <result column="reserve_3" jdbcType="VARCHAR" property="reserve3" />
+    <result column="reserve_2" jdbcType="VARCHAR" property="reserve2" />
+  </resultMap>
+</mapper>

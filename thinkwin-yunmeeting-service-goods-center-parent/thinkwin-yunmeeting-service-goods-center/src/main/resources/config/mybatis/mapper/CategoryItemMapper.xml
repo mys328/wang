@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.goodscenter.mapper.CategoryItemMapper">
+  <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.CategoryItem">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="item_id" jdbcType="CHAR" property="itemId" />
+    <result column="category_code" jdbcType="CHAR" property="categoryCode" />
+    <result column="item_name" jdbcType="VARCHAR" property="itemName" />
+    <result column="item_desc" jdbcType="VARCHAR" property="itemDesc" />
+  </resultMap>
+</mapper>

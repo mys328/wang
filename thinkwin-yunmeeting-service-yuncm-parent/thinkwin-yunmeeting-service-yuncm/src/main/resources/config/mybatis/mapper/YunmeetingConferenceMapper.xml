@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkwin.yuncm.mapper.YunmeetingConferenceMapper">
+    <resultMap id="BaseResultMap" type="com.thinkwin.common.model.db.YunmeetingConference">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="conference_name" jdbcType="VARCHAR" property="conferenceName"/>
+        <result column="client_type" jdbcType="VARCHAR" property="clientType"/>
+        <result column="reservation_person_id" jdbcType="VARCHAR" property="reservationPersonId"/>
+        <result column="organizer_id" jdbcType="VARCHAR" property="organizerId"/>
+        <result column="take_start_date" jdbcType="TIMESTAMP" property="takeStartDate"/>
+        <result column="take_end_date" jdbcType="TIMESTAMP" property="takeEndDate"/>
+        <result column="confrerence_create_time" jdbcType="TIMESTAMP" property="confrerenceCreateTime"/>
+        <result column="confrerence_cancel_time" jdbcType="TIMESTAMP" property="confrerenceCancelTime"/>
+        <result column="act_start_time" jdbcType="TIMESTAMP" property="actStartTime"/>
+        <result column="act_end_time" jdbcType="TIMESTAMP" property="actEndTime"/>
+        <result column="reservation_success_time" jdbcType="TIMESTAMP" property="reservationSuccessTime"/>
+        <result column="is_public" jdbcType="VARCHAR" property="isPublic"/>
+        <result column="is_audit" jdbcType="VARCHAR" property="isAudit"/>
+        <result column="host_unit" jdbcType="VARCHAR" property="hostUnit"/>
+        <result column="sort" jdbcType="INTEGER" property="sort"/>
+        <result column="creater_id" jdbcType="VARCHAR" property="createrId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="modifyer_id" jdbcType="VARCHAR" property="modifyerId"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="modify_reason" jdbcType="VARCHAR" property="modifyReason"/>
+        <result column="state" jdbcType="VARCHAR" property="state"/>
+        <result column="delete_state" jdbcType="VARCHAR" property="deleteState"/>
+        <result column="cancel_state" jdbcType="VARCHAR" property="cancelState"/>
+        <result column="cancel_reason" jdbcType="VARCHAR" property="cancelReason"/>
+        <result column="reserve_1" jdbcType="VARCHAR" property="reserve1"/>
+        <result column="reserve_3" jdbcType="VARCHAR" property="reserve3"/>
+        <result column="reserve_2" jdbcType="VARCHAR" property="reserve2"/>
+        <result column="conterence_content" jdbcType="LONGVARCHAR" property="conterenceContent"/>
+        <result column="ext_data" jdbcType="LONGVARCHAR" property="extData"/>
+    </resultMap>
+
+    <!-- 获取会议统计信息 -->
+    <resultMap id="BaseResultMapVo" type="com.thinkwin.common.vo.meetingVo.RoomStatisticsVo">
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="conference_name" jdbcType="VARCHAR" property="meetingName" />
+        <result column="take_start_date" jdbcType="VARCHAR" property="staDate" />
+        <result column="take_end_date" jdbcType="VARCHAR" property="endDate" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    </resultMap>
+
+    <sql id="columns">
+        hy.id,hy.conference_name,hy.conterence_content,hy.client_type,hy.reservation_person_id,hy.organizer_id,
+        hy.take_start_date,hy.take_end_date,hy.confrerence_create_time,hy.confrerence_cancel_time,hy.act_start_time,
+        hy.act_end_time,hy.reservation_success_time,hy.ext_data,hy.is_public,hy.is_audit,hy.host_unit,hy.sort,
+        hy.creater_id,hy.create_time,hy.modifyer_id,hy.modify_time,hy.modify_reason,hy.state,hy.delete_state,hy.cancel_state,
+        hy.cancel_reason
+    </sql>
+
+
+
+    <!--查询本月所有会议-->
+    <select id="selectCurrentMonthAllMeeting" resultMap="BaseResultMap">
+        SELECT * FROM yunmeeting_conference
+        WHERE state != '5' AND delete_state != '1' AND state != '1' AND state != '0'
+        /*是否查询当月*/
+        <if test="time != null">
+            AND DATE_FORMAT(take_start_date, '%Y-%m') = DATE_FORMAT(#{time} , '%Y-%m')
+        </if>
+        /*如果userId不为空 则查询的是该用户当月预订的会议数*/
+        <if test="userId != null and userId != ''">
+            AND reservation_person_id = #{userId}
+        </if>
+    </select>
+
+    <!--查询未来或者过去关于我的会议-->
+    <select id="selectFutureYunmeetingConference" resultMap="BaseResultMap">
+        SELECT
+        distinct hy.*
+        FROM
+        yunmeeting_conference AS hy left join
+        yunmeeting_participants_info AS ry on hy.id = ry.conference_id left join
+        yunmeeting_conference_user_info AS jg on ry.id= jg.participants_info_id
+        WHERE 1=1
+        <!-- 增加根据会议Id查询判断条件 -->
+        <if test="_parameter.containsKey('meetingId')">
+            AND hy.id = #{meetingId}
+        </if>
+        <!-- 判断查看我的未来全部会议 -->
+        <if test="_parameter.containsKey('myAll')">
+            AND (jg.participants_id = #{userId} OR ry.participants_id = #{userId} OR hy.creater_id = #{userId} )
+
+        </if>
+        <!-- 判断查看我参加的全部会议 -->
+        <if test="_parameter.containsKey('myJoin')">
+            AND (jg.participants_id = #{userId} OR ry.participants_id = #{userId} AND hy.creater_id != #{userId}) AND
+            ( hy.state != '0' AND hy.state != '1' AND  hy.state != '5' )
+        </if>
+        <!-- 判断查看我组织的全部会议 -->
+        <if test="_parameter.containsKey('myOrgan')">
+            AND (hy.creater_id = #{userId} )
+        </if>
+
+        <!-- 判断查看未来的全部会议 -->
+        <if test="_parameter.containsKey('future')">
+            AND DATE_FORMAT(hy.take_start_date,'%Y-%m-%d') &gt; DATE_FORMAT(#{date},'%Y-%m-%d')
+        </if>
+
+        <!-- 判断查看过去的全部会议 -->
+        <if test="_parameter.containsKey('formerly')">
+            AND DATE_FORMAT(#{date},'%Y-%m-%d') &gt; DATE_FORMAT(hy.take_start_date,'%Y-%m-%d')
+        </if>
+
+        <!-- 判断查看进7天前三天每天的会议 -->
+        <if test="_parameter.containsKey('days')">
+            AND DATE_FORMAT(hy.take_start_date,'%Y-%m-%d') = DATE_FORMAT(#{date},'%Y-%m-%d')
+        </if>
+
+        <!-- 判断查看近期天三天后的所有会议 -->
+        <if test="_parameter.containsKey('after')">
+            AND DATE_FORMAT(hy.take_start_date,'%Y-%m-%d') BETWEEN DATE_FORMAT(#{staDate},'%Y-%m-%d')
+            AND DATE_FORMAT(#{endDate},'%Y-%m-%d')
+        </if>
+
+        <!-- 查看近期会议 -->
+        <if test="_parameter.containsKey('recentTimes')">
+            AND (hy.state =  '2' OR hy.state = '3')
+            AND DATE_FORMAT(hy.take_start_date,'%Y-%m-%d')
+            BETWEEN DATE_FORMAT(CURDATE() ,'%Y-%m-%d') AND DATE_FORMAT(#{recentTimes},'%Y-%m-%d')
+        </if>
+
+        <!-- 查看当月会议 -->
+        <if test="_parameter.containsKey('currentMonth')">
+            AND DATE_FORMAT(take_start_date, '%Y-%m') = DATE_FORMAT(#{currentMonth} , '%Y-%m')
+        </if>
+        <!-- 是否查询取消的会议 -->
+        <if test="_parameter.containsKey('showCancel')">
+            AND hy.state != '5' AND hy.state != '0'
+        </if>
+        <!-- 是否查询待审核的会议 -->
+        <if test="_parameter.containsKey('showAudit')">
+            AND hy.state != '1'
+        </if>
+        AND hy.delete_state = '0' ORDER BY hy.take_start_date
+        <if test="_parameter.containsKey('orderBy')">
+            DESC
+        </if>
+
+    </select>
+
+    <!--查询会议筛选搜索-->
+    <select id="selectSearchYunmeetingConference" resultMap="BaseResultMap">
+
+        select * from (
+        SELECT
+        distinct hy.*
+        FROM
+        yunmeeting_conference AS hy left join
+        yunmeeting_participants_info AS ry on hy.id = ry.conference_id left join
+        yunmeeting_conference_user_info AS jg on ry.id= jg.participants_info_id left join
+        sys_user as er on hy.creater_id = er.id left join
+        yummeeting_conference_room_middle as le on hy.id = le.confreren_id left join
+        yuncm_meeting_room as om on le.room_id = om.id
+        WHERE 1=1
+        <!-- 判断查看我的全部会议 -->
+        <if test="_parameter.containsKey('myAll')">
+           AND (jg.participants_id = #{userId} OR ry.participants_id = #{userId} or hy.creater_id = #{userId} )
+
+        </if>
+        <!-- 判断查看我参加的全部会议 -->
+        <if test="_parameter.containsKey('myJoin')">
+            AND  (jg.participants_id = #{userId} OR ry.participants_id = #{userId} AND hy.creater_id != #{userId})
+        </if>
+        <!-- 判断查看我组织的全部会议 -->
+        <if test="_parameter.containsKey('myOrgan')">
+            AND  (hy.creater_id = #{userId}  )
+        </if>
+        and (hy.conference_name LIKE concat(concat('%',#{searchKey}),'%') or om.name LIKE
+        concat(concat('%',#{searchKey}),'%') or er.user_name LIKE concat(concat('%',#{searchKey}),'%') )
+
+        <!-- 判断查看进7天前三天每天的会议 -->
+        <if test="_parameter.containsKey('days')">
+            AND DATE_FORMAT(hy.take_start_date,'%Y-%m-%d') = DATE_FORMAT(#{date},'%Y-%m-%d')
+        </if>
+
+        <!-- 判断查看未来的全部会议 -->
+        <if test="_parameter.containsKey('future')">
+            AND DATE_FORMAT(hy.take_start_date,'%Y-%m-%d') &gt; DATE_FORMAT(#{date},'%Y-%m-%d')
+        </if>
+
+        <!-- 判断查看过去的全部会议 -->
+        <if test="_parameter.containsKey('formerly')">
+            AND DATE_FORMAT(#{date},'%Y-%m-%d') &gt; DATE_FORMAT(hy.take_start_date,'%Y-%m-%d')
+        </if>
+
+        <!-- 判断查看近期天三天后的所有会议 -->
+        <if test="_parameter.containsKey('after')">
+            AND DATE_FORMAT(hy.take_start_date,'%Y-%m-%d') BETWEEN DATE_FORMAT(#{staDate},'%Y-%m-%d')
+            AND DATE_FORMAT(#{endDate},'%Y-%m-%d')
+        </if>
+        AND hy.delete_state = 0 ORDER BY hy.take_start_date
+        ) as hh
+        where hh.creater_id = #{userId} or hh.state = '2' or hh.state = '3' or hh.state = '4'
+    </select>
+
+
+    <!--筛选我审核的会议-->
+    <select id="selectAuditYunmeetingConference" resultMap="BaseResultMap">
+        SELECT
+        *
+        FROM
+        yunmeeting_conference
+        WHERE
+        is_audit = '1' AND state != 5
+        <!--未通过的-->
+        <if test="_parameter.containsKey('for')">
+            AND (state = 0 )
+        </if>
+        <!--已通过-->
+        <if test="_parameter.containsKey('undue')">
+            AND (state != 0 AND state != 1)
+        </if>
+        <!--查看审核中的-->
+        <if test="_parameter.containsKey('centre')">
+            AND (state = 1 )
+        </if>
+        <!--未通过和已通过的-->
+        <if test="_parameter.containsKey('forAndUndue')">
+            AND (state != 1 )
+        </if>
+        <!--未通过和审核的-->
+        <if test="_parameter.containsKey('forAndCentre')">
+            AND (state = 0 or state = 1)
+        </if>
+        <!--查看审核中和通过的-->
+        <if test="_parameter.containsKey('undueAndCentre')">
+            AND (state != 0 )
+        </if>
+        <!--查看全部-->
+        <if test="_parameter.containsKey('myAll')">
+
+        </if>
+        AND delete_state = 0 ORDER BY take_start_date DESC
+    </select>
+
+    <!--筛选我审核的会议搜索-->
+    <select id="selectAuditSearchYunmeetingConference" resultMap="BaseResultMap">
+
+        SELECT
+        distinct hy.*
+        FROM
+        yunmeeting_conference AS hy left join
+        yunmeeting_participants_info AS ry on hy.id = ry.conference_id left join
+        yunmeeting_conference_user_info AS jg on ry.id= jg.participants_info_id left join
+        sys_user as er on hy.creater_id = er.id left join
+        yummeeting_conference_room_middle as le on hy.id = le.confreren_id left join
+        yuncm_meeting_room as om on le.room_id = om.id
+        WHERE
+        (hy.conference_name LIKE concat(concat('%',#{searchKey}),'%') or om.name LIKE
+        concat(concat('%',#{searchKey}),'%') or er.user_name LIKE concat(concat('%',#{searchKey}),'%') )
+        AND hy.is_audit = '1' AND hy.state != 5
+        <!--未通过的-->
+        <if test="_parameter.containsKey('for')">
+            AND (hy.state = 0 )
+        </if>
+        <!--已通过-->
+        <if test="_parameter.containsKey('undue')">
+            AND (hy.state != 1 )
+        </if>
+        <!--查看审核中的-->
+        <if test="_parameter.containsKey('centre')">
+            AND (hy.state = 1 )
+        </if>
+        <!--未通过和已通过的-->
+        <if test="_parameter.containsKey('forAndUndue')">
+            AND (hy.state != 1 )
+        </if>
+        <!--未通过和审核的-->
+        <if test="_parameter.containsKey('forAndCentre')">
+            AND (hy.state = 0 or hy.state = 1)
+        </if>
+        <!--查看审核中和通过的-->
+        <if test="_parameter.containsKey('undueAndCentre')">
+            AND (hy.state != 0 )
+        </if>
+        <!--查看全部-->
+        <if test="_parameter.containsKey('myAll')">
+
+        </if>
+        AND hy.delete_state = 0 ORDER BY hy.take_start_date
+
+    </select>
+
+    <!--查询某个会议室某时间段内所有会议-->
+    <select id="findByMeetingRoomIdAndMeetingtakeStartDate" resultMap="BaseResultMap">
+        SELECT yc.* FROM yuncm_meeting_room AS ymr
+        Left join yummeeting_conference_room_middle AS ycrm on ymr.id=ycrm.room_id
+        Left join yunmeeting_conference AS yc on ycrm.confreren_id=yc.id
+        WHERE yc.state != '5' AND yc.delete_state != '1'
+        <if test="meetingRoomId != null and meetingRoomId != ''">
+             AND ymr.id = #{meetingRoomId}
+        </if>
+        <if test="_parameter.containsKey('meetingBegin') and _parameter.containsKey('meetingEnd')">
+            AND yc.take_start_date BETWEEN #{meetingBegin} and #{meetingEnd}
+        </if>
+        ORDER BY yc.take_start_date ASC
+    </select>
+
+    <select id="selectUnreadMessageSevenDaysAgo" resultMap="BaseResultMap">
+        SELECT * FROM yunmeeting_conference
+        WHERE state != '5' AND delete_state != '1'
+        AND DATE_FORMAT(take_start_date, '%Y-%m-%d') &lt;= DATE_FORMAT(#{startTime} , '%Y-%m-%d')
+
+    </select>
+
+    <!-- 获取当前时间内会议室的占用情况 -->
+    <select id="selectCurrentMeetingRoomOccupyInfo" resultMap="BaseResultMap">
+        SELECT
+        distinct ce.*
+        FROM
+         yummeeting_conference_room_middle AS dle INNER JOIN
+         yunmeeting_conference AS ce ON dle.confreren_id = ce.id
+        WHERE
+         ce.delete_state = '0' AND state != '5' AND state != '0' AND state != '1' AND dle.room_id = #{roomId} AND
+        <!--DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i') > DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i')
+         DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i') BETWEEN DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i') and DATE_FORMAT(ce.take_end_date,'%Y-%m-%d %H:%i'))
+           OR
+           (DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%i') BETWEEN DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i') and DATE_FORMAT(ce.take_end_date,'%Y-%m-%d %H:%i'))
+        ORDER BY ce.create_time-->
+        ( DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i') > DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i')  OR
+          DATE_FORMAT(ce.take_end_date,'%Y-%m-%d %H:%i') > DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i')  )
+        AND
+          DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%i') > DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i')
+        ORDER BY ce.take_start_date
+    </select>
+
+  <!--  /* ( DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i') > DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i')
+    AND  DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%i') > DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i') )
+    AND
+    (    DATE_FORMAT(ce.take_end_date,'%Y-%m-%d %H:%i') > DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i')
+    AND  DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%i') > DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i')     )*/-->
+    <select id="findByMyMeeting" resultMap="BaseResultMap">
+        SELECT *
+        FROM yunmeeting_conference yc
+        left join sys_organization AS so on yc.host_unit=so.id
+        left join sys_user AS su on yc.creater_id=su.id
+        left join yunmeeting_participants_info AS ry on yc.id = ry.conference_id
+        left join yunmeeting_conference_user_info AS ycui on ycui.participants_info_id=ry.id
+        WHERE state != '5' AND delete_state != '1'
+        <if test="userId != null and userId != ''">
+           and (ry.participants_id=#{userId} or ycui.participants_id=#{userId})
+        </if>
+        <if test="searchKey != null and searchKey != ''">
+            and (yc.conference_name LIKE concat(concat('%',#{searchKey}),'%')
+            OR yc.conterence_content LIKE concat(concat('%',#{searchKey}),'%')
+            OR su.user_name like concat(concat('%',#{searchKey}),'%')
+            OR so.org_name like concat(concat('%',#{searchKey}),'%')
+            )
+        </if>
+        <if test="startTime != null and startTime != '' and endTime != null and endTime!=''">
+            and yc.take_start_date>=#{startTime} and #{endTime}>yc.take_end_date
+        </if>
+    </select>
+
+
+
+
+
+
+    <!-- 获取当某个时间会议室使用的会议 -->
+    <select id="selectSectionTimeRoomYunmeetingConference" resultMap="BaseResultMap">
+        SELECT
+        distinct ce.*
+        FROM
+           yunmeeting_conference AS ce  INNER JOIN
+           yummeeting_conference_room_middle AS dle
+           ON  ce.id = dle.confreren_id
+        WHERE
+        ce.delete_state = '0' AND state != '5' AND dle.room_id = #{roomId} AND
+        ( DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i') > DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i')
+        AND  DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%i') > DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i') )
+        OR
+        (    DATE_FORMAT(ce.take_end_date,'%Y-%m-%d %H:%i') > DATE_FORMAT(#{staDate},'%Y-%m-%d %H:%i')
+        AND  DATE_FORMAT(#{endDate},'%Y-%m-%d %H:%i') > DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i')     )
+    </select>
+
+
+    <!--我组织-->
+    <select id="h5MyYunMeetingKindCount1" resultMap="BaseResultMap">
+        SELECT hy.*
+        FROM yunmeeting_conference AS hy
+        WHERE 1=1 and hy.creater_id=#{userId} AND hy.delete_state != '1'
+        <if test="_parameter.containsKey('recent')">
+            AND hy.take_start_date>=#{startTime} and #{endTime}>=hy.take_start_date
+        </if>
+        <if test="_parameter.containsKey('future')">
+            AND hy.take_start_date>=#{startTime}
+        </if>
+        <if test="_parameter.containsKey('formerly')">
+            AND #{startTime}>=hy.take_start_date
+        </if>
+        order by hy.take_start_date asc
+    </select>
+
+    <!--我参与-->
+    <select id="h5MyYunMeetingKindCount2" resultMap="BaseResultMap">
+        SELECT hy.*
+        FROM yunmeeting_conference AS hy
+        left join yunmeeting_participants_info AS ry on hy.id = ry.conference_id
+        left join yunmeeting_conference_user_info AS ycui on ycui.participants_info_id=ry.id
+        WHERE 1=1 and hy.creater_id!=#{userId}  AND hy.delete_state != '1' AND hy.state !='5' AND hy.state != '0' AND hy.state != '1'
+        and (ry.participants_id=#{userId} or ycui.participants_id=#{userId})
+        <if test="_parameter.containsKey('recent')">
+          AND hy.take_start_date>=#{startTime} and #{endTime}>=hy.take_start_date
+        </if>
+        <if test="_parameter.containsKey('future')">
+            AND hy.take_start_date>=#{startTime}
+        </if>
+        <if test="_parameter.containsKey('formerly')">
+            AND #{startTime}>=hy.take_start_date
+        </if>
+          order by hy.take_start_date asc
+    </select>
+
+    <select id="selectMeeting" resultMap="BaseResultMap">
+        select yc.* from yunmeeting_conference as yc left join yunmeeting_participants_info as ypi
+        on yc.id = ypi.conference_id left join yunmeeting_conference_user_info as ycui on
+	    ypi.id = ycui.participants_info_id where yc.delete_state = '0'
+        <if test="_parameter.containsKey('meetingId')">
+            AND yc.id = #{meetingId}
+        </if>
+        <if test="_parameter.containsKey('userId')">
+            AND (ypi.participants_id = #{userId} or ycui.participants_id = #{userId} or yc.creater_id = #{userId} or
+            yc.organizer_id = #{userId})
+        </if>
+        <if test="_parameter.containsKey('admin')">
+            AND (ypi.participants_id = #{admin} or ycui.participants_id = #{admin} or yc.creater_id = #{admin} or
+            yc.organizer_id = #{admin} or yc.is_audit = '1')
+        </if>
+        GROUP BY yc.id
+    </select>
+
+
+    <!--某个时间段某个会议室有多少待审核会议-->
+    <select id="findMeetingTakeInfo" resultMap="BaseResultMap">
+        SELECT
+        yc.*
+        FROM
+        yuncm_meeting_room AS ymr
+        LEFT JOIN yummeeting_conference_room_middle AS ycrm ON ymr.id =  ycrm.room_id
+        LEFT JOIN yunmeeting_conference as yc on ycrm.confreren_id=yc.id
+        WHERE yc.state = '1' AND yc.delete_state != '1'
+        <!-- 按人数筛选 -->
+        <if test="meetingRoomId != null and meetingRoomId != ''">
+            AND ycrm.room_id = #{meetingRoomId}
+        </if>
+        <if test="_parameter.containsKey('begin') and _parameter.containsKey('end')">
+            and
+            (
+            (#{begin} BETWEEN yc.take_start_date and yc.take_end_date)
+            OR
+            (#{end} BETWEEN yc.take_start_date and yc.take_end_date)
+            )
+        </if>
+    </select>
+
+
+
+
+    <!-- 根据会议室id批量查询会议 -->
+    <select id="selectMeetingAndUserName" resultMap="BaseResultMapVo">
+      SELECT
+        DISTINCT ce.id,ce.conference_name,ce.take_start_date,ce.take_end_date,er.user_name
+      FROM
+	    yunmeeting_conference AS ce
+        LEFT JOIN yummeeting_conference_room_middle AS dle ON ce.id = dle.confreren_id
+        LEFT JOIN yuncm_meeting_room AS om ON dle.room_id = om.id
+        LEFT JOIN sys_user AS er ON ce.reservation_person_id = er.id
+      WHERE
+	    ce.delete_state = 0
+        <if test="_parameter.containsKey('type')">
+            AND ce.state = 0
+        </if>
+        <if test="_parameter.containsKey('state')">
+            AND ( ce.state = 4 OR ce.state = 3 )
+        </if>
+        AND om.id IN
+        <foreach collection="roomIds" item="id" open="(" close=")"
+                 separator=",">
+            #{id}
+        </foreach>
+        AND DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i:%s') > DATE_FORMAT(#{staTime},'%Y-%m-%d %H:%i:%s')
+        AND DATE_FORMAT(#{endTime},'%Y-%m-%d %H:%i:%s') > DATE_FORMAT(ce.take_start_date,'%Y-%m-%d %H:%i:%s')
+        ORDER BY ce.take_start_date
+
+    </select>
+
+
+
+
+
+    <!-- 会议列表查询 -->
+    <select id="selectAllMeetingScreen" resultMap="BaseResultMap">
+        select * from (
+        SELECT
+        distinct hy.*
+        FROM
+        yunmeeting_conference AS hy
+        left join yunmeeting_participants_info AS ry on hy.id = ry.conference_id
+        left join yunmeeting_conference_user_info AS jg on ry.id= jg.participants_info_id
+        WHERE 1=1
+        AND (jg.participants_id = #{userId} OR ry.participants_id = #{userId}
+        OR hy.creater_id = #{userId})
+
+        <!-- 判断查看进7天前三天每天的会议 -->
+        <if test="_parameter.containsKey('days')">
+            AND DATE_FORMAT(hy.take_start_date,'%Y-%m-%d') = DATE_FORMAT(#{date},'%Y-%m-%d')
+        </if>
+
+        <!-- 判断查看未来的全部会议 -->
+        <if test="_parameter.containsKey('future')">
+            AND DATE_FORMAT(hy.take_start_date,'%Y-%m-%d') &gt; DATE_FORMAT(#{date},'%Y-%m-%d')
+        </if>
+
+        <!-- 判断查看过去的全部会议 -->
+        <if test="_parameter.containsKey('formerly')">
+            AND DATE_FORMAT(#{date},'%Y-%m-%d') &gt; DATE_FORMAT(hy.take_start_date,'%Y-%m-%d')
+        </if>
+
+        <!-- 判断查看近期天三天后的所有会议 -->
+        <if test="_parameter.containsKey('after')">
+            AND DATE_FORMAT(hy.take_start_date,'%Y-%m-%d') BETWEEN DATE_FORMAT(#{staDate},'%Y-%m-%d')
+            AND DATE_FORMAT(#{endDate},'%Y-%m-%d')
+        </if>
+         AND hy.delete_state = '0' ORDER BY hy.take_start_date
+         ) as hh
+        where hh.creater_id = #{userId} or hh.state = '2' or hh.state = '3' or hh.state = '4'
+
+    </select>
+
+    <select id="findMeetingConferenceByTime" resultMap="BaseResultMap">
+      SELECT * FROM yunmeeting_conference WHERE 1=1
+        <if test="startTime!=null">
+            and <![CDATA[ take_start_date >= DATE_FORMAT(#{startTime}, '%Y-%m-%d')]]>
+        </if>
+        <if test="endTime!=null">
+            and <![CDATA[ take_end_date <= DATE_FORMAT(#{endTime}, '%Y-%m-%d')]]>
+        </if>
+        <if test="_parameter.containsKey('orgIds')">
+            and host_unit in
+            <foreach collection="orgIds" item="listId" open="(" close=")"
+                     separator=",">
+                #{listId}
+            </foreach>
+        </if>
+        and state != '5' and state != '0' and state != '1' and state != '2' AND delete_state != '1'
+    </select>
+
+    <select id="findMeetingConferenceByTimeNew" resultMap="BaseResultMap">
+        SELECT * FROM yunmeeting_conference WHERE 1=1
+        <if test="startTime!=null and endTime != null">
+        and
+        (
+        (#{endTime}>take_start_date and take_end_date>#{endTime})
+        OR
+        (#{startTime}>take_start_date and take_end_date>#{startTime})
+        OR
+        (take_start_date>=#{startTime} and #{endTime}>=take_end_date)
+        )
+        </if>
+        and state != '5'AND state != '0'AND state != '1' AND state!='4' AND delete_state != '1'
+    </select>
+
+
+     <!--查询某人在某个时间段会议占用状态-->
+    <select id="findByUserByOccupy" resultMap="BaseResultMap">
+        select t1.* from yunmeeting_conference t1
+        left join yunmeeting_participants_info t2 on t1.id=t2.conference_id
+        left join yunmeeting_conference_user_info t3 on t2.id=t3.participants_info_id
+        where 1=1
+        <if test="startTime!=null and endTime != null">
+            AND(
+            (#{endTime}>t1.take_start_date AND t1.take_end_date>=#{endTime})
+            OR
+            (#{startTime}>=t1.take_start_date AND t1.take_end_date>#{startTime})
+            OR
+            (t1.take_start_date>=#{startTime} AND #{endTime}>=t1.take_end_date)
+            )
+        </if>
+        <if test="_parameter.containsKey('userId')">
+            AND (
+            t2.participants_id=#{userId}
+            or t3.participants_id=#{userId}
+            )
+        </if>
+        AND state != '5'AND state != '0'AND state != '1' AND state!='4' AND delete_state != '1'
+    </select>
+
+    <select id="findUserParticipantsStatus" resultMap="BaseResultMap">
+        select yc.* from yunmeeting_conference as yc  left join
+        yunmeeting_participants_info  as ypi on   yc.id = ypi.conference_id   left join
+        yunmeeting_conference_user_info as ycui on ypi.id = ycui.participants_info_id
+        where 1=1
+        <if test="_parameter.containsKey('meetingId')">
+          and yc.id = #{meetingId}
+          and (ypi.participants_id = yc.reservation_person_id or ycui.participants_id = yc.reservation_person_id)
+        </if>
+    </select>
+
+    <!-- 获取当前的会议 -->
+    <select id="selectCurrentConference" resultMap="BaseResultMap">
+        SELECT
+        <include refid="columns"/>
+        FROM
+        yummeeting_conference_room_middle AS dle LEFT JOIN
+        yunmeeting_conference AS hy ON dle.confreren_id = hy.id
+        WHERE
+        DATE_FORMAT(#{date},'%Y-%m-%d') = DATE_FORMAT(hy.take_start_date,'%Y-%m-%d')
+        AND  (hy.state = '2' OR  hy.state = '3' OR  hy.state = '4') AND  hy.delete_state = '0'
+        AND  dle.room_id = #{roomId} ORDER BY hy.take_start_date
+    </select>
+    <!-- 获取下一个会议 -->
+    <select id="selectNextConference" resultMap="BaseResultMap">
+        SELECT
+        <include refid="columns"/>
+        FROM
+        yummeeting_conference_room_middle AS dle LEFT JOIN
+        yunmeeting_conference AS hy ON dle.confreren_id = hy.id
+        WHERE
+        DATE_FORMAT(hy.take_end_date,'%Y-%m-%d %H:%i:%s') > DATE_FORMAT(#{date},'%Y-%m-%d %H:%i:%s')
+        AND (hy.state = '2' OR  hy.state = '3') AND hy.delete_state = '0'
+        AND dle.room_id = #{roomId} ORDER BY hy.take_start_date LIMIT 2
+
+    </select>
+
+    <!-- 获取本周的会议 -->
+    <select id="selectSameDayConference" resultMap="BaseResultMap">
+        SELECT
+        <include refid="columns"/>
+        FROM
+        yummeeting_conference_room_middle AS dle LEFT JOIN
+        yunmeeting_conference AS hy ON dle.confreren_id = hy.id
+        WHERE
+        DATE_FORMAT(hy.take_end_date,'%Y-%m-%d') >= DATE_FORMAT(#{sta},'%Y-%m-%d') AND
+        DATE_FORMAT(#{end},'%Y-%m-%d') >= DATE_FORMAT(hy.take_end_date,'%Y-%m-%d')
+        AND (hy.state = '2' OR  hy.state = '3' OR  hy.state = '4') AND hy.delete_state = '0'
+        AND dle.room_id = #{roomId} ORDER BY hy.take_start_date
+
+    </select>
+
+    <select id="selectMeetingByMeetingIdAndUserId" resultMap="BaseResultMap">
+        select yc.* from yunmeeting_conference as yc  left join
+        yunmeeting_participants_info  as ypi on   yc.id = ypi.conference_id   left join
+        yunmeeting_conference_user_info as ycui on ypi.id = ycui.participants_info_id
+        where yc.delete_state != '1'
+        <if test="_parameter.containsKey('meetingId')">
+            and yc.id = #{meetingId}
+        </if>
+        <if test="_parameter.containsKey('userId')">
+            and (ypi.participants_id = #{userId} or ycui.participants_id = #{userId})
+        </if>
+
+
+    </select>
+
+</mapper>

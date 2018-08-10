@@ -1,0 +1,59 @@
+/*页面加载器样式 */
+#loader-box{
+    width: 100%;
+    height: 100%;
+    background-color: #f8fbfd;
+    font-family: 'Helvetica Neue',helvetica,'Hiragino Sans GB','Microsoft Yahei',sans-serif;
+    display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+    display: -moz-box; /* Firefox 17- */
+    display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+    display: -moz-flex; /* Firefox 18+ */
+    display: -ms-flexbox; /* IE 10 */
+    display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+    justify-content: center;
+    -webkit-align-items:center;
+    align-items:center;
+    flex-wrap: start;
+    position: absolute;
+    z-index: 10;
+}
+.loader{
+    width:340px;
+    text-align:center;
+}
+.load3 {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    margin: 100px auto;
+}
+.double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #1896f0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    -webkit-animation: bounce 2.0s infinite ease-in-out;
+    animation: bounce 2.0s infinite ease-in-out;
+}
+.double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+@-webkit-keyframes bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    } 50% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+      }
+}

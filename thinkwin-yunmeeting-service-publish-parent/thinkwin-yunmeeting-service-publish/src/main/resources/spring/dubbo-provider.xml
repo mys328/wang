@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://code.alibabatech.com/schema/dubbo
+  http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+  ">
+  
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="service-publish-dubbo-provider" />
+
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry address="zookeeper://${dubbo.registry.address}" />
+
+	<!-- 用dubbo协议在20880端口暴露服务 -->
+	<dubbo:protocol  name="dubbo"  port="-1"  />
+
+	<!-- 声明需要暴露的服务接口 -->
+	<dubbo:provider delay="-1" timeout="10000" retries="0" filter="dubboContextFilter" />
+
+	<dubbo:service interface="com.thinkwin.publish.service.BaseService" ref="baseService" group="${group.scope}" version="${interface.version}" />
+
+	<dubbo:service interface="com.thinkwin.publish.service.PlatformProgrameLabelService" ref="platformProgrameLabelService" group="${group.scope}" version="${interface.version}" />
+
+	<dubbo:service interface="com.thinkwin.publish.service.PlatformProgrameService" ref="platformProgrameService" group="${group.scope}" version="${interface.version}" />
+
+	<dubbo:reference id="saasTenantServcie" interface="com.thinkwin.core.service.SaasTenantService" check="false" group="${group.scope}" version="${interface.version}"/>
+
+	<dubbo:service interface="com.thinkwin.publish.service.PlatformProgramVersionSerevice" ref="platformProgramVersionSerevice" group="${group.scope}" version="${interface.version}" />
+
+	<dubbo:service interface="com.thinkwin.publish.service.PlatformLabelProgramMiddleService" ref="platformLabelProgramMiddleService" group="${group.scope}" version="${interface.version}" />
+
+	<dubbo:service interface="com.thinkwin.publish.service.PublishService" ref="publishService" group="${group.scope}" version="${interface.version}" />
+
+    <dubbo:service interface="com.thinkwin.publish.service.PlatformInfoClientVersionLibService" ref="platformInfoClientVersionLibService" group="${group.scope}" version="${interface.version}" />
+
+    <dubbo:service interface="com.thinkwin.publish.service.PlatformClientVersionUpgradeRecorderService" ref="platformClientVersionUpgradeRecorderService" group="${group.scope}" version="${interface.version}" />
+
+
+    <dubbo:service interface="com.thinkwin.publish.service.ConfigManagerService" ref="configManagerService" group="${group.scope}" version="${interface.version}" />
+
+
+	<dubbo:service interface="com.thinkwin.publish.service.PlatformTenantTerminalMiddleService" ref="platformTenantTerminalMiddleService" group="${group.scope}" version="${interface.version}" />
+
+	<dubbo:service interface="com.thinkwin.publish.service.PlatformProgramComponentsMiddleService" ref="platformProgramComponentsMiddleService" group="${group.scope}" version="${interface.version}" />
+
+
+	<dubbo:service interface="com.thinkwin.publish.service.PlatformProgramTenantMiddleService" ref="platformProgramTenantMiddleService" group="${group.scope}" version="${interface.version}" />
+
+	<dubbo:service interface="com.thinkwin.publish.service.PlatformProgramComponentsService" ref="platformProgramComponentsService" group="${group.scope}" version="${interface.version}" />
+
+	<dubbo:reference id="saasUserServcie" interface="com.thinkwin.console.service.SaasUserService" check="false" group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="saasSetingService" interface="com.thinkwin.core.service.SaasSetingService" check="false" group="${group.scope}" version="${interface.version}"/>
+    <dubbo:reference id="fileUploadService" interface="com.thinkwin.fileupload.service.FileUploadService" check="false" group="${group.scope}" version="${interface.version}"/>
+
+    <dubbo:reference id="dictionaryService" interface="com.thinkwin.dictionary.service.DictionaryService" check="false" group="${group.scope}" version="${interface.version}"/>
+</beans>
